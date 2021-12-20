@@ -1,8 +1,0 @@
-Weights & Measures can be compiled with Visual Studio 2019. Just open the solution file, WM.sln, set the configuration, and compile.
-
-To target XP, you will need to have "C++ Windows XP Support for VS 2017 (v141) tools" installed. Then, in the project's properties, set the Platform Toolset to "Visual Studio 2017 - Windows XP (v141_xp)," apply, and compile. Also, the last Visual Studio redistributables that worked on XP are needed, version 14.27. If I remember rightly, just mfc140u.dll and msvcp140.dll.
-
-Interestingly, this project having originated on Visual C++ 6.0 and only recently migrated to VS 2019, I left the old project files and they still work. Just open the "Convertor.dsw" file in VC++ 6.0 and compile. Of course, if changes are made that VC++ 6.0 is not aware of, such as using C++11 features, it is not going to work.
-
-Thanks,
-Geoffrey Angapa
