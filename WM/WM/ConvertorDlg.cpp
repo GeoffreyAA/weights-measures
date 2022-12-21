@@ -10,7 +10,7 @@
 #include "Library\Library.h"
 #include "Library\Win32Library.h"
 #include "Library\ResourceString.h"
-#include "Library\Registry.h"
+#include "Library\ConfigFile.h"
 #include "Library\File.h"
 #include "Library\Templates.h"
 #include "Report.h"
@@ -173,7 +173,8 @@ void CConvertorDlg::Initialise()
 void CConvertorDlg::RetrieveConfiguration()
 {
 	ConvertorDlgCfg Cfg;
-	ConvertorDlgCfgSerializer().Retrieve(Cfg, Registry(GetRegistryKey(), KEY_READ, false));
+	//ConvertorDlgCfgSerializer().Retrieve(Cfg, Registry(GetRegistryKey(), KEY_READ, false));
+	ConvertorDlgCfgSerializer().Retrieve(Cfg, ConfigFile());
 
 	SelectMode(Cfg.nConversionType);
 	::SetWindowPos(GetSafeHwnd(), NULL, Cfg.x, Cfg.y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
@@ -189,7 +190,8 @@ void CConvertorDlg::SaveConfiguration()
 
 	//ConvertorDlgCfgSerializer().Save(Cfg, Registry(GetRegistryKey(), KEY_WRITE, true));
 
-	Registry r(GetRegistryKey(), KEY_WRITE, true);	// Fixes warning concerning temporary object being passed as non-const reference
+	//Registry r(GetRegistryKey(), KEY_WRITE, true);	// Fixes warning concerning temporary object being passed as non-const reference
+	ConfigFile r;
 	ConvertorDlgCfgSerializer().Save(Cfg, r);
 }
 
@@ -614,13 +616,36 @@ void CConvertorDlg::OnHelpAbout()
 
 ///////////////////////////////////////////////////////////////
 
-ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(1), x(32), y(32)
+ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(4), x(32), y(32)
 {
 }
 
 
 ///////////////////////////////////////////////////////////////
 
+bool ConvertorDlgCfgSerializer::Save(const ConvertorDlgCfg &a, Configuration &b) const
+{
+	bool r;
+
+	r = b.setInteger(L"CONVERTOR_DLG_MODE", a.nConversionType);
+	r = b.setInteger(L"CONVERTOR_DLG_POS_X", a.x);
+	r = b.setInteger(L"CONVERTOR_DLG_POS_Y", a.y);
+
+	return r;
+}
+
+bool ConvertorDlgCfgSerializer::Retrieve(ConvertorDlgCfg &a, const Configuration &b) const
+{
+	ConvertorDlgCfg def;
+
+	a.nConversionType = b.getInteger(L"CONVERTOR_DLG_MODE", def.nConversionType);
+	a.x				  = b.getInteger(L"CONVERTOR_DLG_POS_X", def.x);
+	a.y				  = b.getInteger(L"CONVERTOR_DLG_POS_Y", def.y);
+
+	return true;
+}
+
+/*
 const wchar_t szConfig[] = L"Configuration";
 
 bool ConvertorDlgCfgSerializer::Save(const ConvertorDlgCfg &a, Configuration &b) const
@@ -638,4 +663,4 @@ bool ConvertorDlgCfgSerializer::Retrieve(ConvertorDlgCfg &a, const Configuration
 	}
 
 	return true;
-}
+}*/

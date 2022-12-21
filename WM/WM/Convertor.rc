@@ -101,8 +101,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,6,0,0
- PRODUCTVERSION 1,6,0,0
+ FILEVERSION 1,7,0,0
+ PRODUCTVERSION 1,7,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -118,12 +118,12 @@ BEGIN
         BLOCK "000004b0"
         BEGIN
             VALUE "FileDescription", "Weights & Measures"
-            VALUE "FileVersion", "1.6"
+            VALUE "FileVersion", "1.7"
             VALUE "InternalName", "Weights & Measures"
             VALUE "LegalCopyright", "© Geoffrey Angapa, 2021. All rights reserved."
             VALUE "OriginalFilename", "WM.exe"
             VALUE "ProductName", "Weights & Measures"
-            VALUE "ProductVersion", "1.6"
+            VALUE "ProductVersion", "1.7"
         END
     END
     BLOCK "VarFileInfo"
