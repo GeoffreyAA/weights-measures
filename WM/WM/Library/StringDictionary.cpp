@@ -91,9 +91,17 @@ bool StringDictionaryWriter::write(const wchar_t *pszFile, const StringDictionar
 
 		if (f)
 		{
+			char c[4096];
+			wchar_t w[4096];
+
 			for (StringDictionary::const_iterator i = d.begin(); i != d.end(); i++)
 			{
-				fwprintf(f, L"%s=%s\r\n", (*i).first.c_str(), TranslateNewlines((*i).second).c_str());
+				swprintfs(w, sizeof(w) / sizeof(w[0]), L"%s=%s", (*i).first.c_str(), TranslateNewlines((*i).second).c_str());
+
+				if (ConvertUTF16To8(c, sizeof(c) / sizeof(c[0]), w))
+				{
+					fprintf(f, "%s\r\n", c);
+				}
 			}
 
 			fclose(f);

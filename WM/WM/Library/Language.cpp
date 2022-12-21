@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Language.h"
-#include "Registry.h"
-#include "..\Application.h"
+#include "ConfigFile.h"
 #include "File.h"
 #include "Library.h"
 
@@ -51,7 +50,7 @@ LanguageManager::LanguageManager() : pLanguage(NULL), DefaultLanguage(L"None", S
 
 	wchar_t w[256];
 
-	if (Registry(GetRegistryKey(), KEY_READ, false).getString(sLanguageName, w, sizeof(w) / sizeof(w[0])))
+	if (ConfigFile().getString(sLanguageName, w, sizeof(w) / sizeof(w[0])))
 	{
 		setCurrentLanguage(w);
 	}
@@ -67,7 +66,7 @@ LanguageManager::~LanguageManager()
 
 	if (pLanguage)
 	{
-		Registry(GetRegistryKey(), KEY_WRITE, true).setString(sLanguageName, pLanguage->getName().c_str());
+		ConfigFile().setString(sLanguageName, pLanguage->getName().c_str());
 
 		delete pLanguage;
 	}
