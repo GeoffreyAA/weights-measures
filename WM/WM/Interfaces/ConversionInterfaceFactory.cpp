@@ -9,6 +9,7 @@
 #include "LengthInterface.h"
 #include "MassInterface.h"
 #include "MetricInterface.h"
+#include "PixelDensityInterface.h"
 #include "PowerInterface.h"
 #include "PressureInterface.h"
 #include "SpeedInterface.h"
@@ -33,6 +34,7 @@ ConversionInterfaceFactory::ConversionInterfaceFactory()
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_LENGTH", new LengthInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_MASS", new MassInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_METRIC", new MetricInterface));
+	Interfaces.push_back(new InterfaceType(i++, L"IDS_PIXEL_DENSITY", new PixelDensityInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_POWER", new PowerInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_PRESSURE", new PressureInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_SPEED", new SpeedInterface));
