@@ -605,6 +605,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClCompile Include="Interfaces\MassInterface.cpp" />
     <ClCompile Include="Interfaces\Metric.cpp" />
     <ClCompile Include="Interfaces\MetricInterface.cpp" />
+    <ClCompile Include="Interfaces\PixelDensity.cpp" />
+    <ClCompile Include="Interfaces\PixelDensityInterface.cpp" />
     <ClCompile Include="Interfaces\Power.cpp" />
     <ClCompile Include="Interfaces\PowerInterface.cpp" />
     <ClCompile Include="Interfaces\Pressure.cpp" />
@@ -623,7 +625,6 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClCompile Include="Interfaces\VolumeUSInterface.cpp" />
     <ClCompile Include="Library\Alloc.cpp" />
     <ClCompile Include="Library\Base64.cpp" />
-    <ClCompile Include="Library\Checksum.cpp" />
     <ClCompile Include="Library\ConfigFile.cpp" />
     <ClCompile Include="Library\File.cpp" />
     <ClCompile Include="Library\FilePointer.cpp" />
@@ -690,6 +691,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Interfaces\MassInterface.h" />
     <ClInclude Include="Interfaces\Metric.h" />
     <ClInclude Include="Interfaces\MetricInterface.h" />
+    <ClInclude Include="Interfaces\PixelDensity.h" />
+    <ClInclude Include="Interfaces\PixelDensityInterface.h" />
     <ClInclude Include="Interfaces\Power.h" />
     <ClInclude Include="Interfaces\PowerInterface.h" />
     <ClInclude Include="Interfaces\Pressure.h" />
@@ -709,7 +712,6 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Library\Alloc.h" />
     <ClInclude Include="Library\array.h" />
     <ClInclude Include="Library\Base64.h" />
-    <ClInclude Include="Library\Checksum.h" />
     <ClInclude Include="Library\ConfigFile.h" />
     <ClInclude Include="Library\Configuration.h" />
     <ClInclude Include="Library\File.h" />

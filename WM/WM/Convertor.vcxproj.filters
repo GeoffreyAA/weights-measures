@@ -27,9 +27,6 @@
     <ClCompile Include="Interfaces\AreaInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Checksum.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Interfaces\Conversion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -198,6 +195,12 @@
     <ClCompile Include="Library\Base64.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Interfaces\PixelDensity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces\PixelDensityInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Convertor.rc">
@@ -218,9 +221,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\array.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Checksum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Configuration.h">
@@ -416,6 +416,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\Base64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\PixelDensity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\PixelDensityInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
