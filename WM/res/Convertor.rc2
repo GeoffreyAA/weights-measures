@@ -1,0 +1,3 @@
+#ifdef APSTUDIO_INVOKED
+	#error This file is not editable by Microsoft Visual C++
+#endif

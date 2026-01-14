@@ -1,0 +1,275 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "Resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_CONVERTOR_ICON      ICON                    "res\\Convertor.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONVERTOR_DIALOG DIALOGEX 0, 0, 270, 226
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Weights and Measures"
+MENU IDR_CONVERTOR_MENU
+FONT 10, "Tahoma", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "",IDC_GROUP1,7,9,257,210
+    COMBOBOX        IDC_COMBO1,13,7,110,100,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,72,30,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,72,50,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,72,70,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,72,90,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,72,110,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,72,130,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,72,150,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,72,170,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,72,190,140,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "Text",IDC_LABEL1,26,30,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL2,26,50,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL3,26,70,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL4,26,90,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL5,26,110,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL6,26,130,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL7,26,150,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL8,26,170,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL9,26,190,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL10,218,30,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL11,218,50,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL12,218,70,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL13,218,90,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL14,218,110,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL15,218,130,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL16,218,150,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL17,218,170,40,12,SS_CENTERIMAGE
+    LTEXT           "Text",IDC_LABEL18,218,190,40,12,SS_CENTERIMAGE
+END
+
+IDD_SETTINGS_DIALOG DIALOG 0, 0, 225, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Settings"
+FONT 10, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,114,129,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,168,129,50,14
+    LTEXT           "Language:",IDC_LANGUAGE,7,7,100,12
+    COMBOBOX        IDC_COMBO1,7,20,211,104,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_ABOUT_DIALOG DIALOG 0, 0, 260, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 10, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,203,129,50,14
+    LTEXT           "Text",IDC_ABOUT_TEXT,33,7,220,115
+    ICON            IDR_CONVERTOR_ICON,IDC_STATIC,7,7,20,20
+    PUSHBUTTON      "Home Page",IDC_BUTTON1,149,129,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,8,0,0
+ PRODUCTVERSION 1,8,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "FileDescription", "Weights & Measures"
+            VALUE "FileVersion", "1.8"
+            VALUE "InternalName", "Weights & Measures"
+            VALUE "LegalCopyright", "© Geoffrey Angapa, 2021. All rights reserved."
+            VALUE "OriginalFilename", "WM.exe"
+            VALUE "ProductName", "Weights & Measures"
+            VALUE "ProductVersion", "1.8"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONVERTOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 219
+        BOTTOMMARGIN, 219
+    END
+
+    IDD_SETTINGS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+
+    IDD_ABOUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 143
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_CONVERTOR_MENU MENU
+BEGIN
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "Windows Calculator",          ID_TOOLS_CALCULATOR
+        MENUITEM SEPARATOR
+        MENUITEM "Settings...",                 ID_TOOLS_SETTINGS
+        MENUITEM "About...",                    ID_HELP_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "Quit",                        ID_TOOLS_QUIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_CONVERTOR_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "Resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Convertor.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Convertor.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
