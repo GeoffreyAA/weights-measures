@@ -27,8 +27,8 @@ public:
 	Language getCurrentLanguage();
 	bool setCurrentLanguage(const wchar_t *pszName);
 
-	void getCurrentLanguageName(String &s);
-	void getStringFromCurrentLanguage(const wchar_t *pszName, String &s);
+	String getCurrentLanguageName();
+	String getStringFromCurrentLanguage(const wchar_t* pszName);
 
 	static LanguageManager& getInstance();
 

@@ -129,18 +129,18 @@ bool LanguageManager::setCurrentLanguage(const wchar_t *pszName)
 	return false;
 }
 
-void LanguageManager::getCurrentLanguageName(String &s)
+String LanguageManager::getCurrentLanguageName()
 {
 	std::lock_guard<std::mutex> lock(cs);
 
-	s = pLanguage ? pLanguage->getName() : DefaultLanguage.getName();
+	return (pLanguage ? pLanguage->getName() : DefaultLanguage.getName());
 }
 
-void LanguageManager::getStringFromCurrentLanguage(const wchar_t *pszName, String &s)
+String LanguageManager::getStringFromCurrentLanguage(const wchar_t *pszName)
 {
 	std::lock_guard<std::mutex> lock(cs);
 
-	s = pLanguage ? pLanguage->getString(pszName) : DefaultLanguage.getString(pszName);
+	return (pLanguage ? pLanguage->getString(pszName) : DefaultLanguage.getString(pszName));
 }
 
 Language *LanguageManager::LoadLanguage(const wchar_t *pszName) const
