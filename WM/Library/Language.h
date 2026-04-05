@@ -4,7 +4,7 @@
 #include "String.h"
 #include "StringDictionary.h"
 #include "StringList.h"
-#include <windows.h>
+#include <mutex>
 
 class Language
 {
@@ -42,7 +42,7 @@ private:
 	const Language *pLanguage;
 	const Language DefaultLanguage;
 
-	CRITICAL_SECTION cs;
+	std::mutex cs;
 
 	static LanguageManager Instance;
 };

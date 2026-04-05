@@ -3,6 +3,7 @@
 #include "ConfigFile.h"
 #include "File.h"
 #include "Library.h"
+#include <windows.h>
 
 Language::Language(const wchar_t *pszName, const StringDictionary &s) : Name(pszName ? pszName : String()), Strings(s)
 {
@@ -46,8 +47,6 @@ LanguageManager LanguageManager::Instance;
 
 LanguageManager::LanguageManager() : pLanguage(NULL), DefaultLanguage(L"None", StringDictionary())
 {
-	InitializeCriticalSection(&cs);
-
 	wchar_t w[256];
 
 	if (ConfigFile().getString(sLanguageName, w, sizeof(w) / sizeof(w[0])))
@@ -62,7 +61,7 @@ LanguageManager::LanguageManager() : pLanguage(NULL), DefaultLanguage(L"None", S
 
 LanguageManager::~LanguageManager()
 {
-	EnterCriticalSection(&cs);
+	std::lock_guard<std::mutex> lock(cs);
 
 	if (pLanguage)
 	{
@@ -70,10 +69,6 @@ LanguageManager::~LanguageManager()
 
 		delete pLanguage;
 	}
-
-	LeaveCriticalSection(&cs);
-
-	DeleteCriticalSection(&cs);
 }
 
 StringList LanguageManager::getAvailableLanguages() const
@@ -108,22 +103,9 @@ StringList LanguageManager::getAvailableLanguages() const
 
 Language LanguageManager::getCurrentLanguage()
 {
-	EnterCriticalSection(&cs);
+	std::lock_guard<std::mutex> lock(cs);
 
-	if (pLanguage)
-	{
-		Language tmp = *pLanguage;
-
-		LeaveCriticalSection(&cs);
-
-		return (tmp);
-	}
-	else
-	{
-		LeaveCriticalSection(&cs);
-
-		return (DefaultLanguage);
-	}
+	return (pLanguage ? *pLanguage : DefaultLanguage);
 }
 
 bool LanguageManager::setCurrentLanguage(const wchar_t *pszName)
@@ -132,7 +114,7 @@ bool LanguageManager::setCurrentLanguage(const wchar_t *pszName)
 
 	if (p)
 	{
-		EnterCriticalSection(&cs);
+		std::lock_guard<std::mutex> lock(cs);
 
 		if (pLanguage)
 		{
@@ -140,8 +122,6 @@ bool LanguageManager::setCurrentLanguage(const wchar_t *pszName)
 		}
 
 		pLanguage = p;
-
-		LeaveCriticalSection(&cs);
 
 		return true;
 	}
@@ -151,38 +131,16 @@ bool LanguageManager::setCurrentLanguage(const wchar_t *pszName)
 
 void LanguageManager::getCurrentLanguageName(String &s)
 {
-	EnterCriticalSection(&cs);
+	std::lock_guard<std::mutex> lock(cs);
 
-	if (pLanguage)
-	{
-		s = pLanguage->getName();
-
-		LeaveCriticalSection(&cs);
-	}
-	else
-	{
-		LeaveCriticalSection(&cs);
-
-		s = DefaultLanguage.getName();
-	}
+	s = pLanguage ? pLanguage->getName() : DefaultLanguage.getName();
 }
 
 void LanguageManager::getStringFromCurrentLanguage(const wchar_t *pszName, String &s)
 {
-	EnterCriticalSection(&cs);
+	std::lock_guard<std::mutex> lock(cs);
 
-	if (pLanguage)
-	{
-		s = pLanguage->getString(pszName);
-
-		LeaveCriticalSection(&cs);
-	}
-	else
-	{
-		LeaveCriticalSection(&cs);
-
-		s = DefaultLanguage.getString(pszName);
-	}
+	s = pLanguage ? pLanguage->getString(pszName) : DefaultLanguage.getString(pszName);
 }
 
 Language *LanguageManager::LoadLanguage(const wchar_t *pszName) const
