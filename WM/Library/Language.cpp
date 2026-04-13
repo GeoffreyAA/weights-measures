@@ -5,51 +5,70 @@
 #include "Library.h"
 #include <windows.h>
 
-Language::Language(const wchar_t *pszName, const StringDictionary &s) : Name(pszName ? pszName : String()), Strings(s)
+Language::Language()
 {
+}
+
+Language::Language(const wchar_t *name, const StringDictionary &dict) : Name(name ? name : L""), Strings(dict)
+{
+}
+
+String Language::getString(const wchar_t *key) const
+{
+	if (key)
+	{
+		StringDictionary::const_iterator i = Strings.find(key);
+
+		if (i != Strings.end())
+		{
+			return (*i).second;
+		}
+
+		if (ContainsText(key))
+		{
+			wchar_t s[256];
+
+			swprintfs(s, sizeof(s) / sizeof(s[0]), L"<%s>", key);
+
+			return s;
+		}
+	}
+
+	return L"";
 }
 
 const String& Language::getName() const
 {
-	return (Name);
+	return Name;
 }
 
-String Language::getString(const wchar_t *pszName) const
+const StringDictionary& Language::getStrings() const
 {
-	if (pszName)
-	{
-		StringDictionary::const_iterator i = Strings.find(pszName);
+	return Strings;
+}
 
-		if (i != Strings.end())
-		{
-			return ((*i).second);
-		}
+void Language::setName(const wchar_t *name)
+{
+	Name = name ? name : L"";
+}
 
-		if (ContainsText(pszName))
-		{
-			wchar_t s[256];
-
-			swprintfs(s, sizeof(s) / sizeof(s[0]), L"<%s>", pszName);
-
-			return (s);
-		}
-	}
-
-	return (L"");
+void Language::setStrings(const StringDictionary &dict)
+{
+	Strings = dict;
 }
 
 
-///////////////////////////////////////////////////////////////
-
-const wchar_t sLanguageName[] = L"Language";
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 LanguageManager LanguageManager::Instance;
 
-LanguageManager::LanguageManager() : pLanguage(NULL), DefaultLanguage(L"None", StringDictionary())
+const wchar_t LanguageCfg[] = L"Language";
+
+LanguageManager::LanguageManager()
 {
 	wchar_t w[256];
 
-	if (ConfigFile().getString(sLanguageName, w, sizeof(w) / sizeof(w[0])))
+	if (ConfigFile().getString(LanguageCfg, w, sizeof(w) / sizeof(w[0])))
 	{
 		setCurrentLanguage(w);
 	}
@@ -63,12 +82,44 @@ LanguageManager::~LanguageManager()
 {
 	std::lock_guard<std::mutex> lock(cs);
 
-	if (pLanguage)
-	{
-		ConfigFile().setString(sLanguageName, pLanguage->getName().c_str());
+	ConfigFile().setString(LanguageCfg, CurrentLanguage.getName().c_str());
+}
 
-		delete pLanguage;
+Language LanguageManager::getCurrentLanguage()
+{
+	std::lock_guard<std::mutex> lock(cs);
+
+	return CurrentLanguage;
+}
+
+bool LanguageManager::setCurrentLanguage(const wchar_t *name)
+{
+	Language tmp;
+
+	if (LoadLanguage(name, tmp))
+	{
+		std::lock_guard<std::mutex> lock(cs);
+
+		CurrentLanguage = tmp;
+
+		return true;
 	}
+
+	return false;
+}
+
+String LanguageManager::getCurrentLanguageName()
+{
+	std::lock_guard<std::mutex> lock(cs);
+
+	return CurrentLanguage.getName();
+}
+
+String LanguageManager::getStringFromCurrentLanguage(const wchar_t *key)
+{
+	std::lock_guard<std::mutex> lock(cs);
+
+	return CurrentLanguage.getString(key);
 }
 
 StringList LanguageManager::getAvailableLanguages() const
@@ -98,73 +149,36 @@ StringList LanguageManager::getAvailableLanguages() const
 		}
 	}
 
-	return (s);
+	return s;
 }
 
-Language LanguageManager::getCurrentLanguage()
+bool LanguageManager::LoadLanguage(const wchar_t *name, Language &dst) const
 {
-	std::lock_guard<std::mutex> lock(cs);
-
-	return (pLanguage ? *pLanguage : DefaultLanguage);
-}
-
-bool LanguageManager::setCurrentLanguage(const wchar_t *pszName)
-{
-	Language *p = LoadLanguage(pszName);
-
-	if (p)
-	{
-		std::lock_guard<std::mutex> lock(cs);
-
-		if (pLanguage)
-		{
-			delete pLanguage;
-		}
-
-		pLanguage = p;
-
-		return true;
-	}
-
-	return false;
-}
-
-String LanguageManager::getCurrentLanguageName()
-{
-	std::lock_guard<std::mutex> lock(cs);
-
-	return (pLanguage ? pLanguage->getName() : DefaultLanguage.getName());
-}
-
-String LanguageManager::getStringFromCurrentLanguage(const wchar_t *pszName)
-{
-	std::lock_guard<std::mutex> lock(cs);
-
-	return (pLanguage ? pLanguage->getString(pszName) : DefaultLanguage.getString(pszName));
-}
-
-Language *LanguageManager::LoadLanguage(const wchar_t *pszName) const
-{
-	if (pszName)
+	if (name)
 	{
 		wchar_t w[MAX_PATH];
 		const size_t size = sizeof(w) / sizeof(w[0]);
 
-		if (GetProgramPath(w, size) && AddFileName(w, L"Languages", size) && AddFileName(w, pszName, size) && AddFileExt(w, L"lng", size))
+		if (GetProgramPath(w, size) && AddFileName(w, L"Languages", size)
+									&& AddFileName(w, name, size)
+									&& AddFileExt(w, L"lng", size))
 		{
 			StringDictionary d;
 
 			if (StringDictionaryReader().read(w, d))
 			{
-				return (new Language(pszName, d));
+				dst.setName(name);
+				dst.setStrings(d);
+
+				return true;
 			}
 		}
 	}
 
-	return (NULL);
+	return false;
 }
 
 LanguageManager& LanguageManager::getInstance()
 {
-	return (Instance);
+	return Instance;
 }
