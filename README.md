@@ -8,6 +8,8 @@ I hope Weights & Measures is of use to you.
 Thanks,
 Geoffrey
 
+<img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
+
 
 Notes
 -----
