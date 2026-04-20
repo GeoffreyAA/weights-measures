@@ -19,6 +19,21 @@ Only download Weights & Measures from its official page (https://github.com/Geof
 It is recommended to use WM.exe, which is the 64-bit x86 build and should work on Windows 7 at least. The 32-bit build, WM32.exe, should work on Windows XP and pre-SSE2 CPUs.
 
 
+Building
+--------
+
+Weights & Measures can be compiled with Visual Studio 2026. Open the solution file, WM.sln, set the configuration, and compile; it is set to link statically, so no redistributable files should be needed. MFC must be installed:
+
+	C++ MFC for x64/x86 (Latest MSVC)
+
+
+To target XP, select the "Release-XP" configuration. The following components have to be installed:
+
+	C++ Windows XP Support for VS 2017 (v141) tools
+	MSVC v141 - VS 2017 C++ x64/x86 build tools (v14.16)
+	C++ MFC for v141 build tools (x86 & x64)
+
+
 References
 ----------
 
