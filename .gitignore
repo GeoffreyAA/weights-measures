@@ -47,6 +47,7 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+Build/
 Build.c
 
 # Build results on 'Bin' directories
