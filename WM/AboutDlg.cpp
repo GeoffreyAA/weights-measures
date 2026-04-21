@@ -61,7 +61,7 @@ void CAboutDlg::Initialise()
 	}
 
 	swprintfs(s, sizeof(s) / sizeof(s[0]), L"%s\n"
-										   L"© Geoffrey Angapa, 2021. %s.\n\n"
+										   L"© Geoffrey A., 2021. %s.\n\n"
 										   L"%s %s\n\n"
 										   L"%s",
 
@@ -77,7 +77,7 @@ void CAboutDlg::Initialise()
 
 void CAboutDlg::OnHomePage()
 {
-	ShellOpen(L"https://github.com/GeoffreyAngapa/weights-measures", NULL);
+	ShellOpen(L"https://github.com/GeoffreyAA/weights-measures", NULL);
 }
 
 BOOL CAboutDlg::OnHelpInfo(HELPINFO *pHelpInfo)

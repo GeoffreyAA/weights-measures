@@ -120,7 +120,7 @@ BEGIN
             VALUE "FileDescription", "Weights & Measures"
             VALUE "FileVersion", "1.8"
             VALUE "InternalName", "Weights & Measures"
-            VALUE "LegalCopyright", "© Geoffrey Angapa, 2021. All rights reserved."
+            VALUE "LegalCopyright", "© Geoffrey A., 2021. All rights reserved."
             VALUE "OriginalFilename", "WM.exe"
             VALUE "ProductName", "Weights & Measures"
             VALUE "ProductVersion", "1.8"
