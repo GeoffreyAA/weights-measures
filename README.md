@@ -5,6 +5,8 @@ A unit converter for Windows. It has an extensible design, allowing new categori
 
 <img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
 
+This version began in 2009, but the concept, that of stacked text boxes with different units, goes back to 2003 or 2004. Later, the legacy version of [BitMe](https://github.com/GeoffreyAA/bitme) had an optional dialogue box for converting information. Weights & Measures took that concept, building a separate program with many more modes and units.
+
 
 Notes
 -----
