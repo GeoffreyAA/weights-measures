@@ -1,9 +1,11 @@
 Weights & Measures
 ==================
 
-A unit converter for Windows. It has an extensible design, allowing new categories and units to be easily added. This program began in 2009, but the concept, that of stacked text boxes with different units, goes back to 2003 or 2004.
+A unit converter for Windows. It has an extensible design, allowing new categories and units to be easily added.
 
 <img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
+
+This program began in 2009, but the concept, that of stacked text boxes with different units, goes back to 2003 or 2004.
 
 
 Notes
@@ -34,8 +36,8 @@ References
 
 The sources of information used at some time or other include:
 
-* The Wikipedia article *Conversion of units,* which is the chief source, and many articles that lead from there.
-* The Wikipedia template *Quantities of bytes.*
+* The Wikipedia article "Conversion of units," which is the chief source, and many articles that lead from there.
+* The Wikipedia template "Quantities of bytes."
 * *The Pocket Oxford Dictionary of Current English,* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
 * *The Book of Knowledge,* ed. Gordon Stowell (5th edition, revised impression, London: The Waverley Book Company Ltd., 1957).
-* Furey, Edward. *Pixels Per Inch PPI Calculator* at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators
+* Furey, Edward. "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators
