@@ -1,7 +1,7 @@
 Weights & Measures
 ==================
 
-A unit converter for Windows, with an extensible design, allowing categories and units to be easily added. It began in 2009, but the concept, that of stacked text boxes with different units, goes back to 2003 or 2004.
+A unit converter for Windows, with an extensible design, allowing categories and units to be easily added.
 
 <img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
 
@@ -11,7 +11,7 @@ Notes
 
 The program comes with a default language of English and can be translated into others. To do so, open the "English.lng" file in a plain-text editor, like Notepad, and translate all the words on the right-hand side of the equal-to sign (=). Then, save it as another file, using UTF-8 encoding without the byte-order mark, or plain ANSI. Lastly, rename the file to that of the language: "French.lng" for example. The extension must be ".lng" for the file to be recognised.
 
-Download Weights & Measures only from its [official page](https://github.com/GeoffreyAA/weights-measures). This is free software; do not pay for it anywhere.
+Download Weights & Measures only from its [official page](https://github.com/GeoffreyAA/weights-measures). It is free; do not pay for it anywhere.
 
 
 Building
