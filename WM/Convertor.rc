@@ -181,7 +181,7 @@ BEGIN
         MENUITEM "Windows Calculator",          ID_TOOLS_CALCULATOR
         MENUITEM SEPARATOR
         MENUITEM "Settings...",                 ID_TOOLS_SETTINGS
-        MENUITEM "About...",                    ID_HELP_ABOUT
+        MENUITEM "About...",                    ID_TOOLS_ABOUT
         MENUITEM SEPARATOR
         MENUITEM "Quit",                        ID_TOOLS_QUIT
     END

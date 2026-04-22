@@ -74,12 +74,10 @@ BEGIN_MESSAGE_MAP(CConvertorDlg, CDialog)
 	ON_EN_KILLFOCUS(IDC_EDIT7, OnChangeValue7)
 	ON_EN_KILLFOCUS(IDC_EDIT8, OnChangeValue8)
 	ON_EN_KILLFOCUS(IDC_EDIT9, OnChangeValue9)
-	ON_COMMAND(ID_TOOLS_SETTINGS, OnToolsSettings)
 	ON_COMMAND(ID_TOOLS_CALCULATOR, OnToolsCalculator)
+	ON_COMMAND(ID_TOOLS_SETTINGS, OnToolsSettings)
+	ON_COMMAND(ID_TOOLS_ABOUT, OnToolsAbout)
 	ON_COMMAND(ID_TOOLS_QUIT, OnToolsQuit)
-	//ON_COMMAND(ID_HELP_HELP, OnHelpHelp)
-	//ON_COMMAND(ID_HELP_LICENCE, OnHelpLicence)
-	ON_COMMAND(ID_HELP_ABOUT, OnHelpAbout)
 	ON_WM_HELPINFO()
 	ON_WM_CLOSE()
 	//}}AFX_MSG_MAP
@@ -273,17 +271,11 @@ void CConvertorDlg::UpdateMenu()
 	if (h)
 	{
 		ModifyMenu(h, 0, MF_BYPOSITION | MF_STRING, 0, ResourceString(L"IDS_MENU_TOOLS"));
-		//ModifyMenu(h, 1, MF_BYPOSITION | MF_STRING, 0, ResourceString(L"IDS_MENU_HELP"));
 
-		SetMenuString(h, ID_TOOLS_SETTINGS, ResourceString(L"IDS_TOOLS_SETTINGS"));
-		//SetMenuString(h, ID_TOOLS_REPORT, ResourceString(L"IDS_TOOLS_REPORT"));
 		SetMenuString(h, ID_TOOLS_CALCULATOR, ResourceString(L"IDS_TOOLS_CALCULATOR"));
+		SetMenuString(h, ID_TOOLS_SETTINGS, ResourceString(L"IDS_TOOLS_SETTINGS"));
+		SetMenuString(h, ID_HELP_ABOUT, ResourceString(L"IDS_TOOLS_ABOUT"));
 		SetMenuString(h, ID_TOOLS_QUIT, ResourceString(L"IDS_TOOLS_QUIT"));
-
-		//SetMenuString(h, ID_HELP_HELP, ResourceString(L"IDS_HELP_HELP"));
-		//SetMenuString(h, ID_HELP_HOMEPAGE, ResourceString(L"IDS_HELP_HOMEPAGE"));
-		//SetMenuString(h, ID_HELP_LICENCE, ResourceString(L"IDS_HELP_LICENCE"));
-		SetMenuString(h, ID_HELP_ABOUT, ResourceString(L"IDS_HELP_ABOUT"));
 
 		::DrawMenuBar(GetSafeHwnd());
 	}
@@ -511,6 +503,23 @@ void CConvertorDlg::OnReturnKey()
 
 ///////////////////////////////////////////////////////////////
 
+void CConvertorDlg::OnToolsCalculator()
+{
+	wchar_t c[MAX_PATH];
+
+	const UINT cbSize = sizeof(c) / sizeof(c[0]);
+
+	UINT n = GetSystemDirectory(c, cbSize);
+
+	if ((0 < n) && (n < cbSize) && AddFileName(c, L"calc.exe", cbSize))
+	{
+		if (!ShellOpen(c, GetSafeHwnd()))
+		{
+			MsgBox(ResourceString(L"IDS_CALCULATOR_ERROR"), ResourceString(L"IDS_CALCULATOR_ERROR_TITLE"), GetSafeHwnd(), MSG_ERROR);
+		}
+	}
+}
+
 void CConvertorDlg::OnToolsSettings()
 {
 	if (CSettingsDlg().DoModal() == IDOK)
@@ -525,7 +534,33 @@ void CConvertorDlg::OnToolsSettings()
 	}
 }
 
+void CConvertorDlg::OnToolsAbout()
+{
+	CAboutDlg().DoModal();
+}
+
+void CConvertorDlg::OnToolsQuit()
+{
+	OnBeforeClose();
+
+	EndDialog(IDOK);
+}
+
+BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
+{
+	//OnHelpHelp();
+
+	ShellOpen(ApplicationFile(GetHelpFileName()), GetSafeHwnd());
+
+	return TRUE;
+}
+
 /*
+void CConvertorDlg::OnHelpHelp()
+{
+	HtmlHelp(ApplicationFile(GetHelpFileName()), NULL, GetSafeHwnd());
+}
+
 void CConvertorDlg::OnToolsReport()
 {
 	OPENFILENAME ofn;
@@ -551,49 +586,7 @@ void CConvertorDlg::OnToolsReport()
 		}
 	}
 }
-*/
 
-void CConvertorDlg::OnToolsCalculator()
-{
-	wchar_t c[MAX_PATH];
-
-	const UINT cbSize = sizeof(c) / sizeof(c[0]);
-
-	UINT n = GetSystemDirectory(c, cbSize);
-
-	if ((0 < n) && (n < cbSize) && AddFileName(c, L"calc.exe", cbSize))
-	{
-		if (!ShellOpen(c, GetSafeHwnd()))
-		{
-			MsgBox(ResourceString(L"IDS_CALCULATOR_ERROR"), ResourceString(L"IDS_CALCULATOR_ERROR_TITLE"), GetSafeHwnd(), MSG_ERROR);
-		}
-	}
-}
-
-void CConvertorDlg::OnToolsQuit()
-{
-	OnBeforeClose();
-
-	EndDialog(IDOK);
-}
-
-/*
-void CConvertorDlg::OnHelpHelp()
-{
-	HtmlHelp(ApplicationFile(GetHelpFileName()), NULL, GetSafeHwnd());
-}
-*/
-
-BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
-{
-	//OnHelpHelp();
-
-	ShellOpen(ApplicationFile(GetHelpFileName()), GetSafeHwnd());
-
-	return TRUE;
-}
-
-/*
 void CConvertorDlg::OnHelpLicence()
 {
 	if (::MessageBox(GetSafeHwnd(), ResourceString(L"IDS_LICENCE_MSG"), ResourceString(L"IDS_LICENCE_TITLE"), MB_OKCANCEL | MB_ICONINFORMATION) == IDOK)
@@ -605,11 +598,6 @@ void CConvertorDlg::OnHelpLicence()
 	}
 }
 */
-
-void CConvertorDlg::OnHelpAbout()
-{
-	CAboutDlg().DoModal();
-}
 
 
 ///////////////////////////////////////////////////////////////

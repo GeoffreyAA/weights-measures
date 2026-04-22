@@ -75,13 +75,11 @@ protected:
 	afx_msg void OnChangeValue7();
 	afx_msg void OnChangeValue8();
 	afx_msg void OnChangeValue9();
-	afx_msg void OnToolsSettings();
 	afx_msg void OnToolsCalculator();
+	afx_msg void OnToolsSettings();
+	afx_msg void OnToolsAbout();
 	afx_msg void OnToolsQuit();
-	//afx_msg void OnHelpHelp();
 	afx_msg BOOL OnHelpInfo(HELPINFO *pHelpInfo);
-	//afx_msg void OnHelpLicence();
-	afx_msg void OnHelpAbout();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
