@@ -1,11 +1,9 @@
 Weights & Measures
 ==================
 
-A unit converter for Windows. It has an extensible design, allowing new categories and units to be easily added.
+A unit converter for Windows. It has an extensible design, allowing new categories and units to be easily added. This program began in 2009, but the concept, that of stacked text boxes with different units, goes back to 2003 or 2004.
 
 <img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
-
-This program began in 2009, but the concept, that of stacked text boxes with different units, goes back to 2003 or 2004.
 
 
 Notes
