@@ -22,6 +22,7 @@ rename	"%dst%\Readme.md" "Readme.txt"
 copy	"Languages" "%dst%\Languages"
 
 "C:\Program Files\7-Zip\7z.exe" a "%bin_name%.zip" ".\%dst_root%\*" -mx9
+attrib +r "%bin_name%.zip"
 
 :end
 
