@@ -1,10 +1,6 @@
 #ifndef __C_CONVERTOR_DLG_H__
 #define __C_CONVERTOR_DLG_H__
 
-#if _MSC_VER > 1000
-#pragma once
-#endif
-
 #include "Interfaces\ConversionInterfaceFactory.h"
 #include "Library\array.h"
 #include "Library\Configuration.h"
