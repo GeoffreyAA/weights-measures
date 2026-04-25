@@ -13,7 +13,6 @@
 #include "Library\ConfigFile.h"
 #include "Library\File.h"
 #include "Library\Templates.h"
-#include "Report.h"
 
 static const int TitleList[] = {IDC_LABEL1, IDC_LABEL2, IDC_LABEL3, IDC_LABEL4, IDC_LABEL5, IDC_LABEL6, IDC_LABEL7, IDC_LABEL8, IDC_LABEL9};
 static const int AbrvList[] = {IDC_LABEL10, IDC_LABEL11, IDC_LABEL12, IDC_LABEL13, IDC_LABEL14, IDC_LABEL15, IDC_LABEL16, IDC_LABEL17, IDC_LABEL18};
