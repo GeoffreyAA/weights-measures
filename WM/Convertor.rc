@@ -83,13 +83,13 @@ BEGIN
     COMBOBOX        IDC_COMBO1,7,20,211,104,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_ABOUT_DIALOG DIALOG 0, 0, 260, 150
+IDD_ABOUT_DIALOG DIALOGEX 0, 0, 260, 150
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About"
-FONT 10, "Tahoma"
+FONT 10, "Tahoma", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,203,129,50,14
-    LTEXT           "Text",IDC_ABOUT_TEXT,33,7,220,115
+    LTEXT           "Text",IDC_ABOUT_TEXT,33,7,220,115,SS_NOPREFIX
     ICON            IDR_CONVERTOR_ICON,IDC_STATIC,7,7,20,20
     PUSHBUTTON      "Home Page",IDC_BUTTON1,149,129,50,14
 END
@@ -101,8 +101,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,8,0,0
- PRODUCTVERSION 1,8,0,0
+ FILEVERSION 1,9,0,0
+ PRODUCTVERSION 1,9,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -118,12 +118,12 @@ BEGIN
         BLOCK "000004b0"
         BEGIN
             VALUE "FileDescription", "Weights & Measures"
-            VALUE "FileVersion", "1.8"
+            VALUE "FileVersion", "1.9"
             VALUE "InternalName", "Weights & Measures"
             VALUE "LegalCopyright", "© Geoffrey A., 2021. All rights reserved."
             VALUE "OriginalFilename", "WM.exe"
             VALUE "ProductName", "Weights & Measures"
-            VALUE "ProductVersion", "1.8"
+            VALUE "ProductVersion", "1.9"
         END
     END
     BLOCK "VarFileInfo"
@@ -194,6 +194,11 @@ END
 //
 
 IDD_CONVERTOR_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ABOUT_DIALOG AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

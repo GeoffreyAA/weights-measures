@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "Application.h"
-#include "Library\Compiler.h"
-#include "Library\Library.h"
-#include "Library\ResourceString.h"
 
 extern "C" const int build_number;
 extern "C" const time_t build_time;
@@ -12,67 +9,9 @@ const wchar_t *GetApplicationName()
 	return (L"Weights & Measures");
 }
 
-wchar_t *GetApplicationNameFull(wchar_t *c, size_t cbSize)
-{
-	if (c)
-	{
-		swprintfs(c, cbSize, L"Weights && Measures %s (%s %d) (%s)"		// Fixes ampersand not showing up in text label, owing to Windows thinking it's an accelerator
-
-#ifdef _DEBUG
-							 L" (Debug)"
-#endif
-
-							 , GetApplicationVersion()
-							 , ResourceString(L"IDS_BUILD").c_str()
-							 , GetBuildNumber()
-							 , GetPlatform());
-	}
-
-	return (c);
-}
-
-wchar_t *GetApplicationNameFull2(wchar_t *c, size_t cbSize)
-{
-	if (c)
-	{
-		swprintfs(c, cbSize, L"Weights && Measures\n%s %s (%s %d) (%s) (%s)"
-
-#ifdef _DEBUG
-							 L" (Debug)"
-#endif
-
-							 , ResourceString(L"IDS_VERSION").c_str()
-							 , GetApplicationVersion()
-							 , ResourceString(L"IDS_BUILD").c_str()
-							 , GetBuildNumber()
-							 , GetPlatform()
-							 , GetCompilerVersion().c_str());
-	}
-
-	return (c);
-}
-
-String GetApplicationNameFull()
-{
-	wchar_t w[128];
-
-	GetApplicationNameFull(w, sizeof(w) / sizeof(w[0]));
-
-	return (w);
-}
-
-String GetApplicationNameFull2()
-{
-	wchar_t w[128];
-
-	GetApplicationNameFull2(w, sizeof(w) / sizeof(w[0]));
-
-	return (w);
-}
-
 const wchar_t *GetApplicationVersion()
 {
-	return (L"1.8");
+	return (L"1.9");
 }
 
 int GetBuildNumber()
@@ -85,9 +24,14 @@ time_t GetBuildTime()
 	return (build_time);
 }
 
+const wchar_t *GetCopyright()
+{
+	return (L"\u00a9 Geoffrey A., 2021");
+}
+
 const wchar_t *GetRegistryKey()
 {
-	return (L"Software\\Weights and Measures");
+	return (L"Software\\Weights & Measures");
 }
 
 const wchar_t *GetHelpFileName()

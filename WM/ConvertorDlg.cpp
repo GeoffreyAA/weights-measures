@@ -7,6 +7,7 @@
 #include "SettingsDlg.h"
 
 #include "Application.h"
+#include "Name.h"
 #include "Library\Library.h"
 #include "Library\Win32Library.h"
 #include "Library\ResourceString.h"
@@ -273,7 +274,7 @@ void CConvertorDlg::UpdateMenu()
 
 		SetMenuString(h, ID_TOOLS_CALCULATOR, ResourceString(L"IDS_TOOLS_CALCULATOR"));
 		SetMenuString(h, ID_TOOLS_SETTINGS, ResourceString(L"IDS_TOOLS_SETTINGS"));
-		SetMenuString(h, ID_HELP_ABOUT, ResourceString(L"IDS_TOOLS_ABOUT"));
+		SetMenuString(h, ID_TOOLS_ABOUT, ResourceString(L"IDS_TOOLS_ABOUT"));
 		SetMenuString(h, ID_TOOLS_QUIT, ResourceString(L"IDS_TOOLS_QUIT"));
 
 		::DrawMenuBar(GetSafeHwnd());
