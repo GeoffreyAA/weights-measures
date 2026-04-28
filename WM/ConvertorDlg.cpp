@@ -8,12 +8,12 @@
 
 #include "Application.h"
 #include "Name.h"
-#include "Library\Library.h"
-#include "Library\Win32Library.h"
-#include "Library\ResourceString.h"
 #include "Library\ConfigFile.h"
 #include "Library\File.h"
+#include "Library\Library.h"
+#include "Library\ResourceString.h"
 #include "Library\Templates.h"
+#include "Library\Win32Library.h"
 
 static const int TitleList[] = {IDC_LABEL1, IDC_LABEL2, IDC_LABEL3, IDC_LABEL4, IDC_LABEL5, IDC_LABEL6, IDC_LABEL7, IDC_LABEL8, IDC_LABEL9};
 static const int AbrvList[] = {IDC_LABEL10, IDC_LABEL11, IDC_LABEL12, IDC_LABEL13, IDC_LABEL14, IDC_LABEL15, IDC_LABEL16, IDC_LABEL17, IDC_LABEL18};
@@ -150,7 +150,7 @@ void CConvertorDlg::OnClose()
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void CConvertorDlg::Initialise()
 {
@@ -257,9 +257,9 @@ bool CConvertorDlg::IsValidInterface() const
 
 void CConvertorDlg::UpdateWindowTitle()
 {
-#ifndef _DEBUG
 	SetWindowText(GetApplicationName());
-#else
+
+#ifdef _DEBUG
 	SetWindowText(GetApplicationNameFull().c_str());
 #endif
 }
@@ -501,7 +501,7 @@ void CConvertorDlg::OnReturnKey()
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void CConvertorDlg::OnToolsCalculator()
 {
@@ -548,66 +548,18 @@ void CConvertorDlg::OnToolsQuit()
 
 BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 {
-	//OnHelpHelp();
-
 	ShellOpen(ApplicationFile(GetHelpFileName()), GetSafeHwnd());
 
 	return TRUE;
 }
 
-/*
-void CConvertorDlg::OnHelpHelp()
-{
-	HtmlHelp(ApplicationFile(GetHelpFileName()), NULL, GetSafeHwnd());
-}
 
-void CConvertorDlg::OnToolsReport()
-{
-	OPENFILENAME ofn;
-	ZeroMemory(&ofn, sizeof(ofn));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	wchar_t w[MAX_PATH] = L"WM.htm";
-	ResourceString s(L"IDS_REPORT_DLG_TITLE");
-
-	ofn.lStructSize = sizeof(ofn);
-	ofn.hwndOwner = GetSafeHwnd();
-	ofn.lpstrFilter = L"HTML\0*.htm;*.html\0";
-	ofn.lpstrFile = w;
-	ofn.nMaxFile = sizeof(w) / sizeof(w[0]);
-	ofn.lpstrTitle = s.c_str();
-	ofn.Flags = OFN_HIDEREADONLY | OFN_NOREADONLYRETURN | OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST;
-	ofn.lpstrDefExt = L"htm";
-
-	if (GetSaveFileName(&ofn))
-	{
-		if (!SaveReport(w, GetCurrentInterface()))
-		{
-			MsgBox(ResourceString(L"IDS_REPORT_ERROR"), ResourceString(L"IDS_REPORT_ERROR_TITLE"), GetSafeHwnd(), MSG_ERROR);
-		}
-	}
-}
-
-void CConvertorDlg::OnHelpLicence()
-{
-	if (::MessageBox(GetSafeHwnd(), ResourceString(L"IDS_LICENCE_MSG"), ResourceString(L"IDS_LICENCE_TITLE"), MB_OKCANCEL | MB_ICONINFORMATION) == IDOK)
-	{
-		if (!HtmlHelp(ApplicationFile(GetHelpFileName()), L"Licence.txt", GetSafeHwnd()))
-		{
-			MsgBox(ResourceString(L"IDS_LICENCE_ERROR"), ResourceString(L"IDS_LICENCE_TITLE"), GetSafeHwnd(), MSG_ERROR);
-		}
-	}
-}
-*/
-
-
-///////////////////////////////////////////////////////////////
-
-ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(4), x(32), y(32)
+ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(4),
+									 x(32), y(32)
 {
 }
-
-
-///////////////////////////////////////////////////////////////
 
 bool ConvertorDlgCfgSerializer::Save(const ConvertorDlgCfg &a, Configuration &b) const
 {
@@ -630,23 +582,3 @@ bool ConvertorDlgCfgSerializer::Retrieve(ConvertorDlgCfg &a, const Configuration
 
 	return true;
 }
-
-/*
-const wchar_t szConfig[] = L"Configuration";
-
-bool ConvertorDlgCfgSerializer::Save(const ConvertorDlgCfg &a, Configuration &b) const
-{
-	return (b.setBinary(szConfig, &a, sizeof(a)));
-}
-
-bool ConvertorDlgCfgSerializer::Retrieve(ConvertorDlgCfg &a, const Configuration &b) const
-{
-	if (!b.getBinary(szConfig, &a, sizeof(a)))
-	{
-		a = ConvertorDlgCfg();
-
-		return false;
-	}
-
-	return true;
-}*/
