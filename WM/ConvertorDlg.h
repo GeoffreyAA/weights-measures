@@ -95,7 +95,7 @@ struct ConvertorDlgCfg
 	int y;
 };
 
-class ConvertorDlgCfgSerializer
+class ConvertorDlgCfgSerialiser
 {
 public:
 	bool Save(const ConvertorDlgCfg &a, Configuration &b) const;

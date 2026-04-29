@@ -169,8 +169,9 @@ void CConvertorDlg::Initialise()
 void CConvertorDlg::RetrieveConfiguration()
 {
 	ConvertorDlgCfg Cfg;
-	//ConvertorDlgCfgSerializer().Retrieve(Cfg, Registry(GetRegistryKey(), KEY_READ, false));
-	ConvertorDlgCfgSerializer().Retrieve(Cfg, ConfigFile());
+
+	if (!ConvertorDlgCfgSerialiser().Retrieve(Cfg, ConfigFile()))
+		Cfg = ConvertorDlgCfg();
 
 	SelectMode(Cfg.nConversionType);
 	::SetWindowPos(GetSafeHwnd(), NULL, Cfg.x, Cfg.y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
@@ -184,11 +185,7 @@ void CConvertorDlg::SaveConfiguration()
 	Cfg.x = GetWindowLeft(GetSafeHwnd());
 	Cfg.y = GetWindowTop(GetSafeHwnd());
 
-	//ConvertorDlgCfgSerializer().Save(Cfg, Registry(GetRegistryKey(), KEY_WRITE, true));
-
-	//Registry r(GetRegistryKey(), KEY_WRITE, true);	// Fixes warning concerning temporary object being passed as non-const reference
-	ConfigFile r;
-	ConvertorDlgCfgSerializer().Save(Cfg, r);
+	ConvertorDlgCfgSerialiser().Save(Cfg, ConfigFile());
 }
 
 void CConvertorDlg::OnBeforeClose()
@@ -561,7 +558,7 @@ ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(4),
 {
 }
 
-bool ConvertorDlgCfgSerializer::Save(const ConvertorDlgCfg &a, Configuration &b) const
+bool ConvertorDlgCfgSerialiser::Save(const ConvertorDlgCfg &a, Configuration &b) const
 {
 	bool r;
 
@@ -572,7 +569,7 @@ bool ConvertorDlgCfgSerializer::Save(const ConvertorDlgCfg &a, Configuration &b)
 	return r;
 }
 
-bool ConvertorDlgCfgSerializer::Retrieve(ConvertorDlgCfg &a, const Configuration &b) const
+bool ConvertorDlgCfgSerialiser::Retrieve(ConvertorDlgCfg &a, const Configuration &b) const
 {
 	ConvertorDlgCfg def;
 
