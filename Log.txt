@@ -1,8 +1,9 @@
 Version 1.9.x (x y 2026)
 
-- Fixed building failure with spaces in the project path
-- Removed legacy files from the project
+- Changed licence from GPLv2 to MIT
 - Improved library code
+- Removed legacy files from project
+- Fixed building failure with spaces in project path
 
 
 Version 1.8.164 (August 25, 2025)
