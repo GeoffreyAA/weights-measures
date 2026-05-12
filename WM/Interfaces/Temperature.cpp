@@ -1,37 +1,46 @@
 #include "stdafx.h"
 #include "Temperature.h"
-#include "Conversion.h"
 
-Temperature::Temperature(double c) : Centigrade(c)
+Temperature::Temperature(double K) : Kelvin(K)
 {
 }
 
-double Temperature::getCentigrade() const
+double Temperature::getCelsius() const
 {
-	return (Centigrade);
-}
-
-double Temperature::getFahrenheit() const
-{
-	return (CentigradeToFahrenheit(getCentigrade()));
+	return getKelvin() - 273.15;
 }
 
 double Temperature::getKelvin() const
 {
-	return (CentigradeToKelvin(getCentigrade()));
+	return Kelvin;
 }
 
-void Temperature::setCentigrade(double x)
+double Temperature::getFahrenheit() const
 {
-	Centigrade = x;
+	return getKelvin() * 9.0 / 5.0 - 459.67;
 }
 
-void Temperature::setFahrenheit(double x)
+double Temperature::getRankine() const
 {
-	setCentigrade(FahrenheitToCentigrade(x));
+	return getKelvin() * 9.0 / 5.0;
+}
+
+void Temperature::setCelsius(double x)
+{
+	setKelvin(x + 273.15);
 }
 
 void Temperature::setKelvin(double x)
 {
-	setCentigrade(KelvinToCentigrade(x));
+	Kelvin = x;
+}
+
+void Temperature::setFahrenheit(double x)
+{
+	setKelvin((x + 459.67) * 5.0 / 9.0);
+}
+
+void Temperature::setRankine(double x)
+{
+	setKelvin(x * 5.0 / 9.0);
 }

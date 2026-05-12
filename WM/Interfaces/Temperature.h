@@ -4,18 +4,20 @@
 class Temperature
 {
 public:
-	Temperature(double c = 0.0);
+	Temperature(double K = 0.0);
 
-	double getCentigrade() const;
-	double getFahrenheit() const;
+	double getCelsius() const;
 	double getKelvin() const;
+	double getFahrenheit() const;
+	double getRankine() const;
 
-	void setCentigrade(double x);
-	void setFahrenheit(double x);
+	void setCelsius(double x);
 	void setKelvin(double x);
+	void setFahrenheit(double x);
+	void setRankine(double x);
 
 private:
-	double Centigrade;
+	double Kelvin;
 };
 
 #endif

@@ -1,27 +1,32 @@
 #include "stdafx.h"
 #include "TemperatureInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_CENTIGRADE", L"IDS_TITLE_FAHRENHEIT", L"IDS_TITLE_KELVIN"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_CENTIGRADE", L"IDS_ABRV_FAHRENHEIT", L"IDS_ABRV_KELVIN"};
+static const wchar_t *const szTitles[] = {L"IDS_TITLE_CELSIUS", L"IDS_TITLE_KELVIN", L"IDS_TITLE_FAHRENHEIT", L"IDS_TITLE_RANKINE"};
+static const wchar_t *const szAbrv[] = {L"IDS_ABRV_CELSIUS", L"IDS_ABRV_KELVIN", L"IDS_ABRV_FAHRENHEIT", L"IDS_ABRV_RANKINE"};
 
 int TemperatureInterface::getValueCount() const
 {
-	return (3);
+	return (4);
 }
 
 double TemperatureInterface::getValue1() const
 {
-	return (t.getCentigrade());
+	return (t.getCelsius());
 }
 
 double TemperatureInterface::getValue2() const
 {
-	return (t.getFahrenheit());
+	return (t.getKelvin());
 }
 
 double TemperatureInterface::getValue3() const
 {
-	return (t.getKelvin());
+	return (t.getFahrenheit());
+}
+
+double TemperatureInterface::getValue4() const
+{
+	return (t.getRankine());
 }
 
 const wchar_t *TemperatureInterface::getTitle(int i) const
@@ -46,15 +51,20 @@ const wchar_t *TemperatureInterface::getAbbreviation(int i) const
 
 void TemperatureInterface::setValue1(double x)
 {
-	t.setCentigrade(x);
+	t.setCelsius(x);
 }
 
 void TemperatureInterface::setValue2(double x)
 {
-	t.setFahrenheit(x);
+	t.setKelvin(x);
 }
 
 void TemperatureInterface::setValue3(double x)
 {
-	t.setKelvin(x);
+	t.setFahrenheit(x);
+}
+
+void TemperatureInterface::setValue4(double x)
+{
+	t.setRankine(x);
 }

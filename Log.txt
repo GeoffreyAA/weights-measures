@@ -1,6 +1,8 @@
 Version 1.9.x (x y 2026)
 
 - Changed licence from GPLv2 to MIT
+- Revised Temperature, defining it in terms of Kelvin,
+  renaming Centigrade to Celsius, and adding Rankine
 - Improved library code
 - Removed legacy files from project
 - Fixed building failure with spaces in project path
