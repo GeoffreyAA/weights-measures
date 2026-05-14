@@ -4,7 +4,7 @@
 class Temperature
 {
 public:
-	Temperature(double K = 0.0);
+	Temperature(double K = 273.15);
 
 	double getCelsius() const;
 	double getKelvin() const;
