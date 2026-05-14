@@ -36,6 +36,7 @@ The sources of information used at some time or other include:
 
 * The Wikipedia article "Conversion of units," which is the chief source, and many articles that lead from there.
 * The Wikipedia template "Quantities of bytes."
+* The Wikipedia article [Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature)
 * *The Pocket Oxford Dictionary of Current English,* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
 * *The Book of Knowledge,* ed. Gordon Stowell (5th edition, revised impression, London: The Waverley Book Company Ltd., 1957).
 * Furey, Edward. "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators
