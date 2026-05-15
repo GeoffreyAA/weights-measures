@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Temperature.h"
 
+// Reference: https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature
+
 Temperature::Temperature(double K) : Kelvin(K)
 {
 }
