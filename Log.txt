@@ -1,6 +1,8 @@
 Version 1.9.x (x y 2026)
 
 - Changed licence from GPLv2 to MIT
+- Extended program to support up to 16 values
+- Information: exposed YB to user interface, and added RB and QB
 - Revised Temperature, defining it in terms of Kelvin,
   renaming Centigrade to Celsius, and adding Rankine
 - Improved library code
