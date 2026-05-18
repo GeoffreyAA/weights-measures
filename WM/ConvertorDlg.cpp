@@ -658,7 +658,7 @@ BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(4),
+ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(5),
 									 x(32), y(32)
 {
 }
