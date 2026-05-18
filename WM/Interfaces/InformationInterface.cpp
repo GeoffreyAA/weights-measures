@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "InformationInterface.h"
 
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BITS", L"IDS_ABRV_BYTES", L"IDS_ABRV_KB", L"IDS_ABRV_MB", L"IDS_ABRV_GB", L"IDS_ABRV_TB", L"IDS_ABRV_PB", L"IDS_ABRV_EB", L"IDS_ABRV_ZB"};
+static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BITS", L"IDS_ABRV_BYTES", L"IDS_ABRV_KB", L"IDS_ABRV_MB", L"IDS_ABRV_GB", L"IDS_ABRV_TB", L"IDS_ABRV_PB", L"IDS_ABRV_EB", L"IDS_ABRV_ZB", L"IDS_ABRV_YB", L"IDS_ABRV_RB", L"IDS_ABRV_QB"};
 
 int InformationInterface::getValueCount() const
 {
-	return (9);
+	return (12);
 }
 
 double InformationInterface::getValue1() const
@@ -51,6 +51,21 @@ double InformationInterface::getValue8() const
 double InformationInterface::getValue9() const
 {
 	return (i.getZB());
+}
+
+double InformationInterface::getValue10() const
+{
+	return (i.getYB());
+}
+
+double InformationInterface::getValue11() const
+{
+	return (i.getRB());
+}
+
+double InformationInterface::getValue12() const
+{
+	return (i.getQB());
 }
 
 const wchar_t *InformationInterface::getAbbreviation(int i) const
@@ -106,4 +121,19 @@ void InformationInterface::setValue8(double x)
 void InformationInterface::setValue9(double x)
 {
 	i.setZB(x);
+}
+
+void InformationInterface::setValue10(double x)
+{
+	i.setYB(x);
+}
+
+void InformationInterface::setValue11(double x)
+{
+	i.setRB(x);
+}
+
+void InformationInterface::setValue12(double x)
+{
+	i.setQB(x);
 }

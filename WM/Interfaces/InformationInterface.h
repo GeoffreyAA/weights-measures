@@ -18,6 +18,9 @@ public:
 	double getValue7() const;
 	double getValue8() const;
 	double getValue9() const;
+	double getValue10() const;
+	double getValue11() const;
+	double getValue12() const;
 
 	const wchar_t *getAbbreviation(int i) const;
 
@@ -30,6 +33,9 @@ public:
 	void setValue7(double x);
 	void setValue8(double x);
 	void setValue9(double x);
+	void setValue10(double x);
+	void setValue11(double x);
+	void setValue12(double x);
 
 private:
 	Information i;
