@@ -57,6 +57,27 @@
 #define IDC_LANGUAGE                    1030
 #define IDC_ABOUT_TEXT                  1031
 #define IDC_BUTTON1                     1032
+#define IDC_EDIT10                      1033
+#define IDC_EDIT11                      1034
+#define IDC_EDIT12                      1035
+#define IDC_EDIT13                      1036
+#define IDC_EDIT14                      1037
+#define IDC_EDIT15                      1038
+#define IDC_EDIT16                      1039
+#define IDC_TITLE10                     1040
+#define IDC_TITLE11                     1041
+#define IDC_TITLE12                     1042
+#define IDC_TITLE13                     1043
+#define IDC_TITLE14                     1044
+#define IDC_TITLE15                     1045
+#define IDC_TITLE16                     1046
+#define IDC_ABRV10                      1047
+#define IDC_ABRV11                      1048
+#define IDC_ABRV12                      1049
+#define IDC_ABRV13                      1050
+#define IDC_ABRV14                      1051
+#define IDC_ABRV15                      1052
+#define IDC_ABRV16                      1053
 #define ID_TOOLS_QUIT                   32771
 #define ID_TOOLS_CALCULATOR             32772
 #define ID_HELP_HELP                    32774
@@ -73,7 +94,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        133
 #define _APS_NEXT_COMMAND_VALUE         32782
-#define _APS_NEXT_CONTROL_VALUE         1033
+#define _APS_NEXT_CONTROL_VALUE         1054
 #define _APS_NEXT_SYMED_VALUE           106
 #endif
 #endif

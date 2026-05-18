@@ -2,7 +2,6 @@
 #define __C_CONVERTOR_DLG_H__
 
 #include "Interfaces\ConversionInterfaceFactory.h"
-#include "Library\array.h"
 #include "Library\Configuration.h"
 
 class CConvertorDlg : public CDialog
@@ -24,6 +23,13 @@ public:
 	CEdit	Value7;
 	CEdit	Value8;
 	CEdit	Value9;
+	CEdit	Value10;
+	CEdit	Value11;
+	CEdit	Value12;
+	CEdit	Value13;
+	CEdit	Value14;
+	CEdit	Value15;
+	CEdit	Value16;
 	//}}AFX_DATA
 
 	//{{AFX_VIRTUAL(CConvertorDlg)
@@ -71,6 +77,13 @@ protected:
 	afx_msg void OnChangeValue7();
 	afx_msg void OnChangeValue8();
 	afx_msg void OnChangeValue9();
+	afx_msg void OnChangeValue10();
+	afx_msg void OnChangeValue11();
+	afx_msg void OnChangeValue12();
+	afx_msg void OnChangeValue13();
+	afx_msg void OnChangeValue14();
+	afx_msg void OnChangeValue15();
+	afx_msg void OnChangeValue16();
 	afx_msg void OnToolsCalculator();
 	afx_msg void OnToolsSettings();
 	afx_msg void OnToolsAbout();
@@ -82,7 +95,6 @@ protected:
 private:
 	ConversionInterfaceFactory Factory;
 	ConversionInterface *pCurrentInterface;
-	array<CEdit *, 9> ValueList;
 	HICON hIcon;
 };
 

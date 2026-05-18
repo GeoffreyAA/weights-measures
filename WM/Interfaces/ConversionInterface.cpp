@@ -58,6 +58,41 @@ double ConversionInterface::getValue9() const
 	return (nDefaultValue);
 }
 
+double ConversionInterface::getValue10() const
+{
+	return (nDefaultValue);
+}
+
+double ConversionInterface::getValue11() const
+{
+	return (nDefaultValue);
+}
+
+double ConversionInterface::getValue12() const
+{
+	return (nDefaultValue);
+}
+
+double ConversionInterface::getValue13() const
+{
+	return (nDefaultValue);
+}
+
+double ConversionInterface::getValue14() const
+{
+	return (nDefaultValue);
+}
+
+double ConversionInterface::getValue15() const
+{
+	return (nDefaultValue);
+}
+
+double ConversionInterface::getValue16() const
+{
+	return (nDefaultValue);
+}
+
 const wchar_t *ConversionInterface::getTitle(int i) const
 {
 	return (szDefault);
@@ -101,5 +136,33 @@ void ConversionInterface::setValue8(double x)
 }
 
 void ConversionInterface::setValue9(double x)
+{
+}
+
+void ConversionInterface::setValue10(double x)
+{
+}
+
+void ConversionInterface::setValue11(double x)
+{
+}
+
+void ConversionInterface::setValue12(double x)
+{
+}
+
+void ConversionInterface::setValue13(double x)
+{
+}
+
+void ConversionInterface::setValue14(double x)
+{
+}
+
+void ConversionInterface::setValue15(double x)
+{
+}
+
+void ConversionInterface::setValue16(double x)
 {
 }

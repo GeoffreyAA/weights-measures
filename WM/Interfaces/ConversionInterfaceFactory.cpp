@@ -20,11 +20,15 @@
 #include "VolumeUKInterface.h"
 #include "VolumeUSInterface.h"
 
+#ifdef _DEBUG
+#include "TestInterface.h"
+#endif
+
 ConversionInterfaceFactory::ConversionInterfaceFactory()
 {
 	int i = 0;
 
-	Interfaces.reserve(17);
+	Interfaces.reserve(18);
 
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_ANGLE", new AngleInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_AREA", new AreaInterface));
@@ -44,6 +48,10 @@ ConversionInterfaceFactory::ConversionInterfaceFactory()
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_VOLUME", new VolumeInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_VOLUME_UK", new VolumeUKInterface));
 	Interfaces.push_back(new InterfaceType(i++, L"IDS_VOLUME_US", new VolumeUSInterface));
+
+#ifdef _DEBUG
+	Interfaces.push_back(new InterfaceType(i++, L"TEST", new TestInterface));
+#endif
 }
 
 ConversionInterfaceFactory::~ConversionInterfaceFactory()

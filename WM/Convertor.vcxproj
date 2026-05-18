@@ -616,6 +616,7 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClCompile Include="Interfaces\StorageInterface.cpp" />
     <ClCompile Include="Interfaces\Temperature.cpp" />
     <ClCompile Include="Interfaces\TemperatureInterface.cpp" />
+    <ClCompile Include="Interfaces\TestInterface.cpp" />
     <ClCompile Include="Interfaces\Time.cpp" />
     <ClCompile Include="Interfaces\TimeInterface.cpp" />
     <ClCompile Include="Interfaces\Volume.cpp" />
@@ -702,6 +703,7 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Interfaces\StorageInterface.h" />
     <ClInclude Include="Interfaces\Temperature.h" />
     <ClInclude Include="Interfaces\TemperatureInterface.h" />
+    <ClInclude Include="Interfaces\TestInterface.h" />
     <ClInclude Include="Interfaces\Time.h" />
     <ClInclude Include="Interfaces\TimeInterface.h" />
     <ClInclude Include="Interfaces\Volume.h" />
