@@ -1,7 +1,7 @@
 Weights & Measures
 ==================
 
-A unit converter for Windows, with an extensible design, allowing categories and units to be easily added.
+A unit converter for Windows, with an extensible design, allowing categories and units to be easily added. Internally, it uses the 64-bit `double` type.
 
 <img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
 
@@ -35,8 +35,8 @@ References
 The sources of information used at some time or other include:
 
 * The Wikipedia article "Conversion of units," which is the chief source, and many articles that lead from there.
-* The Wikipedia template ["Quantities of bytes."](https://en.wikipedia.org/wiki/Template:Quantities_of_bytes)
-* The Wikipedia article ["Conversion of scales of temperature."](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature)
+* The Wikipedia template "[Quantities of bytes](https://en.wikipedia.org/wiki/Template:Quantities_of_bytes)."
+* The Wikipedia article "[Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature)."
 * *The Pocket Oxford Dictionary of Current English,* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
 * *The Book of Knowledge,* ed. Gordon Stowell (5th edition, revised impression, London: The Waverley Book Company Ltd., 1957).
 * Furey, Edward. "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators
