@@ -9,6 +9,7 @@ class MetricInterface : public ConversionInterface
 public:
 	int getValueCount() const;
 
+	double getValue0() const;
 	double getValue1() const;
 	double getValue2() const;
 	double getValue3() const;
@@ -17,10 +18,10 @@ public:
 	double getValue6() const;
 	double getValue7() const;
 	double getValue8() const;
-	double getValue9() const;
 
 	const wchar_t *getTitle(int i) const;
 
+	void setValue0(double x);
 	void setValue1(double x);
 	void setValue2(double x);
 	void setValue3(double x);
@@ -29,7 +30,6 @@ public:
 	void setValue6(double x);
 	void setValue7(double x);
 	void setValue8(double x);
-	void setValue9(double x);
 
 private:
 	Metric m;

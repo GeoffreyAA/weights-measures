@@ -63,7 +63,7 @@
 #define IDC_EDIT13                      1036
 #define IDC_EDIT14                      1037
 #define IDC_EDIT15                      1038
-#define IDC_EDIT16                      1039
+#define IDC_EDIT0                       1039
 #define IDC_TITLE10                     1040
 #define IDC_TITLE11                     1041
 #define IDC_TITLE12                     1042
@@ -71,13 +71,14 @@
 #define IDC_TITLE14                     1044
 #define IDC_TITLE15                     1045
 #define IDC_TITLE16                     1046
+#define IDC_TITLE0                      1046
 #define IDC_ABRV10                      1047
 #define IDC_ABRV11                      1048
 #define IDC_ABRV12                      1049
 #define IDC_ABRV13                      1050
 #define IDC_ABRV14                      1051
 #define IDC_ABRV15                      1052
-#define IDC_ABRV16                      1053
+#define IDC_ABRV0                       1053
 #define ID_TOOLS_QUIT                   32771
 #define ID_TOOLS_CALCULATOR             32772
 #define ID_HELP_HELP                    32774

@@ -10,6 +10,7 @@ public:
 
 	virtual int getValueCount() const;
 
+	virtual double getValue0() const;
 	virtual double getValue1() const;
 	virtual double getValue2() const;
 	virtual double getValue3() const;
@@ -25,11 +26,13 @@ public:
 	virtual double getValue13() const;
 	virtual double getValue14() const;
 	virtual double getValue15() const;
-	virtual double getValue16() const;
+
+	virtual double getValue(int i) const;
 
 	virtual const wchar_t *getTitle(int i) const;
 	virtual const wchar_t *getAbbreviation(int i) const;
 
+	virtual void setValue0(double x);
 	virtual void setValue1(double x);
 	virtual void setValue2(double x);
 	virtual void setValue3(double x);
@@ -45,7 +48,8 @@ public:
 	virtual void setValue13(double x);
 	virtual void setValue14(double x);
 	virtual void setValue15(double x);
-	virtual void setValue16(double x);
+
+	virtual void setValue(int i, double x);
 };
 
 #endif

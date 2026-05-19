@@ -1,30 +1,30 @@
 #include "stdafx.h"
 #include "AngleInterface.h"
 
-static const wchar_t* const szTitles[] = {L"IDS_TITLE_GRADIANS", L"IDS_TITLE_DEGREES", L"IDS_TITLE_RADIANS", L"IDS_TITLE_TURNS"};
-static const wchar_t* const szAbrv[] = {L"IDS_ABRV_GRADIANS", L"IDS_ABRV_DEGREES", L"IDS_ABRV_RADIANS", L"IDS_ABRV_TURNS"};
+static const wchar_t *const szTitles[] = {L"IDS_TITLE_GRADIANS", L"IDS_TITLE_DEGREES", L"IDS_TITLE_RADIANS", L"IDS_TITLE_TURNS"};
+static const wchar_t *const szAbrv[] = {L"IDS_ABRV_GRADIANS", L"IDS_ABRV_DEGREES", L"IDS_ABRV_RADIANS", L"IDS_ABRV_TURNS"};
 
 int AngleInterface::getValueCount() const
 {
 	return (4);
 }
 
-double AngleInterface::getValue1() const
+double AngleInterface::getValue0() const
 {
 	return (a.getGradians());
 }
 
-double AngleInterface::getValue2() const
+double AngleInterface::getValue1() const
 {
 	return (a.getDegrees());
 }
 
-double AngleInterface::getValue3() const
+double AngleInterface::getValue2() const
 {
 	return (a.getRadians());
 }
 
-double AngleInterface::getValue4() const
+double AngleInterface::getValue3() const
 {
 	return (a.getTurns());
 }
@@ -49,22 +49,22 @@ const wchar_t *AngleInterface::getAbbreviation(int i) const
 	return (ConversionInterface::getAbbreviation(i));
 }
 
-void AngleInterface::setValue1(double x)
+void AngleInterface::setValue0(double x)
 {
 	a.setGradians(x);
 }
 
-void AngleInterface::setValue2(double x)
+void AngleInterface::setValue1(double x)
 {
 	a.setDegrees(x);
 }
 
-void AngleInterface::setValue3(double x)
+void AngleInterface::setValue2(double x)
 {
 	a.setRadians(x);
 }
 
-void AngleInterface::setValue4(double x)
+void AngleInterface::setValue3(double x)
 {
 	a.setTurns(x);
 }

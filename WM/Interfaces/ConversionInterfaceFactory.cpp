@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "ConversionInterfaceFactory.h"
-#include "..\Library\Templates.h"
 #include "AngleInterface.h"
 #include "AreaInterface.h"
 #include "DataRateInterface.h"
@@ -19,6 +18,7 @@
 #include "VolumeInterface.h"
 #include "VolumeUKInterface.h"
 #include "VolumeUSInterface.h"
+#include "..\Library\Templates.h"
 
 #ifdef _DEBUG
 #include "TestInterface.h"

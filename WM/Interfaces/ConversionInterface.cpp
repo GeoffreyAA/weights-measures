@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "ConversionInterface.h"
+#include <assert.h>
 
-const double nDefaultValue = 0.0;
+const double DefaultValue = 0.0;
 const wchar_t szDefault[] = L"";
 
 ConversionInterface::~ConversionInterface()
@@ -10,97 +11,159 @@ ConversionInterface::~ConversionInterface()
 
 int ConversionInterface::getValueCount() const
 {
-	return (0);
+	return 0;
+}
+
+double ConversionInterface::getValue0() const
+{
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue1() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue2() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue3() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue4() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue5() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue6() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue7() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue8() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue9() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue10() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue11() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue12() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue13() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue14() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
 double ConversionInterface::getValue15() const
 {
-	return (nDefaultValue);
+	return DefaultValue;
 }
 
-double ConversionInterface::getValue16() const
+double ConversionInterface::getValue(int i) const
 {
-	return (nDefaultValue);
+	assert((0 <= i) && (i < getValueCount()));
+
+	switch (i)
+	{
+		case 0:
+			return getValue0();
+
+		case 1:
+			return getValue1();
+
+		case 2:
+			return getValue2();
+
+		case 3:
+			return getValue3();
+
+		case 4:
+			return getValue4();
+
+		case 5:
+			return getValue5();
+
+		case 6:
+			return getValue6();
+
+		case 7:
+			return getValue7();
+
+		case 8:
+			return getValue8();
+
+		case 9:
+			return getValue9();
+
+		case 10:
+			return getValue10();
+
+		case 11:
+			return getValue11();
+
+		case 12:
+			return getValue12();
+
+		case 13:
+			return getValue13();
+
+		case 14:
+			return getValue14();
+
+		case 15:
+			return getValue15();
+	}
+
+	return DefaultValue;
 }
 
 const wchar_t *ConversionInterface::getTitle(int i) const
 {
-	return (szDefault);
+	return szDefault;
 }
 
 const wchar_t *ConversionInterface::getAbbreviation(int i) const
 {
-	return (szDefault);
+	return szDefault;
+}
+
+void ConversionInterface::setValue0(double x)
+{
 }
 
 void ConversionInterface::setValue1(double x)
@@ -163,6 +226,58 @@ void ConversionInterface::setValue15(double x)
 {
 }
 
-void ConversionInterface::setValue16(double x)
+void ConversionInterface::setValue(int i, double x)
 {
+	assert((0 <= i) && (i < getValueCount()));
+
+	switch (i)
+	{
+		case 0:
+			setValue0(x);
+
+		case 1:
+			setValue1(x);
+
+		case 2:
+			setValue2(x);
+
+		case 3:
+			setValue3(x);
+
+		case 4:
+			setValue4(x);
+
+		case 5:
+			setValue5(x);
+
+		case 6:
+			setValue6(x);
+
+		case 7:
+			setValue7(x);
+
+		case 8:
+			setValue8(x);
+
+		case 9:
+			setValue9(x);
+
+		case 10:
+			setValue10(x);
+
+		case 11:
+			setValue11(x);
+
+		case 12:
+			setValue12(x);
+
+		case 13:
+			setValue13(x);
+
+		case 14:
+			setValue14(x);
+
+		case 15:
+			setValue15(x);
+	}
 }

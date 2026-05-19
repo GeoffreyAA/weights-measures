@@ -14,6 +14,7 @@ public:
 	enum { IDD = IDD_CONVERTOR_DIALOG };
 	CButton	Group;
 	CComboBox	Modes;
+	CEdit	Value0;
 	CEdit	Value1;
 	CEdit	Value2;
 	CEdit	Value3;
@@ -29,7 +30,6 @@ public:
 	CEdit	Value13;
 	CEdit	Value14;
 	CEdit	Value15;
-	CEdit	Value16;
 	//}}AFX_DATA
 
 	//{{AFX_VIRTUAL(CConvertorDlg)
@@ -68,6 +68,7 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnClose();
 	afx_msg void OnChangeModes();
+	afx_msg void OnChangeValue0();
 	afx_msg void OnChangeValue1();
 	afx_msg void OnChangeValue2();
 	afx_msg void OnChangeValue3();
@@ -83,7 +84,6 @@ protected:
 	afx_msg void OnChangeValue13();
 	afx_msg void OnChangeValue14();
 	afx_msg void OnChangeValue15();
-	afx_msg void OnChangeValue16();
 	afx_msg void OnToolsCalculator();
 	afx_msg void OnToolsSettings();
 	afx_msg void OnToolsAbout();

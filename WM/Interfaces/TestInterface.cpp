@@ -2,12 +2,17 @@
 #include "TestInterface.h"
 #include <assert.h>
 
-static const wchar_t *const szTitles[] = {L"T1", L"T2", L"T3", L"T4", L"T5", L"T6", L"T7", L"T8", L"T9", L"T10", L"T11", L"T12", L"T13", L"T14", L"T15", L"T16"};
-static const wchar_t *const szAbrv[] =   {L"A1", L"A2", L"A3", L"A4", L"A5", L"A6", L"A7", L"A8", L"A9", L"A10", L"A11", L"A12", L"A13", L"A14", L"A15", L"A16"};
+static const wchar_t *const szTitles[] = {L"T0", L"T1", L"T2", L"T3", L"T4", L"T5", L"T6", L"T7", L"T8", L"T9", L"T10", L"T11", L"T12", L"T13", L"T14", L"T15"};
+static const wchar_t *const szAbrv[] =   {L"A0", L"A1", L"A2", L"A3", L"A4", L"A5", L"A6", L"A7", L"A8", L"A9", L"A10", L"A11", L"A12", L"A13", L"A14", L"A15"};
 
 int TestInterface::getValueCount() const
 {
 	return 16;
+}
+
+double TestInterface::getValue0() const
+{
+	return 0;
 }
 
 double TestInterface::getValue1() const
@@ -85,11 +90,6 @@ double TestInterface::getValue15() const
 	return 15;
 }
 
-double TestInterface::getValue16() const
-{
-	return 16;
-}
-
 const wchar_t *TestInterface::getTitle(int i) const
 {
 	assert((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))));
@@ -102,6 +102,10 @@ const wchar_t *TestInterface::getAbbreviation(int i) const
 	assert((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))));
 
 	return szAbrv[i];
+}
+
+void TestInterface::setValue0(double x)
+{
 }
 
 void TestInterface::setValue1(double x)
@@ -161,9 +165,5 @@ void TestInterface::setValue14(double x)
 }
 
 void TestInterface::setValue15(double x)
-{
-}
-
-void TestInterface::setValue16(double x)
 {
 }

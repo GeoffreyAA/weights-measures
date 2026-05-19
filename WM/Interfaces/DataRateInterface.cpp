@@ -8,42 +8,42 @@ int DataRateInterface::getValueCount() const
 	return (8);
 }
 
-double DataRateInterface::getValue1() const
+double DataRateInterface::getValue0() const
 {
 	return (d.getBitsPerSecond());
 }
 
-double DataRateInterface::getValue2() const
+double DataRateInterface::getValue1() const
 {
 	return (d.getKilobitsPerSecond());
 }
 
-double DataRateInterface::getValue3() const
+double DataRateInterface::getValue2() const
 {
 	return (d.getMegabitsPerSecond());
 }
 
-double DataRateInterface::getValue4() const
+double DataRateInterface::getValue3() const
 {
 	return (d.getGigabitsPerSecond());
 }
 
-double DataRateInterface::getValue5() const
+double DataRateInterface::getValue4() const
 {
 	return (d.getBytesPerSecond());
 }
 
-double DataRateInterface::getValue6() const
+double DataRateInterface::getValue5() const
 {
 	return (d.getKilobytesPerSecond());
 }
 
-double DataRateInterface::getValue7() const
+double DataRateInterface::getValue6() const
 {
 	return (d.getMegabytesPerSecond());
 }
 
-double DataRateInterface::getValue8() const
+double DataRateInterface::getValue7() const
 {
 	return (d.getGigabytesPerSecond());
 }
@@ -58,42 +58,42 @@ const wchar_t *DataRateInterface::getAbbreviation(int i) const
 	return (ConversionInterface::getAbbreviation(i));
 }
 
-void DataRateInterface::setValue1(double x)
+void DataRateInterface::setValue0(double x)
 {
 	d.setBitsPerSecond(x);
 }
 
-void DataRateInterface::setValue2(double x)
+void DataRateInterface::setValue1(double x)
 {
 	d.setKilobitsPerSecond(x);
 }
 
-void DataRateInterface::setValue3(double x)
+void DataRateInterface::setValue2(double x)
 {
 	d.setMegabitsPerSecond(x);
 }
 
-void DataRateInterface::setValue4(double x)
+void DataRateInterface::setValue3(double x)
 {
 	d.setGigabitsPerSecond(x);
 }
 
-void DataRateInterface::setValue5(double x)
+void DataRateInterface::setValue4(double x)
 {
 	d.setBytesPerSecond(x);
 }
 
-void DataRateInterface::setValue6(double x)
+void DataRateInterface::setValue5(double x)
 {
 	d.setKilobytesPerSecond(x);
 }
 
-void DataRateInterface::setValue7(double x)
+void DataRateInterface::setValue6(double x)
 {
 	d.setMegabytesPerSecond(x);
 }
 
-void DataRateInterface::setValue8(double x)
+void DataRateInterface::setValue7(double x)
 {
 	d.setGigabytesPerSecond(x);
 }

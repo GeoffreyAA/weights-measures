@@ -9,42 +9,42 @@ int AreaInterface::getValueCount() const
 	return (8);
 }
 
-double AreaInterface::getValue1() const
+double AreaInterface::getValue0() const
 {
 	return (a.getSquareInches());
 }
 
-double AreaInterface::getValue2() const
+double AreaInterface::getValue1() const
 {
 	return (a.getSquareFeet());
 }
 
-double AreaInterface::getValue3() const
+double AreaInterface::getValue2() const
 {
 	return (a.getSquareYards());
 }
 
-double AreaInterface::getValue4() const
+double AreaInterface::getValue3() const
 {
 	return (a.getSquareMetres());
 }
 
-double AreaInterface::getValue5() const
+double AreaInterface::getValue4() const
 {
 	return (a.getAcres());
 }
 
-double AreaInterface::getValue6() const
+double AreaInterface::getValue5() const
 {
 	return (a.getHectares());
 }
 
-double AreaInterface::getValue7() const
+double AreaInterface::getValue6() const
 {
 	return (a.getSquareKilometres());
 }
 
-double AreaInterface::getValue8() const
+double AreaInterface::getValue7() const
 {
 	return (a.getSquareMiles());
 }
@@ -69,42 +69,42 @@ const wchar_t *AreaInterface::getAbbreviation(int i) const
 	return (ConversionInterface::getAbbreviation(i));
 }
 
-void AreaInterface::setValue1(double x)
+void AreaInterface::setValue0(double x)
 {
 	a.setSquareInches(x);
 }
 
-void AreaInterface::setValue2(double x)
+void AreaInterface::setValue1(double x)
 {
 	a.setSquareFeet(x);
 }
 
-void AreaInterface::setValue3(double x)
+void AreaInterface::setValue2(double x)
 {
 	a.setSquareYards(x);
 }
 
-void AreaInterface::setValue4(double x)
+void AreaInterface::setValue3(double x)
 {
 	a.setSquareMetres(x);
 }
 
-void AreaInterface::setValue5(double x)
+void AreaInterface::setValue4(double x)
 {
 	a.setAcres(x);
 }
 
-void AreaInterface::setValue6(double x)
+void AreaInterface::setValue5(double x)
 {
 	a.setHectares(x);
 }
 
-void AreaInterface::setValue7(double x)
+void AreaInterface::setValue6(double x)
 {
 	a.setSquareKilometres(x);
 }
 
-void AreaInterface::setValue8(double x)
+void AreaInterface::setValue7(double x)
 {
 	a.setSquareMiles(x);
 }

@@ -9,42 +9,42 @@ int TimeInterface::getValueCount() const
 	return (8);
 }
 
-double TimeInterface::getValue1() const
+double TimeInterface::getValue0() const
 {
 	return (t.getMilliseconds());
 }
 
-double TimeInterface::getValue2() const
+double TimeInterface::getValue1() const
 {
 	return (t.getSeconds());
 }
 
-double TimeInterface::getValue3() const
+double TimeInterface::getValue2() const
 {
 	return (t.getMinutes());
 }
 
-double TimeInterface::getValue4() const
+double TimeInterface::getValue3() const
 {
 	return (t.getHours());
 }
 
-double TimeInterface::getValue5() const
+double TimeInterface::getValue4() const
 {
 	return (t.getDays());
 }
 
-double TimeInterface::getValue6() const
+double TimeInterface::getValue5() const
 {
 	return (t.getWeeks());
 }
 
-double TimeInterface::getValue7() const
+double TimeInterface::getValue6() const
 {
 	return (t.getMonths());
 }
 
-double TimeInterface::getValue8() const
+double TimeInterface::getValue7() const
 {
 	return (t.getYears());
 }
@@ -69,42 +69,42 @@ const wchar_t *TimeInterface::getAbbreviation(int i) const
 	return (ConversionInterface::getAbbreviation(i));
 }
 
-void TimeInterface::setValue1(double x)
+void TimeInterface::setValue0(double x)
 {
 	t.setMilliseconds(x);
 }
 
-void TimeInterface::setValue2(double x)
+void TimeInterface::setValue1(double x)
 {
 	t.setSeconds(x);
 }
 
-void TimeInterface::setValue3(double x)
+void TimeInterface::setValue2(double x)
 {
 	t.setMinutes(x);
 }
 
-void TimeInterface::setValue4(double x)
+void TimeInterface::setValue3(double x)
 {
 	t.setHours(x);
 }
 
-void TimeInterface::setValue5(double x)
+void TimeInterface::setValue4(double x)
 {
 	t.setDays(x);
 }
 
-void TimeInterface::setValue6(double x)
+void TimeInterface::setValue5(double x)
 {
 	t.setWeeks(x);
 }
 
-void TimeInterface::setValue7(double x)
+void TimeInterface::setValue6(double x)
 {
 	t.setMonths(x);
 }
 
-void TimeInterface::setValue8(double x)
+void TimeInterface::setValue7(double x)
 {
 	t.setYears(x);
 }

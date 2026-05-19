@@ -9,42 +9,42 @@ int LengthInterface::getValueCount() const
 	return (8);
 }
 
-double LengthInterface::getValue1() const
+double LengthInterface::getValue0() const
 {
 	return (l.getMillimetres());
 }
 
-double LengthInterface::getValue2() const
+double LengthInterface::getValue1() const
 {
 	return (l.getCentimetres());
 }
 
-double LengthInterface::getValue3() const
+double LengthInterface::getValue2() const
 {
 	return (l.getInches());
 }
 
-double LengthInterface::getValue4() const
+double LengthInterface::getValue3() const
 {
 	return (l.getFeet());
 }
 
-double LengthInterface::getValue5() const
+double LengthInterface::getValue4() const
 {
 	return (l.getYards());
 }
 
-double LengthInterface::getValue6() const
+double LengthInterface::getValue5() const
 {
 	return (l.getMetres());
 }
 
-double LengthInterface::getValue7() const
+double LengthInterface::getValue6() const
 {
 	return (l.getKilometres());
 }
 
-double LengthInterface::getValue8() const
+double LengthInterface::getValue7() const
 {
 	return (l.getMiles());
 }
@@ -69,42 +69,42 @@ const wchar_t *LengthInterface::getAbbreviation(int i) const
 	return (ConversionInterface::getAbbreviation(i));
 }
 
-void LengthInterface::setValue1(double x)
+void LengthInterface::setValue0(double x)
 {
 	l.setMillimetres(x);
 }
 
-void LengthInterface::setValue2(double x)
+void LengthInterface::setValue1(double x)
 {
 	l.setCentimetres(x);
 }
 
-void LengthInterface::setValue3(double x)
+void LengthInterface::setValue2(double x)
 {
 	l.setInches(x);
 }
 
-void LengthInterface::setValue4(double x)
+void LengthInterface::setValue3(double x)
 {
 	l.setFeet(x);
 }
 
-void LengthInterface::setValue5(double x)
+void LengthInterface::setValue4(double x)
 {
 	l.setYards(x);
 }
 
-void LengthInterface::setValue6(double x)
+void LengthInterface::setValue5(double x)
 {
 	l.setMetres(x);
 }
 
-void LengthInterface::setValue7(double x)
+void LengthInterface::setValue6(double x)
 {
 	l.setKilometres(x);
 }
 
-void LengthInterface::setValue8(double x)
+void LengthInterface::setValue7(double x)
 {
 	l.setMiles(x);
 }

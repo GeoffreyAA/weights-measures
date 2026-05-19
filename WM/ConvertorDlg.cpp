@@ -15,9 +15,9 @@
 #include "Library\Templates.h"
 #include "Library\Win32Library.h"
 
-const int ValueList[] = {IDC_EDIT1,  IDC_EDIT2,  IDC_EDIT3,  IDC_EDIT4,  IDC_EDIT5,  IDC_EDIT6,  IDC_EDIT7,  IDC_EDIT8,  IDC_EDIT9,  IDC_EDIT10,  IDC_EDIT11,  IDC_EDIT12,  IDC_EDIT13,  IDC_EDIT14,  IDC_EDIT15,  IDC_EDIT16};
-const int TitleList[] = {IDC_TITLE1, IDC_TITLE2, IDC_TITLE3, IDC_TITLE4, IDC_TITLE5, IDC_TITLE6, IDC_TITLE7, IDC_TITLE8, IDC_TITLE9, IDC_TITLE10, IDC_TITLE11, IDC_TITLE12, IDC_TITLE13, IDC_TITLE14, IDC_TITLE15, IDC_TITLE16};
-const int AbrvList[]  = {IDC_ABRV1,  IDC_ABRV2,  IDC_ABRV3,  IDC_ABRV4,  IDC_ABRV5,  IDC_ABRV6,  IDC_ABRV7,  IDC_ABRV8,  IDC_ABRV9,  IDC_ABRV10,  IDC_ABRV11,  IDC_ABRV12,  IDC_ABRV13,  IDC_ABRV14,  IDC_ABRV15,  IDC_ABRV16};
+const int ValueList[] = {IDC_EDIT0,  IDC_EDIT1,  IDC_EDIT2,  IDC_EDIT3,  IDC_EDIT4,  IDC_EDIT5,  IDC_EDIT6,  IDC_EDIT7,  IDC_EDIT8,  IDC_EDIT9,  IDC_EDIT10,  IDC_EDIT11,  IDC_EDIT12,  IDC_EDIT13,  IDC_EDIT14,  IDC_EDIT15};
+const int TitleList[] = {IDC_TITLE0, IDC_TITLE1, IDC_TITLE2, IDC_TITLE3, IDC_TITLE4, IDC_TITLE5, IDC_TITLE6, IDC_TITLE7, IDC_TITLE8, IDC_TITLE9, IDC_TITLE10, IDC_TITLE11, IDC_TITLE12, IDC_TITLE13, IDC_TITLE14, IDC_TITLE15};
+const int AbrvList[]  = {IDC_ABRV0,  IDC_ABRV1,  IDC_ABRV2,  IDC_ABRV3,  IDC_ABRV4,  IDC_ABRV5,  IDC_ABRV6,  IDC_ABRV7,  IDC_ABRV8,  IDC_ABRV9,  IDC_ABRV10,  IDC_ABRV11,  IDC_ABRV12,  IDC_ABRV13,  IDC_ABRV14,  IDC_ABRV15};
 
 CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent), pCurrentInterface(NULL)
 {
@@ -39,6 +39,7 @@ void CConvertorDlg::DoDataExchange(CDataExchange *pDX)
 	//{{AFX_DATA_MAP(CConvertorDlg)
 	DDX_Control(pDX, IDC_GROUP1, Group);
 	DDX_Control(pDX, IDC_COMBO1, Modes);
+	DDX_Control(pDX, IDC_EDIT0,  Value0);
 	DDX_Control(pDX, IDC_EDIT1,  Value1);
 	DDX_Control(pDX, IDC_EDIT2,  Value2);
 	DDX_Control(pDX, IDC_EDIT3,  Value3);
@@ -54,7 +55,6 @@ void CConvertorDlg::DoDataExchange(CDataExchange *pDX)
 	DDX_Control(pDX, IDC_EDIT13, Value13);
 	DDX_Control(pDX, IDC_EDIT14, Value14);
 	DDX_Control(pDX, IDC_EDIT15, Value15);
-	DDX_Control(pDX, IDC_EDIT16, Value16);
 	//}}AFX_DATA_MAP
 }
 
@@ -63,6 +63,7 @@ BEGIN_MESSAGE_MAP(CConvertorDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_CBN_SELCHANGE(IDC_COMBO1, OnChangeModes)
+	ON_EN_KILLFOCUS(IDC_EDIT0,  OnChangeValue0)
 	ON_EN_KILLFOCUS(IDC_EDIT1,  OnChangeValue1)
 	ON_EN_KILLFOCUS(IDC_EDIT2,  OnChangeValue2)
 	ON_EN_KILLFOCUS(IDC_EDIT3,  OnChangeValue3)
@@ -78,7 +79,6 @@ BEGIN_MESSAGE_MAP(CConvertorDlg, CDialog)
 	ON_EN_KILLFOCUS(IDC_EDIT13, OnChangeValue13)
 	ON_EN_KILLFOCUS(IDC_EDIT14, OnChangeValue14)
 	ON_EN_KILLFOCUS(IDC_EDIT15, OnChangeValue15)
-	ON_EN_KILLFOCUS(IDC_EDIT16, OnChangeValue16)
 	ON_COMMAND(ID_TOOLS_CALCULATOR, OnToolsCalculator)
 	ON_COMMAND(ID_TOOLS_SETTINGS, OnToolsSettings)
 	ON_COMMAND(ID_TOOLS_ABOUT, OnToolsAbout)
@@ -167,8 +167,8 @@ void CConvertorDlg::Initialise()
 	RetrieveConfiguration();
 	OnChangeModes();
 
-	Value1.SetFocus();
-	Value1.SetSel(0, -1);
+	Value0.SetFocus();
+	Value0.SetSel(0, -1);
 }
 
 void CConvertorDlg::RetrieveConfiguration()
@@ -287,6 +287,7 @@ void CConvertorDlg::UpdateControls()
 {
 	if (IsValidInterface())
 	{
+		SetWindowFloat(Value0.GetSafeHwnd(),  GetCurrentInterface()->getValue0());
 		SetWindowFloat(Value1.GetSafeHwnd(),  GetCurrentInterface()->getValue1());
 		SetWindowFloat(Value2.GetSafeHwnd(),  GetCurrentInterface()->getValue2());
 		SetWindowFloat(Value3.GetSafeHwnd(),  GetCurrentInterface()->getValue3());
@@ -302,7 +303,6 @@ void CConvertorDlg::UpdateControls()
 		SetWindowFloat(Value13.GetSafeHwnd(), GetCurrentInterface()->getValue13());
 		SetWindowFloat(Value14.GetSafeHwnd(), GetCurrentInterface()->getValue14());
 		SetWindowFloat(Value15.GetSafeHwnd(), GetCurrentInterface()->getValue15());
-		SetWindowFloat(Value16.GetSafeHwnd(), GetCurrentInterface()->getValue16());
 	}
 }
 
@@ -381,6 +381,15 @@ void CConvertorDlg::OnChangeModes()
 	UpdateControls();
 	UpdateWindowSize();
 	UpdateWindowPos();
+}
+
+void CConvertorDlg::OnChangeValue0()
+{
+	if (IsValidInterface())
+	{
+		GetCurrentInterface()->setValue0(GetWindowFloat(Value0.GetSafeHwnd()));
+		UpdateControls();
+	}
 }
 
 void CConvertorDlg::OnChangeValue1()
@@ -518,15 +527,6 @@ void CConvertorDlg::OnChangeValue15()
 	}
 }
 
-void CConvertorDlg::OnChangeValue16()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue16(GetWindowFloat(Value16.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
 void CConvertorDlg::OnReturnKey()
 {
 	CWnd *p = GetFocus();
@@ -535,6 +535,10 @@ void CConvertorDlg::OnReturnKey()
 	{
 		switch (p->GetDlgCtrlID())
 		{
+			case IDC_EDIT0:
+				OnChangeValue0();
+				break;
+
 			case IDC_EDIT1:
 				OnChangeValue1();
 				break;
@@ -593,10 +597,6 @@ void CConvertorDlg::OnReturnKey()
 
 			case IDC_EDIT15:
 				OnChangeValue15();
-				break;
-
-			case IDC_EDIT16:
-				OnChangeValue16();
 				break;
 		}
 	}

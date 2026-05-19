@@ -8,62 +8,62 @@ int InformationInterface::getValueCount() const
 	return (12);
 }
 
-double InformationInterface::getValue1() const
+double InformationInterface::getValue0() const
 {
 	return (i.getBits());
 }
 
-double InformationInterface::getValue2() const
+double InformationInterface::getValue1() const
 {
 	return (i.getBytes());
 }
 
-double InformationInterface::getValue3() const
+double InformationInterface::getValue2() const
 {
 	return (i.getKB());
 }
 
-double InformationInterface::getValue4() const
+double InformationInterface::getValue3() const
 {
 	return (i.getMB());
 }
 
-double InformationInterface::getValue5() const
+double InformationInterface::getValue4() const
 {
 	return (i.getGB());
 }
 
-double InformationInterface::getValue6() const
+double InformationInterface::getValue5() const
 {
 	return (i.getTB());
 }
 
-double InformationInterface::getValue7() const
+double InformationInterface::getValue6() const
 {
 	return (i.getPB());
 }
 
-double InformationInterface::getValue8() const
+double InformationInterface::getValue7() const
 {
 	return (i.getEB());
 }
 
-double InformationInterface::getValue9() const
+double InformationInterface::getValue8() const
 {
 	return (i.getZB());
 }
 
-double InformationInterface::getValue10() const
+double InformationInterface::getValue9() const
 {
 	return (i.getYB());
 }
 
-double InformationInterface::getValue11() const
+double InformationInterface::getValue10() const
 {
 	return (i.getRB());
 }
 
-double InformationInterface::getValue12() const
+double InformationInterface::getValue11() const
 {
 	return (i.getQB());
 }
@@ -78,62 +78,62 @@ const wchar_t *InformationInterface::getAbbreviation(int i) const
 	return (ConversionInterface::getAbbreviation(i));
 }
 
-void InformationInterface::setValue1(double x)
+void InformationInterface::setValue0(double x)
 {
 	i.setBits(x);
 }
 
-void InformationInterface::setValue2(double x)
+void InformationInterface::setValue1(double x)
 {
 	i.setBytes(x);
 }
 
-void InformationInterface::setValue3(double x)
+void InformationInterface::setValue2(double x)
 {
 	i.setKB(x);
 }
 
-void InformationInterface::setValue4(double x)
+void InformationInterface::setValue3(double x)
 {
 	i.setMB(x);
 }
 
-void InformationInterface::setValue5(double x)
+void InformationInterface::setValue4(double x)
 {
 	i.setGB(x);
 }
 
-void InformationInterface::setValue6(double x)
+void InformationInterface::setValue5(double x)
 {
 	i.setTB(x);
 }
 
-void InformationInterface::setValue7(double x)
+void InformationInterface::setValue6(double x)
 {
 	i.setPB(x);
 }
 
-void InformationInterface::setValue8(double x)
+void InformationInterface::setValue7(double x)
 {
 	i.setEB(x);
 }
 
-void InformationInterface::setValue9(double x)
+void InformationInterface::setValue8(double x)
 {
 	i.setZB(x);
 }
 
-void InformationInterface::setValue10(double x)
+void InformationInterface::setValue9(double x)
 {
 	i.setYB(x);
 }
 
-void InformationInterface::setValue11(double x)
+void InformationInterface::setValue10(double x)
 {
 	i.setRB(x);
 }
 
-void InformationInterface::setValue12(double x)
+void InformationInterface::setValue11(double x)
 {
 	i.setQB(x);
 }

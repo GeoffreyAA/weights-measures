@@ -9,6 +9,7 @@ class InformationInterface : public ConversionInterface
 public:
 	int getValueCount() const;
 
+	double getValue0() const;
 	double getValue1() const;
 	double getValue2() const;
 	double getValue3() const;
@@ -20,10 +21,10 @@ public:
 	double getValue9() const;
 	double getValue10() const;
 	double getValue11() const;
-	double getValue12() const;
 
 	const wchar_t *getAbbreviation(int i) const;
 
+	void setValue0(double x);
 	void setValue1(double x);
 	void setValue2(double x);
 	void setValue3(double x);
@@ -35,7 +36,6 @@ public:
 	void setValue9(double x);
 	void setValue10(double x);
 	void setValue11(double x);
-	void setValue12(double x);
 
 private:
 	Information i;

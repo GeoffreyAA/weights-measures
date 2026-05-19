@@ -8,47 +8,47 @@ int MetricInterface::getValueCount() const
 	return (9);
 }
 
-double MetricInterface::getValue1() const
+double MetricInterface::getValue0() const
 {
 	return (m.getNano());
 }
 
-double MetricInterface::getValue2() const
+double MetricInterface::getValue1() const
 {
 	return (m.getMicro());
 }
 
-double MetricInterface::getValue3() const
+double MetricInterface::getValue2() const
 {
 	return (m.getMilli());
 }
 
-double MetricInterface::getValue4() const
+double MetricInterface::getValue3() const
 {
 	return (m.getCenti());
 }
 
-double MetricInterface::getValue5() const
+double MetricInterface::getValue4() const
 {
 	return (m.getBase());
 }
 
-double MetricInterface::getValue6() const
+double MetricInterface::getValue5() const
 {
 	return (m.getKilo());
 }
 
-double MetricInterface::getValue7() const
+double MetricInterface::getValue6() const
 {
 	return (m.getMega());
 }
 
-double MetricInterface::getValue8() const
+double MetricInterface::getValue7() const
 {
 	return (m.getGiga());
 }
 
-double MetricInterface::getValue9() const
+double MetricInterface::getValue8() const
 {
 	return (m.getTera());
 }
@@ -63,47 +63,47 @@ const wchar_t *MetricInterface::getTitle(int i) const
 	return (ConversionInterface::getTitle(i));
 }
 
-void MetricInterface::setValue1(double x)
+void MetricInterface::setValue0(double x)
 {
 	m.setNano(x);
 }
 
-void MetricInterface::setValue2(double x)
+void MetricInterface::setValue1(double x)
 {
 	m.setMicro(x);
 }
 
-void MetricInterface::setValue3(double x)
+void MetricInterface::setValue2(double x)
 {
 	m.setMilli(x);
 }
 
-void MetricInterface::setValue4(double x)
+void MetricInterface::setValue3(double x)
 {
 	m.setCenti(x);
 }
 
-void MetricInterface::setValue5(double x)
+void MetricInterface::setValue4(double x)
 {
 	m.setBase(x);
 }
 
-void MetricInterface::setValue6(double x)
+void MetricInterface::setValue5(double x)
 {
 	m.setKilo(x);
 }
 
-void MetricInterface::setValue7(double x)
+void MetricInterface::setValue6(double x)
 {
 	m.setMega(x);
 }
 
-void MetricInterface::setValue8(double x)
+void MetricInterface::setValue7(double x)
 {
 	m.setGiga(x);
 }
 
-void MetricInterface::setValue9(double x)
+void MetricInterface::setValue8(double x)
 {
 	m.setTera(x);
 }
