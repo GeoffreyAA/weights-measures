@@ -22,6 +22,8 @@ public:
 	double getExa() const;
 	double getZetta() const;
 	double getYotta() const;
+	double getRonna() const;
+	double getQuetta() const;
 
 	void setNano(double x);
 	void setMicro(double x);
@@ -39,6 +41,8 @@ public:
 	void setExa(double x);
 	void setZetta(double x);
 	void setYotta(double x);
+	void setRonna(double x);
+	void setQuetta(double x);
 
 private:
 	double base;

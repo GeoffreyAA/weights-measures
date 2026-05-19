@@ -16,16 +16,18 @@ const double peta	= 1000000000000000.0;
 const double exa	= 1000000000000000000.0;
 const double zetta	= 1000000000000000000000.0;
 const double yotta	= 1000000000000000000000000.0;
+const double ronna  = 1000000000000000000000000000.0;
+const double quetta = 1000000000000000000000000000000.0;
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Metric::Metric(double Base) : base(Base)
 {
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 double Metric::getNano() const
 {
@@ -107,8 +109,18 @@ double Metric::getYotta() const
 	return (getBase() / yotta);
 }
 
+double Metric::getRonna() const
+{
+	return (getBase() / ronna);
+}
 
-///////////////////////////////////////////////////////////////
+double Metric::getQuetta() const
+{
+	return (getBase() / quetta);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Metric::setNano(double x)
 {
@@ -188,4 +200,14 @@ void Metric::setZetta(double x)
 void Metric::setYotta(double x)
 {
 	setBase(x * yotta);
+}
+
+void Metric::setRonna(double x)
+{
+	setBase(x * ronna);
+}
+
+void Metric::setQuetta(double x)
+{
+	setBase(x * quetta);
 }

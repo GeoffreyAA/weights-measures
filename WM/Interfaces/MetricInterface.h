@@ -18,6 +18,13 @@ public:
 	double getValue6() const;
 	double getValue7() const;
 	double getValue8() const;
+	double getValue9() const;
+	double getValue10() const;
+	double getValue11() const;
+	double getValue12() const;
+	double getValue13() const;
+	double getValue14() const;
+	double getValue15() const;
 
 	const wchar_t *getTitle(int i) const;
 
@@ -30,6 +37,13 @@ public:
 	void setValue6(double x);
 	void setValue7(double x);
 	void setValue8(double x);
+	void setValue9(double x);
+	void setValue10(double x);
+	void setValue11(double x);
+	void setValue12(double x);
+	void setValue13(double x);
+	void setValue14(double x);
+	void setValue15(double x);
 
 private:
 	Metric m;
