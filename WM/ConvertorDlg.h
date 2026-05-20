@@ -14,27 +14,12 @@ public:
 	enum { IDD = IDD_CONVERTOR_DIALOG };
 	CButton	Group;
 	CComboBox	Modes;
-	CEdit	Value0;
-	CEdit	Value1;
-	CEdit	Value2;
-	CEdit	Value3;
-	CEdit	Value4;
-	CEdit	Value5;
-	CEdit	Value6;
-	CEdit	Value7;
-	CEdit	Value8;
-	CEdit	Value9;
-	CEdit	Value10;
-	CEdit	Value11;
-	CEdit	Value12;
-	CEdit	Value13;
-	CEdit	Value14;
-	CEdit	Value15;
 	//}}AFX_DATA
 
 	//{{AFX_VIRTUAL(CConvertorDlg)
 	protected:
 	virtual void DoDataExchange(CDataExchange *pDX);
+	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
 	public:
 	virtual BOOL PreTranslateMessage(MSG *pMsg);
 	//}}AFX_VIRTUAL
@@ -59,6 +44,7 @@ protected:
 	void UpdateWindowSize();
 	void UpdateWindowPos();
 
+	void OnChangeValueX(int i);
 	void OnReturnKey();
 
 	//{{AFX_MSG(CConvertorDlg)
@@ -68,22 +54,6 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnClose();
 	afx_msg void OnChangeModes();
-	afx_msg void OnChangeValue0();
-	afx_msg void OnChangeValue1();
-	afx_msg void OnChangeValue2();
-	afx_msg void OnChangeValue3();
-	afx_msg void OnChangeValue4();
-	afx_msg void OnChangeValue5();
-	afx_msg void OnChangeValue6();
-	afx_msg void OnChangeValue7();
-	afx_msg void OnChangeValue8();
-	afx_msg void OnChangeValue9();
-	afx_msg void OnChangeValue10();
-	afx_msg void OnChangeValue11();
-	afx_msg void OnChangeValue12();
-	afx_msg void OnChangeValue13();
-	afx_msg void OnChangeValue14();
-	afx_msg void OnChangeValue15();
 	afx_msg void OnToolsCalculator();
 	afx_msg void OnToolsSettings();
 	afx_msg void OnToolsAbout();

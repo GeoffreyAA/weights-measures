@@ -39,22 +39,6 @@ void CConvertorDlg::DoDataExchange(CDataExchange *pDX)
 	//{{AFX_DATA_MAP(CConvertorDlg)
 	DDX_Control(pDX, IDC_GROUP1, Group);
 	DDX_Control(pDX, IDC_COMBO1, Modes);
-	DDX_Control(pDX, IDC_EDIT0,  Value0);
-	DDX_Control(pDX, IDC_EDIT1,  Value1);
-	DDX_Control(pDX, IDC_EDIT2,  Value2);
-	DDX_Control(pDX, IDC_EDIT3,  Value3);
-	DDX_Control(pDX, IDC_EDIT4,  Value4);
-	DDX_Control(pDX, IDC_EDIT5,  Value5);
-	DDX_Control(pDX, IDC_EDIT6,  Value6);
-	DDX_Control(pDX, IDC_EDIT7,  Value7);
-	DDX_Control(pDX, IDC_EDIT8,  Value8);
-	DDX_Control(pDX, IDC_EDIT9,  Value9);
-	DDX_Control(pDX, IDC_EDIT10, Value10);
-	DDX_Control(pDX, IDC_EDIT11, Value11);
-	DDX_Control(pDX, IDC_EDIT12, Value12);
-	DDX_Control(pDX, IDC_EDIT13, Value13);
-	DDX_Control(pDX, IDC_EDIT14, Value14);
-	DDX_Control(pDX, IDC_EDIT15, Value15);
 	//}}AFX_DATA_MAP
 }
 
@@ -63,22 +47,6 @@ BEGIN_MESSAGE_MAP(CConvertorDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_CBN_SELCHANGE(IDC_COMBO1, OnChangeModes)
-	ON_EN_KILLFOCUS(IDC_EDIT0,  OnChangeValue0)
-	ON_EN_KILLFOCUS(IDC_EDIT1,  OnChangeValue1)
-	ON_EN_KILLFOCUS(IDC_EDIT2,  OnChangeValue2)
-	ON_EN_KILLFOCUS(IDC_EDIT3,  OnChangeValue3)
-	ON_EN_KILLFOCUS(IDC_EDIT4,  OnChangeValue4)
-	ON_EN_KILLFOCUS(IDC_EDIT5,  OnChangeValue5)
-	ON_EN_KILLFOCUS(IDC_EDIT6,  OnChangeValue6)
-	ON_EN_KILLFOCUS(IDC_EDIT7,  OnChangeValue7)
-	ON_EN_KILLFOCUS(IDC_EDIT8,  OnChangeValue8)
-	ON_EN_KILLFOCUS(IDC_EDIT9,  OnChangeValue9)
-	ON_EN_KILLFOCUS(IDC_EDIT10, OnChangeValue10)
-	ON_EN_KILLFOCUS(IDC_EDIT11, OnChangeValue11)
-	ON_EN_KILLFOCUS(IDC_EDIT12, OnChangeValue12)
-	ON_EN_KILLFOCUS(IDC_EDIT13, OnChangeValue13)
-	ON_EN_KILLFOCUS(IDC_EDIT14, OnChangeValue14)
-	ON_EN_KILLFOCUS(IDC_EDIT15, OnChangeValue15)
 	ON_COMMAND(ID_TOOLS_CALCULATOR, OnToolsCalculator)
 	ON_COMMAND(ID_TOOLS_SETTINGS, OnToolsSettings)
 	ON_COMMAND(ID_TOOLS_ABOUT, OnToolsAbout)
@@ -167,8 +135,13 @@ void CConvertorDlg::Initialise()
 	RetrieveConfiguration();
 	OnChangeModes();
 
-	Value0.SetFocus();
-	Value0.SetSel(0, -1);
+	HWND h = ::GetDlgItem(GetSafeHwnd(), IDC_EDIT0);
+
+	if (h)
+	{
+		::SetFocus(h);
+		::SendMessage(h, EM_SETSEL, (WPARAM)0, (LPARAM)-1);
+	}
 }
 
 void CConvertorDlg::RetrieveConfiguration()
@@ -285,24 +258,17 @@ void CConvertorDlg::UpdateMenu()
 
 void CConvertorDlg::UpdateControls()
 {
-	if (IsValidInterface())
+	ConversionInterface *p = GetCurrentInterface();
+
+	if (p)
 	{
-		SetWindowFloat(Value0.GetSafeHwnd(),  GetCurrentInterface()->getValue0());
-		SetWindowFloat(Value1.GetSafeHwnd(),  GetCurrentInterface()->getValue1());
-		SetWindowFloat(Value2.GetSafeHwnd(),  GetCurrentInterface()->getValue2());
-		SetWindowFloat(Value3.GetSafeHwnd(),  GetCurrentInterface()->getValue3());
-		SetWindowFloat(Value4.GetSafeHwnd(),  GetCurrentInterface()->getValue4());
-		SetWindowFloat(Value5.GetSafeHwnd(),  GetCurrentInterface()->getValue5());
-		SetWindowFloat(Value6.GetSafeHwnd(),  GetCurrentInterface()->getValue6());
-		SetWindowFloat(Value7.GetSafeHwnd(),  GetCurrentInterface()->getValue7());
-		SetWindowFloat(Value8.GetSafeHwnd(),  GetCurrentInterface()->getValue8());
-		SetWindowFloat(Value9.GetSafeHwnd(),  GetCurrentInterface()->getValue9());
-		SetWindowFloat(Value10.GetSafeHwnd(), GetCurrentInterface()->getValue10());
-		SetWindowFloat(Value11.GetSafeHwnd(), GetCurrentInterface()->getValue11());
-		SetWindowFloat(Value12.GetSafeHwnd(), GetCurrentInterface()->getValue12());
-		SetWindowFloat(Value13.GetSafeHwnd(), GetCurrentInterface()->getValue13());
-		SetWindowFloat(Value14.GetSafeHwnd(), GetCurrentInterface()->getValue14());
-		SetWindowFloat(Value15.GetSafeHwnd(), GetCurrentInterface()->getValue15());
+		for (int i = 0; i < (sizeof(ValueList) / sizeof(ValueList[0])); i++)
+		{
+			if (i < p->getValueCount())
+				SetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
+			else
+				return;
+		}
 	}
 }
 
@@ -383,146 +349,13 @@ void CConvertorDlg::OnChangeModes()
 	UpdateWindowPos();
 }
 
-void CConvertorDlg::OnChangeValue0()
+void CConvertorDlg::OnChangeValueX(int i)
 {
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue0(GetWindowFloat(Value0.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
+	ASSERT((0 <= i) && (i < (sizeof(ValueList) / sizeof(ValueList[0]))));
 
-void CConvertorDlg::OnChangeValue1()
-{
 	if (IsValidInterface())
 	{
-		GetCurrentInterface()->setValue1(GetWindowFloat(Value1.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue2()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue2(GetWindowFloat(Value2.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue3()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue3(GetWindowFloat(Value3.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue4()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue4(GetWindowFloat(Value4.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue5()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue5(GetWindowFloat(Value5.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue6()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue6(GetWindowFloat(Value6.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue7()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue7(GetWindowFloat(Value7.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue8()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue8(GetWindowFloat(Value8.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue9()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue9(GetWindowFloat(Value9.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue10()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue10(GetWindowFloat(Value10.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue11()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue11(GetWindowFloat(Value11.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue12()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue12(GetWindowFloat(Value12.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue13()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue13(GetWindowFloat(Value13.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue14()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue14(GetWindowFloat(Value14.GetSafeHwnd()));
-		UpdateControls();
-	}
-}
-
-void CConvertorDlg::OnChangeValue15()
-{
-	if (IsValidInterface())
-	{
-		GetCurrentInterface()->setValue15(GetWindowFloat(Value15.GetSafeHwnd()));
+		GetCurrentInterface()->setValue(i, GetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i])));
 		UpdateControls();
 	}
 }
@@ -533,73 +366,35 @@ void CConvertorDlg::OnReturnKey()
 
 	if (p)
 	{
-		switch (p->GetDlgCtrlID())
+		for (int i = 0; i < (sizeof(ValueList) / sizeof(ValueList[0])); i++)
 		{
-			case IDC_EDIT0:
-				OnChangeValue0();
-				break;
-
-			case IDC_EDIT1:
-				OnChangeValue1();
-				break;
-
-			case IDC_EDIT2:
-				OnChangeValue2();
-				break;
-
-			case IDC_EDIT3:
-				OnChangeValue3();
-				break;
-
-			case IDC_EDIT4:
-				OnChangeValue4();
-				break;
-
-			case IDC_EDIT5:
-				OnChangeValue5();
-				break;
-
-			case IDC_EDIT6:
-				OnChangeValue6();
-				break;
-
-			case IDC_EDIT7:
-				OnChangeValue7();
-				break;
-
-			case IDC_EDIT8:
-				OnChangeValue8();
-				break;
-
-			case IDC_EDIT9:
-				OnChangeValue9();
-				break;
-
-			case IDC_EDIT10:
-				OnChangeValue10();
-				break;
-
-			case IDC_EDIT11:
-				OnChangeValue11();
-				break;
-
-			case IDC_EDIT12:
-				OnChangeValue12();
-				break;
-
-			case IDC_EDIT13:
-				OnChangeValue13();
-				break;
-
-			case IDC_EDIT14:
-				OnChangeValue14();
-				break;
-
-			case IDC_EDIT15:
-				OnChangeValue15();
-				break;
+			if (p->GetDlgCtrlID() == ValueList[i])
+			{
+				OnChangeValueX(i);
+				return;
+			}
 		}
 	}
+}
+
+BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
+{
+	switch (HIWORD(wParam))
+	{
+		case EN_KILLFOCUS:
+			for (int i = 0; i < (sizeof(ValueList) / sizeof(ValueList[0])); i++)
+			{
+				if (LOWORD(wParam) == ValueList[i])
+				{
+					OnChangeValueX(i);
+					break;
+				}
+			}
+
+			break;
+	}
+
+	return CDialog::OnCommand(wParam, lParam);
 }
 
 
