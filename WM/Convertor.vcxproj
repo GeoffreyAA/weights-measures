@@ -589,7 +589,6 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClCompile Include="Interfaces\AngleInterface.cpp" />
     <ClCompile Include="Interfaces\Area.cpp" />
     <ClCompile Include="Interfaces\AreaInterface.cpp" />
-    <ClCompile Include="Interfaces\Conversion.cpp" />
     <ClCompile Include="Interfaces\ConversionInterface.cpp" />
     <ClCompile Include="Interfaces\ConversionInterfaceFactory.cpp" />
     <ClCompile Include="Interfaces\DataRate.cpp" />
@@ -676,7 +675,6 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Interfaces\AngleInterface.h" />
     <ClInclude Include="Interfaces\Area.h" />
     <ClInclude Include="Interfaces\AreaInterface.h" />
-    <ClInclude Include="Interfaces\Conversion.h" />
     <ClInclude Include="Interfaces\ConversionInterface.h" />
     <ClInclude Include="Interfaces\ConversionInterfaceFactory.h" />
     <ClInclude Include="Interfaces\DataRate.h" />
