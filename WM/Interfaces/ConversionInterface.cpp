@@ -234,50 +234,66 @@ void ConversionInterface::setValue(int i, double x)
 	{
 		case 0:
 			setValue0(x);
+			break;
 
 		case 1:
 			setValue1(x);
+			break;
 
 		case 2:
 			setValue2(x);
+			break;
 
 		case 3:
 			setValue3(x);
+			break;
 
 		case 4:
 			setValue4(x);
+			break;
 
 		case 5:
 			setValue5(x);
+			break;
 
 		case 6:
 			setValue6(x);
+			break;
 
 		case 7:
 			setValue7(x);
+			break;
 
 		case 8:
 			setValue8(x);
+			break;
 
 		case 9:
 			setValue9(x);
+			break;
 
 		case 10:
 			setValue10(x);
+			break;
 
 		case 11:
 			setValue11(x);
+			break;
 
 		case 12:
 			setValue12(x);
+			break;
 
 		case 13:
 			setValue13(x);
+			break;
 
 		case 14:
 			setValue14(x);
+			break;
 
 		case 15:
 			setValue15(x);
+			break;
 	}
 }
