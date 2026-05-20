@@ -702,6 +702,7 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Interfaces\Temperature.h" />
     <ClInclude Include="Interfaces\TemperatureInterface.h" />
     <ClInclude Include="Interfaces\TestInterface.h" />
+    <ClInclude Include="Interfaces\TestZeroInterface.h" />
     <ClInclude Include="Interfaces\Time.h" />
     <ClInclude Include="Interfaces\TimeInterface.h" />
     <ClInclude Include="Interfaces\Volume.h" />

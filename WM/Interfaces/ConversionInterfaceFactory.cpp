@@ -22,6 +22,7 @@
 
 #ifdef _DEBUG
 #include "TestInterface.h"
+#include "TestZeroInterface.h"
 #endif
 
 ConversionInterfaceFactory::ConversionInterfaceFactory()
@@ -51,6 +52,7 @@ ConversionInterfaceFactory::ConversionInterfaceFactory()
 
 #ifdef _DEBUG
 	Interfaces.push_back(new InterfaceType(i++, L"TEST", new TestInterface));
+	Interfaces.push_back(new InterfaceType(i++, L"TEST_ZERO", new TestZeroInterface));
 #endif
 }
 
