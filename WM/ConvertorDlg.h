@@ -30,17 +30,19 @@ protected:
 	void SaveConfiguration();
 	void OnBeforeClose();
 
-	void AddModes();
-	int GetSelectedMode() const;
-	void SelectMode(int nType);
+	void SetupControls();
 
-	ConversionInterface *GetCurrentInterface() const;
-	void SetCurrentInterface(ConversionInterface *p);
+	int GetMode() const;
+	void SetMode(int nType);
+
+	ConversionInterface *GetInterface() const;
+	void SetInterface(ConversionInterface *p);
 	bool IsValidInterface() const;
 
 	void UpdateWindowTitle();
 	void UpdateMenu();
 	void UpdateControls();
+	void UpdateStrings();
 	void UpdateWindowSize();
 	void UpdateWindowPos();
 
@@ -64,7 +66,7 @@ protected:
 
 private:
 	ConversionInterfaceFactory Factory;
-	ConversionInterface *pCurrentInterface;
+	ConversionInterface *pInterface;
 	HICON hIcon;
 };
 

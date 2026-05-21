@@ -19,14 +19,18 @@ const int ValueList[] = {IDC_EDIT0,  IDC_EDIT1,  IDC_EDIT2,  IDC_EDIT3,  IDC_EDI
 const int TitleList[] = {IDC_TITLE0, IDC_TITLE1, IDC_TITLE2, IDC_TITLE3, IDC_TITLE4, IDC_TITLE5, IDC_TITLE6, IDC_TITLE7, IDC_TITLE8, IDC_TITLE9, IDC_TITLE10, IDC_TITLE11, IDC_TITLE12, IDC_TITLE13, IDC_TITLE14, IDC_TITLE15};
 const int AbrvList[]  = {IDC_ABRV0,  IDC_ABRV1,  IDC_ABRV2,  IDC_ABRV3,  IDC_ABRV4,  IDC_ABRV5,  IDC_ABRV6,  IDC_ABRV7,  IDC_ABRV8,  IDC_ABRV9,  IDC_ABRV10,  IDC_ABRV11,  IDC_ABRV12,  IDC_ABRV13,  IDC_ABRV14,  IDC_ABRV15};
 
-CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent), pCurrentInterface(NULL)
+const int ValueListSize = sizeof(ValueList) / sizeof(ValueList[0]);
+const int TitleListSize = sizeof(TitleList) / sizeof(TitleList[0]);
+const int AbrvListSize  = sizeof(AbrvList) / sizeof(AbrvList[0]);
+
+CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent), pInterface(NULL)
 {
 	//{{AFX_DATA_INIT(CConvertorDlg)
 	//}}AFX_DATA_INIT
 	hIcon = AfxGetApp()->LoadIcon(IDR_CONVERTOR_ICON);
 
-	ASSERT((sizeof(ValueList) / sizeof(ValueList[0])) == (sizeof(TitleList) / sizeof(TitleList[0])));
-	ASSERT((sizeof(TitleList) / sizeof(TitleList[0])) == (sizeof(AbrvList) / sizeof(AbrvList[0])));
+	ASSERT(ValueListSize == TitleListSize);
+	ASSERT(TitleListSize == AbrvListSize);
 }
 
 CConvertorDlg::~CConvertorDlg()
@@ -130,8 +134,7 @@ void CConvertorDlg::Initialise()
 	UpdateWindowTitle();
 	UpdateMenu();
 
-	AddModes();
-
+	SetupControls();
 	RetrieveConfiguration();
 	OnChangeModes();
 
@@ -151,15 +154,15 @@ void CConvertorDlg::RetrieveConfiguration()
 	if (!ConvertorDlgCfgSerialiser().Retrieve(Cfg, ConfigFile()))
 		Cfg = ConvertorDlgCfg();
 
-	SelectMode(Cfg.nConversionType);
-	::SetWindowPos(GetSafeHwnd(), NULL, Cfg.x, Cfg.y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+	SetMode(Cfg.nConversionType);
+	SetWindowPosition(GetSafeHwnd(), Cfg.x, Cfg.y);
 }
 
 void CConvertorDlg::SaveConfiguration()
 {
 	ConvertorDlgCfg Cfg;
 
-	Cfg.nConversionType = GetSelectedMode();
+	Cfg.nConversionType = GetMode();
 	Cfg.x = GetWindowLeft(GetSafeHwnd());
 	Cfg.y = GetWindowTop(GetSafeHwnd());
 
@@ -171,7 +174,7 @@ void CConvertorDlg::OnBeforeClose()
 	SaveConfiguration();
 }
 
-void CConvertorDlg::AddModes()
+void CConvertorDlg::SetupControls()
 {
 	Modes.ResetContent();
 
@@ -191,14 +194,14 @@ void CConvertorDlg::AddModes()
 	}
 }
 
-int CConvertorDlg::GetSelectedMode() const
+int CConvertorDlg::GetMode() const
 {
 	DWORD d = Modes.GetItemData(Modes.GetCurSel());
 
-	return ((d != CB_ERR) ? d : -1);
+	return (d != CB_ERR) ? d : -1;
 }
 
-void CConvertorDlg::SelectMode(int nType)
+void CConvertorDlg::SetMode(int nType)
 {
 	for (int i = 0; i < Modes.GetCount(); i++)
 	{
@@ -215,19 +218,19 @@ void CConvertorDlg::SelectMode(int nType)
 	}
 }
 
-ConversionInterface *CConvertorDlg::GetCurrentInterface() const
+ConversionInterface *CConvertorDlg::GetInterface() const
 {
-	return (pCurrentInterface);
+	return pInterface;
 }
 
-void CConvertorDlg::SetCurrentInterface(ConversionInterface *p)
+void CConvertorDlg::SetInterface(ConversionInterface *p)
 {
-	pCurrentInterface = p;
+	pInterface = p;
 }
 
 bool CConvertorDlg::IsValidInterface() const
 {
-	return (GetCurrentInterface() != NULL);
+	return GetInterface() != NULL;
 }
 
 void CConvertorDlg::UpdateWindowTitle()
@@ -258,40 +261,76 @@ void CConvertorDlg::UpdateMenu()
 
 void CConvertorDlg::UpdateControls()
 {
-	ConversionInterface *p = GetCurrentInterface();
+	ConversionInterface *p = GetInterface();
 
 	if (p)
 	{
-		for (int i = 0; i < (sizeof(ValueList) / sizeof(ValueList[0])); i++)
+		for (int i = 0; i < Min(p->getValueCount(), (int)ValueListSize); i++)
 		{
-			if (i < p->getValueCount())
-				SetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
-			else
-				return;
+			SetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
+		}
+	}
+}
+
+void CConvertorDlg::UpdateStrings()
+{
+	ConversionInterface *p = GetInterface();
+
+	if (p)
+	{
+		for (int i = 0; i < Min(p->getValueCount(), (int)TitleListSize); i++)
+		{
+			::SetDlgItemText(GetSafeHwnd(), TitleList[i], ResourceString(p->getTitle(i)));
+			::SetDlgItemText(GetSafeHwnd(), AbrvList[i], ResourceString(p->getAbbreviation(i)));
 		}
 	}
 }
 
 void CConvertorDlg::UpdateWindowSize()
 {
-	const HWND hDlg = GetSafeHwnd();
-	const HWND hGrp = Group.GetSafeHwnd();
+	const HWND hDlg  = GetSafeHwnd();
+	const HWND hGrp  = Group.GetSafeHwnd();
+	const HWND hTop  = ::GetDlgItem(hDlg, ValueList[0]);
+	const HWND hLast = ::GetDlgItem(hDlg, ValueList[ Clamp(1, ValueListSize, GetInterface()->getValueCount()) - 1 ]);
+
+	if (!hGrp || !hTop || !hLast)
+		return;
+
+	const int Bottom = GetWindowTop(hLast) +
+					   GetWindowHeight(hLast);
+
+	const int Space = GetWindowTop(hTop) - GetWindowTop(hGrp) +
+					  GetWindowLeft(hGrp) - GetWindowLeft(hDlg);
+
+	SetWindowHeight(hDlg, Bottom + Space - GetWindowTop(hDlg));
+
+	SetWindowHeight(hGrp, GetWindowTop(hTop) -
+						  GetWindowTop(hGrp) +
+						  Bottom -
+						  GetWindowTop(hGrp));
+}
+
+/*
+void CConvertorDlg::UpdateWindowSize()
+{
+	HWND hDlg = GetSafeHwnd();
+	HWND hGrp = Group.GetSafeHwnd();
 
 	for (int i = sizeof(ValueList) / sizeof(ValueList[0]) - 1; i >= 0; i--)
 	{
-		const HWND hTop  = ::GetDlgItem(hDlg, ValueList[0]);
-		const HWND hLast = ::GetDlgItem(hDlg, ValueList[i]);
+		HWND hTop  = ::GetDlgItem(hDlg, ValueList[0]);
+		HWND hLast = ::GetDlgItem(hDlg, ValueList[i]);
 
 		if (!hTop || !hLast)
 			return;
 
 		if (::IsWindowEnabled(hLast))
 		{
-			const int Bottom = GetWindowTop(hLast) +
-							   GetWindowHeight(hLast);
+			int Bottom = GetWindowTop(hLast) +
+						 GetWindowHeight(hLast);
 
-			const int Space = GetWindowTop(hTop) - GetWindowTop(hGrp) +
-							  GetWindowLeft(hGrp) - GetWindowLeft(hDlg);
+			int Space = GetWindowTop(hTop) - GetWindowTop(hGrp) +
+						GetWindowLeft(hGrp) - GetWindowLeft(hDlg);
 
 			SetWindowHeight(hDlg, Bottom + Space - GetWindowTop(hDlg));
 
@@ -304,6 +343,7 @@ void CConvertorDlg::UpdateWindowSize()
 		}
 	}
 }
+*/
 
 void CConvertorDlg::UpdateWindowPos()
 {
@@ -323,39 +363,31 @@ void CConvertorDlg::UpdateWindowPos()
 
 void CConvertorDlg::OnChangeModes()
 {
-	SetCurrentInterface(Factory.getConversionInterface(GetSelectedMode()));
-	HWND hDlg = GetSafeHwnd();
+	SetInterface(Factory.getConversionInterface(GetMode()));
 
-	for (int i = 0; i < (sizeof(ValueList) / sizeof(ValueList[0])); i++)
+	for (int i = 0; i < ValueListSize; i++)
 	{
-		const bool bEnable = i < (IsValidInterface() ? GetCurrentInterface()->getValueCount() : 0);
+		const bool bEnable = i < (IsValidInterface() ? GetInterface()->getValueCount() : 0);
 		const int nCmdShow = bEnable ? SW_SHOW : SW_HIDE;
 
-		::EnableWindow(::GetDlgItem(hDlg, ValueList[i]), bEnable);
-		::ShowWindow(::GetDlgItem(hDlg, ValueList[i]), nCmdShow);
-
-		if (bEnable)
-		{
-			::SetDlgItemText(hDlg, TitleList[i], ResourceString(GetCurrentInterface()->getTitle(i)));
-			::SetDlgItemText(hDlg, AbrvList[i], ResourceString(GetCurrentInterface()->getAbbreviation(i)));
-		}
-
-		::ShowWindow(::GetDlgItem(hDlg, TitleList[i]), nCmdShow);
-		::ShowWindow(::GetDlgItem(hDlg, AbrvList[i]), nCmdShow);
+		::ShowWindow(::GetDlgItem(GetSafeHwnd(), ValueList[i]), nCmdShow);
+		::ShowWindow(::GetDlgItem(GetSafeHwnd(), TitleList[i]), nCmdShow);
+		::ShowWindow(::GetDlgItem(GetSafeHwnd(), AbrvList[i]),  nCmdShow);
 	}
 
 	UpdateControls();
+	UpdateStrings();
 	UpdateWindowSize();
 	UpdateWindowPos();
 }
 
 void CConvertorDlg::OnChangeValueX(int i)
 {
-	ASSERT((0 <= i) && (i < (sizeof(ValueList) / sizeof(ValueList[0]))));
+	ASSERT((0 <= i) && (i < ValueListSize));
 
 	if (IsValidInterface())
 	{
-		GetCurrentInterface()->setValue(i, GetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i])));
+		GetInterface()->setValue(i, GetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i])));
 		UpdateControls();
 	}
 }
@@ -366,7 +398,7 @@ void CConvertorDlg::OnReturnKey()
 
 	if (p)
 	{
-		for (int i = 0; i < (sizeof(ValueList) / sizeof(ValueList[0])); i++)
+		for (int i = 0; i < ValueListSize; i++)
 		{
 			if (p->GetDlgCtrlID() == ValueList[i])
 			{
@@ -382,7 +414,7 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 	switch (HIWORD(wParam))
 	{
 		case EN_KILLFOCUS:
-			for (int i = 0; i < (sizeof(ValueList) / sizeof(ValueList[0])); i++)
+			for (int i = 0; i < ValueListSize; i++)
 			{
 				if (LOWORD(wParam) == ValueList[i])
 				{
@@ -421,12 +453,12 @@ void CConvertorDlg::OnToolsSettings()
 {
 	if (CSettingsDlg().DoModal() == IDOK)
 	{
-		const int m = GetSelectedMode();
+		const int m = GetMode();
 
 		UpdateWindowTitle();
 		UpdateMenu();
-		AddModes();
-		SelectMode(m);
+		SetupControls();
+		SetMode(m);
 		OnChangeModes();
 	}
 }
