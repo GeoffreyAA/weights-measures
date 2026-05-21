@@ -23,12 +23,6 @@ END_MESSAGE_MAP()
 
 BOOL CConvertorApp::InitInstance()
 {
-#ifdef _AFXDLL
-	Enable3dControls();
-#else
-	Enable3dControlsStatic();
-#endif
-
 	CConvertorDlg Main;
 	m_pMainWnd = &Main;
 
