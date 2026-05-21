@@ -5,8 +5,6 @@ A unit converter for Windows, with an extensible design, allowing categories and
 
 <img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
 
-Internally, it uses the 64-bit `double` type.
-
 
 Notes
 -----
