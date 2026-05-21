@@ -30,7 +30,7 @@ CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParen
 	hIcon = AfxGetApp()->LoadIcon(IDR_CONVERTOR_ICON);
 
 	ASSERT(ValueListSize == TitleListSize);
-	ASSERT(TitleListSize == AbrvListSize);
+	ASSERT(ValueListSize == AbrvListSize);
 }
 
 CConvertorDlg::~CConvertorDlg()
@@ -310,41 +310,6 @@ void CConvertorDlg::UpdateWindowSize()
 						  GetWindowTop(hGrp));
 }
 
-/*
-void CConvertorDlg::UpdateWindowSize()
-{
-	HWND hDlg = GetSafeHwnd();
-	HWND hGrp = Group.GetSafeHwnd();
-
-	for (int i = sizeof(ValueList) / sizeof(ValueList[0]) - 1; i >= 0; i--)
-	{
-		HWND hTop  = ::GetDlgItem(hDlg, ValueList[0]);
-		HWND hLast = ::GetDlgItem(hDlg, ValueList[i]);
-
-		if (!hTop || !hLast)
-			return;
-
-		if (::IsWindowEnabled(hLast))
-		{
-			int Bottom = GetWindowTop(hLast) +
-						 GetWindowHeight(hLast);
-
-			int Space = GetWindowTop(hTop) - GetWindowTop(hGrp) +
-						GetWindowLeft(hGrp) - GetWindowLeft(hDlg);
-
-			SetWindowHeight(hDlg, Bottom + Space - GetWindowTop(hDlg));
-
-			SetWindowHeight(hGrp, GetWindowTop(hTop) -
-								  GetWindowTop(hGrp) +
-								  Bottom -
-								  GetWindowTop(hGrp));
-
-			return;
-		}
-	}
-}
-*/
-
 void CConvertorDlg::UpdateWindowPos()
 {
 	const HWND hDlg = GetSafeHwnd();
@@ -438,7 +403,7 @@ void CConvertorDlg::OnToolsCalculator()
 
 	const UINT cbSize = sizeof(c) / sizeof(c[0]);
 
-	UINT n = GetSystemDirectory(c, cbSize);
+	const UINT n = GetSystemDirectory(c, cbSize);
 
 	if ((0 < n) && (n < cbSize) && AddFileName(c, L"calc.exe", cbSize))
 	{
