@@ -83,7 +83,7 @@ ConversionInterface *ConversionInterfaceFactory::getConversionInterface(int nTyp
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ConversionInterfaceFactory::InterfaceType::InterfaceType(int nType, const wchar_t *pszName, ConversionInterface *pInterface) : Type(nType), Name(pszName), Interface(pInterface)
 {
