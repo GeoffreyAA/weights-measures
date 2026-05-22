@@ -23,6 +23,9 @@ const int ValueListSize = sizeof(ValueList) / sizeof(ValueList[0]);
 const int TitleListSize = sizeof(TitleList) / sizeof(TitleList[0]);
 const int AbrvListSize  = sizeof(AbrvList) / sizeof(AbrvList[0]);
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent), pInterface(NULL)
 {
 	//{{AFX_DATA_INIT(CConvertorDlg)
@@ -30,7 +33,7 @@ CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParen
 	hIcon = AfxGetApp()->LoadIcon(IDR_CONVERTOR_ICON);
 
 	ASSERT(ValueListSize == TitleListSize);
-	ASSERT(ValueListSize == AbrvListSize);
+	ASSERT(TitleListSize == AbrvListSize);
 }
 
 CConvertorDlg::~CConvertorDlg()
@@ -265,7 +268,7 @@ void CConvertorDlg::UpdateControls()
 
 	if (p)
 	{
-		for (int i = 0; i < Min(p->getValueCount(), (int)ValueListSize); i++)
+		for (int i = 0; i < Min(p->getValueCount(), ValueListSize); i++)
 		{
 			SetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
 		}
@@ -278,7 +281,7 @@ void CConvertorDlg::UpdateStrings()
 
 	if (p)
 	{
-		for (int i = 0; i < Min(p->getValueCount(), (int)TitleListSize); i++)
+		for (int i = 0; i < Min(p->getValueCount(), TitleListSize); i++)
 		{
 			::SetDlgItemText(GetSafeHwnd(), TitleList[i], ResourceString(p->getTitle(i)));
 			::SetDlgItemText(GetSafeHwnd(), AbrvList[i], ResourceString(p->getAbbreviation(i)));
@@ -288,19 +291,19 @@ void CConvertorDlg::UpdateStrings()
 
 void CConvertorDlg::UpdateWindowSize()
 {
-	const HWND hDlg  = GetSafeHwnd();
-	const HWND hGrp  = Group.GetSafeHwnd();
-	const HWND hTop  = ::GetDlgItem(hDlg, ValueList[0]);
-	const HWND hLast = ::GetDlgItem(hDlg, ValueList[ Clamp(1, ValueListSize, GetInterface()->getValueCount()) - 1 ]);
+	HWND hDlg  = GetSafeHwnd();
+	HWND hGrp  = Group.GetSafeHwnd();
+	HWND hTop  = ::GetDlgItem(hDlg, ValueList[0]);
+	HWND hLast = ::GetDlgItem(hDlg, ValueList[ Clamp(1, ValueListSize, GetInterface()->getValueCount()) - 1 ]);
 
 	if (!hGrp || !hTop || !hLast)
 		return;
 
-	const int Bottom = GetWindowTop(hLast) +
-					   GetWindowHeight(hLast);
+	int Bottom = GetWindowTop(hLast) +
+				 GetWindowHeight(hLast);
 
-	const int Space = GetWindowTop(hTop) - GetWindowTop(hGrp) +
-					  GetWindowLeft(hGrp) - GetWindowLeft(hDlg);
+	int Space = GetWindowTop(hTop) - GetWindowTop(hGrp) +
+				GetWindowLeft(hGrp) - GetWindowLeft(hDlg);
 
 	SetWindowHeight(hDlg, Bottom + Space - GetWindowTop(hDlg));
 
