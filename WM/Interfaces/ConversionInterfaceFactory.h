@@ -27,12 +27,12 @@ public:
 		ConversionInterface *const Interface;
 	};
 
-	typedef std::vector<InterfaceType *> InterfaceListType;
+	typedef std::vector<InterfaceType *> InterfaceTypeList;
 
 	ConversionInterfaceFactory();
 	~ConversionInterfaceFactory();
 
-	const InterfaceListType& getInterfaces() const;
+	const InterfaceTypeList& getInterfaces() const;
 	ConversionInterface *getConversionInterface(int nType);
 
 private:
@@ -40,7 +40,7 @@ private:
 	ConversionInterfaceFactory& operator=(const ConversionInterfaceFactory &);
 
 private:
-	InterfaceListType Interfaces;
+	InterfaceTypeList Interfaces;
 };
 
 #endif

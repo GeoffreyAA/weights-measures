@@ -181,9 +181,9 @@ void CConvertorDlg::SetupControls()
 {
 	Modes.ResetContent();
 
-	const ConversionInterfaceFactory::InterfaceListType &r = Factory.getInterfaces();
+	const ConversionInterfaceFactory::InterfaceTypeList &r = Factory.getInterfaces();
 
-	for (ConversionInterfaceFactory::InterfaceListType::const_iterator i = r.begin(); i != r.end(); i++)
+	for (ConversionInterfaceFactory::InterfaceTypeList::const_iterator i = r.begin(); i != r.end(); i++)
 	{
 		if (*i)
 		{

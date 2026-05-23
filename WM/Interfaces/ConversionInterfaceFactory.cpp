@@ -61,14 +61,14 @@ ConversionInterfaceFactory::~ConversionInterfaceFactory()
 	DeleteAll(Interfaces.begin(), Interfaces.end());
 }
 
-const ConversionInterfaceFactory::InterfaceListType& ConversionInterfaceFactory::getInterfaces() const
+const ConversionInterfaceFactory::InterfaceTypeList& ConversionInterfaceFactory::getInterfaces() const
 {
 	return (Interfaces);
 }
 
 ConversionInterface *ConversionInterfaceFactory::getConversionInterface(int nType)
 {
-	for (InterfaceListType::const_iterator i = Interfaces.begin(); i != Interfaces.end(); i++)
+	for (InterfaceTypeList::const_iterator i = Interfaces.begin(); i != Interfaces.end(); i++)
 	{
 		if (*i)
 		{
