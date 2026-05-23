@@ -51,18 +51,21 @@
     <PlatformToolset>v145</PlatformToolset>
     <UseOfMfc>Static</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-XP|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141_xp</PlatformToolset>
     <UseOfMfc>Static</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v145</PlatformToolset>
     <UseOfMfc>Static</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -75,6 +78,7 @@
     <PlatformToolset>v141_xp</PlatformToolset>
     <UseOfMfc>Static</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-XP|ARM64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -327,6 +331,7 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <DebugInformationFormat>None</DebugInformationFormat>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <PreLinkEvent>
       <Command>"$(OutDir)Radiance.exe"
@@ -353,6 +358,7 @@ cl /nologo /c /Zl /Fo"$(OutDir)\" Build.c</Command>
       <EntryPointSymbol>wWinMainCRTStartup</EntryPointSymbol>
       <AdditionalDependencies>$(OutDir)Build.obj</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Manifest>
       <EnableDpiAwareness>false</EnableDpiAwareness>
@@ -373,6 +379,7 @@ cl /nologo /c /Zl /Fo"$(OutDir)\" Build.c</Command>
       <DebugInformationFormat>None</DebugInformationFormat>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <PreLinkEvent>
       <Command>"$(OutDir)Radiance.exe"
@@ -399,6 +406,7 @@ cl /nologo /c /Zl /Fo"$(OutDir)\" Build.c</Command>
       <EntryPointSymbol>wWinMainCRTStartup</EntryPointSymbol>
       <AdditionalDependencies>$(OutDir)Build.obj</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Manifest>
       <EnableDpiAwareness>false</EnableDpiAwareness>
@@ -418,6 +426,7 @@ cl /nologo /c /Zl /Fo"$(OutDir)\" Build.c</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <DebugInformationFormat>None</DebugInformationFormat>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <PreLinkEvent>
       <Command>"$(OutDir)Radiance.exe"
@@ -443,6 +452,7 @@ cl /nologo /c /Zl /Fo"$(OutDir)\" Build.c</Command>
       <EntryPointSymbol>wWinMainCRTStartup</EntryPointSymbol>
       <AdditionalDependencies>$(OutDir)Build.obj</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Manifest>
       <EnableDpiAwareness>false</EnableDpiAwareness>
@@ -506,6 +516,7 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <DebugInformationFormat>None</DebugInformationFormat>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <PreLinkEvent>
       <Command>"$(OutDir)Radiance.exe"
@@ -531,6 +542,7 @@ cl /nologo /c /Zl /Fo"$(OutDir)\" Build.c</Command>
       <EntryPointSymbol>wWinMainCRTStartup</EntryPointSymbol>
       <AdditionalDependencies>$(OutDir)Build.obj</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Manifest>
       <EnableDpiAwareness>false</EnableDpiAwareness>
