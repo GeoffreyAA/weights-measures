@@ -14,6 +14,7 @@
 #include "Library\ResourceString.h"
 #include "Library\Templates.h"
 #include "Library\Win32Library.h"
+#include <intsafe.h>
 
 const int ValueList[] = {IDC_EDIT0,  IDC_EDIT1,  IDC_EDIT2,  IDC_EDIT3,  IDC_EDIT4,  IDC_EDIT5,  IDC_EDIT6,  IDC_EDIT7,  IDC_EDIT8,  IDC_EDIT9,  IDC_EDIT10,  IDC_EDIT11,  IDC_EDIT12,  IDC_EDIT13,  IDC_EDIT14,  IDC_EDIT15};
 const int TitleList[] = {IDC_TITLE0, IDC_TITLE1, IDC_TITLE2, IDC_TITLE3, IDC_TITLE4, IDC_TITLE5, IDC_TITLE6, IDC_TITLE7, IDC_TITLE8, IDC_TITLE9, IDC_TITLE10, IDC_TITLE11, IDC_TITLE12, IDC_TITLE13, IDC_TITLE14, IDC_TITLE15};
@@ -199,18 +200,23 @@ void CConvertorDlg::SetupControls()
 
 int CConvertorDlg::GetMode() const
 {
-	DWORD d = Modes.GetItemData(Modes.GetCurSel());
+	DWORD_PTR dw = Modes.GetItemData(Modes.GetCurSel());
+	int n;
 
-	return (d != CB_ERR) ? d : -1;
+	if ((dw != CB_ERR) && (DWordPtrToInt(dw, &n) == S_OK))
+		return n;
+
+	return -1;
 }
 
 void CConvertorDlg::SetMode(int nType)
 {
 	for (int i = 0; i < Modes.GetCount(); i++)
 	{
-		DWORD d = Modes.GetItemData(i);
+		DWORD_PTR dw = Modes.GetItemData(i);
+		int n;
 
-		if ((d != CB_ERR) && (d == nType))
+		if ((dw != CB_ERR) && (DWordPtrToInt(dw, &n) == S_OK) && (n == nType))
 		{
 			Modes.SetCurSel(i);
 
