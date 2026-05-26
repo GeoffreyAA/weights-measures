@@ -411,7 +411,6 @@ void CConvertorDlg::OnToolsCalculator()
 	wchar_t c[MAX_PATH];
 
 	const UINT cbSize = sizeof(c) / sizeof(c[0]);
-
 	const UINT n = GetSystemDirectory(c, cbSize);
 
 	if ((0 < n) && (n < cbSize) && AddFileName(c, L"calc.exe", cbSize))
