@@ -40,3 +40,7 @@ The sources of information used at some time or other include:
 * *The Pocket Oxford Dictionary of Current English,* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
 * *[The Book of Knowledge](https://en.wikipedia.org/wiki/Cassell%27s_Book_of_Knowledge)*, ed. Gordon Stowell (5th edition, revised impression, London: The Waverley Book Company Ltd., 1957).
 * Furey, Edward. "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators
+
+---
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Palestina_Libre.jpg/960px-Palestina_Libre.jpg" alt="Watermelon" />
