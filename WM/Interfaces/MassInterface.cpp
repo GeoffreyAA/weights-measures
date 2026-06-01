@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_GRAMS", L"IDS_TITLE_OUNCES", L"IDS_TITLE_POUNDS", L"IDS_TITLE_KILOGRAMS", L"IDS_TITLE_STONE", L"IDS_TITLE_TONNES", L"IDS_TITLE_TONS"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_GRAMS", L"IDS_ABRV_OUNCES", L"IDS_ABRV_POUNDS", L"IDS_ABRV_KILOGRAMS", L"IDS_ABRV_STONE", L"IDS_ABRV_TONNES", L"IDS_ABRV_TONS"};
 
+const wchar_t *MassInterface::getName() const
+{
+	return (L"IDS_MASS");
+}
+
 int MassInterface::getValueCount() const
 {
 	return (7);

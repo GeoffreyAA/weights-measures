@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_BTU_ISO", L"IDS_TITLE_CALORIES", L"IDS_TITLE_JOULES", L"IDS_TITLE_KILOJOULES", L"IDS_TITLE_FOOT_POUND_FORCE", L"IDS_TITLE_KILOWATT_HOURS", L"IDS_TITLE_ERGS", L"IDS_TITLE_ELECTRONVOLTS"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BTU_ISO", L"IDS_ABRV_CALORIES", L"IDS_ABRV_JOULES", L"IDS_ABRV_KILOJOULES", L"IDS_ABRV_FOOT_POUND_FORCE", L"IDS_ABRV_KILOWATT_HOURS", L"IDS_ABRV_ERGS", L"IDS_ABRV_ELECTRONVOLTS"};
 
+const wchar_t *EnergyInterface::getName() const
+{
+	return (L"IDS_ENERGY");
+}
+
 int EnergyInterface::getValueCount() const
 {
 	return (8);

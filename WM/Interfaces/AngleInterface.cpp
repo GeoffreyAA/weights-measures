@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_GRADIANS", L"IDS_TITLE_DEGREES", L"IDS_TITLE_RADIANS", L"IDS_TITLE_TURNS"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_GRADIANS", L"IDS_ABRV_DEGREES", L"IDS_ABRV_RADIANS", L"IDS_ABRV_TURNS"};
 
+const wchar_t *AngleInterface::getName() const
+{
+	return (L"IDS_ANGLE");
+}
+
 int AngleInterface::getValueCount() const
 {
 	return (4);

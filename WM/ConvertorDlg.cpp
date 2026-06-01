@@ -182,9 +182,9 @@ void CConvertorDlg::SetupControls()
 {
 	Modes.ResetContent();
 
-	const ConversionInterfaceFactory::InterfaceTypeList &r = Factory.getInterfaces();
+	const ConversionInterfaceFactory::InterfaceList &r = Factory.getInterfaces();
 
-	for (ConversionInterfaceFactory::InterfaceTypeList::const_iterator i = r.begin(); i != r.end(); i++)
+	for (ConversionInterfaceFactory::InterfaceList::const_iterator i = r.begin(); i != r.end(); i++)
 	{
 		if (*i)
 		{
@@ -300,7 +300,7 @@ void CConvertorDlg::UpdateWindowSize()
 	HWND hDlg  = GetSafeHwnd();
 	HWND hGrp  = Group.GetSafeHwnd();
 	HWND hTop  = ::GetDlgItem(hDlg, ValueList[0]);
-	HWND hLast = ::GetDlgItem(hDlg, ValueList[ Clamp(1, ValueListSize, GetInterface()->getValueCount()) - 1 ]);
+	HWND hLast = ::GetDlgItem(hDlg, ValueList[ Clamp(1, ValueListSize, IsValidInterface() ? GetInterface()->getValueCount() : 0) - 1 ]);
 
 	if (!hGrp || !hTop || !hLast)
 		return;

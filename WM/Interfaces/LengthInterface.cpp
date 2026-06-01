@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_MILLIMETRES", L"IDS_TITLE_CENTIMETRES", L"IDS_TITLE_INCHES", L"IDS_TITLE_FEET", L"IDS_TITLE_YARDS", L"IDS_TITLE_METRES", L"IDS_TITLE_KILOMETRES", L"IDS_TITLE_MILES"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_MILLIMETRES", L"IDS_ABRV_CENTIMETRES", L"IDS_ABRV_INCHES", L"IDS_ABRV_FEET", L"IDS_ABRV_YARDS", L"IDS_ABRV_METRES", L"IDS_ABRV_KILOMETRES", L"IDS_ABRV_MILES"};
 
+const wchar_t *LengthInterface::getName() const
+{
+	return (L"IDS_LENGTH");
+}
+
 int LengthInterface::getValueCount() const
 {
 	return (8);

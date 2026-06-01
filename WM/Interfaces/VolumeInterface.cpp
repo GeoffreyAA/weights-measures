@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_MILLILITRES", L"IDS_TITLE_LITRES", L"IDS_TITLE_TEASPOONS_METRIC", L"IDS_TITLE_TABLESPOONS_METRIC", L"IDS_TITLE_CUPS_METRIC"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_MILLILITRES", L"IDS_ABRV_LITRES", L"IDS_ABRV_TEASPOONS_METRIC", L"IDS_ABRV_TABLESPOONS_METRIC", L"IDS_ABRV_CUPS_METRIC"};
 
+const wchar_t *VolumeInterface::getName() const
+{
+	return (L"IDS_VOLUME");
+}
+
 int VolumeInterface::getValueCount() const
 {
 	return (5);

@@ -6,6 +6,11 @@
 class TestZeroInterface : public ConversionInterface
 {
 public:
+	const wchar_t *getName() const
+	{
+		return L"TEST_ZERO";
+	}
+
 	int getValueCount() const
 	{
 		return 0;

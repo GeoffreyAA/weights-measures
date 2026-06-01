@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_DIAGONAL", L"IDS_TITLE_PIXELS_W", L"IDS_TITLE_PIXELS_H", L""};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_DIAGONAL", L"IDS_ABRV_PIXELS_W", L"IDS_ABRV_PIXELS_H", L"IDS_ABRV_PPU"};
 
+const wchar_t *PixelDensityInterface::getName() const
+{
+	return (L"IDS_PIXEL_DENSITY");
+}
+
 int PixelDensityInterface::getValueCount() const
 {
 	return (4);

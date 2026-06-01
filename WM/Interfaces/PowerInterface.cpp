@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_BTU_H", L"IDS_TITLE_WATTS", L"IDS_TITLE_KILOWATTS", L"IDS_TITLE_HORSEPOWER_MECH"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BTU_H", L"IDS_ABRV_WATTS", L"IDS_ABRV_KILOWATTS", L"IDS_ABRV_HORSEPOWER_MECH"};
 
+const wchar_t *PowerInterface::getName() const
+{
+	return (L"IDS_POWER");
+}
+
 int PowerInterface::getValueCount() const
 {
 	return (4);

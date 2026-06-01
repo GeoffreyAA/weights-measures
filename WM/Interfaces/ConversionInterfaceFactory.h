@@ -7,40 +7,20 @@
 class ConversionInterfaceFactory
 {
 public:
-	class InterfaceType
-	{
-	public:
-		InterfaceType(int nType, const wchar_t *pszName, ConversionInterface *pInterface);
-		~InterfaceType();
-
-		int getType() const;
-		const wchar_t *getName() const;
-		ConversionInterface *getInterface() const;
-
-	private:
-		InterfaceType(const InterfaceType &);
-		InterfaceType& operator=(const InterfaceType &);
-
-	private:
-		const int Type;
-		const wchar_t *const Name;
-		ConversionInterface *const Interface;
-	};
-
-	typedef std::vector<InterfaceType *> InterfaceTypeList;
+	typedef std::vector<ConversionInterface *> InterfaceList;
 
 	ConversionInterfaceFactory();
 	~ConversionInterfaceFactory();
 
-	const InterfaceTypeList& getInterfaces() const;
-	ConversionInterface *getConversionInterface(int nType);
+	const InterfaceList& getInterfaces() const;
+	ConversionInterface *getConversionInterface(int Type);
 
 private:
 	ConversionInterfaceFactory(const ConversionInterfaceFactory &);
 	ConversionInterfaceFactory& operator=(const ConversionInterfaceFactory &);
 
 private:
-	InterfaceTypeList Interfaces;
+	InterfaceList Interfaces;
 };
 
 #endif

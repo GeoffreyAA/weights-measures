@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_MILLISECONDS", L"IDS_TITLE_SECONDS", L"IDS_TITLE_MINUTES", L"IDS_TITLE_HOURS", L"IDS_TITLE_DAYS", L"IDS_TITLE_WEEKS", L"IDS_TITLE_MONTHS", L"IDS_TITLE_YEARS"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_MILLISECONDS", L"IDS_ABRV_SECONDS", L"IDS_ABRV_MINUTES", L"IDS_ABRV_HOURS", L"IDS_ABRV_DAYS", L"IDS_ABRV_WEEKS", L"IDS_ABRV_MONTHS", L"IDS_ABRV_YEARS"};
 
+const wchar_t *TimeInterface::getName() const
+{
+	return (L"IDS_TIME");
+}
+
 int TimeInterface::getValueCount() const
 {
 	return (8);

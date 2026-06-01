@@ -27,32 +27,30 @@
 
 ConversionInterfaceFactory::ConversionInterfaceFactory()
 {
-	int i = 0;
-
 	Interfaces.reserve(18);
 
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_ANGLE", new AngleInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_AREA", new AreaInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_DATA_RATE", new DataRateInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_ENERGY", new EnergyInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_INFORMATION", new InformationInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_LENGTH", new LengthInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_MASS", new MassInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_METRIC", new MetricInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_PIXEL_DENSITY", new PixelDensityInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_POWER", new PowerInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_PRESSURE", new PressureInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_SPEED", new SpeedInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_STORAGE", new StorageInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_TEMPERATURE", new TemperatureInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_TIME", new TimeInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_VOLUME", new VolumeInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_VOLUME_UK", new VolumeUKInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"IDS_VOLUME_US", new VolumeUSInterface));
+	Interfaces.push_back(new AngleInterface);
+	Interfaces.push_back(new AreaInterface);
+	Interfaces.push_back(new DataRateInterface);
+	Interfaces.push_back(new EnergyInterface);
+	Interfaces.push_back(new InformationInterface);
+	Interfaces.push_back(new LengthInterface);
+	Interfaces.push_back(new MassInterface);
+	Interfaces.push_back(new MetricInterface);
+	Interfaces.push_back(new PixelDensityInterface);
+	Interfaces.push_back(new PowerInterface);
+	Interfaces.push_back(new PressureInterface);
+	Interfaces.push_back(new SpeedInterface);
+	Interfaces.push_back(new StorageInterface);
+	Interfaces.push_back(new TemperatureInterface);
+	Interfaces.push_back(new TimeInterface);
+	Interfaces.push_back(new VolumeInterface);
+	Interfaces.push_back(new VolumeUKInterface);
+	Interfaces.push_back(new VolumeUSInterface);
 
 #ifdef _DEBUG
-	Interfaces.push_back(new InterfaceType(i++, L"TEST", new TestInterface));
-	Interfaces.push_back(new InterfaceType(i++, L"TEST_ZERO", new TestZeroInterface));
+	Interfaces.push_back(new TestInterface);
+	Interfaces.push_back(new TestZeroInterface);
 #endif
 }
 
@@ -61,53 +59,23 @@ ConversionInterfaceFactory::~ConversionInterfaceFactory()
 	DeleteAll(Interfaces.begin(), Interfaces.end());
 }
 
-const ConversionInterfaceFactory::InterfaceTypeList& ConversionInterfaceFactory::getInterfaces() const
+const ConversionInterfaceFactory::InterfaceList& ConversionInterfaceFactory::getInterfaces() const
 {
-	return (Interfaces);
+	return Interfaces;
 }
 
-ConversionInterface *ConversionInterfaceFactory::getConversionInterface(int nType)
+ConversionInterface *ConversionInterfaceFactory::getConversionInterface(int Type)
 {
-	for (InterfaceTypeList::const_iterator i = Interfaces.begin(); i != Interfaces.end(); i++)
+	for (InterfaceList::const_iterator i = Interfaces.begin(); i != Interfaces.end(); i++)
 	{
 		if (*i)
 		{
-			if ((*i)->getType() == nType)
+			if ((*i)->getType() == Type)
 			{
-				return ((*i)->getInterface());
+				return *i;
 			}
 		}
 	}
 
-	return (NULL);
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-ConversionInterfaceFactory::InterfaceType::InterfaceType(int nType, const wchar_t *pszName, ConversionInterface *pInterface) : Type(nType), Name(pszName), Interface(pInterface)
-{
-}
-
-ConversionInterfaceFactory::InterfaceType::~InterfaceType()
-{
-	if (Interface)
-	{
-		delete Interface;
-	}
-}
-
-int ConversionInterfaceFactory::InterfaceType::getType() const
-{
-	return (Type);
-}
-
-const wchar_t *ConversionInterfaceFactory::InterfaceType::getName() const
-{
-	return (Name);
-}
-
-ConversionInterface *ConversionInterfaceFactory::InterfaceType::getInterface() const
-{
-	return (Interface);
+	return NULL;
 }

@@ -6,8 +6,11 @@
 class ConversionInterface
 {
 public:
+	ConversionInterface();
 	virtual ~ConversionInterface();
 
+	virtual int getType() const;
+	virtual const wchar_t *getName() const;
 	virtual int getValueCount() const;
 
 	virtual double getValue0() const;
@@ -26,7 +29,6 @@ public:
 	virtual double getValue13() const;
 	virtual double getValue14() const;
 	virtual double getValue15() const;
-
 	virtual double getValue(int i) const;
 
 	virtual const wchar_t *getTitle(int i) const;
@@ -48,8 +50,10 @@ public:
 	virtual void setValue13(double x);
 	virtual void setValue14(double x);
 	virtual void setValue15(double x);
-
 	virtual void setValue(int i, double x);
+
+private:
+	const int ID;
 };
 
 #endif

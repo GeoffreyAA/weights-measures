@@ -5,6 +5,11 @@
 static const wchar_t *const szTitles[] = {L"T0", L"T1", L"T2", L"T3", L"T4", L"T5", L"T6", L"T7", L"T8", L"T9", L"T10", L"T11", L"T12", L"T13", L"T14", L"T15"};
 static const wchar_t *const szAbrv[] =   {L"A0", L"A1", L"A2", L"A3", L"A4", L"A5", L"A6", L"A7", L"A8", L"A9", L"A10", L"A11", L"A12", L"A13", L"A14", L"A15"};
 
+const wchar_t *TestInterface::getName() const
+{
+	return (L"TEST");
+}
+
 int TestInterface::getValueCount() const
 {
 	return 16;

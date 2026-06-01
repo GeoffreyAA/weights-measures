@@ -3,6 +3,11 @@
 
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BITS_PER_SEC", L"IDS_ABRV_KILOBITS_PER_SEC", L"IDS_ABRV_MEGABITS_PER_SEC", L"IDS_ABRV_GIGABITS_PER_SEC", L"IDS_ABRV_BYTES_PER_SEC", L"IDS_ABRV_KILOBYTES_PER_SEC", L"IDS_ABRV_MEGABYTES_PER_SEC", L"IDS_ABRV_GIGABYTES_PER_SEC"};
 
+const wchar_t *DataRateInterface::getName() const
+{
+	return (L"IDS_DATA_RATE");
+}
+
 int DataRateInterface::getValueCount() const
 {
 	return (8);

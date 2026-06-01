@@ -3,6 +3,11 @@
 
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_NANO", L"IDS_TITLE_MICRO", L"IDS_TITLE_MILLI", L"IDS_TITLE_CENTI", L"IDS_TITLE_DECI", L"IDS_TITLE_BASE", L"IDS_TITLE_DECA", L"IDS_TITLE_HECTO", L"IDS_TITLE_KILO", L"IDS_TITLE_MEGA", L"IDS_TITLE_GIGA", L"IDS_TITLE_TERA", L"IDS_TITLE_PETA", L"IDS_TITLE_EXA", L"IDS_TITLE_ZETTA", L"IDS_TITLE_YOTTA"};
 
+const wchar_t *MetricInterface::getName() const
+{
+	return (L"IDS_METRIC");
+}
+
 int MetricInterface::getValueCount() const
 {
 	return (16);

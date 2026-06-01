@@ -3,6 +3,11 @@
 
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BITS", L"IDS_ABRV_BYTES", L"IDS_ABRV_KB", L"IDS_ABRV_MB", L"IDS_ABRV_GB", L"IDS_ABRV_TB", L"IDS_ABRV_PB", L"IDS_ABRV_EB", L"IDS_ABRV_ZB", L"IDS_ABRV_YB", L"IDS_ABRV_RB", L"IDS_ABRV_QB"};
 
+const wchar_t *InformationInterface::getName() const
+{
+	return (L"IDS_INFORMATION");
+}
+
 int InformationInterface::getValueCount() const
 {
 	return (12);

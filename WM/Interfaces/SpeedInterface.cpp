@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_KILOMETRES_PER_HOUR", L"IDS_TITLE_FEET_PER_SECOND", L"IDS_TITLE_MILES_PER_HOUR", L"IDS_TITLE_METRES_PER_SECOND", L"IDS_TITLE_KNOTS", L"IDS_TITLE_MACH", L"IDS_TITLE_LIGHT"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_KILOMETRES_PER_HOUR", L"IDS_ABRV_FEET_PER_SECOND", L"IDS_ABRV_MILES_PER_HOUR", L"IDS_ABRV_METRES_PER_SECOND", L"IDS_ABRV_KNOTS", L"IDS_ABRV_MACH", L"IDS_ABRV_LIGHT"};
 
+const wchar_t *SpeedInterface::getName() const
+{
+	return (L"IDS_SPEED");
+}
+
 int SpeedInterface::getValueCount() const
 {
 	return (7);

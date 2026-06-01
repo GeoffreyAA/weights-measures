@@ -7,6 +7,7 @@
 class VolumeUKInterface : public ConversionInterface
 {
 public:
+	const wchar_t *getName() const;
 	int getValueCount() const;
 
 	double getValue0() const;

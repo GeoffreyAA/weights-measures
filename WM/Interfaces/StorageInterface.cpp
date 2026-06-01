@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_ADV_GB", L"IDS_TITLE_ACTUAL_GB", L"IDS_TITLE_ADV_TB", L"IDS_TITLE_ACTUAL_TB"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_ADV_GB", L"IDS_ABRV_ACTUAL_GB", L"IDS_ABRV_ADV_TB", L"IDS_ABRV_ACTUAL_TB"};
 
+const wchar_t *StorageInterface::getName() const
+{
+	return (L"IDS_STORAGE");
+}
+
 int StorageInterface::getValueCount() const
 {
 	return (4);

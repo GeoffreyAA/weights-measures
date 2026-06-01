@@ -4,6 +4,11 @@
 static const wchar_t *const szTitles[] = {L"IDS_TITLE_CELSIUS", L"IDS_TITLE_KELVIN", L"IDS_TITLE_FAHRENHEIT", L"IDS_TITLE_RANKINE"};
 static const wchar_t *const szAbrv[] = {L"IDS_ABRV_CELSIUS", L"IDS_ABRV_KELVIN", L"IDS_ABRV_FAHRENHEIT", L"IDS_ABRV_RANKINE"};
 
+const wchar_t *TemperatureInterface::getName() const
+{
+	return (L"IDS_TEMPERATURE");
+}
+
 int TemperatureInterface::getValueCount() const
 {
 	return (4);

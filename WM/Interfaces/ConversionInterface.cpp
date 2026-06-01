@@ -1,12 +1,27 @@
 #include "stdafx.h"
 #include "ConversionInterface.h"
+#include <atomic>
 #include <assert.h>
 
-const double DefaultValue = 0.0;
-const wchar_t szDefault[] = L"";
+const double Default = 0.0;
+std::atomic<int> Counter(0);
+
+ConversionInterface::ConversionInterface() : ID(Counter.fetch_add(1))
+{
+}
 
 ConversionInterface::~ConversionInterface()
 {
+}
+
+int ConversionInterface::getType() const
+{
+	return ID;
+}
+
+const wchar_t *ConversionInterface::getName() const
+{
+	return L"";
 }
 
 int ConversionInterface::getValueCount() const
@@ -16,82 +31,82 @@ int ConversionInterface::getValueCount() const
 
 double ConversionInterface::getValue0() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue1() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue2() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue3() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue4() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue5() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue6() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue7() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue8() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue9() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue10() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue11() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue12() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue13() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue14() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue15() const
 {
-	return DefaultValue;
+	return Default;
 }
 
 double ConversionInterface::getValue(int i) const
@@ -149,17 +164,17 @@ double ConversionInterface::getValue(int i) const
 			return getValue15();
 	}
 
-	return DefaultValue;
+	return Default;
 }
 
 const wchar_t *ConversionInterface::getTitle(int i) const
 {
-	return szDefault;
+	return L"";
 }
 
 const wchar_t *ConversionInterface::getAbbreviation(int i) const
 {
-	return szDefault;
+	return L"";
 }
 
 void ConversionInterface::setValue0(double x)
