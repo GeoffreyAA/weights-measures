@@ -7,7 +7,7 @@ const double Default = 0.0;
 std::atomic<int> Counter(0);
 
 // June 1, 2026:
-// Got the idea to use std::atomic for the ID from https://stackoverflow.com/questions/25048900/how-bad-is-to-use-integer-pointers-as-unique-ids-c11
+// Got the idea to use std::atomic for the ID from https://stackoverflow.com/questions/25048900
 
 ConversionInterface::ConversionInterface() : ID(Counter.fetch_add(1))
 {
