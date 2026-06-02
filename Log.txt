@@ -1,4 +1,4 @@
-Version 1.9.x (x y 2026)
+Version 1.9.233 (June 2, 2026)
 
 - Changed licence from GPLv2 to MIT
 - Added support for up to 16 values
