@@ -4,7 +4,7 @@ Version 1.9.x (x y 2026)
 - Added support for up to 16 values
 - Information: added YB, RB, and QB
 - Metric: added deci, deca, hecto, peta, exa, zetta, and yotta
-- Temperature: rewrote calculation code, defined it in terms of Kelvin,
+- Temperature: rewrote calculation, defined it in terms of Kelvin,
   renamed Centigrade to Celsius, and added Rankine
 - Made Length the default on first run
 - Improved program architecture

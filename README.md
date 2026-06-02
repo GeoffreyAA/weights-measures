@@ -43,4 +43,4 @@ The sources of information used at some time or other include:
 
 ---
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Palestina_Libre.jpg/960px-Palestina_Libre.jpg" alt="Watermelon" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Palestina_Libre.jpg/960px-Palestina_Libre.jpg" alt="Watermelons" />

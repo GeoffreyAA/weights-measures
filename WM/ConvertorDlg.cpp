@@ -409,7 +409,6 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 void CConvertorDlg::OnToolsCalculator()
 {
 	wchar_t c[MAX_PATH];
-
 	const UINT cbSize = sizeof(c) / sizeof(c[0]);
 	const UINT n = GetSystemDirectory(c, cbSize);
 
