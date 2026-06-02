@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Library.h"
-
 #include <wchar.h>
 #include <wctype.h>
 #include <string.h>
