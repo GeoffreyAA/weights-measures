@@ -352,7 +352,7 @@ void CConvertorDlg::OnChangeModes()
 	UpdateControls();
 	UpdateStrings();
 	UpdateWindowSize();
-	UpdateWindowPos();
+	//UpdateWindowPos();
 }
 
 void CConvertorDlg::OnChangeValueX(int i)
