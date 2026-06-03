@@ -5,21 +5,8 @@
 #include <stdio.h>
 #include <wchar.h>
 
-void ReplaceNewlines(wchar_t *s)
-{
-	if (s)
-	{
-		for (size_t i = wcslen(s); i > 0; i--)
-		{
-			if ((s[i] == L'n') && (s[i - 1] == L'\\'))
-			{
-				s[i] = L'\n';
-
-				StringDelete(s, i - 1);
-			}
-		}
-	}
-}
+const wchar_t Newline = L'\n';
+const wchar_t NewlineEncoded = L'|';
 
 wchar_t *BreakString(wchar_t *s)
 {
@@ -35,8 +22,7 @@ wchar_t *BreakString(wchar_t *s)
 
 			Trim(s);
 			Trim(b);
-
-			ReplaceNewlines(b);
+			ReplaceChars(b, NewlineEncoded, Newline);
 
 			if (wcslen(s) && wcslen(b))
 			{
@@ -45,7 +31,7 @@ wchar_t *BreakString(wchar_t *s)
 		}
 	}
 
-	return (NULL);
+	return NULL;
 }
 
 bool StringDictionaryRead(const wchar_t *pszFile, StringDictionary &d)
@@ -88,22 +74,15 @@ bool StringDictionaryRead(const wchar_t *pszFile, StringDictionary &d)
 
 String TranslateNewlines(const String &s)
 {
-	String a;
-	a.reserve(s.size());
+	String dst(s);
 
-	for (String::const_iterator i = s.begin(); i != s.end(); i++)
+	for (String::iterator i = dst.begin(); i != dst.end(); i++)
 	{
-		if ((*i) == L'\n')
-		{
-			a.append(L"\\n");
-		}
-		else
-		{
-			a.append(1, *i);
-		}
+		if ((*i) == Newline)
+			*i = NewlineEncoded;
 	}
 
-	return (a);
+	return dst;
 }
 
 bool StringDictionaryWrite(const wchar_t *pszFile, const StringDictionary &d)
@@ -114,8 +93,8 @@ bool StringDictionaryWrite(const wchar_t *pszFile, const StringDictionary &d)
 
 		if (f)
 		{
-			char c[4096];
 			wchar_t w[4096];
+			char c[4096];
 
 			for (StringDictionary::const_iterator i = d.begin(); i != d.end(); i++)
 			{

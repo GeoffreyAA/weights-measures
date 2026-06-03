@@ -143,6 +143,22 @@ wchar_t *TrimRight(wchar_t *s)
 	return (s);
 }
 
+wchar_t *ReplaceChars(wchar_t *s, wchar_t from, wchar_t to)
+{
+	if (s)
+	{
+		while (*s)
+		{
+			if (*s == from)
+				*s = to;
+
+			s++;
+		}
+	}
+
+	return (s);
+}
+
 wchar_t *RemoveNonNbrs(wchar_t *s)
 {
 	if (s)
