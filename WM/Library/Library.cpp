@@ -143,6 +143,24 @@ wchar_t *TrimRight(wchar_t *s)
 	return (s);
 }
 
+wchar_t *Strip(wchar_t *s)
+{
+	if (s)
+	{
+		size_t i = wcslen(s);
+
+		while (i--)
+		{
+			if (iswspace(s[i]) && (s[i] != L' '))
+			{
+				StringDelete(s, i);
+			}
+		}
+	}
+
+	return (s);
+}
+
 wchar_t *ReplaceChars(wchar_t *s, wchar_t from, wchar_t to)
 {
 	if (s)
