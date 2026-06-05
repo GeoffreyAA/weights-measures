@@ -7,6 +7,7 @@ Version 1.9.233 (June 2, 2026)
 - Temperature: rewrote calculation, defined it in terms of Kelvin,
   renamed Centigrade to Celsius, and added Rankine
 - Made Length the default on first run
+- Disabled window re-positioning on changing mode
 - Improved program architecture
 - Improved library code
 - Fixed building failure with spaces in project path
