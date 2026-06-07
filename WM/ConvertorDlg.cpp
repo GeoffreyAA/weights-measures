@@ -464,22 +464,20 @@ ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(5),
 
 bool ConvertorDlgCfgSerialiser::Save(const ConvertorDlgCfg &a, Configuration &b) const
 {
-	bool r;
+	b.SetInt(L"CONVERTOR_DLG_MODE", a.nConversionType);
+	b.SetInt(L"CONVERTOR_DLG_POS_X", a.x);
+	b.SetInt(L"CONVERTOR_DLG_POS_Y", a.y);
 
-	r = b.setInteger(L"CONVERTOR_DLG_MODE", a.nConversionType);
-	r = b.setInteger(L"CONVERTOR_DLG_POS_X", a.x);
-	r = b.setInteger(L"CONVERTOR_DLG_POS_Y", a.y);
-
-	return r;
+	return true;
 }
 
 bool ConvertorDlgCfgSerialiser::Retrieve(ConvertorDlgCfg &a, const Configuration &b) const
 {
-	ConvertorDlgCfg def;
+	const ConvertorDlgCfg def;
 
-	a.nConversionType = b.getInteger(L"CONVERTOR_DLG_MODE", def.nConversionType);
-	a.x				  = b.getInteger(L"CONVERTOR_DLG_POS_X", def.x);
-	a.y				  = b.getInteger(L"CONVERTOR_DLG_POS_Y", def.y);
+	if (!b.GetInt(L"CONVERTOR_DLG_MODE", a.nConversionType))	a.nConversionType = def.nConversionType;
+	if (!b.GetInt(L"CONVERTOR_DLG_POS_X", a.x))					a.x = def.x;
+	if (!b.GetInt(L"CONVERTOR_DLG_POS_Y", a.y))					a.y = def.y;
 
 	return true;
 }
