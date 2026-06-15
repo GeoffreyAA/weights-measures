@@ -1,4 +1,4 @@
-Version 1.9.233 (June 2, 2026)
+Version 1.9.245 (June 15, 2026)
 
 - Changed licence from GPLv2 to MIT
 - Added support for up to 16 values
@@ -6,8 +6,8 @@ Version 1.9.233 (June 2, 2026)
 - Metric: added deci, deca, hecto, peta, exa, zetta, and yotta
 - Temperature: rewrote calculation, defined it in terms of Kelvin,
   renamed Centigrade to Celsius, and added Rankine
-- Made Length the default on first run
 - Disabled window re-positioning on changing mode
+- Made Length the default on first run
 - Improved program architecture
 - Improved library code
 - Fixed building failure with spaces in project path
