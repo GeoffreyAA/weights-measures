@@ -28,6 +28,9 @@ To target XP, use the "Release-XP" configuration. The following components must 
 	MSVC v141 - VS 2017 C++ x64/x86 build tools (v14.16)
 	C++ MFC for v141 build tools (x86 & x64)
 
+> [!NOTE]
+> Windows XP support was removed in Visual Studio 2026 v18.8, meaning that one will have to use VS 2022 to get round this.
+
 
 References
 ----------
@@ -37,6 +40,9 @@ The sources of information used at some time or other include:
 * Wikipedia, "[Conversion of units](https://en.wikipedia.org/w/index.php?title=Conversion_of_units&oldid=476816274)," the old version of which was the chief source, and many articles leading from there.
 * Wikipedia, "[Quantities of bytes](https://en.wikipedia.org/wiki/Template:Quantities_of_bytes)."
 * Wikipedia, "[Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature)."
+* Wikipedia, "[Speed of Light](https://en.wikipedia.org/wiki/Speed_of_light)."
+* Wikipedia, "[Light-year](https://en.wikipedia.org/wiki/Light-year)."
+* Wikipedia, "[Julian year](https://en.wikipedia.org/wiki/Julian_year_(astronomy)."
 * *The Pocket Oxford Dictionary of Current English,* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
 * *[The Book of Knowledge](https://en.wikipedia.org/wiki/Cassell%27s_Book_of_Knowledge)*, ed. Gordon Stowell (5th edition, revised impression, London: The Waverley Book Company Ltd., 1957).
 * Furey, Edward. "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators

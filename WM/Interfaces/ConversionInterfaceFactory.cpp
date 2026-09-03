@@ -11,6 +11,7 @@
 #include "PixelDensityInterface.h"
 #include "PowerInterface.h"
 #include "PressureInterface.h"
+#include "SpaceTravelInterface.h"
 #include "SpeedInterface.h"
 #include "StorageInterface.h"
 #include "TemperatureInterface.h"
@@ -27,7 +28,7 @@
 
 ConversionInterfaceFactory::ConversionInterfaceFactory()
 {
-	Interfaces.reserve(18);
+	Interfaces.reserve(19);
 
 	Interfaces.push_back(new AngleInterface);
 	Interfaces.push_back(new AreaInterface);
@@ -40,6 +41,7 @@ ConversionInterfaceFactory::ConversionInterfaceFactory()
 	Interfaces.push_back(new PixelDensityInterface);
 	Interfaces.push_back(new PowerInterface);
 	Interfaces.push_back(new PressureInterface);
+	Interfaces.push_back(new SpaceTravelInterface);
 	Interfaces.push_back(new SpeedInterface);
 	Interfaces.push_back(new StorageInterface);
 	Interfaces.push_back(new TemperatureInterface);

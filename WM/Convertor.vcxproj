@@ -621,6 +621,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClCompile Include="Interfaces\PowerInterface.cpp" />
     <ClCompile Include="Interfaces\Pressure.cpp" />
     <ClCompile Include="Interfaces\PressureInterface.cpp" />
+    <ClCompile Include="Interfaces\SpaceTravel.cpp" />
+    <ClCompile Include="Interfaces\SpaceTravelInterface.cpp" />
     <ClCompile Include="Interfaces\Speed.cpp" />
     <ClCompile Include="Interfaces\SpeedInterface.cpp" />
     <ClCompile Include="Interfaces\Storage.cpp" />
@@ -707,6 +709,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Interfaces\PowerInterface.h" />
     <ClInclude Include="Interfaces\Pressure.h" />
     <ClInclude Include="Interfaces\PressureInterface.h" />
+    <ClInclude Include="Interfaces\SpaceTravel.h" />
+    <ClInclude Include="Interfaces\SpaceTravelInterface.h" />
     <ClInclude Include="Interfaces\Speed.h" />
     <ClInclude Include="Interfaces\SpeedInterface.h" />
     <ClInclude Include="Interfaces\Storage.h" />
