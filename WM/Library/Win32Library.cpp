@@ -126,6 +126,17 @@ void SetWindowFloat(HWND hWnd, double x, const wchar_t *pszFormat)
 	SetWindowTextW(hWnd, c);
 }
 
+void SetWindowFloat2(HWND hWnd, double x, const wchar_t *pszFormat)
+{
+	wchar_t c[256];
+
+	swprintf(c, sizeof(c) / sizeof(c[0]), pszFormat, x);
+
+	FormatNumber(c, sizeof(c) / sizeof(c[0]), L".", L",", 3);
+
+	SetWindowTextW(hWnd, c);
+}
+
 int GetWindowInt(HWND hWnd)
 {
 	wchar_t c[512];

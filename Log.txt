@@ -1,8 +1,3 @@
-Version 1.10.x (y)
-
-- Added Space Travel
-
-
 Version 1.9.247 (June 17, 2026)
 
 - Changed licence from GPLv2 to MIT
@@ -11,8 +6,10 @@ Version 1.9.247 (June 17, 2026)
 - Metric: added deci, deca, hecto, peta, exa, zetta, and yotta
 - Temperature: rewrote calculation, defined it in terms of Kelvin,
   renamed Centigrade to Celsius, and added Rankine
+- Added Space Travel
 - Disabled window re-positioning on changing mode
 - Made Length the default on first run
+- Grouped digits
 - Removed legacy strings from English.lng
 - Improved program architecture
 - Improved library code

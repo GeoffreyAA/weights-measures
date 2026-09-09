@@ -276,7 +276,7 @@ void CConvertorDlg::UpdateControls()
 	{
 		for (int i = 0; i < Min(p->getValueCount(), ValueListSize); i++)
 		{
-			SetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
+			SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
 		}
 	}
 }

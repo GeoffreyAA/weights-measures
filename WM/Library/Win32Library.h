@@ -21,6 +21,7 @@ void SetWindowPosition(HWND hWnd, int x, int y);
 void CenterWindow(HWND hWnd, HWND hRel = NULL);
 double GetWindowFloat(HWND hWnd);
 void SetWindowFloat(HWND hWnd, double x, const wchar_t *pszFormat = L"%.16g");
+void SetWindowFloat2(HWND hWnd, double x, const wchar_t *pszFormat = L"%.16g");
 int GetWindowInt(HWND hWnd);
 void SetWindowInt(HWND hWnd, int x);
 bool GetDlgItemChecked(HWND hDlg, int nID);
