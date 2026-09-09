@@ -129,10 +129,16 @@ void SetWindowFloat(HWND hWnd, double x, const wchar_t *pszFormat)
 void SetWindowFloat2(HWND hWnd, double x, const wchar_t *pszFormat)
 {
 	wchar_t c[256];
-
 	swprintf(c, sizeof(c) / sizeof(c[0]), pszFormat, x);
 
-	FormatNumber(c, sizeof(c) / sizeof(c[0]), L".", L",", 3);
+	wchar_t dec[8];
+	wchar_t sep[8];
+
+	if (GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, dec, sizeof(dec) / sizeof(dec[0])) &&
+		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, sep, sizeof(sep) / sizeof(sep[0])))
+	{
+		FormatNumber(c, sizeof(c) / sizeof(c[0]), dec, sep, 3);
+	}
 
 	SetWindowTextW(hWnd, c);
 }
