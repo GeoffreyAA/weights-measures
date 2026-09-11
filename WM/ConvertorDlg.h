@@ -60,6 +60,7 @@ protected:
 	afx_msg void OnToolsSettings();
 	afx_msg void OnToolsAbout();
 	afx_msg void OnToolsQuit();
+	afx_msg void OnCalculationGrouping();
 	afx_msg BOOL OnHelpInfo(HELPINFO *pHelpInfo);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
@@ -74,7 +75,8 @@ struct ConvertorDlgCfg
 {
 	ConvertorDlgCfg();
 
-	int nConversionType;
+	int Mode;
+	bool Grouping;
 	int x;
 	int y;
 };

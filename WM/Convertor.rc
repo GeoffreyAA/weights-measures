@@ -205,6 +205,10 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Quit",                        ID_TOOLS_QUIT
     END
+    POPUP "Calculation"
+    BEGIN
+        MENUITEM "Digit grouping",              ID_CALCULATION_GROUPING
+    END
 END
 
 

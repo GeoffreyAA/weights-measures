@@ -59,6 +59,7 @@ BEGIN_MESSAGE_MAP(CConvertorDlg, CDialog)
 	ON_COMMAND(ID_TOOLS_SETTINGS, OnToolsSettings)
 	ON_COMMAND(ID_TOOLS_ABOUT, OnToolsAbout)
 	ON_COMMAND(ID_TOOLS_QUIT, OnToolsQuit)
+	ON_COMMAND(ID_CALCULATION_GROUPING, OnCalculationGrouping)
 	ON_WM_HELPINFO()
 	ON_WM_CLOSE()
 	//}}AFX_MSG_MAP
@@ -158,15 +159,18 @@ void CConvertorDlg::RetrieveConfiguration()
 	if (!ConvertorDlgCfgSerialiser().Retrieve(Cfg, ConfigFile()))
 		Cfg = ConvertorDlgCfg();
 
-	SetMode(Cfg.nConversionType);
+	SetMode(Cfg.Mode);
+	SetMenuItemCheck(::GetMenu(GetSafeHwnd()), ID_CALCULATION_GROUPING, Cfg.Grouping);
 	SetWindowPosition(GetSafeHwnd(), Cfg.x, Cfg.y);
 }
 
 void CConvertorDlg::SaveConfiguration()
 {
 	ConvertorDlgCfg Cfg;
+	HMENU h = ::GetMenu(GetSafeHwnd());
 
-	Cfg.nConversionType = GetMode();
+	Cfg.Mode = GetMode();
+	Cfg.Grouping = h ? GetMenuItemChecked(h, ID_CALCULATION_GROUPING) : true;
 	Cfg.x = GetWindowLeft(GetSafeHwnd());
 	Cfg.y = GetWindowTop(GetSafeHwnd());
 
@@ -258,11 +262,13 @@ void CConvertorDlg::UpdateMenu()
 	if (h)
 	{
 		ModifyMenu(h, 0, MF_BYPOSITION | MF_STRING, 0, ResourceString(L"IDS_MENU_TOOLS"));
+		ModifyMenu(h, 1, MF_BYPOSITION | MF_STRING, 0, ResourceString(L"IDS_MENU_CALCULATION"));
 
 		SetMenuString(h, ID_TOOLS_CALCULATOR, ResourceString(L"IDS_TOOLS_CALCULATOR"));
 		SetMenuString(h, ID_TOOLS_SETTINGS, ResourceString(L"IDS_TOOLS_SETTINGS"));
 		SetMenuString(h, ID_TOOLS_ABOUT, ResourceString(L"IDS_TOOLS_ABOUT"));
 		SetMenuString(h, ID_TOOLS_QUIT, ResourceString(L"IDS_TOOLS_QUIT"));
+		SetMenuString(h, ID_CALCULATION_GROUPING, ResourceString(L"IDS_CALCULATION_GROUPING"));
 
 		::DrawMenuBar(GetSafeHwnd());
 	}
@@ -270,13 +276,18 @@ void CConvertorDlg::UpdateMenu()
 
 void CConvertorDlg::UpdateControls()
 {
+	bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_CALCULATION_GROUPING);
+
 	ConversionInterface *p = GetInterface();
 
 	if (p)
 	{
 		for (int i = 0; i < Min(p->getValueCount(), ValueListSize); i++)
 		{
-			SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
+			if (dg)
+				SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
+			else
+				SetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
 		}
 	}
 }
@@ -447,6 +458,20 @@ void CConvertorDlg::OnToolsQuit()
 	EndDialog(IDOK);
 }
 
+void CConvertorDlg::OnCalculationGrouping()
+{
+	HMENU h = ::GetMenu(GetSafeHwnd());
+
+	if (h)
+	{
+		bool b = GetMenuItemChecked(h, ID_CALCULATION_GROUPING);
+
+		SetMenuItemCheck(h, ID_CALCULATION_GROUPING, !b);
+
+		UpdateControls();
+	}
+}
+
 BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 {
 	ShellOpen(ApplicationFile(GetHelpFileName()), GetSafeHwnd());
@@ -457,14 +482,16 @@ BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ConvertorDlgCfg::ConvertorDlgCfg() : nConversionType(5),
+ConvertorDlgCfg::ConvertorDlgCfg() : Mode(5),
+									 Grouping(true),
 									 x(32), y(32)
 {
 }
 
 bool ConvertorDlgCfgSerialiser::Save(const ConvertorDlgCfg &a, Configuration &b) const
 {
-	b.SetInt(L"CONVERTOR_DLG_MODE", a.nConversionType);
+	b.SetInt(L"CONVERTOR_DLG_MODE", a.Mode);
+	b.SetBool(L"CONVERTOR_DLG_GROUPING", a.Grouping);
 	b.SetInt(L"CONVERTOR_DLG_POS_X", a.x);
 	b.SetInt(L"CONVERTOR_DLG_POS_Y", a.y);
 
@@ -475,9 +502,10 @@ bool ConvertorDlgCfgSerialiser::Retrieve(ConvertorDlgCfg &a, const Configuration
 {
 	const ConvertorDlgCfg def;
 
-	if (!b.GetInt(L"CONVERTOR_DLG_MODE", a.nConversionType))	a.nConversionType = def.nConversionType;
-	if (!b.GetInt(L"CONVERTOR_DLG_POS_X", a.x))					a.x = def.x;
-	if (!b.GetInt(L"CONVERTOR_DLG_POS_Y", a.y))					a.y = def.y;
+	if (!b.GetInt(L"CONVERTOR_DLG_MODE", a.Mode))			a.Mode = def.Mode;
+	if (!b.GetBool(L"CONVERTOR_DLG_GROUPING", a.Grouping))	a.Grouping = def.Grouping;
+	if (!b.GetInt(L"CONVERTOR_DLG_POS_X", a.x))				a.x = def.x;
+	if (!b.GetInt(L"CONVERTOR_DLG_POS_Y", a.y))				a.y = def.y;
 
 	return true;
 }
