@@ -200,14 +200,13 @@ BEGIN
     BEGIN
         MENUITEM "Windows Calculator",          ID_TOOLS_CALCULATOR
         MENUITEM SEPARATOR
+        MENUITEM "Digit grouping",              ID_TOOLS_GROUPING
+        MENUITEM "Font...",                     ID_TOOLS_FONT
+        MENUITEM SEPARATOR
         MENUITEM "Settings...",                 ID_TOOLS_SETTINGS
         MENUITEM "About...",                    ID_TOOLS_ABOUT
         MENUITEM SEPARATOR
         MENUITEM "Quit",                        ID_TOOLS_QUIT
-    END
-    POPUP "Calculation"
-    BEGIN
-        MENUITEM "Digit grouping",              ID_CALCULATION_GROUPING
     END
 END
 

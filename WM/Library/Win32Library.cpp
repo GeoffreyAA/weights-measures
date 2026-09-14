@@ -126,19 +126,14 @@ void SetWindowFloat(HWND hWnd, double x, const wchar_t *pszFormat)
 	SetWindowTextW(hWnd, c);
 }
 
-void SetWindowFloat2(HWND hWnd, double x, const wchar_t *pszFormat)
+void SetWindowFloat2(HWND hWnd, double x, bool bGroup)
 {
 	wchar_t c[256];
-	swprintf(c, sizeof(c) / sizeof(c[0]), pszFormat, x);
 
-	wchar_t dec[8];
-	wchar_t sep[8];
+	swprintf(c, sizeof(c) / sizeof(c[0]), L"%.16g", x);
 
-	if (GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, dec, sizeof(dec) / sizeof(dec[0])) &&
-		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, sep, sizeof(sep) / sizeof(sep[0])))
-	{
-		FormatNumber(c, sizeof(c) / sizeof(c[0]), dec, sep, 3);
-	}
+	if (bGroup)
+		FormatNumber(c, sizeof(c) / sizeof(c[0]), L".", L",", 3);
 
 	SetWindowTextW(hWnd, c);
 }
@@ -400,6 +395,32 @@ HFONT CreatePointFont(const wchar_t *pszName, int nPointSize, bool bBold, bool b
 	ReleaseDC(NULL, hDC);
 
 	return (h);
+}
+
+int FontPointToLogicalSize(int PS)
+{
+	HDC hDC = GetDC(NULL);
+
+	if (!hDC) return (NULL);
+
+	int LU = -MulDiv(PS, GetDeviceCaps(hDC, LOGPIXELSY), 72);
+
+	ReleaseDC(NULL, hDC);
+
+	return LU;
+}
+
+int FontLogicalToPointSize(int LU)
+{
+	HDC hDC = GetDC(NULL);
+
+	if (!hDC) return (NULL);
+
+	int PS = -MulDiv(LU, 72, GetDeviceCaps(hDC, LOGPIXELSY));
+
+	ReleaseDC(NULL, hDC);
+
+	return PS;
 }
 
 

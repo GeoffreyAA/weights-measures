@@ -27,7 +27,7 @@ const int AbrvListSize  = sizeof(AbrvList) / sizeof(AbrvList[0]);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent), pInterface(NULL)
+CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent)//, pInterface(NULL)
 {
 	//{{AFX_DATA_INIT(CConvertorDlg)
 	//}}AFX_DATA_INIT
@@ -56,10 +56,11 @@ BEGIN_MESSAGE_MAP(CConvertorDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_CBN_SELCHANGE(IDC_COMBO1, OnChangeModes)
 	ON_COMMAND(ID_TOOLS_CALCULATOR, OnToolsCalculator)
+	ON_COMMAND(ID_TOOLS_GROUPING, OnToolsGrouping)
+	ON_COMMAND(ID_TOOLS_FONT, OnToolsFont)
 	ON_COMMAND(ID_TOOLS_SETTINGS, OnToolsSettings)
 	ON_COMMAND(ID_TOOLS_ABOUT, OnToolsAbout)
 	ON_COMMAND(ID_TOOLS_QUIT, OnToolsQuit)
-	ON_COMMAND(ID_CALCULATION_GROUPING, OnCalculationGrouping)
 	ON_WM_HELPINFO()
 	ON_WM_CLOSE()
 	//}}AFX_MSG_MAP
@@ -160,7 +161,11 @@ void CConvertorDlg::RetrieveConfiguration()
 		Cfg = ConvertorDlgCfg();
 
 	SetMode(Cfg.Mode);
-	SetMenuItemCheck(::GetMenu(GetSafeHwnd()), ID_CALCULATION_GROUPING, Cfg.Grouping);
+	SetMenuItemCheck(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING, Cfg.Grouping);
+
+	Font1.Create(Cfg.FontName.c_str(), Cfg.FontSize, Cfg.FontWeight >= FW_BOLD, Cfg.FontItalic);
+	UpdateFonts();
+
 	SetWindowPosition(GetSafeHwnd(), Cfg.x, Cfg.y);
 }
 
@@ -170,7 +175,17 @@ void CConvertorDlg::SaveConfiguration()
 	HMENU h = ::GetMenu(GetSafeHwnd());
 
 	Cfg.Mode = GetMode();
-	Cfg.Grouping = h ? GetMenuItemChecked(h, ID_CALCULATION_GROUPING) : true;
+	Cfg.Grouping = h ? GetMenuItemChecked(h, ID_TOOLS_GROUPING) : true;
+
+	LOGFONT lf;
+	if (Font1.GetLogFont(&lf))
+	{
+		Cfg.FontName = lf.lfFaceName;
+		Cfg.FontSize = FontLogicalToPointSize(lf.lfHeight);
+		Cfg.FontWeight = lf.lfWeight;
+		Cfg.FontItalic = lf.lfItalic;
+	}
+
 	Cfg.x = GetWindowLeft(GetSafeHwnd());
 	Cfg.y = GetWindowTop(GetSafeHwnd());
 
@@ -233,12 +248,14 @@ void CConvertorDlg::SetMode(int nType)
 
 ConversionInterface *CConvertorDlg::GetInterface() const
 {
-	return pInterface;
+	//return pInterface;
+
+	return Factory.GetSelectedInterface();
 }
 
 void CConvertorDlg::SetInterface(ConversionInterface *p)
 {
-	pInterface = p;
+	//pInterface = p;
 }
 
 bool CConvertorDlg::IsValidInterface() const
@@ -262,13 +279,13 @@ void CConvertorDlg::UpdateMenu()
 	if (h)
 	{
 		ModifyMenu(h, 0, MF_BYPOSITION | MF_STRING, 0, ResourceString(L"IDS_MENU_TOOLS"));
-		ModifyMenu(h, 1, MF_BYPOSITION | MF_STRING, 0, ResourceString(L"IDS_MENU_CALCULATION"));
 
 		SetMenuString(h, ID_TOOLS_CALCULATOR, ResourceString(L"IDS_TOOLS_CALCULATOR"));
+		SetMenuString(h, ID_TOOLS_GROUPING, ResourceString(L"IDS_TOOLS_GROUPING"));
+		SetMenuString(h, ID_TOOLS_FONT, ResourceString(L"IDS_TOOLS_FONT"));
 		SetMenuString(h, ID_TOOLS_SETTINGS, ResourceString(L"IDS_TOOLS_SETTINGS"));
 		SetMenuString(h, ID_TOOLS_ABOUT, ResourceString(L"IDS_TOOLS_ABOUT"));
 		SetMenuString(h, ID_TOOLS_QUIT, ResourceString(L"IDS_TOOLS_QUIT"));
-		SetMenuString(h, ID_CALCULATION_GROUPING, ResourceString(L"IDS_CALCULATION_GROUPING"));
 
 		::DrawMenuBar(GetSafeHwnd());
 	}
@@ -276,18 +293,14 @@ void CConvertorDlg::UpdateMenu()
 
 void CConvertorDlg::UpdateControls()
 {
-	bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_CALCULATION_GROUPING);
-
 	ConversionInterface *p = GetInterface();
+	bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
 
 	if (p)
 	{
 		for (int i = 0; i < Min(p->getValueCount(), ValueListSize); i++)
 		{
-			if (dg)
-				SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
-			else
-				SetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i));
+			SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i), dg);
 		}
 	}
 }
@@ -304,6 +317,16 @@ void CConvertorDlg::UpdateStrings()
 			::SetDlgItemText(GetSafeHwnd(), AbrvList[i], ResourceString(p->getAbbreviation(i)));
 		}
 	}
+}
+
+void CConvertorDlg::UpdateFonts()
+{
+	for (int i = 0; i < ValueListSize; i++)
+	{
+		SetWindowFont(::GetDlgItem(GetSafeHwnd(), ValueList[i]), Font1.GetFont());
+	}
+
+	RedrawWindow();
 }
 
 void CConvertorDlg::UpdateWindowSize()
@@ -332,13 +355,13 @@ void CConvertorDlg::UpdateWindowSize()
 
 void CConvertorDlg::UpdateWindowPos()
 {
-	const HWND hDlg = GetSafeHwnd();
+	HWND hDlg = GetSafeHwnd();
 
-	const int x = GetWindowLeft(hDlg);
-	const int y = GetWindowTop(hDlg);
+	int x = GetWindowLeft(hDlg);
+	int y = GetWindowTop(hDlg);
 
-	const int xMax = GetDesktopWidth() - GetWindowWidth(hDlg);
-	const int yMax = GetDesktopHeight() - GetWindowHeight(hDlg);
+	int xMax = GetDesktopWidth() - GetWindowWidth(hDlg);
+	int yMax = GetDesktopHeight() - GetWindowHeight(hDlg);
 
 	if (!InRange(0, xMax, x) || !InRange(0, yMax, y))
 	{
@@ -348,12 +371,14 @@ void CConvertorDlg::UpdateWindowPos()
 
 void CConvertorDlg::OnChangeModes()
 {
-	SetInterface(Factory.getConversionInterface(GetMode()));
+	//SetInterface(Factory.getConversionInterface(GetMode()));
+
+	Factory.SelectInterface(GetMode());
 
 	for (int i = 0; i < ValueListSize; i++)
 	{
-		const bool bEnable = i < (IsValidInterface() ? GetInterface()->getValueCount() : 0);
-		const int nCmdShow = bEnable ? SW_SHOW : SW_HIDE;
+		bool bEnable = i < (IsValidInterface() ? GetInterface()->getValueCount() : 0);
+		int nCmdShow = bEnable ? SW_SHOW : SW_HIDE;
 
 		::ShowWindow(::GetDlgItem(GetSafeHwnd(), ValueList[i]), nCmdShow);
 		::ShowWindow(::GetDlgItem(GetSafeHwnd(), TitleList[i]), nCmdShow);
@@ -432,6 +457,34 @@ void CConvertorDlg::OnToolsCalculator()
 	}
 }
 
+void CConvertorDlg::OnToolsGrouping()
+{
+	ToggleMenuItemCheck(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
+
+	UpdateControls();
+}
+
+void CConvertorDlg::OnToolsFont()
+{
+	LOGFONT lf;
+	ZeroMemory(&lf, sizeof(lf));
+
+	if (Font1.GetLogFont(&lf))
+	{
+		CHOOSEFONT cf;
+		ZeroMemory(&cf, sizeof(cf));
+
+		cf.lStructSize = sizeof(CHOOSEFONT);
+		cf.hwndOwner = GetSafeHwnd();
+		cf.lpLogFont = &lf;
+		cf.Flags = CF_INITTOLOGFONTSTRUCT | CF_LIMITSIZE;
+		cf.nSizeMax = 14;
+
+		if (ChooseFont(&cf) && Font1.Create(cf.lpLogFont))
+			UpdateFonts();
+	}
+}
+
 void CConvertorDlg::OnToolsSettings()
 {
 	if (CSettingsDlg().DoModal() == IDOK)
@@ -458,20 +511,6 @@ void CConvertorDlg::OnToolsQuit()
 	EndDialog(IDOK);
 }
 
-void CConvertorDlg::OnCalculationGrouping()
-{
-	HMENU h = ::GetMenu(GetSafeHwnd());
-
-	if (h)
-	{
-		bool b = GetMenuItemChecked(h, ID_CALCULATION_GROUPING);
-
-		SetMenuItemCheck(h, ID_CALCULATION_GROUPING, !b);
-
-		UpdateControls();
-	}
-}
-
 BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 {
 	ShellOpen(ApplicationFile(GetHelpFileName()), GetSafeHwnd());
@@ -484,16 +523,21 @@ BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 
 ConvertorDlgCfg::ConvertorDlgCfg() : Mode(5),
 									 Grouping(true),
+									 FontName(L"Consolas"), FontSize(10), FontWeight(FW_NORMAL), FontItalic(false),
 									 x(32), y(32)
 {
 }
 
 bool ConvertorDlgCfgSerialiser::Save(const ConvertorDlgCfg &a, Configuration &b) const
 {
-	b.SetInt(L"CONVERTOR_DLG_MODE", a.Mode);
-	b.SetBool(L"CONVERTOR_DLG_GROUPING", a.Grouping);
-	b.SetInt(L"CONVERTOR_DLG_POS_X", a.x);
-	b.SetInt(L"CONVERTOR_DLG_POS_Y", a.y);
+	b.SetInt(L"Mode", a.Mode);
+	b.SetBool(L"Grouping", a.Grouping);
+	b.SetString(L"FontName", a.FontName);
+	b.SetInt(L"FontSize", a.FontSize);
+	b.SetInt(L"FontWeight", a.FontWeight);
+	b.SetBool(L"FontItalic", a.FontItalic);
+	b.SetInt(L"x", a.x);
+	b.SetInt(L"y", a.y);
 
 	return true;
 }
@@ -502,10 +546,14 @@ bool ConvertorDlgCfgSerialiser::Retrieve(ConvertorDlgCfg &a, const Configuration
 {
 	const ConvertorDlgCfg def;
 
-	if (!b.GetInt(L"CONVERTOR_DLG_MODE", a.Mode))			a.Mode = def.Mode;
-	if (!b.GetBool(L"CONVERTOR_DLG_GROUPING", a.Grouping))	a.Grouping = def.Grouping;
-	if (!b.GetInt(L"CONVERTOR_DLG_POS_X", a.x))				a.x = def.x;
-	if (!b.GetInt(L"CONVERTOR_DLG_POS_Y", a.y))				a.y = def.y;
+	if (!b.GetInt(L"Mode", a.Mode))					a.Mode = def.Mode;
+	if (!b.GetBool(L"Grouping", a.Grouping))		a.Grouping = def.Grouping;
+	if (!b.GetString(L"FontName", a.FontName))		a.FontName = def.FontName;
+	if (!b.GetInt(L"FontSize", a.FontSize))			a.FontSize = def.FontSize;
+	if (!b.GetInt(L"FontWeight", a.FontWeight))		a.FontWeight = def.FontWeight;
+	if (!b.GetBool(L"FontItalic", a.FontItalic))	a.FontItalic = def.FontItalic;
+	if (!b.GetInt(L"x", a.x))						a.x = def.x;
+	if (!b.GetInt(L"y", a.y))						a.y = def.y;
 
 	return true;
 }

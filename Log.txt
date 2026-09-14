@@ -1,3 +1,11 @@
+Version 1.10.x (xx)
+
+- Added Space Travel
+- Added digit grouping
+- Added font customisation, using Consolas as default
+- Reorganised English.lng
+
+
 Version 1.9.247 (June 17, 2026)
 
 - Changed licence from GPLv2 to MIT
@@ -6,15 +14,17 @@ Version 1.9.247 (June 17, 2026)
 - Metric: added deci, deca, hecto, peta, exa, zetta, and yotta
 - Temperature: rewrote calculation, defined it in terms of Kelvin,
   renamed Centigrade to Celsius, and added Rankine
-- Added Space Travel
 - Disabled window re-positioning on changing mode
 - Made Length the default on first run
-- Grouped digits
 - Removed legacy strings from English.lng
 - Improved program architecture
 - Improved library code
 - Fixed building failure with spaces in path
 - Removed legacy files from project
+
+This version is notable for the number of changes to the program's architecture and libraries, some of which go back to its inception in late 2009. The GUI code was simplified considerably by removing copy-and-paste code for event handlers. To allow this, I had to change the ConversionInterface classes, moving them from one- to zero-based indices so that the GUI could iterate through the values. ConversionInterfaceFactory was simplified by moving wrapper information for each interface to the interfaces themselves: the identifying number and name. Additionally, the interfaces were extended to support 16 values (from 9). The Application.h/cpp module removed general code, sticking to what was unique to the application.
+
+The libraries saw many changes. LanguageManager replaced CRITICAL_SECTION with std::mutex. ConfigFile, previously, would write the file even if only querying functions were called; now, it will do so only when a value is modified. The Configuration interface and its implementing classes got nicer naming and more consistent usage. Some string functions were made better: wcscpys went from using wcsncpy to memcpy; and swprintfs, using _vsnwprintf internally, was retired in favour of C99's swprintf. As for StringDictionary, I was never quite happy with its writing implementation; now, it is better, and the string functions to make and break are rough inverses of each other. Got rid of classes for its serialisation too; I think the original intent was various formats at a later time. Possible overflows and underflows were fixed across the codebase using Microsoft's intsafe library.
 
 
 Version 1.8.164 (August 25, 2025)

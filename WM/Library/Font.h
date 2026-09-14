@@ -11,6 +11,7 @@ public:
 	~Font();
 
 	bool Create(const wchar_t *pszName = NULL, int nPointSize = 10, bool bBold = false, bool bItalic = false, bool bUnderline = false, bool bStrikeOut = false);
+	bool Create(const LOGFONT *lpLogFont);
 	bool Delete();
 
 	bool Attach(HFONT hFont);
@@ -19,6 +20,8 @@ public:
 	bool IsReady() const;
 
 	HFONT GetFont() const;
+
+	bool GetLogFont(LOGFONT *lpLogFont) const;
 
 private:
 	Font(const Font &);

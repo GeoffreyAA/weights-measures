@@ -2,7 +2,9 @@
 #define __C_CONVERTOR_DLG_H__
 
 #include "Interfaces\ConversionInterfaceFactory.h"
+#include "Library\Font.h"
 #include "Library\Configuration.h"
+#include "Library\String.h"
 
 class CConvertorDlg : public CDialog
 {
@@ -43,6 +45,7 @@ protected:
 	void UpdateMenu();
 	void UpdateControls();
 	void UpdateStrings();
+	void UpdateFonts();
 	void UpdateWindowSize();
 	void UpdateWindowPos();
 
@@ -56,19 +59,21 @@ protected:
 	virtual void OnOK();
 	afx_msg void OnClose();
 	afx_msg void OnChangeModes();
+	afx_msg void OnToolsGrouping();
+	afx_msg void OnToolsFont();
 	afx_msg void OnToolsCalculator();
 	afx_msg void OnToolsSettings();
 	afx_msg void OnToolsAbout();
 	afx_msg void OnToolsQuit();
-	afx_msg void OnCalculationGrouping();
 	afx_msg BOOL OnHelpInfo(HELPINFO *pHelpInfo);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
 private:
 	ConversionInterfaceFactory Factory;
-	ConversionInterface *pInterface;
+	//ConversionInterface *pInterface;
 	HICON hIcon;
+	Font Font1;
 };
 
 struct ConvertorDlgCfg
@@ -77,6 +82,10 @@ struct ConvertorDlgCfg
 
 	int Mode;
 	bool Grouping;
+	String FontName;
+	int FontSize;
+	int FontWeight;
+	bool FontItalic;
 	int x;
 	int y;
 };

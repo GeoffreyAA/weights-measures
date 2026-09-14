@@ -28,6 +28,18 @@ bool Font::Create(const wchar_t *pszName, int nPointSize, bool bBold, bool bItal
 	return false;
 }
 
+bool Font::Create(const LOGFONT *lpLogFont)
+{
+	if (Delete())
+	{
+		h = CreateFontIndirect(lpLogFont);
+
+		return (h != NULL);
+	}
+
+	return false;
+}
+
 bool Font::Delete()
 {
 	if (h)
@@ -73,4 +85,9 @@ bool Font::IsReady() const
 HFONT Font::GetFont() const
 {
 	return (h);
+}
+
+bool Font::GetLogFont(LOGFONT *lpLogFont) const
+{
+	return GetObject(GetFont(), sizeof(LOGFONT), lpLogFont) != 0;
 }
