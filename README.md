@@ -22,7 +22,7 @@ Weights & Measures can be compiled with Visual Studio 2026. Open the solution fi
 	C++ MFC for x64/x86 (Latest MSVC)
 
 
-To target Windows XP, use Visual Studio 2022 and the "Release-XP" configuration. (XP support was removed in Visual Studio 2026 v18.8.) The following components must be installed:
+To target Windows XP, use Visual Studio 2022 and the "Release-XP" configuration. The following components must be installed:
 
 	C++ Windows XP Support for VS 2017 (v141) tools
 	MSVC v141 - VS 2017 C++ x64/x86 build tools (v14.16)
