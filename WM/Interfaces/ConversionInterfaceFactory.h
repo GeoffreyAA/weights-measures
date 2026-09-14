@@ -15,12 +15,16 @@ public:
 	const InterfaceList& getInterfaces() const;
 	ConversionInterface *getConversionInterface(int Type);
 
+	ConversionInterface *GetSelectedInterface() const;
+	bool SelectInterface(int Type);
+
 private:
 	ConversionInterfaceFactory(const ConversionInterfaceFactory &);
 	ConversionInterfaceFactory& operator=(const ConversionInterfaceFactory &);
 
 private:
 	InterfaceList Interfaces;
+	ConversionInterface *Selected;
 };
 
 #endif

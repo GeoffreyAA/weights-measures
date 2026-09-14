@@ -26,7 +26,7 @@
 #include "TestZeroInterface.h"
 #endif
 
-ConversionInterfaceFactory::ConversionInterfaceFactory()
+ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
 {
 	Interfaces.reserve(19);
 
@@ -80,4 +80,23 @@ ConversionInterface *ConversionInterfaceFactory::getConversionInterface(int Type
 	}
 
 	return NULL;
+}
+
+ConversionInterface *ConversionInterfaceFactory::GetSelectedInterface() const
+{
+	return Selected;
+}
+
+bool ConversionInterfaceFactory::SelectInterface(int Type)
+{
+	ConversionInterface *p = getConversionInterface(Type);
+
+	if (p)
+	{
+		Selected = p;
+
+		return true;
+	}
+
+	return false;
 }
