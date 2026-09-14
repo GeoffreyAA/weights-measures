@@ -97,7 +97,8 @@ wchar_t *FormatNumber(wchar_t *number, size_t size, const wchar_t *decimal, cons
 		{
 			wall -= seperator_length;
 
-			StringInsert(number, size, seperator, wall);
+			if (iswdigit(number[wall - 1]))
+				StringInsert(number, size, seperator, wall);
 		}
 	}
 
