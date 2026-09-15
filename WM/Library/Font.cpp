@@ -1,14 +1,10 @@
 #include "stdafx.h"
 #include "Font.h"
+#include "Library.h"
 #include "Win32Library.h"
 
 Font::Font() : h(NULL)
 {
-}
-
-Font::Font(const wchar_t *pszName, int nPointSize, bool bBold, bool bItalic, bool bUnderline, bool bStrikeOut) : h(NULL)
-{
-	Create(pszName, nPointSize, bBold, bItalic, bUnderline, bStrikeOut);
 }
 
 Font::~Font()
@@ -22,7 +18,24 @@ bool Font::Create(const wchar_t *pszName, int nPointSize, bool bBold, bool bItal
 	{
 		h = CreatePointFont(pszName, nPointSize, bBold, bItalic, bUnderline, bStrikeOut);
 
-		return (h != NULL);
+		return h != NULL;
+	}
+
+	return false;
+}
+
+bool Font::Create(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iOutputPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCWSTR pszFace)
+{
+	if (Delete())
+	{
+		wchar_t fn[32] = L"";
+
+		if (pszName)
+			wcscpys(fn, sizeof(fn) / sizeof(fn[0]), pszName);
+
+		h = CreateFontW(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iOutputPrecision, iClipPrecision, iQuality, iPitchAndFamily, fn);
+
+		return h != NULL;
 	}
 
 	return false;
@@ -34,7 +47,7 @@ bool Font::Create(const LOGFONT *lpLogFont)
 	{
 		h = CreateFontIndirect(lpLogFont);
 
-		return (h != NULL);
+		return h != NULL;
 	}
 
 	return false;
@@ -50,7 +63,7 @@ bool Font::Delete()
 		}
 	}
 
-	return (h == NULL);
+	return h == NULL;
 }
 
 bool Font::Attach(HFONT hFont)
@@ -74,17 +87,17 @@ HFONT Font::Detach()
 
 	h = NULL;
 
-	return (tmp);
+	return tmp;
 }
 
 bool Font::IsReady() const
 {
-	return (GetFont() != NULL);
+	return GetFont() != NULL;
 }
 
 HFONT Font::GetFont() const
 {
-	return (h);
+	return h;
 }
 
 bool Font::GetLogFont(LOGFONT *lpLogFont) const

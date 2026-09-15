@@ -27,7 +27,7 @@ const int AbrvListSize  = sizeof(AbrvList) / sizeof(AbrvList[0]);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent)//, pInterface(NULL)
+CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CConvertorDlg)
 	//}}AFX_DATA_INIT
@@ -174,7 +174,7 @@ void CConvertorDlg::SaveConfiguration()
 	ConvertorDlgCfg Cfg;
 	HMENU h = ::GetMenu(GetSafeHwnd());
 
-	Cfg.Mode = GetMode();
+	Cfg.Mode = IsValidInterface() ? GetInterface()->getType() : 0;
 	Cfg.Grouping = h ? GetMenuItemChecked(h, ID_TOOLS_GROUPING) : true;
 
 	LOGFONT lf;
@@ -248,14 +248,7 @@ void CConvertorDlg::SetMode(int nType)
 
 ConversionInterface *CConvertorDlg::GetInterface() const
 {
-	//return pInterface;
-
 	return Factory.GetSelectedInterface();
-}
-
-void CConvertorDlg::SetInterface(ConversionInterface *p)
-{
-	//pInterface = p;
 }
 
 bool CConvertorDlg::IsValidInterface() const
@@ -291,6 +284,7 @@ void CConvertorDlg::UpdateMenu()
 	}
 }
 
+/*
 void CConvertorDlg::UpdateControls()
 {
 	ConversionInterface *p = GetInterface();
@@ -301,6 +295,33 @@ void CConvertorDlg::UpdateControls()
 		for (int i = 0; i < Min(p->getValueCount(), ValueListSize); i++)
 		{
 			SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i), dg);
+		}
+	}
+}
+*/
+
+void CConvertorDlg::UpdateControls()
+{
+	ConversionInterface *p = GetInterface();
+	bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
+
+	if (p)
+	{
+		SetMode(p->getType());
+
+		for (int i = 0; i < ValueListSize; i++)
+		{
+			bool bEnable = i < (IsValidInterface() ? GetInterface()->getValueCount() : 0);
+			int nCmdShow = bEnable ? SW_SHOW : SW_HIDE;
+
+			::ShowWindow(::GetDlgItem(GetSafeHwnd(), ValueList[i]), nCmdShow);
+			::ShowWindow(::GetDlgItem(GetSafeHwnd(), TitleList[i]), nCmdShow);
+			::ShowWindow(::GetDlgItem(GetSafeHwnd(), AbrvList[i]),  nCmdShow);
+
+			if (i < p->getValueCount())
+			{
+				SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i), dg);
+			}
 		}
 	}
 }
@@ -371,19 +392,7 @@ void CConvertorDlg::UpdateWindowPos()
 
 void CConvertorDlg::OnChangeModes()
 {
-	//SetInterface(Factory.getConversionInterface(GetMode()));
-
 	Factory.SelectInterface(GetMode());
-
-	for (int i = 0; i < ValueListSize; i++)
-	{
-		bool bEnable = i < (IsValidInterface() ? GetInterface()->getValueCount() : 0);
-		int nCmdShow = bEnable ? SW_SHOW : SW_HIDE;
-
-		::ShowWindow(::GetDlgItem(GetSafeHwnd(), ValueList[i]), nCmdShow);
-		::ShowWindow(::GetDlgItem(GetSafeHwnd(), TitleList[i]), nCmdShow);
-		::ShowWindow(::GetDlgItem(GetSafeHwnd(), AbrvList[i]),  nCmdShow);
-	}
 
 	UpdateControls();
 	UpdateStrings();

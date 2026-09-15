@@ -401,7 +401,7 @@ int FontPointToLogicalSize(int PS)
 {
 	HDC hDC = GetDC(NULL);
 
-	if (!hDC) return (NULL);
+	if (!hDC) return 0;
 
 	int LU = -MulDiv(PS, GetDeviceCaps(hDC, LOGPIXELSY), 72);
 
@@ -414,7 +414,7 @@ int FontLogicalToPointSize(int LU)
 {
 	HDC hDC = GetDC(NULL);
 
-	if (!hDC) return (NULL);
+	if (!hDC) return 0;
 
 	int PS = -MulDiv(LU, 72, GetDeviceCaps(hDC, LOGPIXELSY));
 

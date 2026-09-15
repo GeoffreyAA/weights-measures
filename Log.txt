@@ -3,6 +3,7 @@ Version 1.10.x (xx)
 - Added Space Travel
 - Added digit grouping
 - Added font customisation, using Consolas as default
+- Widened window and improved label sizes and spacing
 - Reorganised English.lng
 
 

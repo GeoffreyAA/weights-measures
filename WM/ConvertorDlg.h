@@ -38,7 +38,6 @@ protected:
 	void SetMode(int nType);
 
 	ConversionInterface *GetInterface() const;
-	void SetInterface(ConversionInterface *p);
 	bool IsValidInterface() const;
 
 	void UpdateWindowTitle();
@@ -71,7 +70,6 @@ protected:
 
 private:
 	ConversionInterfaceFactory Factory;
-	//ConversionInterface *pInterface;
 	HICON hIcon;
 	Font Font1;
 };
