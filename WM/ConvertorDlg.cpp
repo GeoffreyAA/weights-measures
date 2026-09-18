@@ -163,7 +163,7 @@ void CConvertorDlg::RetrieveConfiguration()
 	SetMode(Cfg.Mode);
 	SetMenuItemCheck(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING, Cfg.Grouping);
 
-	Font1.Create(Cfg.FontName.c_str(), Cfg.FontSize, Cfg.FontWeight >= FW_BOLD, Cfg.FontItalic);
+	Font1.Create(Cfg.FontName.c_str(), Cfg.FontSize, Cfg.FontWeight, Cfg.FontItalic);
 	UpdateFonts();
 
 	SetWindowPosition(GetSafeHwnd(), Cfg.x, Cfg.y);
@@ -217,6 +217,43 @@ void CConvertorDlg::SetupControls()
 	}
 }
 
+
+///////////
+
+int ComboGetCurSel(HWND h)
+{
+	return SendMessage(h, CB_GETCURSEL, 0, 0);
+}
+
+int ComboGetItemData(HWND h, int index)
+{
+	return SendMessage(h, CB_GETITEMDATA, (WPARAM)index, 0);
+}
+
+int ComboGetCount(HWND c)
+{
+	return SendMessage(c, CB_GETCOUNT, 0, 0);
+}
+
+void ComboSetCurSel(HWND c, int index)
+{
+	SendMessage(c, CB_SETCURSEL, (WPARAM)index, 0);
+}
+
+void ComboSelectIndex(HWND c, int data)
+{
+	for (int i = 0; i < ComboGetCount(c); i++)
+	{
+		if (ComboGetItemData(c, i) == data)
+			ComboSetCurSel(c, i);
+
+		return;
+	}
+}
+
+/////////
+
+
 int CConvertorDlg::GetMode() const
 {
 	DWORD_PTR dw = Modes.GetItemData(Modes.GetCurSel());
@@ -245,6 +282,10 @@ void CConvertorDlg::SetMode(int nType)
 		}
 	}
 }
+
+
+
+
 
 ConversionInterface *CConvertorDlg::GetInterface() const
 {
@@ -320,7 +361,7 @@ void CConvertorDlg::UpdateControls()
 
 			if (i < p->getValueCount())
 			{
-				SetWindowFloat2(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i), dg);
+				SetWindowFloatDG(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i), dg);
 			}
 		}
 	}
@@ -486,7 +527,7 @@ void CConvertorDlg::OnToolsFont()
 		cf.lStructSize = sizeof(CHOOSEFONT);
 		cf.hwndOwner = GetSafeHwnd();
 		cf.lpLogFont = &lf;
-		cf.Flags = CF_INITTOLOGFONTSTRUCT | CF_LIMITSIZE;
+		cf.Flags = CF_INITTOLOGFONTSTRUCT | CF_LIMITSIZE | CF_SCREENFONTS /* For XP */;
 		cf.nSizeMax = 14;
 
 		if (ChooseFont(&cf) && Font1.Create(cf.lpLogFont))
