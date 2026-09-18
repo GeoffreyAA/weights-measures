@@ -207,6 +207,12 @@
     <ClCompile Include="Interfaces\SpaceTravelInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Interfaces\Groceries.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces\GroceriesInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Convertor.rc">
@@ -431,6 +437,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interfaces\SpaceTravelInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\Groceries.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\GroceriesInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

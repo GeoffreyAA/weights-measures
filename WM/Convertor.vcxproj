@@ -607,6 +607,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClCompile Include="Interfaces\DataRateInterface.cpp" />
     <ClCompile Include="Interfaces\Energy.cpp" />
     <ClCompile Include="Interfaces\EnergyInterface.cpp" />
+    <ClCompile Include="Interfaces\Groceries.cpp" />
+    <ClCompile Include="Interfaces\GroceriesInterface.cpp" />
     <ClCompile Include="Interfaces\Information.cpp" />
     <ClCompile Include="Interfaces\InformationInterface.cpp" />
     <ClCompile Include="Interfaces\Length.cpp" />
@@ -695,6 +697,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Interfaces\DataRateInterface.h" />
     <ClInclude Include="Interfaces\Energy.h" />
     <ClInclude Include="Interfaces\EnergyInterface.h" />
+    <ClInclude Include="Interfaces\Groceries.h" />
+    <ClInclude Include="Interfaces\GroceriesInterface.h" />
     <ClInclude Include="Interfaces\Information.h" />
     <ClInclude Include="Interfaces\InformationInterface.h" />
     <ClInclude Include="Interfaces\Length.h" />
