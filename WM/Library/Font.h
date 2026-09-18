@@ -9,8 +9,8 @@ public:
 	Font();
 	~Font();
 
-	bool Create(const wchar_t *pszName = NULL, int nPointSize = 10, bool bBold = false, bool bItalic = false, bool bUnderline = false, bool bStrikeOut = false);
-	bool Create(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iOutputPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCWSTR pszFace);
+	bool Create(const wchar_t *pszName = NULL, int nPointSize = 10, int nWeight = FW_NORMAL, bool bItalic = false, bool bUnderline = false, bool bStrikeOut = false);
+	bool Create(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutputPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCWSTR pszFace);
 	bool Create(const LOGFONT *lpLogFont);
 	bool Delete();
 

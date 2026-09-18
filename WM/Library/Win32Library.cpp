@@ -126,7 +126,7 @@ void SetWindowFloat(HWND hWnd, double x, const wchar_t *pszFormat)
 	SetWindowTextW(hWnd, c);
 }
 
-void SetWindowFloat2(HWND hWnd, double x, bool bGroup)
+void SetWindowFloatDG(HWND hWnd, double x, bool bGroup)
 {
 	wchar_t c[256];
 
@@ -364,14 +364,12 @@ int MsgBox(const wchar_t *pszMessage, const wchar_t *pszTitle, HWND hOwner, MsgT
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-HFONT CreatePointFont(const wchar_t *pszName, int nPointSize, bool bBold, bool bItalic, bool bUnderline, bool bStrikeOut)
+HFONT CreatePointFont(const wchar_t *pszName, int nPointSize, int nWeight, bool bItalic, bool bUnderline, bool bStrikeOut)
 {
 	wchar_t s[32] = L"";
 
 	if (pszName)
-	{
 		wcscpys(s, sizeof(s) / sizeof(s[0]), pszName);
-	}
 
 	HDC hDC = GetDC(NULL);
 
@@ -381,7 +379,7 @@ HFONT CreatePointFont(const wchar_t *pszName, int nPointSize, bool bBold, bool b
 						  0,
 						  0,
 						  0,
-						  bBold ? FW_BOLD : FW_NORMAL,
+						  nWeight, /*bBold ? FW_BOLD : FW_NORMAL*/
 						  bItalic,
 						  bUnderline,
 						  bStrikeOut,

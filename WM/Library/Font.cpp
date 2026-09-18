@@ -12,11 +12,11 @@ Font::~Font()
 	Delete();
 }
 
-bool Font::Create(const wchar_t *pszName, int nPointSize, bool bBold, bool bItalic, bool bUnderline, bool bStrikeOut)
+bool Font::Create(const wchar_t *pszName, int nPointSize, int nWeight, bool bItalic, bool bUnderline, bool bStrikeOut)
 {
 	if (Delete())
 	{
-		h = CreatePointFont(pszName, nPointSize, bBold, bItalic, bUnderline, bStrikeOut);
+		h = CreatePointFont(pszName, nPointSize, nWeight, bItalic, bUnderline, bStrikeOut);
 
 		return h != NULL;
 	}
@@ -24,16 +24,16 @@ bool Font::Create(const wchar_t *pszName, int nPointSize, bool bBold, bool bItal
 	return false;
 }
 
-bool Font::Create(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iOutputPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCWSTR pszFace)
+bool Font::Create(int cHeight, int cWidth, int cEscapement, int cOrientation, int cWeight, DWORD bItalic, DWORD bUnderline, DWORD bStrikeOut, DWORD iCharSet, DWORD iOutputPrecision, DWORD iClipPrecision, DWORD iQuality, DWORD iPitchAndFamily, LPCWSTR pszFace)
 {
 	if (Delete())
 	{
 		wchar_t fn[32] = L"";
 
-		if (pszName)
-			wcscpys(fn, sizeof(fn) / sizeof(fn[0]), pszName);
+		if (pszFace)
+			wcscpys(fn, sizeof(fn) / sizeof(fn[0]), pszFace);
 
-		h = CreateFontW(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iOutputPrecision, iClipPrecision, iQuality, iPitchAndFamily, fn);
+		h = CreateFontW(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutputPrecision, iClipPrecision, iQuality, iPitchAndFamily, fn);
 
 		return h != NULL;
 	}
@@ -58,9 +58,7 @@ bool Font::Delete()
 	if (h)
 	{
 		if (DeleteObject(h))
-		{
 			h = NULL;
-		}
 	}
 
 	return h == NULL;
