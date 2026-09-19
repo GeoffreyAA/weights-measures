@@ -571,7 +571,7 @@ BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ConvertorDlgCfg::ConvertorDlgCfg() : Mode(5),
+ConvertorDlgCfg::ConvertorDlgCfg() : Mode(6),
 									 Grouping(true),
 									 FontName(L"Consolas"), FontSize(10), FontWeight(FW_NORMAL), FontItalic(false),
 									 x(32), y(32)

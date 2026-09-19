@@ -13,6 +13,9 @@ The program comes with a default language of English and can be translated into 
 
 Download Weights & Measures only from its [official page](https://github.com/GeoffreyAA/weights-measures). It is free; do not pay for it anywhere.
 
+> [!IMPORTANT]
+> No AI was used in the making of this program.
+
 
 Building
 --------
@@ -34,7 +37,7 @@ References
 
 The sources of information used at some time or other include:
 
-* Wikipedia, [Conversion of units](https://en.wikipedia.org/w/index.php?title=Conversion_of_units&oldid=476816274), the old version of which was the chief source, and many articles leading from there. Also, [Quantities of bytes](https://en.wikipedia.org/wiki/Template:Quantities_of_bytes); [Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature); [Speed of light](https://en.wikipedia.org/wiki/Speed_of_light); [Light-year](https://en.wikipedia.org/wiki/Light-year); and [Julian year](https://en.wikipedia.org/wiki/Julian_year_(astronomy)).
+* Wikipedia, [Conversion of units](https://en.wikipedia.org/w/index.php?title=Conversion_of_units&oldid=476816274), the old version of which was the chief source, and many articles leading from there. Also, [Quantities of bytes](https://en.wikipedia.org/wiki/Template:Quantities_of_bytes), [Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature), [Speed of light](https://en.wikipedia.org/wiki/Speed_of_light), [Light-year](https://en.wikipedia.org/wiki/Light-year), and [Julian year](https://en.wikipedia.org/wiki/Julian_year_(astronomy)).
 * *The Pocket Oxford Dictionary of Current English,* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
 * *[The Book of Knowledge](https://en.wikipedia.org/wiki/Cassell%27s_Book_of_Knowledge)*, ed. Gordon Stowell (5th edition, revised impression, London: The Waverley Book Company Ltd., 1957).
 * Furey, Edward. "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators

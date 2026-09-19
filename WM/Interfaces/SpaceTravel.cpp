@@ -9,7 +9,7 @@ const double DAY_JULIAN = 365.25;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-SpaceTravel::SpaceTravel() : distance_ly(4.25), speed_ms(SPEED_OF_LIGHT_MS)	/* Proxima Centauri */
+SpaceTravel::SpaceTravel() : distance_ly(1.0), speed_ms(SPEED_OF_LIGHT_MS)
 {
 }
 
