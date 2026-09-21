@@ -1,5 +1,4 @@
 #include "stdafx.h"
-
 #include "Convertor.h"
 #include "AboutDlg.h"
 

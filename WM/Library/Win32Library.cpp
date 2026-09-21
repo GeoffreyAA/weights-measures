@@ -16,52 +16,52 @@ int GetWindowWidth(HWND hWnd)
 {
 	RECT r;
 
-	return (GetWindowRect(hWnd, &r) ? (r.right - r.left) : 0);
+	return GetWindowRect(hWnd, &r) ? (r.right - r.left) : 0;
 }
 
 int GetWindowHeight(HWND hWnd)
 {
 	RECT r;
 
-	return (GetWindowRect(hWnd, &r) ? (r.bottom - r.top) : 0);
+	return GetWindowRect(hWnd, &r) ? (r.bottom - r.top) : 0;
 }
 
 int GetWindowLeft(HWND hWnd)
 {
 	RECT r;
 
-	return (GetWindowRect(hWnd, &r) ? r.left : 0);
+	return GetWindowRect(hWnd, &r) ? r.left : 0;
 }
 
 int GetWindowRight(HWND hWnd)
 {
 	RECT r;
 
-	return (GetWindowRect(hWnd, &r) ? r.right : 0);
+	return GetWindowRect(hWnd, &r) ? r.right : 0;
 }
 
 int GetWindowTop(HWND hWnd)
 {
 	RECT r;
 
-	return (GetWindowRect(hWnd, &r) ? r.top : 0);
+	return GetWindowRect(hWnd, &r) ? r.top : 0;
 }
 
 int GetWindowBottom(HWND hWnd)
 {
 	RECT r;
 
-	return (GetWindowRect(hWnd, &r) ? r.bottom : 0);
+	return GetWindowRect(hWnd, &r) ? r.bottom : 0;
 }
 
 int GetDesktopWidth()
 {
-	return (GetWindowWidth(GetDesktopWindow()));
+	return GetWindowWidth(GetDesktopWindow());
 }
 
 int GetDesktopHeight()
 {
-	return (GetWindowHeight(GetDesktopWindow()));
+	return GetWindowHeight(GetDesktopWindow());
 }
 
 void SetWindowSize(HWND hWnd, int w, int h)
@@ -111,10 +111,10 @@ double GetWindowFloat(HWND hWnd)
 			RemoveNonNbrs(c);
 		}
 
-		return (wcstod(c, NULL));
+		return wcstod(c, NULL);
 	}
 
-	return (0.0);
+	return 0.0;
 }
 
 void SetWindowFloat(HWND hWnd, double x, const wchar_t *pszFormat)
@@ -149,10 +149,10 @@ int GetWindowInt(HWND hWnd)
 			RemoveNonNbrs(c);
 		}
 
-		return (_wtoi(c));
+		return _wtoi(c);
 	}
 
-	return (0);
+	return 0;
 }
 
 void SetWindowInt(HWND hWnd, int x)
@@ -166,7 +166,7 @@ void SetWindowInt(HWND hWnd, int x)
 
 bool GetDlgItemChecked(HWND hDlg, int nID)
 {
-	return (SendDlgItemMessage(hDlg, nID, BM_GETCHECK, 0, 0) == BST_CHECKED);
+	return SendDlgItemMessage(hDlg, nID, BM_GETCHECK, 0, 0) == BST_CHECKED;
 }
 
 void SetDlgItemCheck(HWND hDlg, int nID, bool bCheck)
@@ -217,7 +217,7 @@ bool GetMenuItemChecked(HMENU hMenu, UINT uID)
 
 	if (uFlags != 0xFFFFFFFF)
 	{
-		return ((uFlags & MF_CHECKED) != 0);
+		return (uFlags & MF_CHECKED) != 0;
 	}
 
 	return false;
@@ -247,12 +247,12 @@ String GetMenuItemSelected(HMENU hMenu, const UINT IDs[], size_t n)
 			{
 				wchar_t w[32];
 
-				return (GetMenuStringW(hMenu, IDs[i], w, sizeof(w) / sizeof(w[0]), MF_BYCOMMAND) ? w : L"");
+				return GetMenuStringW(hMenu, IDs[i], w, sizeof(w) / sizeof(w[0]), MF_BYCOMMAND) ? w : L"";
 			}
 		}
 	}
 
-	return (L"");
+	return L"";
 }
 
 bool GetMenuItemSelected(HMENU hMenu, const UINT IDs[], size_t n, wchar_t *s, size_t cbSize)
@@ -265,7 +265,7 @@ bool GetMenuItemSelected(HMENU hMenu, const UINT IDs[], size_t n, wchar_t *s, si
 		{
 			if (GetMenuItemChecked(hMenu, IDs[i]))
 			{
-				return (GetMenuStringW(hMenu, IDs[i], s, size, MF_BYCOMMAND) != 0);
+				return GetMenuStringW(hMenu, IDs[i], s, size, MF_BYCOMMAND) != 0;
 			}
 		}
 	}
@@ -354,7 +354,7 @@ int MsgBox(const wchar_t *pszMessage, const wchar_t *pszTitle, HWND hOwner, MsgT
 			break;
 	}
 
-	return (MessageBoxW(hOwner, pszMessage, pszTitle, uType));
+	return MessageBoxW(hOwner, pszMessage, pszTitle, uType);
 }
 
 
@@ -373,7 +373,7 @@ HFONT CreatePointFont(const wchar_t *pszName, int nPointSize, int nWeight, bool 
 
 	HDC hDC = GetDC(NULL);
 
-	if (!hDC) return (NULL);
+	if (!hDC) return NULL;
 
 	HFONT h = CreateFontW(-MulDiv(nPointSize, GetDeviceCaps(hDC, LOGPIXELSY), 72),
 						  0,
@@ -392,7 +392,7 @@ HFONT CreatePointFont(const wchar_t *pszName, int nPointSize, int nWeight, bool 
 
 	ReleaseDC(NULL, hDC);
 
-	return (h);
+	return h;
 }
 
 int FontPointToLogicalSize(int PS)
@@ -530,7 +530,7 @@ bool TimeToSystemTime(time_t t, SYSTEMTIME *st)
 	{
 		FILETIME ft;
 
-		return (TimeToFileTime(t, &ft) && FileTimeToSystemTime(&ft, st));
+		return TimeToFileTime(t, &ft) && FileTimeToSystemTime(&ft, st);
 	}
 
 	return false;
@@ -543,7 +543,7 @@ bool TimeToSystemTimeLocal(time_t t, SYSTEMTIME *st)
 		FILETIME ft;
 		FILETIME ftLocal;
 
-		return (TimeToFileTime(t, &ft) && FileTimeToLocalFileTime(&ft, &ftLocal) && FileTimeToSystemTime(&ftLocal, st));
+		return TimeToFileTime(t, &ft) && FileTimeToLocalFileTime(&ft, &ftLocal) && FileTimeToSystemTime(&ftLocal, st);
 	}
 
 	return false;
@@ -551,7 +551,7 @@ bool TimeToSystemTimeLocal(time_t t, SYSTEMTIME *st)
 
 bool ShellOpen(const wchar_t *pszFile, HWND hOwner)
 {
-	return (ShellExecuteW(hOwner, NULL, pszFile, NULL, NULL, SW_SHOWNORMAL) > (HINSTANCE)32);
+	return ShellExecuteW(hOwner, NULL, pszFile, NULL, NULL, SW_SHOWNORMAL) > (HINSTANCE)32;
 }
 
 bool GetOpenFileNameDlg(wchar_t *pszBuffer, size_t cbSize, HWND hOwner, const wchar_t *pszTitle, const wchar_t *pszFilter)
@@ -573,7 +573,7 @@ bool GetOpenFileNameDlg(wchar_t *pszBuffer, size_t cbSize, HWND hOwner, const wc
 		ofn.lpstrTitle = pszTitle;
 		ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
 
-		return (GetOpenFileNameW(&ofn) != 0);
+		return GetOpenFileNameW(&ofn) != 0;
 	}
 
 	return false;
@@ -599,7 +599,7 @@ bool GetSaveFileNameDlg(wchar_t *pszBuffer, size_t cbSize, HWND hOwner, const wc
 		ofn.Flags = OFN_HIDEREADONLY | OFN_NOREADONLYRETURN | OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST;
 		ofn.lpstrDefExt = pszDefExt;
 
-		return (GetSaveFileNameW(&ofn) != 0);
+		return GetSaveFileNameW(&ofn) != 0;
 	}
 
 	return false;
@@ -637,10 +637,10 @@ ApplicationFile::ApplicationFile(const wchar_t *pszFile)
 
 const wchar_t *ApplicationFile::c_str() const
 {
-	return (Ready ? Path : NULL);
+	return Ready ? Path : NULL;
 }
 
 ApplicationFile::operator const wchar_t *() const
 {
-	return (c_str());
+	return c_str();
 }
