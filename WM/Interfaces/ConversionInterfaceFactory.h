@@ -12,9 +12,8 @@ public:
 	ConversionInterfaceFactory();
 	~ConversionInterfaceFactory();
 
-	const InterfaceList& getInterfaces() const;
-	ConversionInterface *getConversionInterface(int Type);
-
+	const InterfaceList& GetInterfaces() const;
+	ConversionInterface *GetInterface(int Type);
 	ConversionInterface *GetSelectedInterface() const;
 	bool SelectInterface(int Type);
 

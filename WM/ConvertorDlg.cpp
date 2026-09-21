@@ -1,8 +1,6 @@
 #include "stdafx.h"
-
 #include "Convertor.h"
 #include "ConvertorDlg.h"
-
 #include "AboutDlg.h"
 #include "SettingsDlg.h"
 
@@ -18,11 +16,11 @@
 
 const int ValueList[] = {IDC_EDIT0,  IDC_EDIT1,  IDC_EDIT2,  IDC_EDIT3,  IDC_EDIT4,  IDC_EDIT5,  IDC_EDIT6,  IDC_EDIT7,  IDC_EDIT8,  IDC_EDIT9,  IDC_EDIT10,  IDC_EDIT11,  IDC_EDIT12,  IDC_EDIT13,  IDC_EDIT14,  IDC_EDIT15};
 const int TitleList[] = {IDC_TITLE0, IDC_TITLE1, IDC_TITLE2, IDC_TITLE3, IDC_TITLE4, IDC_TITLE5, IDC_TITLE6, IDC_TITLE7, IDC_TITLE8, IDC_TITLE9, IDC_TITLE10, IDC_TITLE11, IDC_TITLE12, IDC_TITLE13, IDC_TITLE14, IDC_TITLE15};
-const int AbrvList[]  = {IDC_ABRV0,  IDC_ABRV1,  IDC_ABRV2,  IDC_ABRV3,  IDC_ABRV4,  IDC_ABRV5,  IDC_ABRV6,  IDC_ABRV7,  IDC_ABRV8,  IDC_ABRV9,  IDC_ABRV10,  IDC_ABRV11,  IDC_ABRV12,  IDC_ABRV13,  IDC_ABRV14,  IDC_ABRV15};
+const int AbbrvList[] = {IDC_ABRV0,  IDC_ABRV1,  IDC_ABRV2,  IDC_ABRV3,  IDC_ABRV4,  IDC_ABRV5,  IDC_ABRV6,  IDC_ABRV7,  IDC_ABRV8,  IDC_ABRV9,  IDC_ABRV10,  IDC_ABRV11,  IDC_ABRV12,  IDC_ABRV13,  IDC_ABRV14,  IDC_ABRV15};
 
 const int ValueListSize = sizeof(ValueList) / sizeof(ValueList[0]);
 const int TitleListSize = sizeof(TitleList) / sizeof(TitleList[0]);
-const int AbrvListSize  = sizeof(AbrvList) / sizeof(AbrvList[0]);
+const int AbbrvListSize = sizeof(AbbrvList) / sizeof(AbbrvList[0]);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,7 +32,7 @@ CConvertorDlg::CConvertorDlg(CWnd *pParent) : CDialog(CConvertorDlg::IDD, pParen
 	hIcon = AfxGetApp()->LoadIcon(IDR_CONVERTOR_ICON);
 
 	ASSERT(ValueListSize == TitleListSize);
-	ASSERT(TitleListSize == AbrvListSize);
+	ASSERT(TitleListSize == AbbrvListSize);
 }
 
 CConvertorDlg::~CConvertorDlg()
@@ -125,6 +123,13 @@ void CConvertorDlg::OnOK()
 {
 }
 
+void CConvertorDlg::OnCancel()
+{
+	OnBeforeClose();
+
+	EndDialog(IDOK);
+}
+
 void CConvertorDlg::OnClose()
 {
 	OnBeforeClose();
@@ -201,7 +206,7 @@ void CConvertorDlg::SetupControls()
 {
 	Modes.ResetContent();
 
-	const ConversionInterfaceFactory::InterfaceList &r = Factory.getInterfaces();
+	const ConversionInterfaceFactory::InterfaceList &r = Factory.GetInterfaces();
 
 	for (ConversionInterfaceFactory::InterfaceList::const_iterator i = r.begin(); i != r.end(); i++)
 	{
@@ -216,43 +221,6 @@ void CConvertorDlg::SetupControls()
 		}
 	}
 }
-
-
-///////////
-
-int ComboGetCurSel(HWND h)
-{
-	return SendMessage(h, CB_GETCURSEL, 0, 0);
-}
-
-int ComboGetItemData(HWND h, int index)
-{
-	return SendMessage(h, CB_GETITEMDATA, (WPARAM)index, 0);
-}
-
-int ComboGetCount(HWND c)
-{
-	return SendMessage(c, CB_GETCOUNT, 0, 0);
-}
-
-void ComboSetCurSel(HWND c, int index)
-{
-	SendMessage(c, CB_SETCURSEL, (WPARAM)index, 0);
-}
-
-void ComboSelectIndex(HWND c, int data)
-{
-	for (int i = 0; i < ComboGetCount(c); i++)
-	{
-		if (ComboGetItemData(c, i) == data)
-			ComboSetCurSel(c, i);
-
-		return;
-	}
-}
-
-/////////
-
 
 int CConvertorDlg::GetMode() const
 {
@@ -282,10 +250,6 @@ void CConvertorDlg::SetMode(int nType)
 		}
 	}
 }
-
-
-
-
 
 ConversionInterface *CConvertorDlg::GetInterface() const
 {
@@ -357,7 +321,7 @@ void CConvertorDlg::UpdateControls()
 
 			::ShowWindow(::GetDlgItem(GetSafeHwnd(), ValueList[i]), nCmdShow);
 			::ShowWindow(::GetDlgItem(GetSafeHwnd(), TitleList[i]), nCmdShow);
-			::ShowWindow(::GetDlgItem(GetSafeHwnd(), AbrvList[i]),  nCmdShow);
+			::ShowWindow(::GetDlgItem(GetSafeHwnd(), AbbrvList[i]), nCmdShow);
 
 			if (i < p->getValueCount())
 			{
@@ -376,7 +340,7 @@ void CConvertorDlg::UpdateStrings()
 		for (int i = 0; i < Min(p->getValueCount(), TitleListSize); i++)
 		{
 			::SetDlgItemText(GetSafeHwnd(), TitleList[i], ResourceString(p->getTitle(i)));
-			::SetDlgItemText(GetSafeHwnd(), AbrvList[i], ResourceString(p->getAbbreviation(i)));
+			::SetDlgItemText(GetSafeHwnd(), AbbrvList[i], ResourceString(p->getAbbreviation(i)));
 		}
 	}
 }
@@ -527,7 +491,7 @@ void CConvertorDlg::OnToolsFont()
 		cf.lStructSize = sizeof(CHOOSEFONT);
 		cf.hwndOwner = GetSafeHwnd();
 		cf.lpLogFont = &lf;
-		cf.Flags = CF_INITTOLOGFONTSTRUCT | CF_LIMITSIZE | CF_SCREENFONTS /* For XP */;
+		cf.Flags = CF_INITTOLOGFONTSTRUCT | CF_LIMITSIZE | CF_SCREENFONTS /* XP */;
 		cf.nSizeMax = 14;
 
 		if (ChooseFont(&cf) && Font1.Create(cf.lpLogFont))
@@ -539,13 +503,11 @@ void CConvertorDlg::OnToolsSettings()
 {
 	if (CSettingsDlg().DoModal() == IDOK)
 	{
-		const int m = GetMode();
-
 		UpdateWindowTitle();
 		UpdateMenu();
 		SetupControls();
-		SetMode(m);
-		OnChangeModes();
+		UpdateControls();
+		UpdateStrings();
 	}
 }
 

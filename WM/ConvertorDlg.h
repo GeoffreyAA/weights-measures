@@ -56,6 +56,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	virtual void OnOK();
+	virtual void OnCancel();
 	afx_msg void OnClose();
 	afx_msg void OnChangeModes();
 	afx_msg void OnToolsGrouping();

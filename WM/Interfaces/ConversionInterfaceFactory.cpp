@@ -63,12 +63,12 @@ ConversionInterfaceFactory::~ConversionInterfaceFactory()
 	DeleteAll(Interfaces.begin(), Interfaces.end());
 }
 
-const ConversionInterfaceFactory::InterfaceList& ConversionInterfaceFactory::getInterfaces() const
+const ConversionInterfaceFactory::InterfaceList& ConversionInterfaceFactory::GetInterfaces() const
 {
 	return Interfaces;
 }
 
-ConversionInterface *ConversionInterfaceFactory::getConversionInterface(int Type)
+ConversionInterface *ConversionInterfaceFactory::GetInterface(int Type)
 {
 	for (InterfaceList::const_iterator i = Interfaces.begin(); i != Interfaces.end(); i++)
 	{
@@ -91,7 +91,7 @@ ConversionInterface *ConversionInterfaceFactory::GetSelectedInterface() const
 
 bool ConversionInterfaceFactory::SelectInterface(int Type)
 {
-	ConversionInterface *p = getConversionInterface(Type);
+	ConversionInterface *p = GetInterface(Type);
 
 	if (p)
 	{
