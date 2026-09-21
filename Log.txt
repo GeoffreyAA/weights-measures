@@ -1,4 +1,4 @@
-Version 1.10.x (xx)
+Version 1.10.294 (September 21, 2026)
 
 - Added Groceries and Space Travel
 - Added digit grouping
