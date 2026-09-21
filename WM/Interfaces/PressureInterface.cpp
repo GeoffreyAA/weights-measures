@@ -1,84 +1,84 @@
 #include "stdafx.h"
 #include "PressureInterface.h"
 
-//static const wchar_t *const szTitles[] = {L"IDS_TITLE_PASCALS", L"IDS_TITLE_KILOPASCALS", L"IDS_TITLE_POUNDS_PER_SQUARE_INCH", L"IDS_TITLE_BARS", L"IDS_TITLE_STD_ATMOSPHERE", L"IDS_TITLE_MILLIMETRES_MERCURY", L"IDS_TITLE_INCHES_MERCURY", L"IDS_TITLE_CENTIMETRES_WATER", L"IDS_TITLE_INCHES_WATER"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_PASCALS", L"IDS_ABRV_KILOPASCALS", L"IDS_ABRV_POUNDS_PER_SQUARE_INCH", L"IDS_ABRV_BARS", L"IDS_ABRV_STD_ATMOSPHERE", L"IDS_ABRV_MILLIMETRES_MERCURY", L"IDS_ABRV_INCHES_MERCURY", L"IDS_ABRV_CENTIMETRES_WATER", L"IDS_ABRV_INCHES_WATER"};
+//static const wchar_t *const szTitle[] = {L"IDS_TITLE_PASCALS", L"IDS_TITLE_KILOPASCALS", L"IDS_TITLE_POUNDS_PER_SQUARE_INCH", L"IDS_TITLE_BARS", L"IDS_TITLE_STD_ATMOSPHERE", L"IDS_TITLE_MILLIMETRES_MERCURY", L"IDS_TITLE_INCHES_MERCURY", L"IDS_TITLE_CENTIMETRES_WATER", L"IDS_TITLE_INCHES_WATER"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_PASCALS", L"IDS_ABBRV_KILOPASCALS", L"IDS_ABBRV_POUNDS_PER_SQUARE_INCH", L"IDS_ABBRV_BARS", L"IDS_ABBRV_STD_ATMOSPHERE", L"IDS_ABBRV_MILLIMETRES_MERCURY", L"IDS_ABBRV_INCHES_MERCURY", L"IDS_ABBRV_CENTIMETRES_WATER", L"IDS_ABBRV_INCHES_WATER"};
 
 const wchar_t *PressureInterface::getName() const
 {
-	return (L"IDS_PRESSURE");
+	return L"IDS_PRESSURE";
 }
 
 int PressureInterface::getValueCount() const
 {
-	return (9);
+	return 9;
 }
 
 double PressureInterface::getValue0() const
 {
-	return (p.getPascals());
+	return p.getPascals();
 }
 
 double PressureInterface::getValue1() const
 {
-	return (p.getKilopascals());
+	return p.getKilopascals();
 }
 
 double PressureInterface::getValue2() const
 {
-	return (p.getPoundsPerSquareInch());
+	return p.getPoundsPerSquareInch();
 }
 
 double PressureInterface::getValue3() const
 {
-	return (p.getBars());
+	return p.getBars();
 }
 
 double PressureInterface::getValue4() const
 {
-	return (p.getStandardAtmosphere());
+	return p.getStandardAtmosphere();
 }
 
 double PressureInterface::getValue5() const
 {
-	return (p.getMillimetresOfMercury());
+	return p.getMillimetresOfMercury();
 }
 
 double PressureInterface::getValue6() const
 {
-	return (p.getInchesOfMercury());
+	return p.getInchesOfMercury();
 }
 
 double PressureInterface::getValue7() const
 {
-	return (p.getCentimetresOfWater());
+	return p.getCentimetresOfWater();
 }
 
 double PressureInterface::getValue8() const
 {
-	return (p.getInchesOfWater());
+	return p.getInchesOfWater();
 }
 
 /*
 const wchar_t *PressureInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return szTitle[i];
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 */
 
 const wchar_t *PressureInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void PressureInterface::setValue0(double x)

@@ -1,77 +1,77 @@
 #include "stdafx.h"
 #include "TimeInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_MILLISECONDS", L"IDS_TITLE_SECONDS", L"IDS_TITLE_MINUTES", L"IDS_TITLE_HOURS", L"IDS_TITLE_DAYS", L"IDS_TITLE_WEEKS", L"IDS_TITLE_MONTHS", L"IDS_TITLE_YEARS"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_MILLISECONDS", L"IDS_ABRV_SECONDS", L"IDS_ABRV_MINUTES", L"IDS_ABRV_HOURS", L"IDS_ABRV_DAYS", L"IDS_ABRV_WEEKS", L"IDS_ABRV_MONTHS", L"IDS_ABRV_YEARS"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_MILLISECONDS", L"IDS_TITLE_SECONDS", L"IDS_TITLE_MINUTES", L"IDS_TITLE_HOURS", L"IDS_TITLE_DAYS", L"IDS_TITLE_WEEKS", L"IDS_TITLE_MONTHS", L"IDS_TITLE_YEARS"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_MILLISECONDS", L"IDS_ABBRV_SECONDS", L"IDS_ABBRV_MINUTES", L"IDS_ABBRV_HOURS", L"IDS_ABBRV_DAYS", L"IDS_ABBRV_WEEKS", L"IDS_ABBRV_MONTHS", L"IDS_ABBRV_YEARS"};
 
 const wchar_t *TimeInterface::getName() const
 {
-	return (L"IDS_TIME");
+	return L"IDS_TIME";
 }
 
 int TimeInterface::getValueCount() const
 {
-	return (8);
+	return 8;
 }
 
 double TimeInterface::getValue0() const
 {
-	return (t.getMilliseconds());
+	return t.getMilliseconds();
 }
 
 double TimeInterface::getValue1() const
 {
-	return (t.getSeconds());
+	return t.getSeconds();
 }
 
 double TimeInterface::getValue2() const
 {
-	return (t.getMinutes());
+	return t.getMinutes();
 }
 
 double TimeInterface::getValue3() const
 {
-	return (t.getHours());
+	return t.getHours();
 }
 
 double TimeInterface::getValue4() const
 {
-	return (t.getDays());
+	return t.getDays();
 }
 
 double TimeInterface::getValue5() const
 {
-	return (t.getWeeks());
+	return t.getWeeks();
 }
 
 double TimeInterface::getValue6() const
 {
-	return (t.getMonths());
+	return t.getMonths();
 }
 
 double TimeInterface::getValue7() const
 {
-	return (t.getYears());
+	return t.getYears();
 }
 
 const wchar_t *TimeInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return szTitle[i];
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 
 const wchar_t *TimeInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void TimeInterface::setValue0(double x)

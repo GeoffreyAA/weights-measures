@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "GroceriesInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_PRICE", L"IDS_TITLE_WEIGHT", L"", L"IDS_TITLE_PRICE_KG"};
-static const wchar_t *const szAbrv[]   = {L"IDS_ABRV_CURRENCY", L"IDS_ABRV_GROCERIES_KILOGRAMS", L"IDS_ABRV_GROCERIES_GRAMS", L"IDS_ABRV_CURRENCY"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_PRICE", L"IDS_TITLE_WEIGHT", L"", L"IDS_TITLE_PRICE_KG"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_PRICE", L"IDS_ABBRV_WEIGHT_KILOGRAMS", L"IDS_ABBRV_WEIGHT_GRAMS", L"IDS_ABBRV_PRICE"};
 
 const wchar_t *GroceriesInterface::getName() const
 {
@@ -36,9 +36,9 @@ double GroceriesInterface::getValue3() const
 
 const wchar_t *GroceriesInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return szTitles[i];
+		return szTitle[i];
 	}
 
 	return ConversionInterface::getTitle(i);
@@ -46,9 +46,9 @@ const wchar_t *GroceriesInterface::getTitle(int i) const
 
 const wchar_t *GroceriesInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return szAbrv[i];
+		return szAbbrv[i];
 	}
 
 	return ConversionInterface::getAbbreviation(i);

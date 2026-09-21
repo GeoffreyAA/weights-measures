@@ -1,66 +1,66 @@
 #include "stdafx.h"
 #include "DataRateInterface.h"
 
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BITS_PER_SEC", L"IDS_ABRV_KILOBITS_PER_SEC", L"IDS_ABRV_MEGABITS_PER_SEC", L"IDS_ABRV_GIGABITS_PER_SEC", L"IDS_ABRV_BYTES_PER_SEC", L"IDS_ABRV_KILOBYTES_PER_SEC", L"IDS_ABRV_MEGABYTES_PER_SEC", L"IDS_ABRV_GIGABYTES_PER_SEC"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_BITS_PER_SEC", L"IDS_ABBRV_KILOBITS_PER_SEC", L"IDS_ABBRV_MEGABITS_PER_SEC", L"IDS_ABBRV_GIGABITS_PER_SEC", L"IDS_ABBRV_BYTES_PER_SEC", L"IDS_ABBRV_KILOBYTES_PER_SEC", L"IDS_ABBRV_MEGABYTES_PER_SEC", L"IDS_ABBRV_GIGABYTES_PER_SEC"};
 
 const wchar_t *DataRateInterface::getName() const
 {
-	return (L"IDS_DATA_RATE");
+	return L"IDS_DATA_RATE";
 }
 
 int DataRateInterface::getValueCount() const
 {
-	return (8);
+	return 8;
 }
 
 double DataRateInterface::getValue0() const
 {
-	return (d.getBitsPerSecond());
+	return d.getBitsPerSecond();
 }
 
 double DataRateInterface::getValue1() const
 {
-	return (d.getKilobitsPerSecond());
+	return d.getKilobitsPerSecond();
 }
 
 double DataRateInterface::getValue2() const
 {
-	return (d.getMegabitsPerSecond());
+	return d.getMegabitsPerSecond();
 }
 
 double DataRateInterface::getValue3() const
 {
-	return (d.getGigabitsPerSecond());
+	return d.getGigabitsPerSecond();
 }
 
 double DataRateInterface::getValue4() const
 {
-	return (d.getBytesPerSecond());
+	return d.getBytesPerSecond();
 }
 
 double DataRateInterface::getValue5() const
 {
-	return (d.getKilobytesPerSecond());
+	return d.getKilobytesPerSecond();
 }
 
 double DataRateInterface::getValue6() const
 {
-	return (d.getMegabytesPerSecond());
+	return d.getMegabytesPerSecond();
 }
 
 double DataRateInterface::getValue7() const
 {
-	return (d.getGigabytesPerSecond());
+	return d.getGigabytesPerSecond();
 }
 
 const wchar_t *DataRateInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void DataRateInterface::setValue0(double x)

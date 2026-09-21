@@ -1,72 +1,72 @@
 #include "stdafx.h"
 #include "SpeedInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_KILOMETRES_PER_HOUR", L"IDS_TITLE_FEET_PER_SECOND", L"IDS_TITLE_MILES_PER_HOUR", L"IDS_TITLE_METRES_PER_SECOND", L"IDS_TITLE_KNOTS", L"IDS_TITLE_MACH", L"IDS_TITLE_LIGHT"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_KILOMETRES_PER_HOUR", L"IDS_ABRV_FEET_PER_SECOND", L"IDS_ABRV_MILES_PER_HOUR", L"IDS_ABRV_METRES_PER_SECOND", L"IDS_ABRV_KNOTS", L"IDS_ABRV_MACH", L"IDS_ABRV_LIGHT"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_KILOMETRES_PER_HOUR", L"IDS_TITLE_FEET_PER_SECOND", L"IDS_TITLE_MILES_PER_HOUR", L"IDS_TITLE_METRES_PER_SECOND", L"IDS_TITLE_KNOTS", L"IDS_TITLE_MACH", L"IDS_TITLE_LIGHT"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_KILOMETRES_PER_HOUR", L"IDS_ABBRV_FEET_PER_SECOND", L"IDS_ABBRV_MILES_PER_HOUR", L"IDS_ABBRV_METRES_PER_SECOND", L"IDS_ABBRV_KNOTS", L"IDS_ABBRV_MACH", L"IDS_ABBRV_LIGHT"};
 
 const wchar_t *SpeedInterface::getName() const
 {
-	return (L"IDS_SPEED");
+	return L"IDS_SPEED";
 }
 
 int SpeedInterface::getValueCount() const
 {
-	return (7);
+	return 7;
 }
 
 double SpeedInterface::getValue0() const
 {
-	return (s.getKilometresPerHour());
+	return s.getKilometresPerHour();
 }
 
 double SpeedInterface::getValue1() const
 {
-	return (s.getFeetPerSecond());
+	return s.getFeetPerSecond();
 }
 
 double SpeedInterface::getValue2() const
 {
-	return (s.getMilesPerHour());
+	return s.getMilesPerHour();
 }
 
 double SpeedInterface::getValue3() const
 {
-	return (s.getMetresPerSecond());
+	return s.getMetresPerSecond();
 }
 
 double SpeedInterface::getValue4() const
 {
-	return (s.getKnots());
+	return s.getKnots();
 }
 
 double SpeedInterface::getValue5() const
 {
-	return (s.getMach());
+	return s.getMach();
 }
 
 double SpeedInterface::getValue6() const
 {
-	return (s.getLight());
+	return s.getLight();
 }
 
 const wchar_t *SpeedInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return szTitle[i];
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 
 const wchar_t *SpeedInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void SpeedInterface::setValue0(double x)

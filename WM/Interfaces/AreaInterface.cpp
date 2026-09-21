@@ -1,77 +1,77 @@
 #include "stdafx.h"
 #include "AreaInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_SQUARE_INCHES", L"IDS_TITLE_SQUARE_FEET", L"IDS_TITLE_SQUARE_YARDS", L"IDS_TITLE_SQUARE_METRES", L"IDS_TITLE_ACRES", L"IDS_TITLE_HECTARES", L"IDS_TITLE_SQUARE_KILOMETRES", L"IDS_TITLE_SQUARE_MILES"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_SQUARE_INCHES", L"IDS_ABRV_SQUARE_FEET", L"IDS_ABRV_SQUARE_YARDS", L"IDS_ABRV_SQUARE_METRES", L"IDS_ABRV_ACRES", L"IDS_ABRV_HECTARES", L"IDS_ABRV_SQUARE_KILOMETRES", L"IDS_ABRV_SQUARE_MILES"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_SQUARE_INCHES", L"IDS_TITLE_SQUARE_FEET", L"IDS_TITLE_SQUARE_YARDS", L"IDS_TITLE_SQUARE_METRES", L"IDS_TITLE_ACRES", L"IDS_TITLE_HECTARES", L"IDS_TITLE_SQUARE_KILOMETRES", L"IDS_TITLE_SQUARE_MILES"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_SQUARE_INCHES", L"IDS_ABBRV_SQUARE_FEET", L"IDS_ABBRV_SQUARE_YARDS", L"IDS_ABBRV_SQUARE_METRES", L"IDS_ABBRV_ACRES", L"IDS_ABBRV_HECTARES", L"IDS_ABBRV_SQUARE_KILOMETRES", L"IDS_ABBRV_SQUARE_MILES"};
 
 const wchar_t *AreaInterface::getName() const
 {
-	return (L"IDS_AREA");
+	return L"IDS_AREA";
 }
 
 int AreaInterface::getValueCount() const
 {
-	return (8);
+	return 8;
 }
 
 double AreaInterface::getValue0() const
 {
-	return (a.getSquareInches());
+	return a.getSquareInches();
 }
 
 double AreaInterface::getValue1() const
 {
-	return (a.getSquareFeet());
+	return a.getSquareFeet();
 }
 
 double AreaInterface::getValue2() const
 {
-	return (a.getSquareYards());
+	return a.getSquareYards();
 }
 
 double AreaInterface::getValue3() const
 {
-	return (a.getSquareMetres());
+	return a.getSquareMetres();
 }
 
 double AreaInterface::getValue4() const
 {
-	return (a.getAcres());
+	return a.getAcres();
 }
 
 double AreaInterface::getValue5() const
 {
-	return (a.getHectares());
+	return a.getHectares();
 }
 
 double AreaInterface::getValue6() const
 {
-	return (a.getSquareKilometres());
+	return a.getSquareKilometres();
 }
 
 double AreaInterface::getValue7() const
 {
-	return (a.getSquareMiles());
+	return a.getSquareMiles();
 }
 
 const wchar_t *AreaInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return szTitle[i];
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 
 const wchar_t *AreaInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void AreaInterface::setValue0(double x)

@@ -1,57 +1,57 @@
 #include "stdafx.h"
 #include "PowerInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_BTU_H", L"IDS_TITLE_WATTS", L"IDS_TITLE_KILOWATTS", L"IDS_TITLE_HORSEPOWER_MECH"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BTU_H", L"IDS_ABRV_WATTS", L"IDS_ABRV_KILOWATTS", L"IDS_ABRV_HORSEPOWER_MECH"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_BTU_H", L"IDS_TITLE_WATTS", L"IDS_TITLE_KILOWATTS", L"IDS_TITLE_HORSEPOWER_MECH"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_BTU_H", L"IDS_ABBRV_WATTS", L"IDS_ABBRV_KILOWATTS", L"IDS_ABBRV_HORSEPOWER_MECH"};
 
 const wchar_t *PowerInterface::getName() const
 {
-	return (L"IDS_POWER");
+	return L"IDS_POWER";
 }
 
 int PowerInterface::getValueCount() const
 {
-	return (4);
+	return 4;
 }
 
 double PowerInterface::getValue0() const
 {
-	return (p.getBtuPerHour());
+	return p.getBtuPerHour();
 }
 
 double PowerInterface::getValue1() const
 {
-	return (p.getWatts());
+	return p.getWatts();
 }
 
 double PowerInterface::getValue2() const
 {
-	return (p.getKilowatts());
+	return p.getKilowatts();
 }
 
 double PowerInterface::getValue3() const
 {
-	return (p.getHorsepowerMechanical());
+	return p.getHorsepowerMechanical();
 }
 
 const wchar_t *PowerInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return szTitle[i];
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 
 const wchar_t *PowerInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void PowerInterface::setValue0(double x)

@@ -1,82 +1,82 @@
 #include "stdafx.h"
 #include "VolumeUKInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_MILLILITRES", L"IDS_TITLE_LITRES", L"IDS_TITLE_FLUID_OUNCES_UK", L"IDS_TITLE_PINTS_UK", L"IDS_TITLE_QUARTS_UK", L"IDS_TITLE_GALLONS_UK", L"IDS_TITLE_TEASPOONS_UK", L"IDS_TITLE_TABLESPOONS_UK", L"IDS_TITLE_CUPS_UK"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_MILLILITRES", L"IDS_ABRV_LITRES", L"IDS_ABRV_FLUID_OUNCES_UK", L"IDS_ABRV_PINTS_UK", L"IDS_ABRV_QUARTS_UK", L"IDS_ABRV_GALLONS_UK", L"IDS_ABRV_TEASPOONS_UK", L"IDS_ABRV_TABLESPOONS_UK", L"IDS_ABRV_CUPS_UK"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_MILLILITRES", L"IDS_TITLE_LITRES", L"IDS_TITLE_FLUID_OUNCES_UK", L"IDS_TITLE_PINTS_UK", L"IDS_TITLE_QUARTS_UK", L"IDS_TITLE_GALLONS_UK", L"IDS_TITLE_TEASPOONS_UK", L"IDS_TITLE_TABLESPOONS_UK", L"IDS_TITLE_CUPS_UK"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_MILLILITRES", L"IDS_ABBRV_LITRES", L"IDS_ABBRV_FLUID_OUNCES_UK", L"IDS_ABBRV_PINTS_UK", L"IDS_ABBRV_QUARTS_UK", L"IDS_ABBRV_GALLONS_UK", L"IDS_ABBRV_TEASPOONS_UK", L"IDS_ABBRV_TABLESPOONS_UK", L"IDS_ABBRV_CUPS_UK"};
 
 const wchar_t *VolumeUKInterface::getName() const
 {
-	return (L"IDS_VOLUME_UK");
+	return L"IDS_VOLUME_UK";
 }
 
 int VolumeUKInterface::getValueCount() const
 {
-	return (9);
+	return 9;
 }
 
 double VolumeUKInterface::getValue0() const
 {
-	return (v.getMillilitres());
+	return v.getMillilitres();
 }
 
 double VolumeUKInterface::getValue1() const
 {
-	return (v.getLitres());
+	return v.getLitres();
 }
 
 double VolumeUKInterface::getValue2() const
 {
-	return (v.getFluidOuncesUK());
+	return v.getFluidOuncesUK();
 }
 
 double VolumeUKInterface::getValue3() const
 {
-	return (v.getPintsUK());
+	return v.getPintsUK();
 }
 
 double VolumeUKInterface::getValue4() const
 {
-	return (v.getQuartsUK());
+	return v.getQuartsUK();
 }
 
 double VolumeUKInterface::getValue5() const
 {
-	return (v.getGallonsUK());
+	return v.getGallonsUK();
 }
 
 double VolumeUKInterface::getValue6() const
 {
-	return (v.getTeaspoonsUK());
+	return v.getTeaspoonsUK();
 }
 
 double VolumeUKInterface::getValue7() const
 {
-	return (v.getTablepoonsUK());
+	return v.getTablepoonsUK();
 }
 
 double VolumeUKInterface::getValue8() const
 {
-	return (v.getCupsUK());
+	return v.getCupsUK();
 }
 
 const wchar_t *VolumeUKInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return szTitle[i];
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 
 const wchar_t *VolumeUKInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void VolumeUKInterface::setValue0(double x)

@@ -1,77 +1,77 @@
 #include "stdafx.h"
 #include "EnergyInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_BTU_ISO", L"IDS_TITLE_CALORIES", L"IDS_TITLE_JOULES", L"IDS_TITLE_KILOJOULES", L"IDS_TITLE_FOOT_POUND_FORCE", L"IDS_TITLE_KILOWATT_HOURS", L"IDS_TITLE_ERGS", L"IDS_TITLE_ELECTRONVOLTS"};
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BTU_ISO", L"IDS_ABRV_CALORIES", L"IDS_ABRV_JOULES", L"IDS_ABRV_KILOJOULES", L"IDS_ABRV_FOOT_POUND_FORCE", L"IDS_ABRV_KILOWATT_HOURS", L"IDS_ABRV_ERGS", L"IDS_ABRV_ELECTRONVOLTS"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_BTU_ISO", L"IDS_TITLE_CALORIES", L"IDS_TITLE_JOULES", L"IDS_TITLE_KILOJOULES", L"IDS_TITLE_FOOT_POUND_FORCE", L"IDS_TITLE_KILOWATT_HOURS", L"IDS_TITLE_ERGS", L"IDS_TITLE_ELECTRONVOLTS"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_BTU_ISO", L"IDS_ABBRV_CALORIES", L"IDS_ABBRV_JOULES", L"IDS_ABBRV_KILOJOULES", L"IDS_ABBRV_FOOT_POUND_FORCE", L"IDS_ABBRV_KILOWATT_HOURS", L"IDS_ABBRV_ERGS", L"IDS_ABBRV_ELECTRONVOLTS"};
 
 const wchar_t *EnergyInterface::getName() const
 {
-	return (L"IDS_ENERGY");
+	return L"IDS_ENERGY";
 }
 
 int EnergyInterface::getValueCount() const
 {
-	return (8);
+	return 8;
 }
 
 double EnergyInterface::getValue0() const
 {
-	return (e.getBtuISO());
+	return e.getBtuISO();
 }
 
 double EnergyInterface::getValue1() const
 {
-	return (e.getCalories());
+	return e.getCalories();
 }
 
 double EnergyInterface::getValue2() const
 {
-	return (e.getJoules());
+	return e.getJoules();
 }
 
 double EnergyInterface::getValue3() const
 {
-	return (e.getKilojoules());
+	return e.getKilojoules();
 }
 
 double EnergyInterface::getValue4() const
 {
-	return (e.getFootPoundForce());
+	return e.getFootPoundForce();
 }
 
 double EnergyInterface::getValue5() const
 {
-	return (e.getKilowattHours());
+	return e.getKilowattHours();
 }
 
 double EnergyInterface::getValue6() const
 {
-	return (e.getErgs());
+	return e.getErgs();
 }
 
 double EnergyInterface::getValue7() const
 {
-	return (e.getElectronvolts());
+	return e.getElectronvolts();
 }
 
 const wchar_t *EnergyInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return szTitle[i];
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 
 const wchar_t *EnergyInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void EnergyInterface::setValue0(double x)

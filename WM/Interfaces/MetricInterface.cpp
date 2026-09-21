@@ -1,106 +1,106 @@
 #include "stdafx.h"
 #include "MetricInterface.h"
 
-static const wchar_t *const szTitles[] = {L"IDS_TITLE_NANO", L"IDS_TITLE_MICRO", L"IDS_TITLE_MILLI", L"IDS_TITLE_CENTI", L"IDS_TITLE_DECI", L"IDS_TITLE_BASE", L"IDS_TITLE_DECA", L"IDS_TITLE_HECTO", L"IDS_TITLE_KILO", L"IDS_TITLE_MEGA", L"IDS_TITLE_GIGA", L"IDS_TITLE_TERA", L"IDS_TITLE_PETA", L"IDS_TITLE_EXA", L"IDS_TITLE_ZETTA", L"IDS_TITLE_YOTTA"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_NANO", L"IDS_TITLE_MICRO", L"IDS_TITLE_MILLI", L"IDS_TITLE_CENTI", L"IDS_TITLE_DECI", L"IDS_TITLE_BASE", L"IDS_TITLE_DECA", L"IDS_TITLE_HECTO", L"IDS_TITLE_KILO", L"IDS_TITLE_MEGA", L"IDS_TITLE_GIGA", L"IDS_TITLE_TERA", L"IDS_TITLE_PETA", L"IDS_TITLE_EXA", L"IDS_TITLE_ZETTA", L"IDS_TITLE_YOTTA"};
 
 const wchar_t *MetricInterface::getName() const
 {
-	return (L"IDS_METRIC");
+	return L"IDS_METRIC";
 }
 
 int MetricInterface::getValueCount() const
 {
-	return (16);
+	return 16;
 }
 
 double MetricInterface::getValue0() const
 {
-	return (m.getNano());
+	return m.getNano();
 }
 
 double MetricInterface::getValue1() const
 {
-	return (m.getMicro());
+	return m.getMicro();
 }
 
 double MetricInterface::getValue2() const
 {
-	return (m.getMilli());
+	return m.getMilli();
 }
 
 double MetricInterface::getValue3() const
 {
-	return (m.getCenti());
+	return m.getCenti();
 }
 
 double MetricInterface::getValue4() const
 {
-	return (m.getDeci());
+	return m.getDeci();
 }
 
 double MetricInterface::getValue5() const
 {
-	return (m.getBase());
+	return m.getBase();
 }
 
 double MetricInterface::getValue6() const
 {
-	return (m.getDeca());
+	return m.getDeca();
 }
 
 double MetricInterface::getValue7() const
 {
-	return (m.getHecto());
+	return m.getHecto();
 }
 
 double MetricInterface::getValue8() const
 {
-	return (m.getKilo());
+	return m.getKilo();
 }
 
 double MetricInterface::getValue9() const
 {
-	return (m.getMega());
+	return m.getMega();
 }
 
 double MetricInterface::getValue10() const
 {
-	return (m.getGiga());
+	return m.getGiga();
 }
 
 double MetricInterface::getValue11() const
 {
-	return (m.getTera());
+	return m.getTera();
 }
 
 double MetricInterface::getValue12() const
 {
-	return (m.getPeta());
+	return m.getPeta();
 }
 
 double MetricInterface::getValue13() const
 {
-	return (m.getExa());
+	return m.getExa();
 }
 
 double MetricInterface::getValue14() const
 {
-	return (m.getZetta());
+	return m.getZetta();
 }
 
 double MetricInterface::getValue15() const
 {
-	return (m.getYotta());
+	return m.getYotta();
 }
 
 const wchar_t *MetricInterface::getTitle(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szTitles) / sizeof(szTitles[0]))))
+	if ((0 <= i) && (i < (sizeof(szTitle) / sizeof(szTitle[0]))))
 	{
-		return (szTitles[i]);
+		return (szTitle[i]);
 	}
 
-	return (ConversionInterface::getTitle(i));
+	return ConversionInterface::getTitle(i);
 }
 
 void MetricInterface::setValue0(double x)

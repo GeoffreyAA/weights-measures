@@ -1,86 +1,86 @@
 #include "stdafx.h"
 #include "InformationInterface.h"
 
-static const wchar_t *const szAbrv[] = {L"IDS_ABRV_BITS", L"IDS_ABRV_BYTES", L"IDS_ABRV_KB", L"IDS_ABRV_MB", L"IDS_ABRV_GB", L"IDS_ABRV_TB", L"IDS_ABRV_PB", L"IDS_ABRV_EB", L"IDS_ABRV_ZB", L"IDS_ABRV_YB", L"IDS_ABRV_RB", L"IDS_ABRV_QB"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_BITS", L"IDS_ABBRV_BYTES", L"IDS_ABBRV_KB", L"IDS_ABBRV_MB", L"IDS_ABBRV_GB", L"IDS_ABBRV_TB", L"IDS_ABBRV_PB", L"IDS_ABBRV_EB", L"IDS_ABBRV_ZB", L"IDS_ABBRV_YB", L"IDS_ABBRV_RB", L"IDS_ABBRV_QB"};
 
 const wchar_t *InformationInterface::getName() const
 {
-	return (L"IDS_INFORMATION");
+	return L"IDS_INFORMATION";
 }
 
 int InformationInterface::getValueCount() const
 {
-	return (12);
+	return 12;
 }
 
 double InformationInterface::getValue0() const
 {
-	return (i.getBits());
+	return i.getBits();
 }
 
 double InformationInterface::getValue1() const
 {
-	return (i.getBytes());
+	return i.getBytes();
 }
 
 double InformationInterface::getValue2() const
 {
-	return (i.getKB());
+	return i.getKB();
 }
 
 double InformationInterface::getValue3() const
 {
-	return (i.getMB());
+	return i.getMB();
 }
 
 double InformationInterface::getValue4() const
 {
-	return (i.getGB());
+	return i.getGB();
 }
 
 double InformationInterface::getValue5() const
 {
-	return (i.getTB());
+	return i.getTB();
 }
 
 double InformationInterface::getValue6() const
 {
-	return (i.getPB());
+	return i.getPB();
 }
 
 double InformationInterface::getValue7() const
 {
-	return (i.getEB());
+	return i.getEB();
 }
 
 double InformationInterface::getValue8() const
 {
-	return (i.getZB());
+	return i.getZB();
 }
 
 double InformationInterface::getValue9() const
 {
-	return (i.getYB());
+	return i.getYB();
 }
 
 double InformationInterface::getValue10() const
 {
-	return (i.getRB());
+	return i.getRB();
 }
 
 double InformationInterface::getValue11() const
 {
-	return (i.getQB());
+	return i.getQB();
 }
 
 const wchar_t *InformationInterface::getAbbreviation(int i) const
 {
-	if ((0 <= i) && (i < (sizeof(szAbrv) / sizeof(szAbrv[0]))))
+	if ((0 <= i) && (i < (sizeof(szAbbrv) / sizeof(szAbbrv[0]))))
 	{
-		return (szAbrv[i]);
+		return szAbbrv[i];
 	}
 
-	return (ConversionInterface::getAbbreviation(i));
+	return ConversionInterface::getAbbreviation(i);
 }
 
 void InformationInterface::setValue0(double x)
