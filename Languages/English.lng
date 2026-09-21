@@ -7,7 +7,6 @@ IDS_TOOLS_ABOUT=About...
 IDS_TOOLS_QUIT=Quit
 
 IDS_ERROR=Error
-IDS_CALCULATOR_ERROR_TITLE=Calculator
 IDS_CALCULATOR_ERROR=Cannot start Calculator.
 
 IDS_SETTINGS=Settings

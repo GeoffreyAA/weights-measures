@@ -126,14 +126,12 @@ void CConvertorDlg::OnOK()
 void CConvertorDlg::OnCancel()
 {
 	OnBeforeClose();
-
 	EndDialog(IDOK);
 }
 
 void CConvertorDlg::OnClose()
 {
 	OnBeforeClose();
-
 	CDialog::OnClose();
 }
 
@@ -177,10 +175,9 @@ void CConvertorDlg::RetrieveConfiguration()
 void CConvertorDlg::SaveConfiguration()
 {
 	ConvertorDlgCfg Cfg;
-	HMENU h = ::GetMenu(GetSafeHwnd());
 
 	Cfg.Mode = IsValidInterface() ? GetInterface()->getType() : 0;
-	Cfg.Grouping = h ? GetMenuItemChecked(h, ID_TOOLS_GROUPING) : true;
+	Cfg.Grouping = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
 
 	LOGFONT lf;
 	if (Font1.GetLogFont(&lf))
@@ -308,11 +305,11 @@ void CConvertorDlg::UpdateControls()
 void CConvertorDlg::UpdateControls()
 {
 	ConversionInterface *p = GetInterface();
-	bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
 
 	if (p)
 	{
 		SetMode(p->getType());
+		bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
 
 		for (int i = 0; i < ValueListSize; i++)
 		{
@@ -458,23 +455,13 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 
 void CConvertorDlg::OnToolsCalculator()
 {
-	wchar_t c[MAX_PATH];
-	const UINT cbSize = sizeof(c) / sizeof(c[0]);
-	const UINT n = GetSystemDirectory(c, cbSize);
-
-	if ((0 < n) && (n < cbSize) && AddFileName(c, L"calc.exe", cbSize))
-	{
-		if (!ShellOpen(c, GetSafeHwnd()))
-		{
-			MsgBox(ResourceString(L"IDS_CALCULATOR_ERROR"), ResourceString(L"IDS_CALCULATOR_ERROR_TITLE"), GetSafeHwnd(), MSG_ERROR);
-		}
-	}
+	if (!ShellOpen(L"calc", GetSafeHwnd()))
+		MsgBox(ResourceString(L"IDS_CALCULATOR_ERROR"), ResourceString(L"IDS_ERROR"), GetSafeHwnd(), MSG_ERROR);
 }
 
 void CConvertorDlg::OnToolsGrouping()
 {
 	ToggleMenuItemCheck(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
-
 	UpdateControls();
 }
 
@@ -519,7 +506,6 @@ void CConvertorDlg::OnToolsAbout()
 void CConvertorDlg::OnToolsQuit()
 {
 	OnBeforeClose();
-
 	EndDialog(IDOK);
 }
 
