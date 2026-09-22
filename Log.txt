@@ -5,6 +5,7 @@ Version 1.10.x (September x, 2026)
 - Added font customisation, using Consolas as default
 - Added opening of new instance
 - Widened window, and improved label sizes and spacing
+- Selected all text in edit control on Enter or focus
 - Saved configuration when closing program with ESC
 - Reorganised English.lng
 

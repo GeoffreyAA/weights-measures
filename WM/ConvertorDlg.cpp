@@ -426,6 +426,7 @@ void CConvertorDlg::OnReturnKey()
 			if (p->GetDlgCtrlID() == ValueList[i])
 			{
 				OnChangeValueX(i);
+				::SendMessage(::GetDlgItem(GetSafeHwnd(), ValueList[i]), EM_SETSEL, (WPARAM)0, (LPARAM)-1);
 				return;
 			}
 		}
@@ -442,6 +443,18 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 				if (LOWORD(wParam) == ValueList[i])
 				{
 					OnChangeValueX(i);
+					break;
+				}
+			}
+
+			break;
+
+		case EN_SETFOCUS:
+			for (int i = 0; i < ValueListSize; i++)
+			{
+				if (LOWORD(wParam) == ValueList[i])
+				{
+					::SendMessage((HWND)lParam, EM_SETSEL, (WPARAM)0, (LPARAM)-1);
 					break;
 				}
 			}
