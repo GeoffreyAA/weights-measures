@@ -1,8 +1,9 @@
-Version 1.10.294 (September 21, 2026)
+Version 1.10.x (September x, 2026)
 
 - Added Groceries and Space Travel
 - Added digit grouping
 - Added font customisation, using Consolas as default
+- Added opening of new instance
 - Widened window, and improved label sizes and spacing
 - Saved configuration when closing program with ESC
 - Reorganised English.lng

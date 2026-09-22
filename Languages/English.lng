@@ -1,13 +1,15 @@
 IDS_MENU_TOOLS=&Tools
+IDS_TOOLS_INSTANCE=New instance
+IDS_TOOLS_CALCULATOR=Windows Calculator
 IDS_TOOLS_GROUPING=Digit grouping
 IDS_TOOLS_FONT=Font...
-IDS_TOOLS_CALCULATOR=Windows Calculator
 IDS_TOOLS_SETTINGS=Settings...
 IDS_TOOLS_ABOUT=About...
 IDS_TOOLS_QUIT=Quit
 
 IDS_ERROR=Error
-IDS_CALCULATOR_ERROR=Cannot start Calculator.
+IDS_ERROR_INSTANCE=Cannot start new instance.
+IDS_ERROR_CALCULATOR=Cannot start Calculator.
 
 IDS_SETTINGS=Settings
 IDS_LANGUAGE=Language:

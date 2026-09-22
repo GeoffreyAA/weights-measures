@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CConvertorDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_CBN_SELCHANGE(IDC_COMBO1, OnChangeModes)
+	ON_COMMAND(ID_TOOLS_INSTANCE, OnToolsInstance)
 	ON_COMMAND(ID_TOOLS_CALCULATOR, OnToolsCalculator)
 	ON_COMMAND(ID_TOOLS_GROUPING, OnToolsGrouping)
 	ON_COMMAND(ID_TOOLS_FONT, OnToolsFont)
@@ -275,6 +276,7 @@ void CConvertorDlg::UpdateMenu()
 	{
 		ModifyMenu(h, 0, MF_BYPOSITION | MF_STRING, 0, ResourceString(L"IDS_MENU_TOOLS"));
 
+		SetMenuString(h, ID_TOOLS_INSTANCE, ResourceString(L"IDS_TOOLS_INSTANCE"));
 		SetMenuString(h, ID_TOOLS_CALCULATOR, ResourceString(L"IDS_TOOLS_CALCULATOR"));
 		SetMenuString(h, ID_TOOLS_GROUPING, ResourceString(L"IDS_TOOLS_GROUPING"));
 		SetMenuString(h, ID_TOOLS_FONT, ResourceString(L"IDS_TOOLS_FONT"));
@@ -453,10 +455,18 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void CConvertorDlg::OnToolsInstance()
+{
+	wchar_t s[MAX_PATH];
+
+	if (!GetExecutablePath(s, sizeof(s) / sizeof(s[0])) || !ShellOpen(s, GetSafeHwnd()))
+		MsgBox(ResourceString(L"IDS_ERROR_INSTANCE"), ResourceString(L"IDS_ERROR"), GetSafeHwnd(), MSG_ERROR);
+}
+
 void CConvertorDlg::OnToolsCalculator()
 {
 	if (!ShellOpen(L"calc", GetSafeHwnd()))
-		MsgBox(ResourceString(L"IDS_CALCULATOR_ERROR"), ResourceString(L"IDS_ERROR"), GetSafeHwnd(), MSG_ERROR);
+		MsgBox(ResourceString(L"IDS_ERROR_CALCULATOR"), ResourceString(L"IDS_ERROR"), GetSafeHwnd(), MSG_ERROR);
 }
 
 void CConvertorDlg::OnToolsGrouping()

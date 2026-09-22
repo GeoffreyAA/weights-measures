@@ -198,12 +198,14 @@ IDR_CONVERTOR_MENU MENU
 BEGIN
     POPUP "&Tools"
     BEGIN
+        MENUITEM "New instance",                ID_TOOLS_INSTANCE
+        MENUITEM SEPARATOR
         MENUITEM "Windows Calculator",          ID_TOOLS_CALCULATOR
         MENUITEM SEPARATOR
         MENUITEM "Digit grouping",              ID_TOOLS_GROUPING
         MENUITEM "Font...",                     ID_TOOLS_FONT
-        MENUITEM SEPARATOR
         MENUITEM "Settings...",                 ID_TOOLS_SETTINGS
+        MENUITEM SEPARATOR
         MENUITEM "About...",                    ID_TOOLS_ABOUT
         MENUITEM SEPARATOR
         MENUITEM "Quit",                        ID_TOOLS_QUIT

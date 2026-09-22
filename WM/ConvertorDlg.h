@@ -59,9 +59,10 @@ protected:
 	virtual void OnCancel();
 	afx_msg void OnClose();
 	afx_msg void OnChangeModes();
+	afx_msg void OnToolsInstance();
+	afx_msg void OnToolsCalculator();
 	afx_msg void OnToolsGrouping();
 	afx_msg void OnToolsFont();
-	afx_msg void OnToolsCalculator();
 	afx_msg void OnToolsSettings();
 	afx_msg void OnToolsAbout();
 	afx_msg void OnToolsQuit();

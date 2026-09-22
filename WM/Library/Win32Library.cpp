@@ -621,6 +621,20 @@ bool GetProgramPath(wchar_t *pszBuffer, size_t cbSize)
 	return false;
 }
 
+bool GetExecutablePath(wchar_t *pszBuffer, size_t cbSize)
+{
+	DWORD dwSize;
+
+	if (pszBuffer && (SIZETToDWord(cbSize, &dwSize) == S_OK) && (dwSize > 0) && GetModuleFileNameW(NULL, pszBuffer, dwSize - 1))
+	{
+		pszBuffer[dwSize - 1] = L'\0';
+
+		return true;
+	}
+
+	return false;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
