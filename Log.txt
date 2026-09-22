@@ -6,7 +6,8 @@ Version 1.10.x (September x, 2026)
 - Added opening of new instance
 - Widened window, and improved label sizes and spacing
 - Selected all text in edit control on Enter or focus
-- Saved configuration when closing program with ESC
+- Limited maxiumum characters in edit controls to 256
+- Saved configuration when closing program with Esc
 - Reorganised English.lng
 
 

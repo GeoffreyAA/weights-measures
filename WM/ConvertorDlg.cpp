@@ -218,6 +218,11 @@ void CConvertorDlg::SetupControls()
 			}
 		}
 	}
+
+	for (int i = 0; i < ValueListSize; i++)
+	{
+		::SendMessage(::GetDlgItem(GetSafeHwnd(), ValueList[i]), EM_LIMITTEXT, (WPARAM)EDIT_MAX_TEXT, 0);
+	}
 }
 
 int CConvertorDlg::GetMode() const
