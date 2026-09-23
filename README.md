@@ -29,6 +29,12 @@ To target XP, use Visual Studio 2022 and the "Release-XP" configuration. The fol
 	C++ MFC for v141 build tools (x86 & x64)
 
 
+Privacy
+-------
+
+Weights & Measures neither sends nor receives information from the internet. Only, the button in the About dialog opens the Github page. Settings are stored in Settings.cfg in the program's folder; it is the only file written to.
+
+
 References
 ----------
 
