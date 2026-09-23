@@ -22,6 +22,8 @@ const int ValueListSize = sizeof(ValueList) / sizeof(ValueList[0]);
 const int TitleListSize = sizeof(TitleList) / sizeof(TitleList[0]);
 const int AbbrvListSize = sizeof(AbbrvList) / sizeof(AbbrvList[0]);
 
+const int EDIT_TEXT_MAX = 256;
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -221,7 +223,7 @@ void CConvertorDlg::SetupControls()
 
 	for (int i = 0; i < ValueListSize; i++)
 	{
-		::SendMessage(::GetDlgItem(GetSafeHwnd(), ValueList[i]), EM_LIMITTEXT, (WPARAM)EDIT_MAX_TEXT, 0);
+		::SendMessage(::GetDlgItem(GetSafeHwnd(), ValueList[i]), EM_LIMITTEXT, (WPARAM)EDIT_TEXT_MAX, 0);
 	}
 }
 
