@@ -27,6 +27,7 @@ void SetWindowInt(HWND hWnd, int x);
 bool GetDlgItemChecked(HWND hDlg, int nID);
 void SetDlgItemCheck(HWND hDlg, int nID, bool bCheck);
 void SetWindowFont(HWND hWnd, HFONT hFont);
+void SelectEditText(HWND hEdit);
 
 // Menu
 void SetMenuString(HMENU hMenu, UINT uID, const wchar_t *pszString);
@@ -75,7 +76,5 @@ private:
 	wchar_t Path[MAX_PATH];
 	bool Ready;
 };
-
-String MakeApplicationFile(const wchar_t *pszFile);
 
 #endif

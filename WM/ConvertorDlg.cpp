@@ -155,7 +155,7 @@ void CConvertorDlg::Initialise()
 	if (h)
 	{
 		::SetFocus(h);
-		::SendMessage(h, EM_SETSEL, (WPARAM)0, (LPARAM)-1);
+		SelectEditText(h);
 	}
 }
 
@@ -433,7 +433,7 @@ void CConvertorDlg::OnReturnKey()
 			if (p->GetDlgCtrlID() == ValueList[i])
 			{
 				OnChangeValueX(i);
-				::SendMessage(::GetDlgItem(GetSafeHwnd(), ValueList[i]), EM_SETSEL, (WPARAM)0, (LPARAM)-1);
+				SelectEditText(::GetDlgItem(GetSafeHwnd(), ValueList[i]));
 				return;
 			}
 		}
@@ -461,7 +461,7 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 			{
 				if (LOWORD(wParam) == ValueList[i])
 				{
-					::SendMessage((HWND)lParam, EM_SETSEL, (WPARAM)0, (LPARAM)-1);
+					SelectEditText((HWND)lParam);
 					break;
 				}
 			}

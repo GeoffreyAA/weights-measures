@@ -179,6 +179,11 @@ void SetWindowFont(HWND hWnd, HFONT hFont)
 	SendMessage(hWnd, WM_SETFONT, (WPARAM)hFont, MAKELPARAM(TRUE, 0));
 }
 
+void SelectEditText(HWND hEdit)
+{
+	SendMessage(hEdit, EM_SETSEL, (WPARAM)0, (LPARAM)-1);
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -379,7 +384,7 @@ HFONT CreatePointFont(const wchar_t *pszName, int nPointSize, int nWeight, bool 
 						  0,
 						  0,
 						  0,
-						  nWeight, /*bBold ? FW_BOLD : FW_NORMAL*/
+						  nWeight, /* bBold ? FW_BOLD : FW_NORMAL */
 						  bItalic,
 						  bUnderline,
 						  bStrikeOut,
@@ -399,7 +404,8 @@ int FontPointToLogicalSize(int PS)
 {
 	HDC hDC = GetDC(NULL);
 
-	if (!hDC) return 0;
+	if (!hDC)
+		return 0;
 
 	int LU = -MulDiv(PS, GetDeviceCaps(hDC, LOGPIXELSY), 72);
 
@@ -412,7 +418,8 @@ int FontLogicalToPointSize(int LU)
 {
 	HDC hDC = GetDC(NULL);
 
-	if (!hDC) return 0;
+	if (!hDC)
+		return 0;
 
 	int PS = -MulDiv(LU, 72, GetDeviceCaps(hDC, LOGPIXELSY));
 
@@ -429,6 +436,7 @@ int FontLogicalToPointSize(int LU)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #if 0
+
 #include <htmlhelp.h>
 #pragma comment(lib, "htmlhelp")
 
@@ -619,15 +627,4 @@ const wchar_t *ApplicationFile::c_str() const
 ApplicationFile::operator const wchar_t *() const
 {
 	return c_str();
-}
-
-String MakeApplicationFile(const wchar_t *pszFile)
-{
-	wchar_t Path[MAX_PATH];
-	const size_t s = sizeof(Path) / sizeof(Path[0]);
-
-	if (GetProgramPath(Path, s) && AddFileName(Path, GetFileName(pszFile), s))
-		return Path;
-
-	return L"";
 }

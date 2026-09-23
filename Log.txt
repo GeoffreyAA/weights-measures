@@ -4,9 +4,9 @@ Version 1.10.x (September x, 2026)
 - Added digit grouping
 - Added font customisation, using Consolas as default
 - Added opening of new instance
-- Widened window, and improved label sizes and spacing
 - Selected all text in edit control on Enter or focus
 - Limited maxiumum characters in edit controls to 256
+- Widened window, and improved label sizes and spacing
 - Saved configuration when closing program with Esc
 - Reorganised English.lng
 

@@ -14,8 +14,8 @@ public:
 
 	//{{AFX_DATA(CConvertorDlg)
 	enum { IDD = IDD_CONVERTOR_DIALOG };
-	CButton	Group;
-	CComboBox	Modes;
+	CButton Group;
+	CComboBox Modes;
 	//}}AFX_DATA
 
 	//{{AFX_VIRTUAL(CConvertorDlg)
@@ -31,12 +31,10 @@ protected:
 	void RetrieveConfiguration();
 	void SaveConfiguration();
 	void OnBeforeClose();
-
 	void SetupControls();
 
 	int GetMode() const;
 	void SetMode(int nType);
-
 	ConversionInterface *GetInterface() const;
 	bool IsValidInterface() const;
 
