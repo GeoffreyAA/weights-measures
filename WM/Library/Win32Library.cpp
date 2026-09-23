@@ -84,7 +84,7 @@ void SetWindowPosition(HWND hWnd, int x, int y)
 	SetWindowPos(hWnd, NULL, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
 }
 
-void CenterWindow(HWND hWnd, HWND hRel)
+void CentreWindow(HWND hWnd, HWND hRel)
 {
 	if (hWnd)
 	{
@@ -428,60 +428,26 @@ int FontLogicalToPointSize(int LU)
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-bool HtmlHelp(const wchar_t *pszFile, const wchar_t *pszPage, HWND hOwner)
+#if 0
+#include <htmlhelp.h>
+#pragma comment(lib, "htmlhelp")
+
+bool HtmlHelp2(const wchar_t *pszFile, const wchar_t *pszPage, HWND hOwner)
 {
 	if (pszFile)
 	{
+		wchar_t w[MAX_PATH];
+
 		if (pszPage)
-		{
-			wchar_t w[MAX_PATH];
+			swprintf(w, sizeof(w) / sizeof(w[0]), L"%ls::/%ls", pszFile, pszPage);
 
-			swprintfs(w, sizeof(w) / sizeof(w[0]), L"%s::/%s", pszFile, pszPage);
-
-			return (pHtmlHelp(hOwner, w, HH_DISPLAY_TOPIC, NULL) != NULL);
-		}
-
-		return (pHtmlHelp(hOwner, pszFile, HH_DISPLAY_TOPIC, NULL) != NULL);
-	}
-
-	return false;
-}
-
-#ifndef _AFXDLL
-
-bool HtmlHelp(const wchar_t *pszFile, const wchar_t *pszPage, HWND hOwner)
-{
-	HINSTANCE h = LoadLibrary(L"hhctrl.ocx");
-
-	if (h)
-	{
-		typedef HWND (WINAPI* fnHtmlHelp)(HWND, LPCWSTR, UINT, DWORD *);
-
-		//fnHtmlHelp pHtmlHelp = (fnHtmlHelp)GetProcAddress(h, (LPCSTR)((DWORD)((WORD)(15))));
-
-		fnHtmlHelp pHtmlHelp = (fnHtmlHelp)GetProcAddress(h, "HtmlHelpW");
-
-		if (pHtmlHelp)
-		{
-			if (pszFile && pszPage)
-			{
-				wchar_t w[MAX_PATH];
-
-				swprintfs(w, sizeof(w) / sizeof(w[0]), L"%s::/%s", pszFile, pszPage);
-
-				return (pHtmlHelp(hOwner, w, 0, NULL) != NULL);
-			}
-
-			return (pHtmlHelp(hOwner, pszFile, 0, NULL) != NULL);
-		}
+		return HtmlHelpW(hOwner, pszPage ? w : pszFile, HH_DISPLAY_TOPIC, NULL) != NULL;
 	}
 
 	return false;
 }
 
 #endif
-*/
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -605,22 +571,6 @@ bool GetSaveFileNameDlg(wchar_t *pszBuffer, size_t cbSize, HWND hOwner, const wc
 	return false;
 }
 
-bool GetProgramPath(wchar_t *pszBuffer, size_t cbSize)
-{
-	DWORD dwSize;
-
-	if (pszBuffer && (SIZETToDWord(cbSize, &dwSize) == S_OK) && (dwSize > 0) && GetModuleFileNameW(NULL, pszBuffer, dwSize - 1))
-	{
-		pszBuffer[dwSize - 1] = L'\0';
-
-		RemoveFileName(pszBuffer);
-
-		return true;
-	}
-
-	return false;
-}
-
 bool GetExecutablePath(wchar_t *pszBuffer, size_t cbSize)
 {
 	DWORD dwSize;
@@ -628,6 +578,18 @@ bool GetExecutablePath(wchar_t *pszBuffer, size_t cbSize)
 	if (pszBuffer && (SIZETToDWord(cbSize, &dwSize) == S_OK) && (dwSize > 0) && GetModuleFileNameW(NULL, pszBuffer, dwSize - 1))
 	{
 		pszBuffer[dwSize - 1] = L'\0';
+
+		return true;
+	}
+
+	return false;
+}
+
+bool GetProgramPath(wchar_t *pszBuffer, size_t cbSize)
+{
+	if (GetExecutablePath(pszBuffer, cbSize))
+	{
+		RemoveFileName(pszBuffer);
 
 		return true;
 	}
@@ -657,4 +619,15 @@ const wchar_t *ApplicationFile::c_str() const
 ApplicationFile::operator const wchar_t *() const
 {
 	return c_str();
+}
+
+String MakeApplicationFile(const wchar_t *pszFile)
+{
+	wchar_t Path[MAX_PATH];
+	const size_t s = sizeof(Path) / sizeof(Path[0]);
+
+	if (GetProgramPath(Path, s) && AddFileName(Path, GetFileName(pszFile), s))
+		return Path;
+
+	return L"";
 }
