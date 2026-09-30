@@ -8,10 +8,9 @@ Version 1.10.318 (September 30, 2026)
 - Limited maximum characters in edit controls to 256
 - Widened window, and improved label sizes and spacing
 - Saved configuration when closing program with Esc
-- Added optional Inno Setup installer
 - Reorganised English.lng
 
-This version saw improvements to the user experience. After 17 years, digit grouping was added; at present, it is not localised. Upon Enter being pressed or the focus gained, the text of an edit box is selected. Customisation of the font is now possible, and the default was changed from Tahoma to Consolas. Additionally, an optional installer version was added: it uses the Registry, not a portable settings file.
+This version saw improvements to the user experience. After 17 years, digit grouping was added; at present, it is not localised. Upon Enter being pressed or the focus gained, the text of an edit box is selected. Customisation of the font is now possible, and the default was changed from Tahoma to Consolas.
 
 
 Version 1.9.247 (June 17, 2026)
