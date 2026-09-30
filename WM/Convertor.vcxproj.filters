@@ -213,6 +213,9 @@
     <ClCompile Include="Interfaces\GroceriesInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Library\ConfigConcrete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Convertor.rc">
@@ -443,6 +446,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interfaces\GroceriesInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\ConfigConcrete.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

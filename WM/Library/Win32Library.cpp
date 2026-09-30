@@ -605,6 +605,36 @@ bool GetProgramPath(wchar_t *pszBuffer, size_t cbSize)
 	return false;
 }
 
+bool FileExists(const wchar_t *pszFilePath)
+{
+	if (pszFilePath)
+	{
+		HANDLE h = CreateFile(pszFilePath, 0, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+
+		if (h != INVALID_HANDLE_VALUE)
+		{
+			CloseHandle(h);
+
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool IsApplicationPortable()
+{
+	wchar_t s[MAX_PATH];
+
+	if (GetProgramPath(s, sizeof(s) / sizeof(s[0])) &&
+		AddFileName(s, L"NP", sizeof(s) / sizeof(s[0])))
+	{
+		return !FileExists(s);	// If file exists, not-portable mode.
+	}
+
+	return true;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //

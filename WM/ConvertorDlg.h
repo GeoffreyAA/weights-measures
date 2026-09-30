@@ -77,6 +77,8 @@ private:
 struct ConvertorDlgCfg
 {
 	ConvertorDlgCfg();
+	bool Save(Configuration &c) const;
+	bool Retrieve(const Configuration &c);
 
 	int Mode;
 	bool Grouping;
@@ -86,13 +88,6 @@ struct ConvertorDlgCfg
 	bool FontItalic;
 	int x;
 	int y;
-};
-
-class ConvertorDlgCfgSerialiser
-{
-public:
-	bool Save(const ConvertorDlgCfg &a, Configuration &b) const;
-	bool Retrieve(ConvertorDlgCfg &a, const Configuration &b) const;
 };
 
 //{{AFX_INSERT_LOCATION}}

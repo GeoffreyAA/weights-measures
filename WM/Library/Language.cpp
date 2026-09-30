@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Language.h"
-#include "ConfigFile.h"
+#include "ConfigConcrete.h"
 #include "File.h"
 #include "Library.h"
 #include "Win32Library.h"
@@ -63,13 +63,11 @@ void Language::setStrings(const StringDictionary &dict)
 
 LanguageManager LanguageManager::Instance;
 
-const wchar_t LanguageCfg[] = L"Language";
-
 LanguageManager::LanguageManager()
 {
 	wchar_t w[256];
 
-	if (ConfigFile().GetString(LanguageCfg, w, sizeof(w) / sizeof(w[0])))
+	if (ConfigConcrete().Get().GetString(L"Language", w, sizeof(w) / sizeof(w[0])))
 	{
 		setCurrentLanguage(w);
 	}
@@ -83,7 +81,7 @@ LanguageManager::~LanguageManager()
 {
 	std::lock_guard<std::mutex> lock(cs);
 
-	ConfigFile().SetString(LanguageCfg, CurrentLanguage.getName().c_str());
+	ConfigConcrete().Get().SetString(L"Language", CurrentLanguage.getName().c_str());
 }
 
 Language LanguageManager::getCurrentLanguage()

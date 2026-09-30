@@ -6,9 +6,10 @@
 
 #include "Application.h"
 #include "Name.h"
-#include "Library\ConfigFile.h"
+#include "Library\ConfigConcrete.h"
 #include "Library\File.h"
 #include "Library\Library.h"
+#include "Library\Registry.h"
 #include "Library\ResourceString.h"
 #include "Library\Templates.h"
 #include "Library\Win32Library.h"
@@ -163,7 +164,7 @@ void CConvertorDlg::RetrieveConfiguration()
 {
 	ConvertorDlgCfg Cfg;
 
-	if (!ConvertorDlgCfgSerialiser().Retrieve(Cfg, ConfigFile()))
+	if (!Cfg.Retrieve(ConfigConcrete().Get()))
 		Cfg = ConvertorDlgCfg();
 
 	SetMode(Cfg.Mode);
@@ -194,7 +195,7 @@ void CConvertorDlg::SaveConfiguration()
 	Cfg.x = GetWindowLeft(GetSafeHwnd());
 	Cfg.y = GetWindowTop(GetSafeHwnd());
 
-	ConvertorDlgCfgSerialiser().Save(Cfg, ConfigFile());
+	Cfg.Save(ConfigConcrete().Get());
 }
 
 void CConvertorDlg::OnBeforeClose()
@@ -556,32 +557,32 @@ ConvertorDlgCfg::ConvertorDlgCfg() : Mode(6),
 {
 }
 
-bool ConvertorDlgCfgSerialiser::Save(const ConvertorDlgCfg &a, Configuration &b) const
+bool ConvertorDlgCfg::Save(Configuration &c) const
 {
-	b.SetInt(L"Mode", a.Mode);
-	b.SetBool(L"Grouping", a.Grouping);
-	b.SetString(L"FontName", a.FontName);
-	b.SetInt(L"FontSize", a.FontSize);
-	b.SetInt(L"FontWeight", a.FontWeight);
-	b.SetBool(L"FontItalic", a.FontItalic);
-	b.SetInt(L"x", a.x);
-	b.SetInt(L"y", a.y);
+	c.SetInt(L"Mode", Mode);
+	c.SetBool(L"Grouping", Grouping);
+	c.SetString(L"FontName", FontName);
+	c.SetInt(L"FontSize", FontSize);
+	c.SetInt(L"FontWeight", FontWeight);
+	c.SetBool(L"FontItalic", FontItalic);
+	c.SetInt(L"x", x);
+	c.SetInt(L"y", y);
 
 	return true;
 }
 
-bool ConvertorDlgCfgSerialiser::Retrieve(ConvertorDlgCfg &a, const Configuration &b) const
+bool ConvertorDlgCfg::Retrieve(const Configuration &c)
 {
 	const ConvertorDlgCfg def;
 
-	if (!b.GetInt(L"Mode", a.Mode))					a.Mode = def.Mode;
-	if (!b.GetBool(L"Grouping", a.Grouping))		a.Grouping = def.Grouping;
-	if (!b.GetString(L"FontName", a.FontName))		a.FontName = def.FontName;
-	if (!b.GetInt(L"FontSize", a.FontSize))			a.FontSize = def.FontSize;
-	if (!b.GetInt(L"FontWeight", a.FontWeight))		a.FontWeight = def.FontWeight;
-	if (!b.GetBool(L"FontItalic", a.FontItalic))	a.FontItalic = def.FontItalic;
-	if (!b.GetInt(L"x", a.x))						a.x = def.x;
-	if (!b.GetInt(L"y", a.y))						a.y = def.y;
+	if (!c.GetInt(L"Mode", Mode))				Mode = def.Mode;
+	if (!c.GetBool(L"Grouping", Grouping))		Grouping = def.Grouping;
+	if (!c.GetString(L"FontName", FontName))	FontName = def.FontName;
+	if (!c.GetInt(L"FontSize", FontSize))		FontSize = def.FontSize;
+	if (!c.GetInt(L"FontWeight", FontWeight))	FontWeight = def.FontWeight;
+	if (!c.GetBool(L"FontItalic", FontItalic))	FontItalic = def.FontItalic;
+	if (!c.GetInt(L"x", x))						x = def.x;
+	if (!c.GetInt(L"y", y))						y = def.y;
 
 	return true;
 }

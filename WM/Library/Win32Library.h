@@ -63,6 +63,8 @@ bool GetOpenFileNameDlg(wchar_t *pszBuffer, size_t cbSize, HWND hOwner = NULL, c
 bool GetSaveFileNameDlg(wchar_t *pszBuffer, size_t cbSize, HWND hOwner = NULL, const wchar_t *pszTitle = NULL, const wchar_t *pszFilter = NULL, const wchar_t *pszDefExt = NULL);
 bool GetExecutablePath(wchar_t *pszBuffer, size_t cbSize);
 bool GetProgramPath(wchar_t *pszBuffer, size_t cbSize);
+bool FileExists(const wchar_t *pszFilePath);
+bool IsApplicationPortable();
 
 class ApplicationFile
 {
