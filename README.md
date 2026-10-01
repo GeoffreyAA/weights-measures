@@ -13,6 +13,8 @@ The program comes with a default language of English and can be translated into 
 
 Download Weights & Measures only from its [official page](https://github.com/GeoffreyAA/weights-measures). It is free; do not pay for it anywhere.
 
+No AI was used developing this program.
+
 
 Building
 --------
