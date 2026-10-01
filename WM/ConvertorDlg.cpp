@@ -557,32 +557,32 @@ ConvertorDlgCfg::ConvertorDlgCfg() : Mode(6),
 {
 }
 
-bool ConvertorDlgCfg::Save(Configuration &c) const
+bool ConvertorDlgCfg::Save(Configuration &to) const
 {
-	c.SetInt(L"Mode", Mode);
-	c.SetBool(L"Grouping", Grouping);
-	c.SetString(L"FontName", FontName);
-	c.SetInt(L"FontSize", FontSize);
-	c.SetInt(L"FontWeight", FontWeight);
-	c.SetBool(L"FontItalic", FontItalic);
-	c.SetInt(L"x", x);
-	c.SetInt(L"y", y);
+	to.SetInt(L"Mode", Mode);
+	to.SetBool(L"Grouping", Grouping);
+	to.SetString(L"FontName", FontName);
+	to.SetInt(L"FontSize", FontSize);
+	to.SetInt(L"FontWeight", FontWeight);
+	to.SetBool(L"FontItalic", FontItalic);
+	to.SetInt(L"x", x);
+	to.SetInt(L"y", y);
 
 	return true;
 }
 
-bool ConvertorDlgCfg::Retrieve(const Configuration &c)
+bool ConvertorDlgCfg::Retrieve(const Configuration &from)
 {
 	const ConvertorDlgCfg def;
 
-	if (!c.GetInt(L"Mode", Mode))				Mode = def.Mode;
-	if (!c.GetBool(L"Grouping", Grouping))		Grouping = def.Grouping;
-	if (!c.GetString(L"FontName", FontName))	FontName = def.FontName;
-	if (!c.GetInt(L"FontSize", FontSize))		FontSize = def.FontSize;
-	if (!c.GetInt(L"FontWeight", FontWeight))	FontWeight = def.FontWeight;
-	if (!c.GetBool(L"FontItalic", FontItalic))	FontItalic = def.FontItalic;
-	if (!c.GetInt(L"x", x))						x = def.x;
-	if (!c.GetInt(L"y", y))						y = def.y;
+	if (!from.GetInt(L"Mode", Mode))				Mode = def.Mode;
+	if (!from.GetBool(L"Grouping", Grouping))		Grouping = def.Grouping;
+	if (!from.GetString(L"FontName", FontName))		FontName = def.FontName;
+	if (!from.GetInt(L"FontSize", FontSize))		FontSize = def.FontSize;
+	if (!from.GetInt(L"FontWeight", FontWeight))	FontWeight = def.FontWeight;
+	if (!from.GetBool(L"FontItalic", FontItalic))	FontItalic = def.FontItalic;
+	if (!from.GetInt(L"x", x))						x = def.x;
+	if (!from.GetInt(L"y", y))						y = def.y;
 
 	return true;
 }

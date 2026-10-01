@@ -77,8 +77,8 @@ private:
 struct ConvertorDlgCfg
 {
 	ConvertorDlgCfg();
-	bool Save(Configuration &c) const;
-	bool Retrieve(const Configuration &c);
+	bool Save(Configuration &to) const;
+	bool Retrieve(const Configuration &from);
 
 	int Mode;
 	bool Grouping;
