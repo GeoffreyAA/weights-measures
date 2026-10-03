@@ -622,19 +622,6 @@ bool FileExists(const wchar_t *pszFilePath)
 	return false;
 }
 
-bool IsApplicationPortable()
-{
-	wchar_t s[MAX_PATH];
-
-	if (GetProgramPath(s, sizeof(s) / sizeof(s[0])) &&
-		AddFileName(s, L"NP", sizeof(s) / sizeof(s[0])))
-	{
-		return !FileExists(s);	// If file exists, not-portable mode.
-	}
-
-	return true;
-}
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //

@@ -3,8 +3,6 @@
 
 #include "Configuration.h"
 
-#define APPLICATION_PORTABLE
-
 class ConfigConcrete
 {
 public:
@@ -12,6 +10,10 @@ public:
 	~ConfigConcrete();
 
 	Configuration& Get();
+
+private:
+	ConfigConcrete(const ConfigConcrete &);
+	ConfigConcrete& operator=(const ConfigConcrete &);
 
 private:
 	Configuration *pCfg;

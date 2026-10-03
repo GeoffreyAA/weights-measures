@@ -64,7 +64,6 @@ bool GetSaveFileNameDlg(wchar_t *pszBuffer, size_t cbSize, HWND hOwner = NULL, c
 bool GetExecutablePath(wchar_t *pszBuffer, size_t cbSize);
 bool GetProgramPath(wchar_t *pszBuffer, size_t cbSize);
 bool FileExists(const wchar_t *pszFilePath);
-bool IsApplicationPortable();
 
 class ApplicationFile
 {
