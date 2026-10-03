@@ -445,6 +445,10 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 {
 	switch (HIWORD(wParam))
 	{
+		case EN_SETFOCUS:
+			SelectEditText((HWND)lParam);
+			break;
+
 		case EN_KILLFOCUS:
 			for (int i = 0; i < ValueListSize; i++)
 			{
@@ -454,19 +458,6 @@ BOOL CConvertorDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 					break;
 				}
 			}
-
-			break;
-
-		case EN_SETFOCUS:
-			for (int i = 0; i < ValueListSize; i++)
-			{
-				if (LOWORD(wParam) == ValueList[i])
-				{
-					SelectEditText((HWND)lParam);
-					break;
-				}
-			}
-
 			break;
 	}
 
@@ -542,7 +533,7 @@ void CConvertorDlg::OnToolsQuit()
 
 BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 {
-	ShellOpen(ApplicationFile(GetHelpFileName()), GetSafeHwnd());
+	ShellOpen(ApplicationFile(GetHelpFile()), GetSafeHwnd());
 
 	return TRUE;
 }
