@@ -4,6 +4,7 @@
 #include "File.h"
 #include "Library.h"
 #include "Win32Library.h"
+#include <stdlib.h>
 #include <windows.h>
 
 Language::Language()
@@ -29,7 +30,7 @@ String Language::getString(const wchar_t *key) const
 		{
 			wchar_t s[256];
 
-			swprintf(s, sizeof(s) / sizeof(s[0]), L"<%ls>", key);
+			swprintf(s, _countof(s), L"<%ls>", key);
 
 			return s;
 		}
@@ -67,7 +68,7 @@ LanguageManager::LanguageManager()
 {
 	wchar_t w[256];
 
-	if (ConfigConcrete().Get().GetString(L"Language", w, sizeof(w) / sizeof(w[0])))
+	if (ConfigConcrete().Get().GetString(L"Language", w, _countof(w)))
 	{
 		setCurrentLanguage(w);
 	}
@@ -124,14 +125,12 @@ String LanguageManager::getStringFromCurrentLanguage(const wchar_t *key)
 StringList LanguageManager::getAvailableLanguages() const
 {
 	StringList s;
-
 	wchar_t w[MAX_PATH];
-	const size_t size = sizeof(w) / sizeof(w[0]);
 
-	if (GetProgramPath(w, size) && AddFileName(w, L"Languages\\*.lng", size))
+	if (GetProgramPath(w, _countof(w)) && AddFileName(w, L"Languages\\*.lng", _countof(w)))
 	{
 		WIN32_FIND_DATAW wfd;
-		memset(&wfd, 0, sizeof(wfd));
+		ZeroMemory(&wfd, sizeof(wfd));
 
 		HANDLE hFile = FindFirstFileW(w, &wfd);
 
@@ -159,11 +158,10 @@ bool LanguageManager::LoadLanguage(const wchar_t *name, Language &dst) const
 	if (name)
 	{
 		wchar_t w[MAX_PATH];
-		const size_t size = sizeof(w) / sizeof(w[0]);
 
-		if (GetProgramPath(w, size) && AddFileName(w, L"Languages", size)
-									&& AddFileName(w, name, size)
-									&& AddFileExt(w, L"lng", size))
+		if (GetProgramPath(w, _countof(w)) && AddFileName(w, L"Languages", _countof(w))
+										   && AddFileName(w, name, _countof(w))
+										   && AddFileExt(w, L"lng", _countof(w)))
 		{
 			StringDictionary d;
 

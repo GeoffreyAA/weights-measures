@@ -104,7 +104,7 @@ double GetWindowFloat(HWND hWnd)
 {
 	wchar_t c[512];
 
-	if (GetWindowTextW(hWnd, c, sizeof(c) / sizeof(c[0])))
+	if (GetWindowTextW(hWnd, c, _countof(c)))
 	{
 		if (!IsNumber(c))
 		{
@@ -121,7 +121,7 @@ void SetWindowFloat(HWND hWnd, double x, const wchar_t *pszFormat)
 {
 	wchar_t c[256];
 
-	swprintf(c, sizeof(c) / sizeof(c[0]), pszFormat, x);
+	swprintf(c, _countof(c), pszFormat, x);
 
 	SetWindowTextW(hWnd, c);
 }
@@ -130,10 +130,10 @@ void SetWindowFloatDG(HWND hWnd, double x, bool bGroup)
 {
 	wchar_t c[256];
 
-	swprintf(c, sizeof(c) / sizeof(c[0]), L"%.16g", x);
+	swprintf(c, _countof(c), L"%.16g", x);
 
 	if (bGroup)
-		FormatNumber(c, sizeof(c) / sizeof(c[0]), L".", L",", 3);
+		FormatNumber(c, _countof(c), L".", L",", 3);
 
 	SetWindowTextW(hWnd, c);
 }
@@ -142,7 +142,7 @@ int GetWindowInt(HWND hWnd)
 {
 	wchar_t c[512];
 
-	if (GetWindowTextW(hWnd, c, sizeof(c) / sizeof(c[0])))
+	if (GetWindowTextW(hWnd, c, _countof(c)))
 	{
 		if (!IsNumber(c))
 		{
@@ -159,7 +159,7 @@ void SetWindowInt(HWND hWnd, int x)
 {
 	wchar_t c[64];
 
-	IntToStr(x, c, sizeof(c) / sizeof(c[0]));
+	IntToStr(x, c, _countof(c));
 
 	SetWindowTextW(hWnd, c);
 }
@@ -252,7 +252,7 @@ String GetMenuItemSelected(HMENU hMenu, const UINT IDs[], size_t n)
 			{
 				wchar_t w[32];
 
-				return GetMenuStringW(hMenu, IDs[i], w, sizeof(w) / sizeof(w[0]), MF_BYCOMMAND) ? w : L"";
+				return GetMenuStringW(hMenu, IDs[i], w, _countof(w), MF_BYCOMMAND) ? w : L"";
 			}
 		}
 	}
@@ -288,7 +288,7 @@ void SelectMenuItem(HMENU hMenu, const UINT IDs[], size_t n, const wchar_t *s)
 
 			for (size_t i = 0; i < n; i++)
 			{
-				if (GetMenuStringW(hMenu, IDs[i], w, sizeof(w) / sizeof(w[0]), MF_BYCOMMAND) && !wcscmp(s, w))
+				if (GetMenuStringW(hMenu, IDs[i], w, _countof(w), MF_BYCOMMAND) && !wcscmp(s, w))
 				{
 					CheckMenuRadioItem(hMenu, IDs[0], IDs[n - 1], IDs[i], MF_BYCOMMAND);
 
@@ -447,7 +447,7 @@ bool HtmlHelp2(const wchar_t *pszFile, const wchar_t *pszPage, HWND hOwner)
 		wchar_t w[MAX_PATH];
 
 		if (pszPage)
-			swprintf(w, sizeof(w) / sizeof(w[0]), L"%ls::/%ls", pszFile, pszPage);
+			swprintf(w, _countof(w), L"%ls::/%ls", pszFile, pszPage);
 
 		return HtmlHelpW(hOwner, pszPage ? w : pszFile, HH_DISPLAY_TOPIC, NULL) != NULL;
 	}
@@ -469,8 +469,8 @@ bool GetDateTimeFormatted(wchar_t *pszBuffer, size_t cbSize, const SYSTEMTIME *s
 	wchar_t d[256];
 	wchar_t t[256];
 
-	if (GetDateFormatW(LOCALE_USER_DEFAULT, DATE_LONGDATE, st, NULL, d, sizeof(d) / sizeof(d[0])) &&
-		GetTimeFormatW(LOCALE_USER_DEFAULT, 0, st, NULL, t, sizeof(t) / sizeof(t[0])))
+	if (GetDateFormatW(LOCALE_USER_DEFAULT, DATE_LONGDATE, st, NULL, d, _countof(d)) &&
+		GetTimeFormatW(LOCALE_USER_DEFAULT, 0, st, NULL, t, _countof(t)))
 	{
 		swprintf(pszBuffer, cbSize, L"%ls, %ls", d, t);
 
@@ -631,9 +631,8 @@ bool FileExists(const wchar_t *pszFilePath)
 
 ApplicationFile::ApplicationFile(const wchar_t *pszFile)
 {
-	const size_t s = sizeof(Path) / sizeof(Path[0]);
-
-	Ready = GetProgramPath(Path, s) && AddFileName(Path, GetFileName(pszFile), s);
+	Ready = GetProgramPath(Path, _countof(Path)) &&
+			AddFileName(Path, GetFileName(pszFile), _countof(Path));
 }
 
 const wchar_t *ApplicationFile::c_str() const
