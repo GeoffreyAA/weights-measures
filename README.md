@@ -3,7 +3,11 @@ Weights & Measures
 
 A unit converter for Windows, with an extensible design, allowing categories and units to be easily added.
 
-<img src="WM.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
+![A screenshot of Weight & Measures, showing the length conversion mode](WM.png)
+
+<a href="https://apps.microsoft.com/detail/9nqd079qxdkj?referrer=appbadge&mode=full" target="_blank" rel="noopener noreferrer">
+<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
 
 
 Notes
@@ -14,10 +18,6 @@ The program comes with a default language of English and can be translated into 
 Download Weights & Measures only from its [official releases](https://github.com/GeoffreyAA/weights-measures/releases) or the [Microsoft Store](https://apps.microsoft.com/detail/9NQD079QXDKJ). It is free; do not pay for it anywhere.
 
 No AI was used developing this program.
-
-<a href="https://get.microsoft.com/installer/download/9nqd079qxdkj?referrer=appbadge" target="_self" >
-<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
-</a>
 
 
 Building
