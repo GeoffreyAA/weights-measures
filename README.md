@@ -6,7 +6,7 @@ A unit converter for Windows, with an extensible design, allowing categories and
 ![A screenshot of Weight & Measures, showing the length conversion mode](WM.png)
 
 <a href="https://apps.microsoft.com/detail/9nqd079qxdkj?referrer=appbadge&mode=full" target="_blank" rel="noopener noreferrer">
-<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+<img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" />
 </a>
 
 
