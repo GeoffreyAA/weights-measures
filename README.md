@@ -3,7 +3,7 @@ Weights & Measures
 
 A unit converter for Windows, with an extensible design, allowing categories and units to be easily added.
 
-![A screenshot of Weight & Measures, showing the length conversion mode](MSIX\WM1.png)
+![A screenshot of Weight & Measures, showing the length conversion mode](MSIX/WM1.png)
 
 <a href="https://apps.microsoft.com/detail/9nqd079qxdkj?referrer=appbadge&mode=full" target="_blank" rel="noopener noreferrer">
 <img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" />
