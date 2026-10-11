@@ -51,8 +51,7 @@ Build/
 Build.c
 
 __Release__/
-
-MSIX/
+*.zip
 
 # Build results on 'Bin' directories
 **/[Bb]in/*
@@ -435,4 +434,4 @@ FodyWeavers.xsd
 *.msp
 
 # Development certificate
-devcert.pfx
+*.pfx

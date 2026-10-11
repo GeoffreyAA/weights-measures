@@ -1,14 +1,15 @@
-Version 1.10.318 (September 30, 2026)
+Version 1.10.324 (October 11, 2026)
 
 - Added Groceries and Space Travel
 - Added digit grouping
 - Added font customisation, using Consolas as default
 - Added opening of new instance
-- Selected all text in edit control on Enter or focus
+- Select all text in edit control on Enter or focus
 - Limited maximum characters in edit controls to 256
 - Widened window, and improved label sizes and spacing
-- Saved configuration when closing program with Esc
+- Save configuration when closing program with Esc
 - Reorganised English.lng
+- Removed Readme.txt from release; F1 now opens home page
 
 This version saw improvements to the user experience. After 17 years, digit grouping was added; at present, it is not localised. Upon Enter being pressed or the focus gained, the text of an edit box is selected. Customisation of the font is now possible, and the default was changed from Tahoma to Consolas.
 

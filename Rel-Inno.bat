@@ -7,13 +7,14 @@ if exist "%dst_root%" goto end
 
 mkdir	"%dst%"
 mkdir	"%dst%\Languages"
+copy	"Languages"				"%dst%\Languages"
+copy	"Build\x64\Release\%bin_name%.exe"	"%dst%"
+copy	"Licence.txt"				"%dst%"
+copy	"Log.txt"				"%dst%"
 
-copy	"Languages" "%dst%\Languages"
-copy	"Build\x64\Release\%bin_name%.exe" "%dst%"
+"C:\Program Files\Inno Setup 7\ISCC.exe" --output-dir="%dst_root%" "MSIX\WM.iss"
 
-"C:\Program Files\Inno Setup 7\ISCC.exe" --output-dir="%dst_root%" "WM.iss"
-
-msixpackagingtool create-package --template "MSIX\MSIX.xml" -v
+::msixpackagingtool create-package --template "MSIX\MSIX.xml"
 
 :end
 

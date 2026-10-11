@@ -1,0 +1,5 @@
+GeoffreyA.WeightsMeasures
+CN=978D1FE6-F6F9-4BD2-B724-2A058D3E42CE
+
+A unit converter for Windows
+Weights & Measures converts between units of measure, using a simple presentation.

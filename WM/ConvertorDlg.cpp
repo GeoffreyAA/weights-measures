@@ -533,7 +533,7 @@ void CConvertorDlg::OnToolsQuit()
 
 BOOL CConvertorDlg::OnHelpInfo(HELPINFO *pHelpInfo)
 {
-	ShellOpen(ApplicationFile(GetHelpFile()), GetSafeHwnd());
+	ShellOpen(GetURL(), NULL);
 
 	return TRUE;
 }
