@@ -1,13 +1,16 @@
-Weights & Measures
-==================
+<h1 align=center>Weights & Measures</h1>
 
 A unit converter for Windows, with an extensible design, allowing categories and units to be easily added.
 
-![A screenshot of Weight & Measures, showing the length conversion mode](MSIX/WM1.png)
+<p align=center>
+<img src="MSIX/WM1.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
+</p>
 
+<p align=center>
 <a href="https://apps.microsoft.com/detail/9nqd079qxdkj?referrer=appbadge&mode=full" target="_blank" rel="noopener noreferrer">
 <img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" />
 </a>
+</p>
 
 
 Notes
@@ -47,4 +50,6 @@ The sources of information used at some time or other include:
 
 ---
 
+<p align=center>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Palestina_Libre.jpg/960px-Palestina_Libre.jpg" alt="Watermelons" />
+</p>
