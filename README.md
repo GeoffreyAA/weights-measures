@@ -1,4 +1,5 @@
-<h1 align=center>Weights & Measures</h1>
+Weights & Measures
+==================
 
 A unit converter for Windows, with an extensible design, allowing categories and units to be easily added.
 
