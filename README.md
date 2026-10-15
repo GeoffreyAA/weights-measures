@@ -24,6 +24,12 @@ Download Weights & Measures only from its [release page](https://github.com/Geof
 No AI was used developing this program.
 
 
+Precision
+---------
+
+Internally, double-precision floating-point numbers are used; decimals, therefore, cannot be represented exactly. I hope to move the calculation system to a decimal library, and design it in such a way that switching to other number formats is straightforward.
+
+
 Building
 --------
 
