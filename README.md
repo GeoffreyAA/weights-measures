@@ -14,12 +14,6 @@ A unit converter for Windows, with an extensible design, allowing categories and
 </p>
 
 
-Precision
----------
-
-Internally, double-precision floating-point numbers are used; decimals, therefore, cannot be represented exactly.
-
-
 Notes
 -----
 
