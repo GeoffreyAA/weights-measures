@@ -1,52 +1,52 @@
 #include "stdafx.h"
 #include "Power.h"
 
-Power::Power(double W) : Watts(W)
+Power::Power(Decimal W) : Watts(W)
 {
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-double Power::getBtuPerHour() const
+Decimal Power::getBtuPerHour() const
 {
-	return (getWatts() * 3.412142);
+	return getWatts() * DEC_LIT(3.412142);
 }
 
-double Power::getWatts() const
+Decimal Power::getWatts() const
 {
-	return (Watts);
+	return Watts;
 }
 
-double Power::getKilowatts() const
+Decimal Power::getKilowatts() const
 {
-	return (getWatts() / 1000.0);
+	return getWatts() / DEC_LIT(1000.0);
 }
 
-double Power::getHorsepowerMechanical() const
+Decimal Power::getHorsepowerMechanical() const
 {
-	return (getWatts() / 745.69987158227022);
+	return getWatts() / DEC_LIT(745.69987158227022);
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-void Power::setBtuPerHour(double x)
+void Power::setBtuPerHour(Decimal x)
 {
-	setWatts(x / 3.412142);
+	setWatts(x / DEC_LIT(3.412142));
 }
 
-void Power::setWatts(double x)
+void Power::setWatts(Decimal x)
 {
 	Watts = x;
 }
 
-void Power::setKilowatts(double x)
+void Power::setKilowatts(Decimal x)
 {
-	setWatts(x * 1000.0);
+	setWatts(x * DEC_LIT(1000.0));
 }
 
-void Power::setHorsepowerMechanical(double x)
+void Power::setHorsepowerMechanical(Decimal x)
 {
-	setWatts(x * 745.69987158227022);
+	setWatts(x * DEC_LIT(745.69987158227022));
 }

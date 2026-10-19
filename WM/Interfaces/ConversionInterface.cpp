@@ -3,7 +3,7 @@
 #include <atomic>
 #include <assert.h>
 
-const double Default = 0.0;
+const Decimal Default = DEC_LIT(0.0);
 std::atomic<int> Counter(0);
 
 // June 1, 2026:
@@ -32,87 +32,87 @@ int ConversionInterface::getValueCount() const
 	return 0;
 }
 
-double ConversionInterface::getValue0() const
+Decimal ConversionInterface::getValue0() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue1() const
+Decimal ConversionInterface::getValue1() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue2() const
+Decimal ConversionInterface::getValue2() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue3() const
+Decimal ConversionInterface::getValue3() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue4() const
+Decimal ConversionInterface::getValue4() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue5() const
+Decimal ConversionInterface::getValue5() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue6() const
+Decimal ConversionInterface::getValue6() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue7() const
+Decimal ConversionInterface::getValue7() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue8() const
+Decimal ConversionInterface::getValue8() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue9() const
+Decimal ConversionInterface::getValue9() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue10() const
+Decimal ConversionInterface::getValue10() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue11() const
+Decimal ConversionInterface::getValue11() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue12() const
+Decimal ConversionInterface::getValue12() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue13() const
+Decimal ConversionInterface::getValue13() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue14() const
+Decimal ConversionInterface::getValue14() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue15() const
+Decimal ConversionInterface::getValue15() const
 {
 	return Default;
 }
 
-double ConversionInterface::getValue(int i) const
+Decimal ConversionInterface::getValue(int i) const
 {
 	assert((0 <= i) && (i < getValueCount()));
 
@@ -180,71 +180,71 @@ const wchar_t *ConversionInterface::getAbbreviation(int i) const
 	return L"";
 }
 
-void ConversionInterface::setValue0(double x)
+void ConversionInterface::setValue0(Decimal x)
 {
 }
 
-void ConversionInterface::setValue1(double x)
+void ConversionInterface::setValue1(Decimal x)
 {
 }
 
-void ConversionInterface::setValue2(double x)
+void ConversionInterface::setValue2(Decimal x)
 {
 }
 
-void ConversionInterface::setValue3(double x)
+void ConversionInterface::setValue3(Decimal x)
 {
 }
 
-void ConversionInterface::setValue4(double x)
+void ConversionInterface::setValue4(Decimal x)
 {
 }
 
-void ConversionInterface::setValue5(double x)
+void ConversionInterface::setValue5(Decimal x)
 {
 }
 
-void ConversionInterface::setValue6(double x)
+void ConversionInterface::setValue6(Decimal x)
 {
 }
 
-void ConversionInterface::setValue7(double x)
+void ConversionInterface::setValue7(Decimal x)
 {
 }
 
-void ConversionInterface::setValue8(double x)
+void ConversionInterface::setValue8(Decimal x)
 {
 }
 
-void ConversionInterface::setValue9(double x)
+void ConversionInterface::setValue9(Decimal x)
 {
 }
 
-void ConversionInterface::setValue10(double x)
+void ConversionInterface::setValue10(Decimal x)
 {
 }
 
-void ConversionInterface::setValue11(double x)
+void ConversionInterface::setValue11(Decimal x)
 {
 }
 
-void ConversionInterface::setValue12(double x)
+void ConversionInterface::setValue12(Decimal x)
 {
 }
 
-void ConversionInterface::setValue13(double x)
+void ConversionInterface::setValue13(Decimal x)
 {
 }
 
-void ConversionInterface::setValue14(double x)
+void ConversionInterface::setValue14(Decimal x)
 {
 }
 
-void ConversionInterface::setValue15(double x)
+void ConversionInterface::setValue15(Decimal x)
 {
 }
 
-void ConversionInterface::setValue(int i, double x)
+void ConversionInterface::setValue(int i, Decimal x)
 {
 	assert((0 <= i) && (i < getValueCount()));
 

@@ -14,22 +14,22 @@ int AngleInterface::getValueCount() const
 	return 4;
 }
 
-double AngleInterface::getValue0() const
+Decimal AngleInterface::getValue0() const
 {
 	return a.getGradians();
 }
 
-double AngleInterface::getValue1() const
+Decimal AngleInterface::getValue1() const
 {
 	return a.getDegrees();
 }
 
-double AngleInterface::getValue2() const
+Decimal AngleInterface::getValue2() const
 {
 	return a.getRadians();
 }
 
-double AngleInterface::getValue3() const
+Decimal AngleInterface::getValue3() const
 {
 	return a.getTurns();
 }
@@ -54,22 +54,22 @@ const wchar_t *AngleInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void AngleInterface::setValue0(double x)
+void AngleInterface::setValue0(Decimal x)
 {
 	a.setGradians(x);
 }
 
-void AngleInterface::setValue1(double x)
+void AngleInterface::setValue1(Decimal x)
 {
 	a.setDegrees(x);
 }
 
-void AngleInterface::setValue2(double x)
+void AngleInterface::setValue2(Decimal x)
 {
 	a.setRadians(x);
 }
 
-void AngleInterface::setValue3(double x)
+void AngleInterface::setValue3(Decimal x)
 {
 	a.setTurns(x);
 }

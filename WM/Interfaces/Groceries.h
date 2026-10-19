@@ -1,23 +1,25 @@
 #ifndef __GROCERIES_H__
 #define __GROCERIES_H__
 
+#include "..\Library\Decimal.h"
+
 class Groceries
 {
 public:
 	Groceries();
 
-	double getPrice() const;
-	double getKilograms() const;
-	double getGrams() const;
-	double getPricePerKilogram() const;
+	Decimal getPrice() const;
+	Decimal getKilograms() const;
+	Decimal getGrams() const;
+	Decimal getPricePerKilogram() const;
 
-	void setPrice(double x);
-	void setKilograms(double x);
-	void setGrams(double x);
+	void setPrice(Decimal x);
+	void setKilograms(Decimal x);
+	void setGrams(Decimal x);
 
 private:
-	double Price;
-	double Grams;
+	Decimal Price;
+	Decimal Grams;
 };
 
 #endif

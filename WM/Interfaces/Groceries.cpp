@@ -1,36 +1,36 @@
 #include "stdafx.h"
 #include "Groceries.h"
 
-const double KILO = 1000.0;
+const Decimal KILO = DEC_LIT(1000.0);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Groceries::Groceries() : Price(1.0), Grams(1000.0)
+Groceries::Groceries() : Price(DEC_LIT(1.0)), Grams(DEC_LIT(1000.0))
 {
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-double Groceries::getPrice() const
+Decimal Groceries::getPrice() const
 {
 	return Price;
 }
 
-double Groceries::getKilograms() const
+Decimal Groceries::getKilograms() const
 {
 	return Grams / KILO;
 }
 
-double Groceries::getGrams() const
+Decimal Groceries::getGrams() const
 {
 	return Grams;
 }
 
-double Groceries::getPricePerKilogram() const
+Decimal Groceries::getPricePerKilogram() const
 {
-	double factor = KILO / Grams;
+	Decimal factor = KILO / Grams;
 
 	return Price * factor;
 }
@@ -38,17 +38,17 @@ double Groceries::getPricePerKilogram() const
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void Groceries::setPrice(double x)
+void Groceries::setPrice(Decimal x)
 {
 	Price = x;
 }
 
-void Groceries::setKilograms(double x)
+void Groceries::setKilograms(Decimal x)
 {
 	Grams = x * KILO;
 }
 
-void Groceries::setGrams(double x)
+void Groceries::setGrams(Decimal x)
 {
 	Grams = x;
 }

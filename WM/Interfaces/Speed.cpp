@@ -1,88 +1,88 @@
 #include "stdafx.h"
 #include "Speed.h"
 
-const double __speed_of_sound = 340.3;	// Air, at sea level, standard temperature
-const double __speed_of_light = 299792458.0;
+const Decimal __speed_of_sound = DEC_LIT(340.3);	// Air, at sea level, standard temperature
+const Decimal __speed_of_light = DEC_LIT(299792458.0);
 
 
 ///////////////////////////////////////////////////////////////
 
-Speed::Speed(double ms) : MetresPerSecond(ms)
+Speed::Speed(Decimal ms) : MetresPerSecond(ms)
 {
-}
-
-
-///////////////////////////////////////////////////////////////
-
-double Speed::getKilometresPerHour() const
-{
-	return (getMetresPerSecond() * 3.6);
-}
-
-double Speed::getFeetPerSecond() const
-{
-	return (getMetresPerSecond() / 0.3048);
-}
-
-double Speed::getMilesPerHour() const
-{
-	return (getMetresPerSecond() / 0.44704);
-}
-
-double Speed::getMetresPerSecond() const
-{
-	return (MetresPerSecond);
-}
-
-double Speed::getKnots() const
-{
-	return (getKilometresPerHour() / 1.852);
-}
-
-double Speed::getMach() const
-{
-	return (getMetresPerSecond() / __speed_of_sound);
-}
-
-double Speed::getLight() const
-{
-	return (getMetresPerSecond() / __speed_of_light);
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-void Speed::setKilometresPerHour(double x)
+Decimal Speed::getKilometresPerHour() const
 {
-	setMetresPerSecond(x / 3.6);
+	return getMetresPerSecond() * DEC_LIT(3.6);
 }
 
-void Speed::setFeetPerSecond(double x)
+Decimal Speed::getFeetPerSecond() const
 {
-	setMetresPerSecond(x * 0.3048);
+	return getMetresPerSecond() / DEC_LIT(0.3048);
 }
 
-void Speed::setMilesPerHour(double x)
+Decimal Speed::getMilesPerHour() const
 {
-	setMetresPerSecond(x * 0.44704);
+	return getMetresPerSecond() / DEC_LIT(0.44704);
 }
 
-void Speed::setMetresPerSecond(double x)
+Decimal Speed::getMetresPerSecond() const
+{
+	return MetresPerSecond;
+}
+
+Decimal Speed::getKnots() const
+{
+	return getKilometresPerHour() / DEC_LIT(1.852);
+}
+
+Decimal Speed::getMach() const
+{
+	return getMetresPerSecond() / __speed_of_sound;
+}
+
+Decimal Speed::getLight() const
+{
+	return getMetresPerSecond() / __speed_of_light;
+}
+
+
+///////////////////////////////////////////////////////////////
+
+void Speed::setKilometresPerHour(Decimal x)
+{
+	setMetresPerSecond(x / DEC_LIT(3.6));
+}
+
+void Speed::setFeetPerSecond(Decimal x)
+{
+	setMetresPerSecond(x * DEC_LIT(0.3048));
+}
+
+void Speed::setMilesPerHour(Decimal x)
+{
+	setMetresPerSecond(x * DEC_LIT(0.44704));
+}
+
+void Speed::setMetresPerSecond(Decimal x)
 {
 	MetresPerSecond = x;
 }
 
-void Speed::setKnots(double x)
+void Speed::setKnots(Decimal x)
 {
-	setKilometresPerHour(x * 1.852);
+	setKilometresPerHour(x * DEC_LIT(1.852));
 }
 
-void Speed::setMach(double x)
+void Speed::setMach(Decimal x)
 {
 	setMetresPerSecond(x * __speed_of_sound);
 }
 
-void Speed::setLight(double x)
+void Speed::setLight(Decimal x)
 {
 	setMetresPerSecond(x * __speed_of_light);
 }

@@ -47,6 +47,8 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+Include/
+
 Build/
 Build.c
 

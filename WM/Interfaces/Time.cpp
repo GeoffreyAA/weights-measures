@@ -1,86 +1,86 @@
 #include "stdafx.h"
 #include "Time.h"
 
-Time::Time(double s) : Seconds(s)
+Time::Time(Decimal s) : Seconds(s)
 {
 }
 
-double Time::getMilliseconds() const
+Decimal Time::getMilliseconds() const
 {
-	return (getSeconds() / 0.001);
+	return getSeconds() / DEC_LIT(0.001);
 }
 
-double Time::getSeconds() const
+Decimal Time::getSeconds() const
 {
-	return (Seconds);
+	return Seconds;
 }
 
-double Time::getMinutes() const
+Decimal Time::getMinutes() const
 {
-	return (getSeconds() / 60.0);
+	return getSeconds() / DEC_LIT(60.0);
 }
 
-double Time::getHours() const
+Decimal Time::getHours() const
 {
-	return (getMinutes() / 60.0);
+	return getMinutes() / DEC_LIT(60.0);
 }
 
-double Time::getDays() const
+Decimal Time::getDays() const
 {
-	return (getHours() / 24.0);
+	return getHours() / DEC_LIT(24.0);
 }
 
-double Time::getWeeks() const
+Decimal Time::getWeeks() const
 {
-	return (getDays() / 7.0);
+	return getDays() / DEC_LIT(7.0);
 }
 
-double Time::getMonths() const
+Decimal Time::getMonths() const
 {
-	return (getDays() / 30.0);
+	return getDays() / DEC_LIT(30.0);
 }
 
-double Time::getYears() const
+Decimal Time::getYears() const
 {
-	return (getDays() / 365.25);
+	return getDays() / DEC_LIT(365.25);
 }
 
-void Time::setMilliseconds(double x)
+void Time::setMilliseconds(Decimal x)
 {
-	setSeconds(x * 0.001);
+	setSeconds(x * DEC_LIT(0.001));
 }
 
-void Time::setSeconds(double x)
+void Time::setSeconds(Decimal x)
 {
 	Seconds = x;
 }
 
-void Time::setMinutes(double x)
+void Time::setMinutes(Decimal x)
 {
-	setSeconds(x * 60.0);
+	setSeconds(x * DEC_LIT(60.0));
 }
 
-void Time::setHours(double x)
+void Time::setHours(Decimal x)
 {
-	setMinutes(x * 60.0);
+	setMinutes(x * DEC_LIT(60.0));
 }
 
-void Time::setDays(double x)
+void Time::setDays(Decimal x)
 {
-	setHours(x * 24.0);
+	setHours(x * DEC_LIT(24.0));
 }
 
-void Time::setWeeks(double x)
+void Time::setWeeks(Decimal x)
 {
-	setDays(x * 7.0);
+	setDays(x * DEC_LIT(7.0));
 }
 
-void Time::setMonths(double x)
+void Time::setMonths(Decimal x)
 {
-	setDays(x * 30.0);
+	setDays(x * DEC_LIT(30.0));
 }
 
-void Time::setYears(double x)
+void Time::setYears(Decimal x)
 {
-	setDays(x * 365.25);
+	setDays(x * DEC_LIT(365.25));
 }

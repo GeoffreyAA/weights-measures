@@ -14,47 +14,47 @@ int VolumeUSInterface::getValueCount() const
 	return 9;
 }
 
-double VolumeUSInterface::getValue0() const
+Decimal VolumeUSInterface::getValue0() const
 {
 	return v.getMillilitres();
 }
 
-double VolumeUSInterface::getValue1() const
+Decimal VolumeUSInterface::getValue1() const
 {
 	return v.getLitres();
 }
 
-double VolumeUSInterface::getValue2() const
+Decimal VolumeUSInterface::getValue2() const
 {
 	return v.getFluidOuncesUS();
 }
 
-double VolumeUSInterface::getValue3() const
+Decimal VolumeUSInterface::getValue3() const
 {
 	return v.getPintsUS();
 }
 
-double VolumeUSInterface::getValue4() const
+Decimal VolumeUSInterface::getValue4() const
 {
 	return v.getQuartsUS();
 }
 
-double VolumeUSInterface::getValue5() const
+Decimal VolumeUSInterface::getValue5() const
 {
 	return v.getGallonsUS();
 }
 
-double VolumeUSInterface::getValue6() const
+Decimal VolumeUSInterface::getValue6() const
 {
 	return v.getTeaspoonsUS();
 }
 
-double VolumeUSInterface::getValue7() const
+Decimal VolumeUSInterface::getValue7() const
 {
 	return v.getTablepoonsUS();
 }
 
-double VolumeUSInterface::getValue8() const
+Decimal VolumeUSInterface::getValue8() const
 {
 	return v.getCupsUS();
 }
@@ -79,47 +79,47 @@ const wchar_t *VolumeUSInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void VolumeUSInterface::setValue0(double x)
+void VolumeUSInterface::setValue0(Decimal x)
 {
 	v.setMillilitres(x);
 }
 
-void VolumeUSInterface::setValue1(double x)
+void VolumeUSInterface::setValue1(Decimal x)
 {
 	v.setLitres(x);
 }
 
-void VolumeUSInterface::setValue2(double x)
+void VolumeUSInterface::setValue2(Decimal x)
 {
 	v.setFluidOuncesUS(x);
 }
 
-void VolumeUSInterface::setValue3(double x)
+void VolumeUSInterface::setValue3(Decimal x)
 {
 	v.setPintsUS(x);
 }
 
-void VolumeUSInterface::setValue4(double x)
+void VolumeUSInterface::setValue4(Decimal x)
 {
 	v.setQuartsUS(x);
 }
 
-void VolumeUSInterface::setValue5(double x)
+void VolumeUSInterface::setValue5(Decimal x)
 {
 	v.setGallonsUS(x);
 }
 
-void VolumeUSInterface::setValue6(double x)
+void VolumeUSInterface::setValue6(Decimal x)
 {
 	v.setTeaspoonsUS(x);
 }
 
-void VolumeUSInterface::setValue7(double x)
+void VolumeUSInterface::setValue7(Decimal x)
 {
 	v.setTablepoonsUS(x);
 }
 
-void VolumeUSInterface::setValue8(double x)
+void VolumeUSInterface::setValue8(Decimal x)
 {
 	v.setCupsUS(x);
 }

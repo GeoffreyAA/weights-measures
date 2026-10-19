@@ -15,84 +15,84 @@ int TestInterface::getValueCount() const
 	return 16;
 }
 
-double TestInterface::getValue0() const
+Decimal TestInterface::getValue0() const
 {
-	return 0;
+	return DEC_LIT(0);
 }
 
-double TestInterface::getValue1() const
+Decimal TestInterface::getValue1() const
 {
-	return 1;
+	return DEC_LIT(1);
 }
 
-double TestInterface::getValue2() const
+Decimal TestInterface::getValue2() const
 {
-	return 2;
+	return DEC_LIT(2);
 }
 
-double TestInterface::getValue3() const
+Decimal TestInterface::getValue3() const
 {
-	return 3;
+	return DEC_LIT(3);
 }
 
-double TestInterface::getValue4() const
+Decimal TestInterface::getValue4() const
 {
-	return 4;
+	return DEC_LIT(4);
 }
 
-double TestInterface::getValue5() const
+Decimal TestInterface::getValue5() const
 {
-	return 5;
+	return DEC_LIT(5);
 }
 
-double TestInterface::getValue6() const
+Decimal TestInterface::getValue6() const
 {
-	return 6;
+	return DEC_LIT(6);
 }
 
-double TestInterface::getValue7() const
+Decimal TestInterface::getValue7() const
 {
-	return 7;
+	return DEC_LIT(7);
 }
 
-double TestInterface::getValue8() const
+Decimal TestInterface::getValue8() const
 {
-	return 8;
+	return DEC_LIT(8);
 }
 
-double TestInterface::getValue9() const
+Decimal TestInterface::getValue9() const
 {
-	return 9;
+	return DEC_LIT(9);
 }
 
-double TestInterface::getValue10() const
+Decimal TestInterface::getValue10() const
 {
-	return 10;
+	return DEC_LIT(10);
 }
 
-double TestInterface::getValue11() const
+Decimal TestInterface::getValue11() const
 {
-	return 11;
+	return DEC_LIT(11);
 }
 
-double TestInterface::getValue12() const
+Decimal TestInterface::getValue12() const
 {
-	return 12;
+	return DEC_LIT(12);
 }
 
-double TestInterface::getValue13() const
+Decimal TestInterface::getValue13() const
 {
-	return 13;
+	return DEC_LIT(13);
 }
 
-double TestInterface::getValue14() const
+Decimal TestInterface::getValue14() const
 {
-	return 14;
+	return DEC_LIT(14);
 }
 
-double TestInterface::getValue15() const
+Decimal TestInterface::getValue15() const
 {
-	return 15;
+	return DEC_LIT(15);
 }
 
 const wchar_t *TestInterface::getTitle(int i) const
@@ -109,66 +109,66 @@ const wchar_t *TestInterface::getAbbreviation(int i) const
 	return szAbbrv[i];
 }
 
-void TestInterface::setValue0(double x)
+void TestInterface::setValue0(Decimal x)
 {
 }
 
-void TestInterface::setValue1(double x)
+void TestInterface::setValue1(Decimal x)
 {
 }
 
-void TestInterface::setValue2(double x)
+void TestInterface::setValue2(Decimal x)
 {
 }
 
-void TestInterface::setValue3(double x)
+void TestInterface::setValue3(Decimal x)
 {
 }
 
-void TestInterface::setValue4(double x)
+void TestInterface::setValue4(Decimal x)
 {
 }
 
-void TestInterface::setValue5(double x)
+void TestInterface::setValue5(Decimal x)
 {
 }
 
-void TestInterface::setValue6(double x)
+void TestInterface::setValue6(Decimal x)
 {
 }
 
-void TestInterface::setValue7(double x)
+void TestInterface::setValue7(Decimal x)
 {
 }
 
-void TestInterface::setValue8(double x)
+void TestInterface::setValue8(Decimal x)
 {
 }
 
-void TestInterface::setValue9(double x)
+void TestInterface::setValue9(Decimal x)
 {
 }
 
-void TestInterface::setValue10(double x)
+void TestInterface::setValue10(Decimal x)
 {
 }
 
-void TestInterface::setValue11(double x)
+void TestInterface::setValue11(Decimal x)
 {
 }
 
-void TestInterface::setValue12(double x)
+void TestInterface::setValue12(Decimal x)
 {
 }
 
-void TestInterface::setValue13(double x)
+void TestInterface::setValue13(Decimal x)
 {
 }
 
-void TestInterface::setValue14(double x)
+void TestInterface::setValue14(Decimal x)
 {
 }
 
-void TestInterface::setValue15(double x)
+void TestInterface::setValue15(Decimal x)
 {
 }

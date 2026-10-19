@@ -2,29 +2,29 @@
 #include "PixelDensity.h"
 #include <math.h>
 
-PixelDensity::PixelDensity() : d(24), pw(1920), ph(1080)
+PixelDensity::PixelDensity() : d(DEC_LIT(24)), pw(DEC_LIT(1920)), ph(DEC_LIT(1080))
 {
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-double PixelDensity::getDiagonal() const
+Decimal PixelDensity::getDiagonal() const
 {
-	return (d);
+	return d;
 }
 
-double PixelDensity::getPixelsWidth() const
+Decimal PixelDensity::getPixelsWidth() const
 {
-	return (pw);
+	return pw;
 }
 
-double PixelDensity::getPixelsHeight() const
+Decimal PixelDensity::getPixelsHeight() const
 {
-	return (ph);
+	return ph;
 }
 
-double PixelDensity::getPixelsPerUnit() const
+Decimal PixelDensity::getPixelsPerUnit() const
 {
 	//  Reference: Furey, Edward "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators
 	//
@@ -34,25 +34,25 @@ double PixelDensity::getPixelsPerUnit() const
 	//                             -------------------------
 	//                             diagonal in physical unit
 
-	double diagonal_pixels = sqrt(pw * pw + ph * ph);
+	Decimal diagonal_pixels = sqrt(pw * pw + ph * ph);
 
-	return (diagonal_pixels / d);
+	return diagonal_pixels / d;
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-void PixelDensity::setDiagonal(double x)
+void PixelDensity::setDiagonal(Decimal x)
 {
 	d = x;
 }
 
-void PixelDensity::setPixelsWidth(double x)
+void PixelDensity::setPixelsWidth(Decimal x)
 {
 	pw = x;
 }
 
-void PixelDensity::setPixelsHeight(double x)
+void PixelDensity::setPixelsHeight(Decimal x)
 {
 	ph = x;
 }

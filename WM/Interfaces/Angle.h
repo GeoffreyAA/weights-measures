@@ -1,23 +1,25 @@
 #ifndef __ANGLE_H__
 #define __ANGLE_H__
 
+#include "..\Library\Decimal.h"
+
 class Angle
 {
 public:
-	Angle(double rad = 0.0);
+	Angle(Decimal rad = DEC_LIT(0.0));
 
-	double getGradians() const;
-	double getDegrees() const;
-	double getRadians() const;
-	double getTurns() const;
+	Decimal getGradians() const;
+	Decimal getDegrees() const;
+	Decimal getRadians() const;
+	Decimal getTurns() const;
 
-	void setGradians(double x);
-	void setDegrees(double x);
-	void setRadians(double x);
-	void setTurns(double x);
+	void setGradians(Decimal x);
+	void setDegrees(Decimal x);
+	void setRadians(Decimal x);
+	void setTurns(Decimal x);
 
 private:
-	double Radians;
+	Decimal Radians;
 };
 
 #endif

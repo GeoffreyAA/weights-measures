@@ -1,25 +1,27 @@
 #ifndef __SPACE_TRAVEL_H__
 #define __SPACE_TRAVEL_H__
 
+#include "..\Library\Decimal.h"
+
 class SpaceTravel
 {
 public:
 	SpaceTravel();
 
-	double getDistanceLightYears() const;
-	double getSpeedMetresPerSecond() const;
-	double getSpeedKmPerSecond() const;
-	double getSpeedLightPercent() const;
-	double getTravelTimeYears() const;
+	Decimal getDistanceLightYears() const;
+	Decimal getSpeedMetresPerSecond() const;
+	Decimal getSpeedKmPerSecond() const;
+	Decimal getSpeedLightPercent() const;
+	Decimal getTravelTimeYears() const;
 
-	void setDistanceLightYears(double x);
-	void setSpeedMetresPerSecond(double x);
-	void setSpeedKmPerSecond(double x);
-	void setSpeedLightPercent(double x);
+	void setDistanceLightYears(Decimal x);
+	void setSpeedMetresPerSecond(Decimal x);
+	void setSpeedKmPerSecond(Decimal x);
+	void setSpeedLightPercent(Decimal x);
 
 private:
-	double distance_ly;
-	double speed_ms;
+	Decimal distance_ly;
+	Decimal speed_ms;
 };
 
 #endif

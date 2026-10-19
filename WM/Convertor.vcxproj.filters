@@ -216,6 +216,9 @@
     <ClCompile Include="Library\ConfigConcrete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Library\Decimal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Convertor.rc">
@@ -449,6 +452,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Library\ConfigConcrete.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Decimal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

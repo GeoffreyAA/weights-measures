@@ -14,42 +14,42 @@ int LengthInterface::getValueCount() const
 	return 8;
 }
 
-double LengthInterface::getValue0() const
+Decimal LengthInterface::getValue0() const
 {
 	return l.getMillimetres();
 }
 
-double LengthInterface::getValue1() const
+Decimal LengthInterface::getValue1() const
 {
 	return l.getCentimetres();
 }
 
-double LengthInterface::getValue2() const
+Decimal LengthInterface::getValue2() const
 {
 	return l.getInches();
 }
 
-double LengthInterface::getValue3() const
+Decimal LengthInterface::getValue3() const
 {
 	return l.getFeet();
 }
 
-double LengthInterface::getValue4() const
+Decimal LengthInterface::getValue4() const
 {
 	return l.getYards();
 }
 
-double LengthInterface::getValue5() const
+Decimal LengthInterface::getValue5() const
 {
 	return l.getMetres();
 }
 
-double LengthInterface::getValue6() const
+Decimal LengthInterface::getValue6() const
 {
 	return l.getKilometres();
 }
 
-double LengthInterface::getValue7() const
+Decimal LengthInterface::getValue7() const
 {
 	return l.getMiles();
 }
@@ -74,42 +74,42 @@ const wchar_t *LengthInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void LengthInterface::setValue0(double x)
+void LengthInterface::setValue0(Decimal x)
 {
 	l.setMillimetres(x);
 }
 
-void LengthInterface::setValue1(double x)
+void LengthInterface::setValue1(Decimal x)
 {
 	l.setCentimetres(x);
 }
 
-void LengthInterface::setValue2(double x)
+void LengthInterface::setValue2(Decimal x)
 {
 	l.setInches(x);
 }
 
-void LengthInterface::setValue3(double x)
+void LengthInterface::setValue3(Decimal x)
 {
 	l.setFeet(x);
 }
 
-void LengthInterface::setValue4(double x)
+void LengthInterface::setValue4(Decimal x)
 {
 	l.setYards(x);
 }
 
-void LengthInterface::setValue5(double x)
+void LengthInterface::setValue5(Decimal x)
 {
 	l.setMetres(x);
 }
 
-void LengthInterface::setValue6(double x)
+void LengthInterface::setValue6(Decimal x)
 {
 	l.setKilometres(x);
 }
 
-void LengthInterface::setValue7(double x)
+void LengthInterface::setValue7(Decimal x)
 {
 	l.setMiles(x);
 }

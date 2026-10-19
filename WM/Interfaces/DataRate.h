@@ -1,30 +1,31 @@
 #ifndef __DATA_RATE_H__
 #define __DATA_RATE_H__
 
+#include "..\Library\Decimal.h"
 #include "Information.h"
 
 class DataRate
 {
 public:
-	DataRate(double BitsPerSecond = 0.0);
+	DataRate(Decimal BitsPerSecond = DEC_LIT(0.0));
 
-	double getBitsPerSecond() const;
-	double getKilobitsPerSecond() const;
-	double getMegabitsPerSecond() const;
-	double getGigabitsPerSecond() const;
-	double getBytesPerSecond() const;
-	double getKilobytesPerSecond() const;
-	double getMegabytesPerSecond() const;
-	double getGigabytesPerSecond() const;
+	Decimal getBitsPerSecond() const;
+	Decimal getKilobitsPerSecond() const;
+	Decimal getMegabitsPerSecond() const;
+	Decimal getGigabitsPerSecond() const;
+	Decimal getBytesPerSecond() const;
+	Decimal getKilobytesPerSecond() const;
+	Decimal getMegabytesPerSecond() const;
+	Decimal getGigabytesPerSecond() const;
 
-	void setBitsPerSecond(double x);
-	void setKilobitsPerSecond(double x);
-	void setMegabitsPerSecond(double x);
-	void setGigabitsPerSecond(double x);
-	void setBytesPerSecond(double x);
-	void setKilobytesPerSecond(double x);
-	void setMegabytesPerSecond(double x);
-	void setGigabytesPerSecond(double x);
+	void setBitsPerSecond(Decimal x);
+	void setKilobitsPerSecond(Decimal x);
+	void setMegabitsPerSecond(Decimal x);
+	void setGigabitsPerSecond(Decimal x);
+	void setBytesPerSecond(Decimal x);
+	void setKilobytesPerSecond(Decimal x);
+	void setMegabytesPerSecond(Decimal x);
+	void setGigabytesPerSecond(Decimal x);
 
 private:
 	Information bps;

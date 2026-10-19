@@ -9,17 +9,17 @@ Storage::Storage()
 
 ///////////////////////////////////////////////////////////////
 
-double Storage::getActualGB() const
+Decimal Storage::getActualGB() const
 {
 	return Actual.getGB();
 }
 
-double Storage::getActualTB() const
+Decimal Storage::getActualTB() const
 {
 	return Actual.getTB();
 }
 
-double Storage::getAdvertisedGB() const
+Decimal Storage::getAdvertisedGB() const
 {
 	Metric m;
 
@@ -28,7 +28,7 @@ double Storage::getAdvertisedGB() const
 	return m.getGiga();
 }
 
-double Storage::getAdvertisedTB() const
+Decimal Storage::getAdvertisedTB() const
 {
 	Metric m;
 
@@ -40,17 +40,17 @@ double Storage::getAdvertisedTB() const
 
 ///////////////////////////////////////////////////////////////
 
-void Storage::setActualGB(double x)
+void Storage::setActualGB(Decimal x)
 {
 	Actual.setGB(x);
 }
 
-void Storage::setActualTB(double x)
+void Storage::setActualTB(Decimal x)
 {
 	Actual.setTB(x);
 }
 
-void Storage::setAdvertisedGB(double x)
+void Storage::setAdvertisedGB(Decimal x)
 {
 	Metric m;
 
@@ -59,7 +59,7 @@ void Storage::setAdvertisedGB(double x)
 	Actual.setBytes(m.getBase());
 }
 
-void Storage::setAdvertisedTB(double x)
+void Storage::setAdvertisedTB(Decimal x)
 {
 	Metric m;
 

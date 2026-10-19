@@ -1,44 +1,44 @@
 #include "stdafx.h"
 #include "SpaceTravel.h"
 
-const double SPEED_OF_LIGHT_MS = 299792458;
-const double LIGHT_YEAR_METRES = 9460730472580800;
-const double DAY_SECONDS = 86400;
-const double DAY_JULIAN = 365.25;
+const Decimal SPEED_OF_LIGHT_MS	= DEC_LIT(299792458.0);
+const Decimal LIGHT_YEAR_METRES	= DEC_LIT(9460730472580800.0);
+const Decimal DAY_SECONDS		= DEC_LIT(86400.0);
+const Decimal DAY_JULIAN		= DEC_LIT(365.25);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-SpaceTravel::SpaceTravel() : distance_ly(1.0), speed_ms(SPEED_OF_LIGHT_MS)
+SpaceTravel::SpaceTravel() : distance_ly(DEC_LIT(1.0)), speed_ms(SPEED_OF_LIGHT_MS)
 {
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-double SpaceTravel::getDistanceLightYears() const
+Decimal SpaceTravel::getDistanceLightYears() const
 {
 	return distance_ly;
 }
 
-double SpaceTravel::getSpeedMetresPerSecond() const
+Decimal SpaceTravel::getSpeedMetresPerSecond() const
 {
 	return speed_ms;
 }
 
-double SpaceTravel::getSpeedKmPerSecond() const
+Decimal SpaceTravel::getSpeedKmPerSecond() const
 {
-	return speed_ms / 1000.0;
+	return speed_ms / DEC_LIT(1000.0);
 }
 
-double SpaceTravel::getSpeedLightPercent() const
+Decimal SpaceTravel::getSpeedLightPercent() const
 {
-	return (speed_ms / SPEED_OF_LIGHT_MS) * 100.0;
+	return (speed_ms / SPEED_OF_LIGHT_MS) * DEC_LIT(100.0);
 }
 
-double SpaceTravel::getTravelTimeYears() const
+Decimal SpaceTravel::getTravelTimeYears() const
 {
-	double seconds = (distance_ly * LIGHT_YEAR_METRES) / speed_ms;
+	Decimal seconds = (distance_ly * LIGHT_YEAR_METRES) / speed_ms;
 
 	return seconds / DAY_SECONDS / DAY_JULIAN;
 }
@@ -46,22 +46,22 @@ double SpaceTravel::getTravelTimeYears() const
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void SpaceTravel::setDistanceLightYears(double x)
+void SpaceTravel::setDistanceLightYears(Decimal x)
 {
 	distance_ly = x;
 }
 
-void SpaceTravel::setSpeedMetresPerSecond(double x)
+void SpaceTravel::setSpeedMetresPerSecond(Decimal x)
 {
 	speed_ms = x;
 }
 
-void SpaceTravel::setSpeedKmPerSecond(double x)
+void SpaceTravel::setSpeedKmPerSecond(Decimal x)
 {
-	speed_ms = x * 1000.0;
+	speed_ms = x * DEC_LIT(1000.0);
 }
 
-void SpaceTravel::setSpeedLightPercent(double x)
+void SpaceTravel::setSpeedLightPercent(Decimal x)
 {
-	speed_ms = (x * SPEED_OF_LIGHT_MS) / 100.0;
+	speed_ms = (x * SPEED_OF_LIGHT_MS) / DEC_LIT(100.0);
 }

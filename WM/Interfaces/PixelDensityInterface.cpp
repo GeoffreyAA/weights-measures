@@ -14,22 +14,22 @@ int PixelDensityInterface::getValueCount() const
 	return 4;
 }
 
-double PixelDensityInterface::getValue0() const
+Decimal PixelDensityInterface::getValue0() const
 {
 	return p.getDiagonal();
 }
 
-double PixelDensityInterface::getValue1() const
+Decimal PixelDensityInterface::getValue1() const
 {
 	return p.getPixelsWidth();
 }
 
-double PixelDensityInterface::getValue2() const
+Decimal PixelDensityInterface::getValue2() const
 {
 	return p.getPixelsHeight();
 }
 
-double PixelDensityInterface::getValue3() const
+Decimal PixelDensityInterface::getValue3() const
 {
 	return p.getPixelsPerUnit();
 }
@@ -54,21 +54,21 @@ const wchar_t *PixelDensityInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void PixelDensityInterface::setValue0(double x)
+void PixelDensityInterface::setValue0(Decimal x)
 {
 	p.setDiagonal(x);
 }
 
-void PixelDensityInterface::setValue1(double x)
+void PixelDensityInterface::setValue1(Decimal x)
 {
 	p.setPixelsWidth(x);
 }
 
-void PixelDensityInterface::setValue2(double x)
+void PixelDensityInterface::setValue2(Decimal x)
 {
 	p.setPixelsHeight(x);
 }
 
-void PixelDensityInterface::setValue3(double x)
+void PixelDensityInterface::setValue3(Decimal x)
 {
 }

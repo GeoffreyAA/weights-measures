@@ -3,46 +3,46 @@
 
 // Reference: https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature
 
-Temperature::Temperature(double K) : Kelvin(K)
+Temperature::Temperature(Decimal K) : Kelvin(K)
 {
 }
 
-double Temperature::getCelsius() const
+Decimal Temperature::getCelsius() const
 {
-	return getKelvin() - 273.15;
+	return getKelvin() - DEC_LIT(273.15);
 }
 
-double Temperature::getKelvin() const
+Decimal Temperature::getKelvin() const
 {
 	return Kelvin;
 }
 
-double Temperature::getFahrenheit() const
+Decimal Temperature::getFahrenheit() const
 {
-	return getKelvin() * 9.0 / 5.0 - 459.67;
+	return getKelvin() * DEC_LIT(9.0) / DEC_LIT(5.0) - DEC_LIT(459.67);
 }
 
-double Temperature::getRankine() const
+Decimal Temperature::getRankine() const
 {
-	return getKelvin() * 9.0 / 5.0;
+	return getKelvin() * DEC_LIT(9.0) / DEC_LIT(5.0);
 }
 
-void Temperature::setCelsius(double x)
+void Temperature::setCelsius(Decimal x)
 {
-	setKelvin(x + 273.15);
+	setKelvin(x + DEC_LIT(273.15));
 }
 
-void Temperature::setKelvin(double x)
+void Temperature::setKelvin(Decimal x)
 {
 	Kelvin = x;
 }
 
-void Temperature::setFahrenheit(double x)
+void Temperature::setFahrenheit(Decimal x)
 {
-	setKelvin((x + 459.67) * 5.0 / 9.0);
+	setKelvin((x + DEC_LIT(459.67)) * DEC_LIT(5.0) / DEC_LIT(9.0));
 }
 
-void Temperature::setRankine(double x)
+void Temperature::setRankine(Decimal x)
 {
-	setKelvin(x * 5.0 / 9.0);
+	setKelvin(x * DEC_LIT(5.0) / DEC_LIT(9.0));
 }

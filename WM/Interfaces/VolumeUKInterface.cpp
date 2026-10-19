@@ -14,47 +14,47 @@ int VolumeUKInterface::getValueCount() const
 	return 9;
 }
 
-double VolumeUKInterface::getValue0() const
+Decimal VolumeUKInterface::getValue0() const
 {
 	return v.getMillilitres();
 }
 
-double VolumeUKInterface::getValue1() const
+Decimal VolumeUKInterface::getValue1() const
 {
 	return v.getLitres();
 }
 
-double VolumeUKInterface::getValue2() const
+Decimal VolumeUKInterface::getValue2() const
 {
 	return v.getFluidOuncesUK();
 }
 
-double VolumeUKInterface::getValue3() const
+Decimal VolumeUKInterface::getValue3() const
 {
 	return v.getPintsUK();
 }
 
-double VolumeUKInterface::getValue4() const
+Decimal VolumeUKInterface::getValue4() const
 {
 	return v.getQuartsUK();
 }
 
-double VolumeUKInterface::getValue5() const
+Decimal VolumeUKInterface::getValue5() const
 {
 	return v.getGallonsUK();
 }
 
-double VolumeUKInterface::getValue6() const
+Decimal VolumeUKInterface::getValue6() const
 {
 	return v.getTeaspoonsUK();
 }
 
-double VolumeUKInterface::getValue7() const
+Decimal VolumeUKInterface::getValue7() const
 {
 	return v.getTablepoonsUK();
 }
 
-double VolumeUKInterface::getValue8() const
+Decimal VolumeUKInterface::getValue8() const
 {
 	return v.getCupsUK();
 }
@@ -79,47 +79,47 @@ const wchar_t *VolumeUKInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void VolumeUKInterface::setValue0(double x)
+void VolumeUKInterface::setValue0(Decimal x)
 {
 	v.setMillilitres(x);
 }
 
-void VolumeUKInterface::setValue1(double x)
+void VolumeUKInterface::setValue1(Decimal x)
 {
 	v.setLitres(x);
 }
 
-void VolumeUKInterface::setValue2(double x)
+void VolumeUKInterface::setValue2(Decimal x)
 {
 	v.setFluidOuncesUK(x);
 }
 
-void VolumeUKInterface::setValue3(double x)
+void VolumeUKInterface::setValue3(Decimal x)
 {
 	v.setPintsUK(x);
 }
 
-void VolumeUKInterface::setValue4(double x)
+void VolumeUKInterface::setValue4(Decimal x)
 {
 	v.setQuartsUK(x);
 }
 
-void VolumeUKInterface::setValue5(double x)
+void VolumeUKInterface::setValue5(Decimal x)
 {
 	v.setGallonsUK(x);
 }
 
-void VolumeUKInterface::setValue6(double x)
+void VolumeUKInterface::setValue6(Decimal x)
 {
 	v.setTeaspoonsUK(x);
 }
 
-void VolumeUKInterface::setValue7(double x)
+void VolumeUKInterface::setValue7(Decimal x)
 {
 	v.setTablepoonsUK(x);
 }
 
-void VolumeUKInterface::setValue8(double x)
+void VolumeUKInterface::setValue8(Decimal x)
 {
 	v.setCupsUK(x);
 }

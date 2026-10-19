@@ -14,47 +14,47 @@ int PressureInterface::getValueCount() const
 	return 9;
 }
 
-double PressureInterface::getValue0() const
+Decimal PressureInterface::getValue0() const
 {
 	return p.getPascals();
 }
 
-double PressureInterface::getValue1() const
+Decimal PressureInterface::getValue1() const
 {
 	return p.getKilopascals();
 }
 
-double PressureInterface::getValue2() const
+Decimal PressureInterface::getValue2() const
 {
 	return p.getPoundsPerSquareInch();
 }
 
-double PressureInterface::getValue3() const
+Decimal PressureInterface::getValue3() const
 {
 	return p.getBars();
 }
 
-double PressureInterface::getValue4() const
+Decimal PressureInterface::getValue4() const
 {
 	return p.getStandardAtmosphere();
 }
 
-double PressureInterface::getValue5() const
+Decimal PressureInterface::getValue5() const
 {
 	return p.getMillimetresOfMercury();
 }
 
-double PressureInterface::getValue6() const
+Decimal PressureInterface::getValue6() const
 {
 	return p.getInchesOfMercury();
 }
 
-double PressureInterface::getValue7() const
+Decimal PressureInterface::getValue7() const
 {
 	return p.getCentimetresOfWater();
 }
 
-double PressureInterface::getValue8() const
+Decimal PressureInterface::getValue8() const
 {
 	return p.getInchesOfWater();
 }
@@ -81,47 +81,47 @@ const wchar_t *PressureInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void PressureInterface::setValue0(double x)
+void PressureInterface::setValue0(Decimal x)
 {
 	p.setPascals(x);
 }
 
-void PressureInterface::setValue1(double x)
+void PressureInterface::setValue1(Decimal x)
 {
 	p.setKilopascals(x);
 }
 
-void PressureInterface::setValue2(double x)
+void PressureInterface::setValue2(Decimal x)
 {
 	p.setPoundsPerSquareInch(x);
 }
 
-void PressureInterface::setValue3(double x)
+void PressureInterface::setValue3(Decimal x)
 {
 	p.setBars(x);
 }
 
-void PressureInterface::setValue4(double x)
+void PressureInterface::setValue4(Decimal x)
 {
 	p.setStandardAtmosphere(x);
 }
 
-void PressureInterface::setValue5(double x)
+void PressureInterface::setValue5(Decimal x)
 {
 	p.setMillimetresOfMercury(x);
 }
 
-void PressureInterface::setValue6(double x)
+void PressureInterface::setValue6(Decimal x)
 {
 	p.setInchesOfMercury(x);
 }
 
-void PressureInterface::setValue7(double x)
+void PressureInterface::setValue7(Decimal x)
 {
 	p.setCentimetresOfWater(x);
 }
 
-void PressureInterface::setValue8(double x)
+void PressureInterface::setValue8(Decimal x)
 {
 	p.setInchesOfWater(x);
 }

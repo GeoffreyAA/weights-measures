@@ -1,31 +1,33 @@
 #ifndef __AREA_H__
 #define __AREA_H__
 
+#include "..\Library\Decimal.h"
+
 class Area
 {
 public:
-	Area(double sqm = 0.0);
+	Area(Decimal sqm = DEC_LIT(0.0));
 
-	double getSquareInches() const;
-	double getSquareFeet() const;
-	double getSquareYards() const;
-	double getSquareMetres() const;
-	double getAcres() const;
-	double getHectares() const;
-	double getSquareKilometres() const;
-	double getSquareMiles() const;
+	Decimal getSquareInches() const;
+	Decimal getSquareFeet() const;
+	Decimal getSquareYards() const;
+	Decimal getSquareMetres() const;
+	Decimal getAcres() const;
+	Decimal getHectares() const;
+	Decimal getSquareKilometres() const;
+	Decimal getSquareMiles() const;
 
-	void setSquareInches(double x);
-	void setSquareFeet(double x);
-	void setSquareYards(double x);
-	void setSquareMetres(double x);
-	void setAcres(double x);
-	void setHectares(double x);
-	void setSquareKilometres(double x);
-	void setSquareMiles(double x);
+	void setSquareInches(Decimal x);
+	void setSquareFeet(Decimal x);
+	void setSquareYards(Decimal x);
+	void setSquareMetres(Decimal x);
+	void setAcres(Decimal x);
+	void setHectares(Decimal x);
+	void setSquareKilometres(Decimal x);
+	void setSquareMiles(Decimal x);
 
 private:
-	double SquareMetres;
+	Decimal SquareMetres;
 };
 
 #endif

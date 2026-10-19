@@ -14,6 +14,12 @@ A unit converter for Windows, with an extensible design, allowing categories and
 </p>
 
 
+Precision
+---------
+
+Internally, double-precision floating-point numbers are used; decimals, therefore, cannot be represented exactly.
+
+
 Notes
 -----
 
@@ -22,12 +28,6 @@ The program comes with a default language of English and can be translated into 
 Download Weights & Measures only from its [release page](https://github.com/GeoffreyAA/weights-measures/releases) or the [Microsoft Store](https://apps.microsoft.com/detail/9NQD079QXDKJ). It is free; do not pay for it anywhere.
 
 No AI was used developing this program.
-
-
-Precision
----------
-
-Internally, double-precision floating-point numbers are used; decimals, therefore, cannot be represented exactly. I hope to move the calculation system to a decimal library, and design it in such a way that switching to other number formats is straightforward.
 
 
 Building

@@ -1,29 +1,31 @@
 #ifndef __SPEED_H__
 #define __SPEED_H__
 
+#include "..\Library\Decimal.h"
+
 class Speed
 {
 public:
-	Speed(double ms = 0.0);
+	Speed(Decimal ms = DEC_LIT(0.0));
 
-	double getKilometresPerHour() const;
-	double getFeetPerSecond() const;
-	double getMilesPerHour() const;
-	double getMetresPerSecond() const;
-	double getKnots() const;
-	double getMach() const;
-	double getLight() const;
+	Decimal getKilometresPerHour() const;
+	Decimal getFeetPerSecond() const;
+	Decimal getMilesPerHour() const;
+	Decimal getMetresPerSecond() const;
+	Decimal getKnots() const;
+	Decimal getMach() const;
+	Decimal getLight() const;
 
-	void setKilometresPerHour(double x);
-	void setFeetPerSecond(double x);
-	void setMilesPerHour(double x);
-	void setMetresPerSecond(double x);
-	void setKnots(double x);
-	void setMach(double x);
-	void setLight(double x);
+	void setKilometresPerHour(Decimal x);
+	void setFeetPerSecond(Decimal x);
+	void setMilesPerHour(Decimal x);
+	void setMetresPerSecond(Decimal x);
+	void setKnots(Decimal x);
+	void setMach(Decimal x);
+	void setLight(Decimal x);
 
 private:
-	double MetresPerSecond;
+	Decimal MetresPerSecond;
 };
 
 #endif

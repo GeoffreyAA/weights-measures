@@ -2,49 +2,49 @@
 #include "DataRate.h"
 #include "Metric.h"
 
-DataRate::DataRate(double BitsPerSecond) : bps(BitsPerSecond)
+DataRate::DataRate(Decimal BitsPerSecond) : bps(BitsPerSecond)
 {
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-double DataRate::getBitsPerSecond() const
+Decimal DataRate::getBitsPerSecond() const
 {
 	return bps.getBits();
 }
 
-double DataRate::getKilobitsPerSecond() const
+Decimal DataRate::getKilobitsPerSecond() const
 {
 	return Metric(getBitsPerSecond()).getKilo();
 }
 
-double DataRate::getMegabitsPerSecond() const
+Decimal DataRate::getMegabitsPerSecond() const
 {
 	return Metric(getBitsPerSecond()).getMega();
 }
 
-double DataRate::getGigabitsPerSecond() const
+Decimal DataRate::getGigabitsPerSecond() const
 {
 	return Metric(getBitsPerSecond()).getGiga();
 }
 
-double DataRate::getBytesPerSecond() const
+Decimal DataRate::getBytesPerSecond() const
 {
 	return bps.getBytes();
 }
 
-double DataRate::getKilobytesPerSecond() const
+Decimal DataRate::getKilobytesPerSecond() const
 {
 	return bps.getKB();
 }
 
-double DataRate::getMegabytesPerSecond() const
+Decimal DataRate::getMegabytesPerSecond() const
 {
 	return bps.getMB();
 }
 
-double DataRate::getGigabytesPerSecond() const
+Decimal DataRate::getGigabytesPerSecond() const
 {
 	return bps.getGB();
 }
@@ -52,12 +52,12 @@ double DataRate::getGigabytesPerSecond() const
 
 ///////////////////////////////////////////////////////////////
 
-void DataRate::setBitsPerSecond(double x)
+void DataRate::setBitsPerSecond(Decimal x)
 {
 	bps.setBits(x);
 }
 
-void DataRate::setKilobitsPerSecond(double x)
+void DataRate::setKilobitsPerSecond(Decimal x)
 {
 	Metric m;
 
@@ -66,7 +66,7 @@ void DataRate::setKilobitsPerSecond(double x)
 	setBitsPerSecond(m.getBase());
 }
 
-void DataRate::setMegabitsPerSecond(double x)
+void DataRate::setMegabitsPerSecond(Decimal x)
 {
 	Metric m;
 
@@ -75,7 +75,7 @@ void DataRate::setMegabitsPerSecond(double x)
 	setBitsPerSecond(m.getBase());
 }
 
-void DataRate::setGigabitsPerSecond(double x)
+void DataRate::setGigabitsPerSecond(Decimal x)
 {
 	Metric m;
 
@@ -84,22 +84,22 @@ void DataRate::setGigabitsPerSecond(double x)
 	setBitsPerSecond(m.getBase());
 }
 
-void DataRate::setBytesPerSecond(double x)
+void DataRate::setBytesPerSecond(Decimal x)
 {
 	bps.setBytes(x);
 }
 
-void DataRate::setKilobytesPerSecond(double x)
+void DataRate::setKilobytesPerSecond(Decimal x)
 {
 	bps.setKB(x);
 }
 
-void DataRate::setMegabytesPerSecond(double x)
+void DataRate::setMegabytesPerSecond(Decimal x)
 {
 	bps.setMB(x);
 }
 
-void DataRate::setGigabytesPerSecond(double x)
+void DataRate::setGigabytesPerSecond(Decimal x)
 {
 	bps.setGB(x);
 }

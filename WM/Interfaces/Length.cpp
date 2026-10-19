@@ -1,86 +1,86 @@
 #include "stdafx.h"
 #include "Length.h"
 
-Length::Length(double mm) : Millimetres(mm)
+Length::Length(Decimal mm) : Millimetres(mm)
 {
 }
 
-double Length::getMillimetres() const
+Decimal Length::getMillimetres() const
 {
-	return (Millimetres);
+	return Millimetres;
 }
 
-double Length::getCentimetres() const
+Decimal Length::getCentimetres() const
 {
-	return (getMillimetres() / 10.0);
+	return getMillimetres() / DEC_LIT(10.0);
 }
 
-double Length::getInches() const
+Decimal Length::getInches() const
 {
-	return (getMetres() / 0.0254);
+	return getMetres() / DEC_LIT(0.0254);
 }
 
-double Length::getFeet() const
+Decimal Length::getFeet() const
 {
-	return (getMetres() / 0.3048);
+	return getMetres() / DEC_LIT(0.3048);
 }
 
-double Length::getYards() const
+Decimal Length::getYards() const
 {
-	return (getMetres() / 0.9144);
+	return getMetres() / DEC_LIT(0.9144);
 }
 
-double Length::getMetres() const
+Decimal Length::getMetres() const
 {
-	return (getCentimetres() / 100.0);
+	return getCentimetres() / DEC_LIT(100.0);
 }
 
-double Length::getKilometres() const
+Decimal Length::getKilometres() const
 {
-	return (getMetres() / 1000.0);
+	return getMetres() / DEC_LIT(1000.0);
 }
 
-double Length::getMiles() const
+Decimal Length::getMiles() const
 {
-	return (getMetres() / 1609.344);
+	return getMetres() / DEC_LIT(1609.344);
 }
 
-void Length::setMillimetres(double x)
+void Length::setMillimetres(Decimal x)
 {
 	Millimetres = x;
 }
 
-void Length::setCentimetres(double x)
+void Length::setCentimetres(Decimal x)
 {
-	setMillimetres(x * 10.0);
+	setMillimetres(x * DEC_LIT(10.0));
 }
 
-void Length::setInches(double x)
+void Length::setInches(Decimal x)
 {
-	setMetres(x * 0.0254);
+	setMetres(x * DEC_LIT(0.0254));
 }
 
-void Length::setFeet(double x)
+void Length::setFeet(Decimal x)
 {
-	setMetres(x * 0.3048);
+	setMetres(x * DEC_LIT(0.3048));
 }
 
-void Length::setYards(double x)
+void Length::setYards(Decimal x)
 {
-	setMetres(x * 0.9144);
+	setMetres(x * DEC_LIT(0.9144));
 }
 
-void Length::setMetres(double x)
+void Length::setMetres(Decimal x)
 {
-	setCentimetres(x * 100.0);
+	setCentimetres(x * DEC_LIT(100.0));
 }
 
-void Length::setKilometres(double x)
+void Length::setKilometres(Decimal x)
 {
-	setMetres(x * 1000.0);
+	setMetres(x * DEC_LIT(1000.0));
 }
 
-void Length::setMiles(double x)
+void Length::setMiles(Decimal x)
 {
-	setMetres(x * 1609.344);
+	setMetres(x * DEC_LIT(1609.344));
 }

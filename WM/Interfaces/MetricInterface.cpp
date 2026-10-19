@@ -13,82 +13,82 @@ int MetricInterface::getValueCount() const
 	return 16;
 }
 
-double MetricInterface::getValue0() const
+Decimal MetricInterface::getValue0() const
 {
 	return m.getNano();
 }
 
-double MetricInterface::getValue1() const
+Decimal MetricInterface::getValue1() const
 {
 	return m.getMicro();
 }
 
-double MetricInterface::getValue2() const
+Decimal MetricInterface::getValue2() const
 {
 	return m.getMilli();
 }
 
-double MetricInterface::getValue3() const
+Decimal MetricInterface::getValue3() const
 {
 	return m.getCenti();
 }
 
-double MetricInterface::getValue4() const
+Decimal MetricInterface::getValue4() const
 {
 	return m.getDeci();
 }
 
-double MetricInterface::getValue5() const
+Decimal MetricInterface::getValue5() const
 {
 	return m.getBase();
 }
 
-double MetricInterface::getValue6() const
+Decimal MetricInterface::getValue6() const
 {
 	return m.getDeca();
 }
 
-double MetricInterface::getValue7() const
+Decimal MetricInterface::getValue7() const
 {
 	return m.getHecto();
 }
 
-double MetricInterface::getValue8() const
+Decimal MetricInterface::getValue8() const
 {
 	return m.getKilo();
 }
 
-double MetricInterface::getValue9() const
+Decimal MetricInterface::getValue9() const
 {
 	return m.getMega();
 }
 
-double MetricInterface::getValue10() const
+Decimal MetricInterface::getValue10() const
 {
 	return m.getGiga();
 }
 
-double MetricInterface::getValue11() const
+Decimal MetricInterface::getValue11() const
 {
 	return m.getTera();
 }
 
-double MetricInterface::getValue12() const
+Decimal MetricInterface::getValue12() const
 {
 	return m.getPeta();
 }
 
-double MetricInterface::getValue13() const
+Decimal MetricInterface::getValue13() const
 {
 	return m.getExa();
 }
 
-double MetricInterface::getValue14() const
+Decimal MetricInterface::getValue14() const
 {
 	return m.getZetta();
 }
 
-double MetricInterface::getValue15() const
+Decimal MetricInterface::getValue15() const
 {
 	return m.getYotta();
 }
@@ -103,82 +103,82 @@ const wchar_t *MetricInterface::getTitle(int i) const
 	return ConversionInterface::getTitle(i);
 }
 
-void MetricInterface::setValue0(double x)
+void MetricInterface::setValue0(Decimal x)
 {
 	m.setNano(x);
 }
 
-void MetricInterface::setValue1(double x)
+void MetricInterface::setValue1(Decimal x)
 {
 	m.setMicro(x);
 }
 
-void MetricInterface::setValue2(double x)
+void MetricInterface::setValue2(Decimal x)
 {
 	m.setMilli(x);
 }
 
-void MetricInterface::setValue3(double x)
+void MetricInterface::setValue3(Decimal x)
 {
 	m.setCenti(x);
 }
 
-void MetricInterface::setValue4(double x)
+void MetricInterface::setValue4(Decimal x)
 {
 	m.setDeci(x);
 }
 
-void MetricInterface::setValue5(double x)
+void MetricInterface::setValue5(Decimal x)
 {
 	m.setBase(x);
 }
 
-void MetricInterface::setValue6(double x)
+void MetricInterface::setValue6(Decimal x)
 {
 	m.setDeca(x);
 }
 
-void MetricInterface::setValue7(double x)
+void MetricInterface::setValue7(Decimal x)
 {
 	m.setHecto(x);
 }
 
-void MetricInterface::setValue8(double x)
+void MetricInterface::setValue8(Decimal x)
 {
 	m.setKilo(x);
 }
 
-void MetricInterface::setValue9(double x)
+void MetricInterface::setValue9(Decimal x)
 {
 	m.setMega(x);
 }
 
-void MetricInterface::setValue10(double x)
+void MetricInterface::setValue10(Decimal x)
 {
 	m.setGiga(x);
 }
 
-void MetricInterface::setValue11(double x)
+void MetricInterface::setValue11(Decimal x)
 {
 	m.setTera(x);
 }
 
-void MetricInterface::setValue12(double x)
+void MetricInterface::setValue12(Decimal x)
 {
 	m.setPeta(x);
 }
 
-void MetricInterface::setValue13(double x)
+void MetricInterface::setValue13(Decimal x)
 {
 	m.setExa(x);
 }
 
-void MetricInterface::setValue14(double x)
+void MetricInterface::setValue14(Decimal x)
 {
 	m.setZetta(x);
 }
 
-void MetricInterface::setValue15(double x)
+void MetricInterface::setValue15(Decimal x)
 {
 	m.setYotta(x);
 }

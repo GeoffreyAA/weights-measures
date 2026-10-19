@@ -1,86 +1,86 @@
 #include "stdafx.h"
 #include "Area.h"
 
-Area::Area(double sqm) : SquareMetres(sqm)
+Area::Area(Decimal sqm) : SquareMetres(sqm)
 {
 }
 
-double Area::getSquareInches() const
+Decimal Area::getSquareInches() const
 {
-	return (getSquareMetres() / 0.00064516);
+	return getSquareMetres() / DEC_LIT(0.00064516);
 }
 
-double Area::getSquareFeet() const
+Decimal Area::getSquareFeet() const
 {
-	return (getSquareMetres() / 0.09290304);
+	return getSquareMetres() / DEC_LIT(0.09290304);
 }
 
-double Area::getSquareYards() const
+Decimal Area::getSquareYards() const
 {
-	return (getSquareMetres() / 0.83612736);
+	return getSquareMetres() / DEC_LIT(0.83612736);
 }
 
-double Area::getSquareMetres() const
+Decimal Area::getSquareMetres() const
 {
-	return (SquareMetres);
+	return SquareMetres;
 }
 
-double Area::getAcres() const
+Decimal Area::getAcres() const
 {
-	return (getSquareMetres() / 4046.8564224);
+	return getSquareMetres() / DEC_LIT(4046.8564224);
 }
 
-double Area::getHectares() const
+Decimal Area::getHectares() const
 {
-	return (getSquareMetres() / 10000.0);
+	return getSquareMetres() / DEC_LIT(10000.0);
 }
 
-double Area::getSquareKilometres() const
+Decimal Area::getSquareKilometres() const
 {
-	return (getSquareMetres() / 1000000.0);
+	return getSquareMetres() / DEC_LIT(1000000.0);
 }
 
-double Area::getSquareMiles() const
+Decimal Area::getSquareMiles() const
 {
-	return (getSquareMetres() / 2589988.110336);
+	return getSquareMetres() / DEC_LIT(2589988.110336);
 }
 
-void Area::setSquareInches(double x)
+void Area::setSquareInches(Decimal x)
 {
-	setSquareMetres(x * 0.00064516);
+	setSquareMetres(x * DEC_LIT(0.00064516));
 }
 
-void Area::setSquareFeet(double x)
+void Area::setSquareFeet(Decimal x)
 {
-	setSquareMetres(x * 0.09290304);
+	setSquareMetres(x * DEC_LIT(0.09290304));
 }
 
-void Area::setSquareYards(double x)
+void Area::setSquareYards(Decimal x)
 {
-	setSquareMetres(x * 0.83612736);
+	setSquareMetres(x * DEC_LIT(0.83612736));
 }
 
-void Area::setSquareMetres(double x)
+void Area::setSquareMetres(Decimal x)
 {
 	SquareMetres = x;
 }
 
-void Area::setAcres(double x)
+void Area::setAcres(Decimal x)
 {
-	setSquareMetres(x * 4046.8564224);
+	setSquareMetres(x * DEC_LIT(4046.8564224));
 }
 
-void Area::setHectares(double x)
+void Area::setHectares(Decimal x)
 {
-	setSquareMetres(x * 10000.0);
+	setSquareMetres(x * DEC_LIT(10000.0));
 }
 
-void Area::setSquareKilometres(double x)
+void Area::setSquareKilometres(Decimal x)
 {
-	setSquareMetres(x * 1000000.0);
+	setSquareMetres(x * DEC_LIT(1000000.0));
 }
 
-void Area::setSquareMiles(double x)
+void Area::setSquareMiles(Decimal x)
 {
-	setSquareMetres(x * 2589988.110336);
+	setSquareMetres(x * DEC_LIT(2589988.110336));
 }

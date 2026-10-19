@@ -1,76 +1,76 @@
 #include "stdafx.h"
 #include "Mass.h"
 
-Mass::Mass(double g) : Grams(g)
+Mass::Mass(Decimal g) : Grams(g)
 {
 }
 
-double Mass::getGrams() const
+Decimal Mass::getGrams() const
 {
-	return (Grams);
+	return Grams;
 }
 
-double Mass::getOunces() const
+Decimal Mass::getOunces() const
 {
-	return (getGrams() / 28.349523125);
+	return getGrams() / DEC_LIT(28.349523125);
 }
 
-double Mass::getPounds() const
+Decimal Mass::getPounds() const
 {
-	return (getKilograms() / 0.45359237);
+	return getKilograms() / DEC_LIT(0.45359237);
 }
 
-double Mass::getKilograms() const
+Decimal Mass::getKilograms() const
 {
-	return (getGrams() / 1000.0);
+	return getGrams() / DEC_LIT(1000.0);
 }
 
-double Mass::getStone() const
+Decimal Mass::getStone() const
 {
-	return (getKilograms() / 6.35029318);
+	return getKilograms() / DEC_LIT(6.35029318);
 }
 
-double Mass::getTonnes() const
+Decimal Mass::getTonnes() const
 {
-	return (getKilograms() / 1000.0);
+	return getKilograms() / DEC_LIT(1000.0);
 }
 
-double Mass::getTons() const
+Decimal Mass::getTons() const
 {
-	return (getKilograms() / 1016.0469088);
+	return getKilograms() / DEC_LIT(1016.0469088);
 }
 
-void Mass::setGrams(double x)
+void Mass::setGrams(Decimal x)
 {
 	Grams = x;
 }
 
-void Mass::setOunces(double x)
+void Mass::setOunces(Decimal x)
 {
-	setGrams(x * 28.349523125);
+	setGrams(x * DEC_LIT(28.349523125));
 }
 
-void Mass::setPounds(double x)
+void Mass::setPounds(Decimal x)
 {
-	setKilograms(x * 0.45359237);
+	setKilograms(x * DEC_LIT(0.45359237));
 }
 
-void Mass::setKilograms(double x)
+void Mass::setKilograms(Decimal x)
 {
-	setGrams(x * 1000.0);
+	setGrams(x * DEC_LIT(1000.0));
 }
 
-void Mass::setStone(double x)
+void Mass::setStone(Decimal x)
 {
-	setKilograms(x * 6.35029318);
+	setKilograms(x * DEC_LIT(6.35029318));
 }
 
-void Mass::setTonnes(double x)
+void Mass::setTonnes(Decimal x)
 {
-	setKilograms(x * 1000.0);
+	setKilograms(x * DEC_LIT(1000.0));
 }
 
-void Mass::setTons(double x)
+void Mass::setTons(Decimal x)
 {
-	setKilograms(x * 1016.0469088);
+	setKilograms(x * DEC_LIT(1016.0469088));
 }

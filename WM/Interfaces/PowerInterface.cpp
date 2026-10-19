@@ -14,22 +14,22 @@ int PowerInterface::getValueCount() const
 	return 4;
 }
 
-double PowerInterface::getValue0() const
+Decimal PowerInterface::getValue0() const
 {
 	return p.getBtuPerHour();
 }
 
-double PowerInterface::getValue1() const
+Decimal PowerInterface::getValue1() const
 {
 	return p.getWatts();
 }
 
-double PowerInterface::getValue2() const
+Decimal PowerInterface::getValue2() const
 {
 	return p.getKilowatts();
 }
 
-double PowerInterface::getValue3() const
+Decimal PowerInterface::getValue3() const
 {
 	return p.getHorsepowerMechanical();
 }
@@ -54,22 +54,22 @@ const wchar_t *PowerInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void PowerInterface::setValue0(double x)
+void PowerInterface::setValue0(Decimal x)
 {
 	p.setBtuPerHour(x);
 }
 
-void PowerInterface::setValue1(double x)
+void PowerInterface::setValue1(Decimal x)
 {
 	p.setWatts(x);
 }
 
-void PowerInterface::setValue2(double x)
+void PowerInterface::setValue2(Decimal x)
 {
 	p.setKilowatts(x);
 }
 
-void PowerInterface::setValue3(double x)
+void PowerInterface::setValue3(Decimal x)
 {
 	p.setHorsepowerMechanical(x);
 }

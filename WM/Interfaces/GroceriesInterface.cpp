@@ -14,22 +14,22 @@ int GroceriesInterface::getValueCount() const
 	return 4;
 }
 
-double GroceriesInterface::getValue0() const
+Decimal GroceriesInterface::getValue0() const
 {
 	return g.getPrice();
 }
 
-double GroceriesInterface::getValue1() const
+Decimal GroceriesInterface::getValue1() const
 {
 	return g.getKilograms();
 }
 
-double GroceriesInterface::getValue2() const
+Decimal GroceriesInterface::getValue2() const
 {
 	return g.getGrams();
 }
 
-double GroceriesInterface::getValue3() const
+Decimal GroceriesInterface::getValue3() const
 {
 	return g.getPricePerKilogram();
 }
@@ -54,21 +54,21 @@ const wchar_t *GroceriesInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void GroceriesInterface::setValue0(double x)
+void GroceriesInterface::setValue0(Decimal x)
 {
 	g.setPrice(x);
 }
 
-void GroceriesInterface::setValue1(double x)
+void GroceriesInterface::setValue1(Decimal x)
 {
 	g.setKilograms(x);
 }
 
-void GroceriesInterface::setValue2(double x)
+void GroceriesInterface::setValue2(Decimal x)
 {
 	g.setGrams(x);
 }
 
-void GroceriesInterface::setValue3(double x)
+void GroceriesInterface::setValue3(Decimal x)
 {
 }

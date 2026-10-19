@@ -1,33 +1,35 @@
 #ifndef __PRESSURE_H__
 #define __PRESSURE_H__
 
+#include "..\Library\Decimal.h"
+
 class Pressure
 {
 public:
-	Pressure(double Pa = 0.0);
+	Pressure(Decimal Pa = DEC_LIT(0.0));
 
-	double getPascals() const;
-	double getKilopascals() const;
-	double getPoundsPerSquareInch() const;
-	double getBars() const;
-	double getStandardAtmosphere() const;
-	double getMillimetresOfMercury() const;
-	double getInchesOfMercury() const;
-	double getCentimetresOfWater() const;
-	double getInchesOfWater() const;
+	Decimal getPascals() const;
+	Decimal getKilopascals() const;
+	Decimal getPoundsPerSquareInch() const;
+	Decimal getBars() const;
+	Decimal getStandardAtmosphere() const;
+	Decimal getMillimetresOfMercury() const;
+	Decimal getInchesOfMercury() const;
+	Decimal getCentimetresOfWater() const;
+	Decimal getInchesOfWater() const;
 
-	void setPascals(double x);
-	void setKilopascals(double x);
-	void setPoundsPerSquareInch(double x);
-	void setBars(double x);
-	void setStandardAtmosphere(double x);
-	void setMillimetresOfMercury(double x);
-	void setInchesOfMercury(double x);
-	void setCentimetresOfWater(double x);
-	void setInchesOfWater(double x);
+	void setPascals(Decimal x);
+	void setKilopascals(Decimal x);
+	void setPoundsPerSquareInch(Decimal x);
+	void setBars(Decimal x);
+	void setStandardAtmosphere(Decimal x);
+	void setMillimetresOfMercury(Decimal x);
+	void setInchesOfMercury(Decimal x);
+	void setCentimetresOfWater(Decimal x);
+	void setInchesOfWater(Decimal x);
 
 private:
-	double Pascals;
+	Decimal Pascals;
 };
 
 #endif

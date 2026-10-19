@@ -14,22 +14,22 @@ int TemperatureInterface::getValueCount() const
 	return 4;
 }
 
-double TemperatureInterface::getValue0() const
+Decimal TemperatureInterface::getValue0() const
 {
 	return t.getCelsius();
 }
 
-double TemperatureInterface::getValue1() const
+Decimal TemperatureInterface::getValue1() const
 {
 	return t.getKelvin();
 }
 
-double TemperatureInterface::getValue2() const
+Decimal TemperatureInterface::getValue2() const
 {
 	return t.getFahrenheit();
 }
 
-double TemperatureInterface::getValue3() const
+Decimal TemperatureInterface::getValue3() const
 {
 	return t.getRankine();
 }
@@ -54,22 +54,22 @@ const wchar_t *TemperatureInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void TemperatureInterface::setValue0(double x)
+void TemperatureInterface::setValue0(Decimal x)
 {
 	t.setCelsius(x);
 }
 
-void TemperatureInterface::setValue1(double x)
+void TemperatureInterface::setValue1(Decimal x)
 {
 	t.setKelvin(x);
 }
 
-void TemperatureInterface::setValue2(double x)
+void TemperatureInterface::setValue2(Decimal x)
 {
 	t.setFahrenheit(x);
 }
 
-void TemperatureInterface::setValue3(double x)
+void TemperatureInterface::setValue3(Decimal x)
 {
 	t.setRankine(x);
 }

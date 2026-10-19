@@ -1,102 +1,102 @@
 #include "stdafx.h"
 #include "Pressure.h"
 
-Pressure::Pressure(double Pa) : Pascals(Pa)
+Pressure::Pressure(Decimal Pa) : Pascals(Pa)
 {
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-double Pressure::getPascals() const
+Decimal Pressure::getPascals() const
 {
-	return (Pascals);
+	return Pascals;
 }
 
-double Pressure::getKilopascals() const
+Decimal Pressure::getKilopascals() const
 {
-	return (getPascals() / 1000.0);
+	return getPascals() / DEC_LIT(1000.0);
 }
 
-double Pressure::getPoundsPerSquareInch() const
+Decimal Pressure::getPoundsPerSquareInch() const
 {
-	return (getPascals() / 6894.757293168);
+	return getPascals() / DEC_LIT(6894.757293168);
 }
 
-double Pressure::getBars() const
+Decimal Pressure::getBars() const
 {
-	return (getPascals() / 100000.0);
+	return getPascals() / DEC_LIT(100000.0);
 }
 
-double Pressure::getStandardAtmosphere() const
+Decimal Pressure::getStandardAtmosphere() const
 {
-	return (getPascals() / 101325.0);
+	return getPascals() / DEC_LIT(101325.0);
 }
 
-double Pressure::getMillimetresOfMercury() const
+Decimal Pressure::getMillimetresOfMercury() const
 {
-	return (getPascals() / 133.322387415);
+	return getPascals() / DEC_LIT(133.322387415);
 }
 
-double Pressure::getInchesOfMercury() const
+Decimal Pressure::getInchesOfMercury() const
 {
-	return (getPascals() / 3386.389);
+	return getPascals() / DEC_LIT(3386.389);
 }
 
-double Pressure::getCentimetresOfWater() const
+Decimal Pressure::getCentimetresOfWater() const
 {
-	return (getPascals() / 98.0665);
+	return getPascals() / DEC_LIT(98.0665);
 }
 
-double Pressure::getInchesOfWater() const
+Decimal Pressure::getInchesOfWater() const
 {
-	return (getPascals() / 249.082);
+	return getPascals() / DEC_LIT(249.082);
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void Pressure::setPascals(double x)
+void Pressure::setPascals(Decimal x)
 {
 	Pascals = x;
 }
 
-void Pressure::setKilopascals(double x)
+void Pressure::setKilopascals(Decimal x)
 {
-	setPascals(x * 1000.0);
+	setPascals(x * DEC_LIT(1000.0));
 }
 
-void Pressure::setPoundsPerSquareInch(double x)
+void Pressure::setPoundsPerSquareInch(Decimal x)
 {
-	setPascals(x * 6894.757293168);
+	setPascals(x * DEC_LIT(6894.757293168));
 }
 
-void Pressure::setBars(double x)
+void Pressure::setBars(Decimal x)
 {
-	setPascals(x * 100000.0);
+	setPascals(x * DEC_LIT(100000.0));
 }
 
-void Pressure::setStandardAtmosphere(double x)
+void Pressure::setStandardAtmosphere(Decimal x)
 {
-	setPascals(x * 101325.0);
+	setPascals(x * DEC_LIT(101325.0));
 }
 
-void Pressure::setMillimetresOfMercury(double x)
+void Pressure::setMillimetresOfMercury(Decimal x)
 {
-	setPascals(x * 133.322387415);
+	setPascals(x * DEC_LIT(133.322387415));
 }
 
-void Pressure::setInchesOfMercury(double x)
+void Pressure::setInchesOfMercury(Decimal x)
 {
-	setPascals(x * 3386.389);
+	setPascals(x * DEC_LIT(3386.389));
 }
 
-void Pressure::setCentimetresOfWater(double x)
+void Pressure::setCentimetresOfWater(Decimal x)
 {
-	setPascals(x * 98.0665);
+	setPascals(x * DEC_LIT(98.0665));
 }
 
-void Pressure::setInchesOfWater(double x)
+void Pressure::setInchesOfWater(Decimal x)
 {
-	setPascals(x * 249.082);
+	setPascals(x * DEC_LIT(249.082));
 }

@@ -1,92 +1,92 @@
 #include "stdafx.h"
 #include "Energy.h"
 
-Energy::Energy(double J) : Joules(J)
+Energy::Energy(Decimal J) : Joules(J)
 {
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-double Energy::getBtuISO() const
+Decimal Energy::getBtuISO() const
 {
-	return (getJoules() / 1054.5);
+	return getJoules() / DEC_LIT(1054.5);
 }
 
-double Energy::getCalories() const
+Decimal Energy::getCalories() const
 {
-	return (getJoules() / 4.184);
+	return getJoules() / DEC_LIT(4.184);
 }
 
-double Energy::getJoules() const
+Decimal Energy::getJoules() const
 {
-	return (Joules);
+	return Joules;
 }
 
-double Energy::getKilojoules() const
+Decimal Energy::getKilojoules() const
 {
-	return (getJoules() / 1000.0);
+	return getJoules() / DEC_LIT(1000.0);
 }
 
-double Energy::getFootPoundForce() const
+Decimal Energy::getFootPoundForce() const
 {
-	return (getJoules() / 1.3558179483314004);
+	return getJoules() / DEC_LIT(1.3558179483314004);
 }
 
-double Energy::getKilowattHours() const
+Decimal Energy::getKilowattHours() const
 {
-	return (getJoules() / 3600000.0);
+	return getJoules() / DEC_LIT(3600000.0);
 }
 
-double Energy::getErgs() const
+Decimal Energy::getErgs() const
 {
-	return (getJoules() / 0.0000001);
+	return getJoules() / DEC_LIT(0.0000001);
 }
 
-double Energy::getElectronvolts() const
+Decimal Energy::getElectronvolts() const
 {
-	return (getJoules() / 0.0000000000000000001602176634);
+	return getJoules() / DEC_LIT(0.0000000000000000001602176634);
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-void Energy::setBtuISO(double x)
+void Energy::setBtuISO(Decimal x)
 {
-	setJoules(x * 1054.5);
+	setJoules(x * DEC_LIT(1054.5));
 }
 
-void Energy::setCalories(double x)
+void Energy::setCalories(Decimal x)
 {
-	setJoules(x * 4.184);
+	setJoules(x * DEC_LIT(4.184));
 }
 
-void Energy::setJoules(double x)
+void Energy::setJoules(Decimal x)
 {
 	Joules = x;
 }
 
-void Energy::setKilojoules(double x)
+void Energy::setKilojoules(Decimal x)
 {
-	setJoules(x * 1000.0);
+	setJoules(x * DEC_LIT(1000.0));
 }
 
-void Energy::setFootPoundForce(double x)
+void Energy::setFootPoundForce(Decimal x)
 {
-	setJoules(x * 1.3558179483314004);
+	setJoules(x * DEC_LIT(1.3558179483314004));
 }
 
-void Energy::setKilowattHours(double x)
+void Energy::setKilowattHours(Decimal x)
 {
-	setJoules(x * 3600000.0);
+	setJoules(x * DEC_LIT(3600000.0));
 }
 
-void Energy::setErgs(double x)
+void Energy::setErgs(Decimal x)
 {
-	setJoules(x * 0.0000001);
+	setJoules(x * DEC_LIT(0.0000001));
 }
 
-void Energy::setElectronvolts(double x)
+void Energy::setElectronvolts(Decimal x)
 {
-	setJoules(x * 0.0000000000000000001602176634);
+	setJoules(x * DEC_LIT(0.0000000000000000001602176634));
 }

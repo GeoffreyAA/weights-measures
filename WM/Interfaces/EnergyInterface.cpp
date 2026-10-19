@@ -14,42 +14,42 @@ int EnergyInterface::getValueCount() const
 	return 8;
 }
 
-double EnergyInterface::getValue0() const
+Decimal EnergyInterface::getValue0() const
 {
 	return e.getBtuISO();
 }
 
-double EnergyInterface::getValue1() const
+Decimal EnergyInterface::getValue1() const
 {
 	return e.getCalories();
 }
 
-double EnergyInterface::getValue2() const
+Decimal EnergyInterface::getValue2() const
 {
 	return e.getJoules();
 }
 
-double EnergyInterface::getValue3() const
+Decimal EnergyInterface::getValue3() const
 {
 	return e.getKilojoules();
 }
 
-double EnergyInterface::getValue4() const
+Decimal EnergyInterface::getValue4() const
 {
 	return e.getFootPoundForce();
 }
 
-double EnergyInterface::getValue5() const
+Decimal EnergyInterface::getValue5() const
 {
 	return e.getKilowattHours();
 }
 
-double EnergyInterface::getValue6() const
+Decimal EnergyInterface::getValue6() const
 {
 	return e.getErgs();
 }
 
-double EnergyInterface::getValue7() const
+Decimal EnergyInterface::getValue7() const
 {
 	return e.getElectronvolts();
 }
@@ -74,42 +74,42 @@ const wchar_t *EnergyInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void EnergyInterface::setValue0(double x)
+void EnergyInterface::setValue0(Decimal x)
 {
 	e.setBtuISO(x);
 }
 
-void EnergyInterface::setValue1(double x)
+void EnergyInterface::setValue1(Decimal x)
 {
 	e.setCalories(x);
 }
 
-void EnergyInterface::setValue2(double x)
+void EnergyInterface::setValue2(Decimal x)
 {
 	e.setJoules(x);
 }
 
-void EnergyInterface::setValue3(double x)
+void EnergyInterface::setValue3(Decimal x)
 {
 	e.setKilojoules(x);
 }
 
-void EnergyInterface::setValue4(double x)
+void EnergyInterface::setValue4(Decimal x)
 {
 	e.setFootPoundForce(x);
 }
 
-void EnergyInterface::setValue5(double x)
+void EnergyInterface::setValue5(Decimal x)
 {
 	e.setKilowattHours(x);
 }
 
-void EnergyInterface::setValue6(double x)
+void EnergyInterface::setValue6(Decimal x)
 {
 	e.setErgs(x);
 }
 
-void EnergyInterface::setValue7(double x)
+void EnergyInterface::setValue7(Decimal x)
 {
 	e.setElectronvolts(x);
 }

@@ -1,23 +1,25 @@
 #ifndef __TEMPERATURE_H__
 #define __TEMPERATURE_H__
 
+#include "..\Library\Decimal.h"
+
 class Temperature
 {
 public:
-	Temperature(double K = 273.15);
+	Temperature(Decimal K = DEC_LIT(273.15));
 
-	double getCelsius() const;
-	double getKelvin() const;
-	double getFahrenheit() const;
-	double getRankine() const;
+	Decimal getCelsius() const;
+	Decimal getKelvin() const;
+	Decimal getFahrenheit() const;
+	Decimal getRankine() const;
 
-	void setCelsius(double x);
-	void setKelvin(double x);
-	void setFahrenheit(double x);
-	void setRankine(double x);
+	void setCelsius(Decimal x);
+	void setKelvin(Decimal x);
+	void setFahrenheit(Decimal x);
+	void setRankine(Decimal x);
 
 private:
-	double Kelvin;
+	Decimal Kelvin;
 };
 
 #endif

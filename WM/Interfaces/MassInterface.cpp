@@ -14,37 +14,37 @@ int MassInterface::getValueCount() const
 	return 7;
 }
 
-double MassInterface::getValue0() const
+Decimal MassInterface::getValue0() const
 {
 	return m.getGrams();
 }
 
-double MassInterface::getValue1() const
+Decimal MassInterface::getValue1() const
 {
 	return m.getOunces();
 }
 
-double MassInterface::getValue2() const
+Decimal MassInterface::getValue2() const
 {
 	return m.getPounds();
 }
 
-double MassInterface::getValue3() const
+Decimal MassInterface::getValue3() const
 {
 	return m.getKilograms();
 }
 
-double MassInterface::getValue4() const
+Decimal MassInterface::getValue4() const
 {
 	return m.getStone();
 }
 
-double MassInterface::getValue5() const
+Decimal MassInterface::getValue5() const
 {
 	return m.getTonnes();
 }
 
-double MassInterface::getValue6() const
+Decimal MassInterface::getValue6() const
 {
 	return m.getTons();
 }
@@ -69,37 +69,37 @@ const wchar_t *MassInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void MassInterface::setValue0(double x)
+void MassInterface::setValue0(Decimal x)
 {
 	m.setGrams(x);
 }
 
-void MassInterface::setValue1(double x)
+void MassInterface::setValue1(Decimal x)
 {
 	m.setOunces(x);
 }
 
-void MassInterface::setValue2(double x)
+void MassInterface::setValue2(Decimal x)
 {
 	m.setPounds(x);
 }
 
-void MassInterface::setValue3(double x)
+void MassInterface::setValue3(Decimal x)
 {
 	m.setKilograms(x);
 }
 
-void MassInterface::setValue4(double x)
+void MassInterface::setValue4(Decimal x)
 {
 	m.setStone(x);
 }
 
-void MassInterface::setValue5(double x)
+void MassInterface::setValue5(Decimal x)
 {
 	m.setTonnes(x);
 }
 
-void MassInterface::setValue6(double x)
+void MassInterface::setValue6(Decimal x)
 {
 	m.setTons(x);
 }

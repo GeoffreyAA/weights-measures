@@ -1,31 +1,33 @@
 #ifndef __LENGTH_H__
 #define __LENGTH_H__
 
+#include "..\Library\Decimal.h"
+
 class Length
 {
 public:
-	Length(double mm = 0.0);
+	Length(Decimal mm = DEC_LIT(0.0));
 
-	double getMillimetres() const;
-	double getCentimetres() const;
-	double getInches() const;
-	double getFeet() const;
-	double getYards() const;
-	double getMetres() const;
-	double getKilometres() const;
-	double getMiles() const;
+	Decimal getMillimetres() const;
+	Decimal getCentimetres() const;
+	Decimal getInches() const;
+	Decimal getFeet() const;
+	Decimal getYards() const;
+	Decimal getMetres() const;
+	Decimal getKilometres() const;
+	Decimal getMiles() const;
 
-	void setMillimetres(double x);
-	void setCentimetres(double x);
-	void setInches(double x);
-	void setFeet(double x);
-	void setYards(double x);
-	void setMetres(double x);
-	void setKilometres(double x);
-	void setMiles(double x);
+	void setMillimetres(Decimal x);
+	void setCentimetres(Decimal x);
+	void setInches(Decimal x);
+	void setFeet(Decimal x);
+	void setYards(Decimal x);
+	void setMetres(Decimal x);
+	void setKilometres(Decimal x);
+	void setMiles(Decimal x);
 
 private:
-	double Millimetres;
+	Decimal Millimetres;
 };
 
 #endif

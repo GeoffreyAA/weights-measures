@@ -14,37 +14,37 @@ int SpeedInterface::getValueCount() const
 	return 7;
 }
 
-double SpeedInterface::getValue0() const
+Decimal SpeedInterface::getValue0() const
 {
 	return s.getKilometresPerHour();
 }
 
-double SpeedInterface::getValue1() const
+Decimal SpeedInterface::getValue1() const
 {
 	return s.getFeetPerSecond();
 }
 
-double SpeedInterface::getValue2() const
+Decimal SpeedInterface::getValue2() const
 {
 	return s.getMilesPerHour();
 }
 
-double SpeedInterface::getValue3() const
+Decimal SpeedInterface::getValue3() const
 {
 	return s.getMetresPerSecond();
 }
 
-double SpeedInterface::getValue4() const
+Decimal SpeedInterface::getValue4() const
 {
 	return s.getKnots();
 }
 
-double SpeedInterface::getValue5() const
+Decimal SpeedInterface::getValue5() const
 {
 	return s.getMach();
 }
 
-double SpeedInterface::getValue6() const
+Decimal SpeedInterface::getValue6() const
 {
 	return s.getLight();
 }
@@ -69,37 +69,37 @@ const wchar_t *SpeedInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void SpeedInterface::setValue0(double x)
+void SpeedInterface::setValue0(Decimal x)
 {
 	s.setKilometresPerHour(x);
 }
 
-void SpeedInterface::setValue1(double x)
+void SpeedInterface::setValue1(Decimal x)
 {
 	s.setFeetPerSecond(x);
 }
 
-void SpeedInterface::setValue2(double x)
+void SpeedInterface::setValue2(Decimal x)
 {
 	s.setMilesPerHour(x);
 }
 
-void SpeedInterface::setValue3(double x)
+void SpeedInterface::setValue3(Decimal x)
 {
 	s.setMetresPerSecond(x);
 }
 
-void SpeedInterface::setValue4(double x)
+void SpeedInterface::setValue4(Decimal x)
 {
 	s.setKnots(x);
 }
 
-void SpeedInterface::setValue5(double x)
+void SpeedInterface::setValue5(Decimal x)
 {
 	s.setMach(x);
 }
 
-void SpeedInterface::setValue6(double x)
+void SpeedInterface::setValue6(Decimal x)
 {
 	s.setLight(x);
 }

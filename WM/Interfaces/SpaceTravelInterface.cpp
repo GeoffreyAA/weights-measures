@@ -14,22 +14,22 @@ int SpaceTravelInterface::getValueCount() const
 	return 4;
 }
 
-double SpaceTravelInterface::getValue0() const
+Decimal SpaceTravelInterface::getValue0() const
 {
 	return s.getDistanceLightYears();
 }
 
-double SpaceTravelInterface::getValue1() const
+Decimal SpaceTravelInterface::getValue1() const
 {
 	return s.getSpeedKmPerSecond();
 }
 
-double SpaceTravelInterface::getValue2() const
+Decimal SpaceTravelInterface::getValue2() const
 {
 	return s.getSpeedLightPercent();
 }
 
-double SpaceTravelInterface::getValue3() const
+Decimal SpaceTravelInterface::getValue3() const
 {
 	return s.getTravelTimeYears();
 }
@@ -54,21 +54,21 @@ const wchar_t *SpaceTravelInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void SpaceTravelInterface::setValue0(double x)
+void SpaceTravelInterface::setValue0(Decimal x)
 {
 	s.setDistanceLightYears(x);
 }
 
-void SpaceTravelInterface::setValue1(double x)
+void SpaceTravelInterface::setValue1(Decimal x)
 {
 	s.setSpeedKmPerSecond(x);
 }
 
-void SpaceTravelInterface::setValue2(double x)
+void SpaceTravelInterface::setValue2(Decimal x)
 {
 	s.setSpeedLightPercent(x);
 }
 
-void SpaceTravelInterface::setValue3(double x)
+void SpaceTravelInterface::setValue3(Decimal x)
 {
 }

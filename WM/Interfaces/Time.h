@@ -1,31 +1,33 @@
 #ifndef __TIME_H__
 #define __TIME_H__
 
+#include "..\Library\Decimal.h"
+
 class Time
 {
 public:
-	Time(double s = 0.0);
+	Time(Decimal s = DEC_LIT(0.0));
 
-	double getMilliseconds() const;
-	double getSeconds() const;
-	double getMinutes() const;
-	double getHours() const;
-	double getDays() const;
-	double getWeeks() const;
-	double getMonths() const;
-	double getYears() const;
+	Decimal getMilliseconds() const;
+	Decimal getSeconds() const;
+	Decimal getMinutes() const;
+	Decimal getHours() const;
+	Decimal getDays() const;
+	Decimal getWeeks() const;
+	Decimal getMonths() const;
+	Decimal getYears() const;
 
-	void setMilliseconds(double x);
-	void setSeconds(double x);
-	void setMinutes(double x);
-	void setHours(double x);
-	void setDays(double x);
-	void setWeeks(double x);
-	void setMonths(double x);
-	void setYears(double x);
+	void setMilliseconds(Decimal x);
+	void setSeconds(Decimal x);
+	void setMinutes(Decimal x);
+	void setHours(Decimal x);
+	void setDays(Decimal x);
+	void setWeeks(Decimal x);
+	void setMonths(Decimal x);
+	void setYears(Decimal x);
 
 private:
-	double Seconds;
+	Decimal Seconds;
 };
 
 #endif

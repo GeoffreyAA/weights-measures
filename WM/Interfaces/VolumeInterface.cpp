@@ -14,27 +14,27 @@ int VolumeInterface::getValueCount() const
 	return 5;
 }
 
-double VolumeInterface::getValue0() const
+Decimal VolumeInterface::getValue0() const
 {
 	return v.getMillilitres();
 }
 
-double VolumeInterface::getValue1() const
+Decimal VolumeInterface::getValue1() const
 {
 	return v.getLitres();
 }
 
-double VolumeInterface::getValue2() const
+Decimal VolumeInterface::getValue2() const
 {
 	return v.getTeaspoonsMetric();
 }
 
-double VolumeInterface::getValue3() const
+Decimal VolumeInterface::getValue3() const
 {
 	return v.getTablepoonsMetric();
 }
 
-double VolumeInterface::getValue4() const
+Decimal VolumeInterface::getValue4() const
 {
 	return v.getCupsMetric();
 }
@@ -59,27 +59,27 @@ const wchar_t *VolumeInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void VolumeInterface::setValue0(double x)
+void VolumeInterface::setValue0(Decimal x)
 {
 	v.setMillilitres(x);
 }
 
-void VolumeInterface::setValue1(double x)
+void VolumeInterface::setValue1(Decimal x)
 {
 	v.setLitres(x);
 }
 
-void VolumeInterface::setValue2(double x)
+void VolumeInterface::setValue2(Decimal x)
 {
 	v.setTeaspoonsMetric(x);
 }
 
-void VolumeInterface::setValue3(double x)
+void VolumeInterface::setValue3(Decimal x)
 {
 	v.setTablepoonsMetric(x);
 }
 
-void VolumeInterface::setValue4(double x)
+void VolumeInterface::setValue4(Decimal x)
 {
 	v.setCupsMetric(x);
 }

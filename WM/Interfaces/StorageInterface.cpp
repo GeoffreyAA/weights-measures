@@ -14,22 +14,22 @@ int StorageInterface::getValueCount() const
 	return 4;
 }
 
-double StorageInterface::getValue0() const
+Decimal StorageInterface::getValue0() const
 {
 	return s.getAdvertisedGB();
 }
 
-double StorageInterface::getValue1() const
+Decimal StorageInterface::getValue1() const
 {
 	return s.getActualGB();
 }
 
-double StorageInterface::getValue2() const
+Decimal StorageInterface::getValue2() const
 {
 	return s.getAdvertisedTB();
 }
 
-double StorageInterface::getValue3() const
+Decimal StorageInterface::getValue3() const
 {
 	return s.getActualTB();
 }
@@ -54,22 +54,22 @@ const wchar_t *StorageInterface::getAbbreviation(int i) const
 	return ConversionInterface::getAbbreviation(i);
 }
 
-void StorageInterface::setValue0(double x)
+void StorageInterface::setValue0(Decimal x)
 {
 	s.setAdvertisedGB(x);
 }
 
-void StorageInterface::setValue1(double x)
+void StorageInterface::setValue1(Decimal x)
 {
 	s.setActualGB(x);
 }
 
-void StorageInterface::setValue2(double x)
+void StorageInterface::setValue2(Decimal x)
 {
 	s.setAdvertisedTB(x);
 }
 
-void StorageInterface::setValue3(double x)
+void StorageInterface::setValue3(Decimal x)
 {
 	s.setActualTB(x);
 }
