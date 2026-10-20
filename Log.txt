@@ -1,6 +1,6 @@
 Version 1.11.xx (x)
 
-- Moved numbers to Boost decimal floating-point library
+- Switched to 64-bit decimal floating-point numbers, using Boost.Decimal
 
 
 Version 1.10.324 (October 11, 2026)

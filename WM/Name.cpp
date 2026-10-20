@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Name.h"
 #include "Application.h"
+#include "Library\Decimal.h"
 #include "Library\Library.h"
 #include "Library\Platform.h"
 #include "Library\ResourceString.h"
@@ -63,7 +64,8 @@ wchar_t *GetApplicationNameEx(wchar_t *c, size_t cbSize)
 #endif
 							L"\n%ls. %ls.\n\n"
 							L"%ls %ls\n\n"
-							L"%ls",
+							L"%ls\n\n"
+							L"%ls %ls",
 
 							GetApplicationName(),
 							ResourceString(L"IDS_VERSION").c_str(),
@@ -75,7 +77,8 @@ wchar_t *GetApplicationNameEx(wchar_t *c, size_t cbSize)
 							GetCopyright(),
 							ResourceString(L"IDS_ALL_RIGHTS_RESERVED").c_str(),
 							ResourceString(L"IDS_COMPILED_ON").c_str(), d,
-							ResourceString(L"IDS_LICENCE").c_str());
+							ResourceString(L"IDS_LICENCE").c_str(),
+							ResourceString(L"IDS_DECIMAL").c_str(), GetDecimalName().c_str());
 	}
 
 	return c;

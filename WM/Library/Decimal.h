@@ -3,14 +3,14 @@
 
 // DECIMAL_TYPE
 //
-// 0 or other == Use built-in double
+// 0 == Use built-in double
 // 1 == Use Boost.Decimal
-// 2 == Use Boost.Multiprecision
+// 2 == Use Boost.Multiprecision (not recommended at present)
 //
-// If using non-built-in types, the relevant libraries must be in the include directory.
+// If using the non-built-in types, put libraries in the include directory.
 //
 // Enclose number literals with the DEC_LIT macro.
-// For example, DEC_LIT(3.14159265)
+// For example, DEC_LIT(3.1415)
 
 #define DECIMAL_TYPE	0
 
@@ -22,7 +22,7 @@
 #define BOOST_DECIMAL_DISABLE_EXCEPTIONS
 #include <boost/decimal.hpp>
 
-typedef boost::decimal::decimal64_t	Decimal;
+typedef boost::decimal::decimal64_t Decimal;
 #define DEC_LIT(x)	(static_cast<Decimal>(#x))
 
 

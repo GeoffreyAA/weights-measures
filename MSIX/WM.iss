@@ -3,7 +3,7 @@
 ; Non-commercial use only.
 
 #define MyAppName "Weights & Measures"
-#define MyAppVersion "1.10"
+#define MyAppVersion "1.11"
 #define MyAppPublisher "Geoffrey A."
 #define MyAppURL "https://github.com/GeoffreyAA/weights-measures"
 #define MyAppExeName "WM.exe"

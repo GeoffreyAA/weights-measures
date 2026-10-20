@@ -9,7 +9,7 @@
 
 #define FMT_HEADER_ONLY
 #include <boost/decimal/fmt_format.hpp>
-#include <fmt/core.h>
+#include <fmt/compile.h>
 
 String GetDecimalName()
 {
@@ -18,14 +18,14 @@ String GetDecimalName()
 
 String DecimalToString(const Decimal &x)
 {
-	return fmt::format(L"{}", x);
+	return fmt::format(FMT_COMPILE(L"{}"), x);
 }
 
 void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
 {
 	if (s != nullptr && size > 0)
 	{
-		fmt::format_to_n_result r = fmt::format_to_n(s, size - 1, L"{}", x);
+		auto r = fmt::format_to_n(s, size - 1, FMT_COMPILE(L"{}"), x);
 		*r.out = L'\0';
 	}
 }
