@@ -15,9 +15,10 @@ rename	"%dst%\%bin_name%.exe" "%bin_name%32.exe"
 
 copy	"Build\x64\Release\%bin_name%.exe" "%dst%"
 
-copy	"Log.txt"         "%dst%"
-::copy	"Readme.md"       "%dst%"
-::rename	"%dst%\Readme.md" "Readme.txt"
+copy	"Licence.txt"		"%dst%\Licences"
+copy	"Log.txt"		"%dst%"
+::copy	"Readme.md"		"%dst%"
+::rename	"%dst%\Readme.md"	"Readme.txt"
 
 copy	"Languages"	"%dst%\Languages"
 copy	"Licences"	"%dst%\Licences"

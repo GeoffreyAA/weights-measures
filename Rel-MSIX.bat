@@ -9,6 +9,7 @@ mkdir	"%dst%\Languages"
 mkdir	"%dst%\Licences"
 copy	"Languages"				"%dst%\Languages"
 copy	"Licences"				"%dst%\Licences"
+copy	"Licence.txt"				"%dst%\Licences"
 copy	"Build\x64\Release\%bin_name%.exe"	"%dst%"
 copy	"MSIX\Package.appxmanifest"		"%dst%"
 

@@ -11,6 +11,7 @@ mkdir	"%dst%\Licences"
 copy	"Languages"				"%dst%\Languages"
 copy	"Licences"				"%dst%\Licences"
 copy	"Build\x64\Release\%bin_name%.exe"	"%dst%"
+copy	"Licence.txt"				"%dst%\Licences"
 copy	"Log.txt"				"%dst%"
 
 "C:\Program Files\Inno Setup 7\ISCC.exe" --output-dir="%dst_root%" "MSIX\WM.iss"
