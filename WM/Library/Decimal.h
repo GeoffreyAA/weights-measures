@@ -4,29 +4,25 @@
 // DECIMAL_TYPE
 //
 // 0 or other == Use built-in double
-// 1 == Use Boost Decimal
-// 2 == Use Boost Multiprecision
+// 1 == Use Boost.Decimal
+// 2 == Use Boost.Multiprecision
 //
-// If using non-built-in types, the relevant libraries must be in the include directory,
-// and other settings, such as C++ level, adjusted.
+// If using non-built-in types, the relevant libraries must be in the include directory.
 //
-// Use the DEC_LIT macro to enclose number literals.
-// For example, DEC_LIT(3.1415)
+// Enclose number literals with the DEC_LIT macro.
+// For example, DEC_LIT(3.14159265)
 
 #define DECIMAL_TYPE	0
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef DECIMAL_TYPE
-#error Decimal type not defined.
-#endif
-
 #if (DECIMAL_TYPE == 1)
 
+#define BOOST_DECIMAL_DISABLE_EXCEPTIONS
 #include <boost/decimal.hpp>
 
-typedef boost::decimal::decimal64_t Decimal;
+typedef boost::decimal::decimal64_t	Decimal;
 #define DEC_LIT(x)	(static_cast<Decimal>(#x))
 
 
@@ -54,10 +50,9 @@ typedef double Decimal;
 
 #include "String.h"
 
-String GetDecimalType();
-
-void DecimalToString(Decimal x, wchar_t *s, size_t size);
-String DecimalToString(Decimal x);
-Decimal StringToDecimal(const wchar_t *s);
+String	GetDecimalName();
+String	DecimalToString(const Decimal &x);
+void	DecimalToString(const Decimal &x, wchar_t *s, size_t size);
+Decimal	StringToDecimal(const wchar_t *s);
 
 #endif

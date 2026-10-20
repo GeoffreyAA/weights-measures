@@ -1,45 +1,46 @@
 #include "stdafx.h"
 #include "Decimal.h"
 #include "Library.h"
-#include "StrW.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if (DECIMAL_TYPE == 1)	// Boost Decimal
+#if (DECIMAL_TYPE == 1)
 
-#include <format>
+#define FMT_HEADER_ONLY
+#include <boost/decimal/fmt_format.hpp>
+#include <fmt/core.h>
 
-String GetDecimalType()
+String GetDecimalName()
 {
-	return L"Boost Decimal";
+	return L"Boost.Decimal";
 }
 
-void DecimalToString(Decimal x, wchar_t *s, size_t size)
+String DecimalToString(const Decimal &x)
+{
+	return fmt::format(L"{}", x);
+}
+
+void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
 {
 	if (s != nullptr && size > 0)
 	{
-		std::format_to_n_result r = std::format_to_n(s, size - 1, L"{}", x);
+		fmt::format_to_n_result r = fmt::format_to_n(s, size - 1, L"{}", x);
 		*r.out = L'\0';
 	}
-}
-
-String DecimalToString(Decimal x)
-{
-	return std::format(L"{}", x);
 }
 
 Decimal StringToDecimal(const wchar_t *s)
 {
 	if (s)
 	{
-		wchar_t w[256];
+		wchar_t w[128];
 		wcscpys(w, sizeof(w) / sizeof(w[0]), s);
 
 		if (!IsNumber(w))
 			RemoveNonNbrs(w);
 
-		return Decimal(StrA(w).c_str());
+		return boost::decimal::wcstod64(w, nullptr);
 	}
 
 	return Decimal(0);
@@ -48,24 +49,18 @@ Decimal StringToDecimal(const wchar_t *s)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#elif (DECIMAL_TYPE == 2)	// Boost Multiprecision
+#elif (DECIMAL_TYPE == 2)
 
 #include <sstream>
 #include <iomanip>
+#include "StrW.h"
 
-String GetDecimalType()
+String GetDecimalName()
 {
-	return L"Boost Multiprecision";
+	return L"Boost.Multiprecision";
 }
 
-void DecimalToString(Decimal x, wchar_t *s, size_t size)
-{
-	String str = DecimalToString(x);
-
-	wcscpys(s, size, str.c_str());
-}
-
-String DecimalToString(Decimal x)
+String DecimalToString(const Decimal &x)
 {
 	std::stringstream s;
 
@@ -74,11 +69,16 @@ String DecimalToString(Decimal x)
 	return StrW(s.str().c_str()).c_str();
 }
 
+void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
+{
+	wcscpys(s, size, DecimalToString(x).c_str());
+}
+
 Decimal StringToDecimal(const wchar_t *s)
 {
 	if (s)
 	{
-		wchar_t w[256];
+		wchar_t w[128];
 		wcscpys(w, sizeof(w) / sizeof(w[0]), s);
 
 		if (!IsNumber(w))
@@ -93,32 +93,32 @@ Decimal StringToDecimal(const wchar_t *s)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#else	// double
+#else
 
-String GetDecimalType()
+String GetDecimalName()
 {
 	return L"double";
 }
 
-void DecimalToString(Decimal x, wchar_t *s, size_t size)
+String DecimalToString(const Decimal &x)
 {
-	if (s)
-		swprintf(s, size, L"%.16g", x);
-}
-
-String DecimalToString(Decimal x)
-{
-	wchar_t s[256];
+	wchar_t s[128];
 	DecimalToString(x, s, sizeof(s) / sizeof(s[0]));
 
 	return s;
+}
+
+void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
+{
+	if (s)
+		swprintf(s, size, L"%.16g", x);
 }
 
 Decimal StringToDecimal(const wchar_t *s)
 {
 	if (s)
 	{
-		wchar_t w[256];
+		wchar_t w[128];
 		wcscpys(w, sizeof(w) / sizeof(w[0]), s);
 
 		if (!IsNumber(w))

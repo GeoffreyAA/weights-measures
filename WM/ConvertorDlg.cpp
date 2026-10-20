@@ -319,13 +319,13 @@ void CConvertorDlg::UpdateControls()
 	if (p)
 	{
 		SetMode(p->getType());
-		const bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
+		bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
 		wchar_t s[EDIT_TEXT_MAX];
 
 		for (int i = 0; i < ValueListSize; i++)
 		{
-			const bool bEnable = i < (IsValidInterface() ? GetInterface()->getValueCount() : 0);
-			const int nCmdShow = bEnable ? SW_SHOW : SW_HIDE;
+			bool bEnable = i < (IsValidInterface() ? GetInterface()->getValueCount() : 0);
+			int nCmdShow = bEnable ? SW_SHOW : SW_HIDE;
 
 			::ShowWindow(::GetDlgItem(GetSafeHwnd(), ValueList[i]), nCmdShow);
 			::ShowWindow(::GetDlgItem(GetSafeHwnd(), TitleList[i]), nCmdShow);
@@ -333,8 +333,6 @@ void CConvertorDlg::UpdateControls()
 
 			if (i < p->getValueCount())
 			{
-				//SetWindowFloatDG(::GetDlgItem(GetSafeHwnd(), ValueList[i]), p->getValue(i), dg);
-
 				DecimalToString(p->getValue(i), s, _countof(s));
 
 				if (dg)
@@ -426,8 +424,6 @@ void CConvertorDlg::OnChangeValueX(int i)
 
 	if (IsValidInterface())
 	{
-		//GetInterface()->setValue(i, GetWindowFloat(::GetDlgItem(GetSafeHwnd(), ValueList[i])));
-
 		wchar_t s[EDIT_TEXT_MAX];
 
 		if (::GetWindowText(::GetDlgItem(GetSafeHwnd(), ValueList[i]), s, _countof(s)))
