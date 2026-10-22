@@ -11,7 +11,7 @@ const wchar_t *GetApplicationName()
 
 const wchar_t *GetApplicationVersion()
 {
-	return (L"1.10");
+	return (L"1.11");
 }
 
 int GetBuildNumber()

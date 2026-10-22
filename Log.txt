@@ -1,4 +1,4 @@
-Version 1.11.xx (x)
+Version 1.11.349 (October 22, 2026)
 
 - Switched to 64-bit decimal floating-point numbers, using Boost.Decimal
 

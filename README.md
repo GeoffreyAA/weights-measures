@@ -17,11 +17,13 @@ A unit converter for Windows, with an extensible design, allowing categories and
 Notes
 -----
 
+Internally, the numbers are _IEEE 754 64-bit decimal floating point_. The legacy 32-bit build still uses _IEEE 754 double_.
+
 The program comes with a default language of English and can be translated into others. To do so, open the "English.lng" file in a plain-text editor, like Notepad, and translate all the words on the right-hand side of the equal-to sign (=). Then, save it as another file, using UTF-8 encoding without the byte-order mark, or plain ANSI. Lastly, rename the file to that of the language: "French.lng" for example. The extension must be ".lng" for the file to be recognised.
 
 Download Weights & Measures only from its [release page](https://github.com/GeoffreyAA/weights-measures/releases) or the [Microsoft Store](https://apps.microsoft.com/detail/9NQD079QXDKJ). It is free; do not pay for it anywhere.
 
-No AI was used developing this program.
+No AI was used to develop this program.
 
 
 Building
@@ -37,6 +39,17 @@ To target XP, use Visual Studio 2022 and the "Release-XP" configuration. The fol
 	C++ Windows XP Support for VS 2017 (v141) tools
 	MSVC v141 - VS 2017 C++ x64/x86 build tools (v14.16)
 	C++ MFC for v141 build tools (x86 & x64)
+
+To compile with the non-built-in decimal types, put the relevant libraries, Boost.Decimal and {fmt}, in the include directory; they are not present by default. Then, in `Decimal.h`, set `DECIMAL_TYPE` to 1. The XP target only supports double.
+
+
+Third-party libraries
+---------------------
+
+Many thanks to the following:
+
+* [Boost.Decimal](https://github.com/boostorg/decimal)
+* [{fmt}](https://github.com/fmtlib/fmt)
 
 
 References
