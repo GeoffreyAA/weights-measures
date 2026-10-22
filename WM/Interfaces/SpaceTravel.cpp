@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "SpaceTravel.h"
 
-const Decimal SPEED_OF_LIGHT_MS	= DEC_LIT(299792458.0);
-const Decimal LIGHT_YEAR_METRES	= DEC_LIT(9460730472580800.0);
-const Decimal DAY_SECONDS		= DEC_LIT(86400.0);
-const Decimal DAY_JULIAN		= DEC_LIT(365.25);
+DEC_CONST Decimal SPEED_OF_LIGHT_MS	= DEC_LIT(299792458.0);
+DEC_CONST Decimal LIGHT_YEAR_METRES	= DEC_LIT(9460730472580800.0);
+DEC_CONST Decimal DAY_SECONDS		= DEC_LIT(86400.0);
+DEC_CONST Decimal DAY_JULIAN		= DEC_LIT(365.25);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

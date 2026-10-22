@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "Speed.h"
 
-const Decimal __speed_of_sound = DEC_LIT(340.3);	// Air, at sea level, standard temperature
-const Decimal __speed_of_light = DEC_LIT(299792458.0);
+DEC_CONST Decimal __speed_of_sound = DEC_LIT(340.3);	// Air, at sea level, standard temperature
+DEC_CONST Decimal __speed_of_light = DEC_LIT(299792458.0);
 
 
 ///////////////////////////////////////////////////////////////

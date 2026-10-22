@@ -318,9 +318,10 @@ void CConvertorDlg::UpdateControls()
 
 	if (p)
 	{
-		SetMode(p->getType());
-		bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
 		wchar_t s[EDIT_TEXT_MAX];
+		bool dg = GetMenuItemChecked(::GetMenu(GetSafeHwnd()), ID_TOOLS_GROUPING);
+
+		SetMode(p->getType());
 
 		for (int i = 0; i < ValueListSize; i++)
 		{
@@ -427,7 +428,12 @@ void CConvertorDlg::OnChangeValueX(int i)
 		wchar_t s[EDIT_TEXT_MAX];
 
 		if (::GetWindowText(::GetDlgItem(GetSafeHwnd(), ValueList[i]), s, _countof(s)))
+		{
+			if (!IsNumber(s))
+				RemoveNonNbrs(s);
+
 			GetInterface()->setValue(i, StringToDecimal(s));
+		}
 
 		UpdateControls();
 	}
@@ -481,7 +487,7 @@ void CConvertorDlg::OnToolsInstance()
 {
 	wchar_t s[MAX_PATH];
 
-	if (!GetExecutablePath(s, sizeof(s) / sizeof(s[0])) || !ShellOpen(s, GetSafeHwnd()))
+	if (!GetExecutablePath(s, _countof(s)) || !ShellOpen(s, GetSafeHwnd()))
 		MsgBox(ResourceString(L"IDS_ERROR_INSTANCE"), ResourceString(L"IDS_ERROR"), GetSafeHwnd(), MSG_ERROR);
 }
 

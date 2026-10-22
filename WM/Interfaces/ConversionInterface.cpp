@@ -3,7 +3,7 @@
 #include <atomic>
 #include <assert.h>
 
-const Decimal Default = DEC_LIT(0.0);
+DEC_CONST Decimal Default = DEC_LIT(0.0);
 std::atomic<int> Counter(0);
 
 // June 1, 2026:

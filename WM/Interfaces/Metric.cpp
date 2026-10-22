@@ -1,23 +1,23 @@
 #include "stdafx.h"
 #include "Metric.h"
 
-const Decimal nano		= DEC_LIT(0.000000001);
-const Decimal micro		= DEC_LIT(0.000001);
-const Decimal milli		= DEC_LIT(0.001);
-const Decimal centi		= DEC_LIT(0.01);
-const Decimal deci		= DEC_LIT(0.1);
-const Decimal deca		= DEC_LIT(10.0);
-const Decimal hecto		= DEC_LIT(100.0);
-const Decimal kilo		= DEC_LIT(1000.0);
-const Decimal mega		= DEC_LIT(1000000.0);
-const Decimal giga		= DEC_LIT(1000000000.0);
-const Decimal tera		= DEC_LIT(1000000000000.0);
-const Decimal peta		= DEC_LIT(1000000000000000.0);
-const Decimal exa		= DEC_LIT(1000000000000000000.0);
-const Decimal zetta		= DEC_LIT(1000000000000000000000.0);
-const Decimal yotta		= DEC_LIT(1000000000000000000000000.0);
-const Decimal ronna		= DEC_LIT(1000000000000000000000000000.0);
-const Decimal quetta	= DEC_LIT(1000000000000000000000000000000.0);
+DEC_CONST Decimal nano		= DEC_LIT(0.000000001);
+DEC_CONST Decimal micro		= DEC_LIT(0.000001);
+DEC_CONST Decimal milli		= DEC_LIT(0.001);
+DEC_CONST Decimal centi		= DEC_LIT(0.01);
+DEC_CONST Decimal deci		= DEC_LIT(0.1);
+DEC_CONST Decimal deca		= DEC_LIT(10.0);
+DEC_CONST Decimal hecto		= DEC_LIT(100.0);
+DEC_CONST Decimal kilo		= DEC_LIT(1000.0);
+DEC_CONST Decimal mega		= DEC_LIT(1000000.0);
+DEC_CONST Decimal giga		= DEC_LIT(1000000000.0);
+DEC_CONST Decimal tera		= DEC_LIT(1000000000000.0);
+DEC_CONST Decimal peta		= DEC_LIT(1000000000000000.0);
+DEC_CONST Decimal exa		= DEC_LIT(1000000000000000000.0);
+DEC_CONST Decimal zetta		= DEC_LIT(1000000000000000000000.0);
+DEC_CONST Decimal yotta		= DEC_LIT(1000000000000000000000000.0);
+DEC_CONST Decimal ronna		= DEC_LIT(1000000000000000000000000000.0);
+DEC_CONST Decimal quetta	= DEC_LIT(1000000000000000000000000000000.0);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

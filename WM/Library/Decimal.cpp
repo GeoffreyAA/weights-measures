@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Decimal.h"
-#include "Library.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,18 +31,7 @@ void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
 
 Decimal StringToDecimal(const wchar_t *s)
 {
-	if (s)
-	{
-		wchar_t w[128];
-		wcscpys(w, sizeof(w) / sizeof(w[0]), s);
-
-		if (!IsNumber(w))
-			RemoveNonNbrs(w);
-
-		return boost::decimal::wcstod64(w, nullptr);
-	}
-
-	return Decimal(0);
+	return s ? boost::decimal::wcstod64(s, nullptr) : Decimal(0);
 }
 
 
@@ -53,6 +41,7 @@ Decimal StringToDecimal(const wchar_t *s)
 
 #include <sstream>
 #include <iomanip>
+#include "Library.h"
 #include "StrW.h"
 
 String GetDecimalName()
@@ -76,18 +65,7 @@ void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
 
 Decimal StringToDecimal(const wchar_t *s)
 {
-	if (s)
-	{
-		wchar_t w[128];
-		wcscpys(w, sizeof(w) / sizeof(w[0]), s);
-
-		if (!IsNumber(w))
-			RemoveNonNbrs(w);
-
-		return Decimal(StrA(w).c_str());
-	}
-
-	return Decimal(0);
+	return s ? Decimal(StrA(s).c_str()) : Decimal(0);
 }
 
 
@@ -103,6 +81,7 @@ String GetDecimalName()
 String DecimalToString(const Decimal &x)
 {
 	wchar_t s[128];
+
 	DecimalToString(x, s, sizeof(s) / sizeof(s[0]));
 
 	return s;
@@ -116,18 +95,7 @@ void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
 
 Decimal StringToDecimal(const wchar_t *s)
 {
-	if (s)
-	{
-		wchar_t w[128];
-		wcscpys(w, sizeof(w) / sizeof(w[0]), s);
-
-		if (!IsNumber(w))
-			RemoveNonNbrs(w);
-
-		return wcstod(w, nullptr);
-	}
-
-	return 0.0;
+	return s ? wcstod(s, nullptr) : 0.0;
 }
 
 #endif

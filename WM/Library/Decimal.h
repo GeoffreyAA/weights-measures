@@ -1,16 +1,20 @@
 #ifndef __DECIMAL_H__
 #define __DECIMAL_H__
 
-// DECIMAL_TYPE
+// Decimal
+//
+// DECIMAL_TYPE: Controls implementation of Decimal
 //
 // 0 == Use built-in double
 // 1 == Use Boost.Decimal
 // 2 == Use Boost.Multiprecision (not recommended at present)
 //
-// If using the non-built-in types, put libraries in the include directory.
+// If using the non-built-in types, the relevant libraries must be in the include directory.
 //
 // Enclose number literals with the DEC_LIT macro.
 // For example, DEC_LIT(3.1415)
+//
+// Use DEC_CONST for constants; it will be set to constexpr or const, depending on type.
 
 #define DECIMAL_TYPE	0
 
@@ -24,16 +28,19 @@
 
 typedef boost::decimal::decimal64_t Decimal;
 #define DEC_LIT(x)	(static_cast<Decimal>(#x))
+#define DEC_CONST	constexpr
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #elif (DECIMAL_TYPE == 2)
 
+#define BOOST_MP_STANDALONE
 #include <boost/multiprecision/cpp_dec_float.hpp>
 
 typedef boost::multiprecision::cpp_dec_float_50 Decimal;
 #define DEC_LIT(x)	(static_cast<Decimal>(#x))
+#define DEC_CONST	const
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,6 +49,7 @@ typedef boost::multiprecision::cpp_dec_float_50 Decimal;
 
 typedef double Decimal;
 #define DEC_LIT(x)	(static_cast<Decimal>(x))
+#define DEC_CONST	constexpr
 
 #endif
 
@@ -49,6 +57,7 @@ typedef double Decimal;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "String.h"
+#include <wchar.h>
 
 String	GetDecimalName();
 String	DecimalToString(const Decimal &x);

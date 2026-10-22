@@ -58,14 +58,13 @@ wchar_t *GetApplicationNameEx(wchar_t *c, size_t cbSize)
 		// Put together name string painstakingly:
 
 		swprintf(c, cbSize, L"%ls\n"
-							L"%ls %ls (%ls %d) (%ls) (%ls)"
+							L"%ls %ls (%ls %d) (%ls | %ls | %ls)"
 #ifdef _DEBUG
 							L" (Debug)"
 #endif
 							L"\n%ls. %ls.\n\n"
 							L"%ls %ls\n\n"
-							L"%ls\n\n"
-							L"%ls %ls",
+							L"%ls",
 
 							GetApplicationName(),
 							ResourceString(L"IDS_VERSION").c_str(),
@@ -74,11 +73,12 @@ wchar_t *GetApplicationNameEx(wchar_t *c, size_t cbSize)
 							GetBuildNumber(),
 							GetPlatform(),
 							GetCompilerVersion().c_str(),
+							GetDecimalName().c_str(),
 							GetCopyright(),
 							ResourceString(L"IDS_ALL_RIGHTS_RESERVED").c_str(),
-							ResourceString(L"IDS_COMPILED_ON").c_str(), d,
-							ResourceString(L"IDS_LICENCE").c_str(),
-							ResourceString(L"IDS_DECIMAL").c_str(), GetDecimalName().c_str());
+							ResourceString(L"IDS_COMPILED_ON").c_str(),
+							d,
+							ResourceString(L"IDS_LICENCE").c_str());
 	}
 
 	return c;
