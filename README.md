@@ -40,13 +40,11 @@ To target XP, use Visual Studio 2022 and the "Release-XP" configuration. The fol
 	MSVC v141 - VS 2017 C++ x64/x86 build tools (v14.16)
 	C++ MFC for v141 build tools (x86 & x64)
 
-To compile with the non-built-in decimal types, put the relevant libraries, Boost.Decimal and {fmt}, in the include directory; they are not present by default. Then, in `Decimal.h`, set `DECIMAL_TYPE` to 1. The XP target only supports double.
+To compile with the non-built-in decimal types, put the relevant libraries, Boost.Decimal and {fmt}, in the include directory; they are not present by default. Then, in `Decimal.h`, set `DECIMAL_TYPE` to 1. The XP target supports only double.
 
 
 Third-party libraries
 ---------------------
-
-Many thanks to the following:
 
 * [Boost.Decimal](https://github.com/boostorg/decimal)
 * [{fmt}](https://github.com/fmtlib/fmt)

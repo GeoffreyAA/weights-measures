@@ -1,6 +1,7 @@
-Version 1.11.349 (October 22, 2026)
+Version 1.11.350 (October 22, 2026)
 
-- Switched to 64-bit decimal floating-point numbers, using Boost.Decimal
+- Switched to 64-bit decimal floating-point numbers, using Boost.Decimal and {fmt}
+- Changed project to compile at C++20
 
 
 Version 1.10.324 (October 11, 2026)

@@ -14,7 +14,7 @@
   <Identity
     Name="GeoffreyA.WeightsMeasures"
     Publisher="CN=978D1FE6-F6F9-4BD2-B724-2A058D3E42CE"
-    Version="1.11.349.0"
+    Version="1.11.350.0"
     ProcessorArchitecture="x64" />
 
   <Properties>
@@ -27,7 +27,7 @@
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.16299.0" MaxVersionTested="10.0.26100.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.18362.0" MaxVersionTested="10.0.26100.0" />
   </Dependencies>
 
   <Resources>
