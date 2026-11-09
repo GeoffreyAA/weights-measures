@@ -1,21 +1,32 @@
 #include "stdafx.h"
 #include "Energy.h"
 
+DEC_CONST Decimal	BTU_ISO_J			= DEC_LIT(1054.5);
+DEC_CONST Decimal	CALORIE_J			= DEC_LIT(4.184);
+DEC_CONST Decimal	KILOJOULE_J			= DEC_LIT(1000.0);
+DEC_CONST Decimal	FOOT_POUND_FORCE_J	= DEC_LIT(1.3558179483314004);
+DEC_CONST Decimal	KILOWATT_HOUR_J		= DEC_LIT(3600000.0);
+DEC_CONST Decimal	ERG_J				= DEC_LIT(0.0000001);
+DEC_CONST Decimal	ELECTRONVOLT_J		= DEC_LIT(0.0000000000000000001602176634);
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Energy::Energy(Decimal J) : Joules(J)
 {
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Decimal Energy::getBtuISO() const
 {
-	return getJoules() / DEC_LIT(1054.5);
+	return getJoules() / BTU_ISO_J;
 }
 
 Decimal Energy::getCalories() const
 {
-	return getJoules() / DEC_LIT(4.184);
+	return getJoules() / CALORIE_J;
 }
 
 Decimal Energy::getJoules() const
@@ -25,40 +36,40 @@ Decimal Energy::getJoules() const
 
 Decimal Energy::getKilojoules() const
 {
-	return getJoules() / DEC_LIT(1000.0);
+	return getJoules() / KILOJOULE_J;
 }
 
 Decimal Energy::getFootPoundForce() const
 {
-	return getJoules() / DEC_LIT(1.3558179483314004);
+	return getJoules() / FOOT_POUND_FORCE_J;
 }
 
 Decimal Energy::getKilowattHours() const
 {
-	return getJoules() / DEC_LIT(3600000.0);
+	return getJoules() / KILOWATT_HOUR_J;
 }
 
 Decimal Energy::getErgs() const
 {
-	return getJoules() / DEC_LIT(0.0000001);
+	return getJoules() / ERG_J;
 }
 
 Decimal Energy::getElectronvolts() const
 {
-	return getJoules() / DEC_LIT(0.0000000000000000001602176634);
+	return getJoules() / ELECTRONVOLT_J;
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Energy::setBtuISO(Decimal x)
 {
-	setJoules(x * DEC_LIT(1054.5));
+	setJoules(x * BTU_ISO_J);
 }
 
 void Energy::setCalories(Decimal x)
 {
-	setJoules(x * DEC_LIT(4.184));
+	setJoules(x * CALORIE_J);
 }
 
 void Energy::setJoules(Decimal x)
@@ -68,25 +79,25 @@ void Energy::setJoules(Decimal x)
 
 void Energy::setKilojoules(Decimal x)
 {
-	setJoules(x * DEC_LIT(1000.0));
+	setJoules(x * KILOJOULE_J);
 }
 
 void Energy::setFootPoundForce(Decimal x)
 {
-	setJoules(x * DEC_LIT(1.3558179483314004));
+	setJoules(x * FOOT_POUND_FORCE_J);
 }
 
 void Energy::setKilowattHours(Decimal x)
 {
-	setJoules(x * DEC_LIT(3600000.0));
+	setJoules(x * KILOWATT_HOUR_J);
 }
 
 void Energy::setErgs(Decimal x)
 {
-	setJoules(x * DEC_LIT(0.0000001));
+	setJoules(x * ERG_J);
 }
 
 void Energy::setElectronvolts(Decimal x)
 {
-	setJoules(x * DEC_LIT(0.0000000000000000001602176634));
+	setJoules(x * ELECTRONVOLT_J);
 }
