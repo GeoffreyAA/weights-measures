@@ -1,12 +1,34 @@
 #include "stdafx.h"
 #include "Volume.h"
 
+DEC_CONST Decimal	LITRE_ML				= DEC_LIT(1000.0);
+DEC_CONST Decimal	PINT_UK_ML				= DEC_LIT(568.26125);
+DEC_CONST Decimal	PINT_US_ML				= DEC_LIT(473.176473);
+DEC_CONST Decimal	QUART_UK_L				= DEC_LIT(1.1365225);
+DEC_CONST Decimal	QUART_US_L				= DEC_LIT(0.946352946);
+DEC_CONST Decimal	GALLON_UK_L				= DEC_LIT(4.54609);
+DEC_CONST Decimal	GALLON_US_L				= DEC_LIT(3.785411784);
+DEC_CONST Decimal	FLUID_OUNCE_UK_ML		= DEC_LIT(28.4130625);
+DEC_CONST Decimal	FLUID_OUNCE_US_ML		= DEC_LIT(29.5735295625);
+DEC_CONST Decimal	CUP_METRIC_ML			= DEC_LIT(250.0);
+DEC_CONST Decimal	CUP_UK_ML				= FLUID_OUNCE_UK_ML * DEC_LIT(6.0);
+DEC_CONST Decimal	CUP_US_ML				= DEC_LIT(236.5882365);
+DEC_CONST Decimal	TEASPOON_METRIC_ML		= DEC_LIT(5.0);
+DEC_CONST Decimal	TEASPOON_UK_ML			= FLUID_OUNCE_UK_ML / DEC_LIT(8.0);
+DEC_CONST Decimal	TEASPOON_US_ML			= DEC_LIT(4.92892159375);
+DEC_CONST Decimal	TABLESPOON_METRIC_ML	= DEC_LIT(15.0);
+DEC_CONST Decimal	TABLESPOON_UK_ML		= FLUID_OUNCE_UK_ML / DEC_LIT(2.0);
+DEC_CONST Decimal	TABLESPOON_US_ML		= DEC_LIT(14.78676478125);
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Volume::Volume(Decimal mL) : Millilitres(mL)
 {
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Decimal Volume::getMillilitres() const
 {
@@ -15,98 +37,96 @@ Decimal Volume::getMillilitres() const
 
 Decimal Volume::getLitres() const
 {
-	return getMillilitres() / DEC_LIT(1000.0);
+	return getMillilitres() / LITRE_ML;
 }
 
 Decimal Volume::getPintsUK() const
 {
-	//return (getLitres() / 0.56826125);
-
-	return getMillilitres() / DEC_LIT(568.26125);
+	return getMillilitres() / PINT_UK_ML;
 }
 
 Decimal Volume::getPintsUS() const
 {
-	return getMillilitres() / DEC_LIT(473.176473);
+	return getMillilitres() / PINT_US_ML;
 }
 
 Decimal Volume::getQuartsUK() const
 {
-	return getLitres() / DEC_LIT(1.1365225);
+	return getLitres() / QUART_UK_L;
 }
 
 Decimal Volume::getQuartsUS() const
 {
-	return getLitres() / DEC_LIT(0.946352946);
+	return getLitres() / QUART_US_L;
 }
 
 Decimal Volume::getGallonsUK() const
 {
-	return getLitres() / DEC_LIT(4.54609);
+	return getLitres() / GALLON_UK_L;
 }
 
 Decimal Volume::getGallonsUS() const
 {
-	return getLitres() / DEC_LIT(3.785411784);
+	return getLitres() / GALLON_US_L;
 }
 
 Decimal Volume::getFluidOuncesUK() const
 {
-	return getMillilitres() / DEC_LIT(28.4130625);
+	return getMillilitres() / FLUID_OUNCE_UK_ML;
 }
 
 Decimal Volume::getFluidOuncesUS() const
 {
-	return getMillilitres() / DEC_LIT(29.5735295625);
+	return getMillilitres() / FLUID_OUNCE_US_ML;
 }
 
 Decimal Volume::getCupsMetric() const
 {
-	return getMillilitres() / DEC_LIT(250.0);
+	return getMillilitres() / CUP_METRIC_ML;
 }
 
 Decimal Volume::getCupsUK() const
 {
-	return getMillilitres() / DEC_LIT(284.130625);
+	return getMillilitres() / CUP_UK_ML;
 }
 
 Decimal Volume::getCupsUS() const
 {
-	return getMillilitres() / DEC_LIT(236.5882365);
+	return getMillilitres() / CUP_US_ML;
 }
 
 Decimal Volume::getTeaspoonsMetric() const
 {
-	return getMillilitres() / DEC_LIT(5.0);
+	return getMillilitres() / TEASPOON_METRIC_ML;
 }
 
 Decimal Volume::getTeaspoonsUK() const
 {
-	return getMillilitres() / DEC_LIT(5.919388020833333);
+	return getMillilitres() / TEASPOON_UK_ML;
 }
 
 Decimal Volume::getTeaspoonsUS() const
 {
-	return getMillilitres() / DEC_LIT(4.92892159375);
+	return getMillilitres() / TEASPOON_US_ML;
 }
 
 Decimal Volume::getTablepoonsMetric() const
 {
-	return getMillilitres() / DEC_LIT(15.0);
+	return getMillilitres() / TABLESPOON_METRIC_ML;
 }
 
 Decimal Volume::getTablepoonsUK() const
 {
-	return getMillilitres() / DEC_LIT(17.7581640625);
+	return getMillilitres() / TABLESPOON_UK_ML;
 }
 
 Decimal Volume::getTablepoonsUS() const
 {
-	return getMillilitres() / DEC_LIT(14.78676478125);
+	return getMillilitres() / TABLESPOON_US_ML;
 }
 
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Volume::setMillilitres(Decimal x)
 {
@@ -115,92 +135,90 @@ void Volume::setMillilitres(Decimal x)
 
 void Volume::setLitres(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(1000.0));
+	setMillilitres(x * LITRE_ML);
 }
 
 void Volume::setPintsUK(Decimal x)
 {
-	//setLitres(x * 0.56826125);
-
-	setMillilitres(x * DEC_LIT(568.26125));
+	setMillilitres(x * PINT_UK_ML);
 }
 
 void Volume::setPintsUS(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(473.176473));
+	setMillilitres(x * PINT_US_ML);
 }
 
 void Volume::setQuartsUK(Decimal x)
 {
-	setLitres(x * DEC_LIT(1.1365225));
+	setLitres(x * QUART_UK_L);
 }
 
 void Volume::setQuartsUS(Decimal x)
 {
-	setLitres(x * DEC_LIT(0.946352946));
+	setLitres(x * QUART_US_L);
 }
 
 void Volume::setGallonsUK(Decimal x)
 {
-	setLitres(x * DEC_LIT(4.54609));
+	setLitres(x * GALLON_UK_L);
 }
 
 void Volume::setGallonsUS(Decimal x)
 {
-	setLitres(x * DEC_LIT(3.785411784));
+	setLitres(x * GALLON_US_L);
 }
 
 void Volume::setFluidOuncesUK(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(28.4130625));
+	setMillilitres(x * FLUID_OUNCE_UK_ML);
 }
 
 void Volume::setFluidOuncesUS(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(29.5735295625));
+	setMillilitres(x * FLUID_OUNCE_US_ML);
 }
 
 void Volume::setCupsMetric(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(250.0));
+	setMillilitres(x * CUP_METRIC_ML);
 }
 
 void Volume::setCupsUK(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(284.130625));
+	setMillilitres(x * CUP_UK_ML);
 }
 
 void Volume::setCupsUS(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(236.5882365));
+	setMillilitres(x * CUP_US_ML);
 }
 
 void Volume::setTeaspoonsMetric(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(5.0));
+	setMillilitres(x * TEASPOON_METRIC_ML);
 }
 
 void Volume::setTeaspoonsUK(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(5.919388020833333));
+	setMillilitres(x * TEASPOON_UK_ML);
 }
 
 void Volume::setTeaspoonsUS(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(4.92892159375));
+	setMillilitres(x * TEASPOON_US_ML);
 }
 
 void Volume::setTablepoonsMetric(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(15.0));
+	setMillilitres(x * TABLESPOON_METRIC_ML);
 }
 
 void Volume::setTablepoonsUK(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(17.7581640625));
+	setMillilitres(x * TABLESPOON_UK_ML);
 }
 
 void Volume::setTablepoonsUS(Decimal x)
 {
-	setMillilitres(x * DEC_LIT(14.78676478125));
+	setMillilitres(x * TABLESPOON_US_ML);
 }
