@@ -1,12 +1,13 @@
 #include "stdafx.h"
 #include "Groceries.h"
 
-DEC_CONST Decimal KILO = DEC_LIT(1000.0);
+DEC_CONST Decimal	KILOGRAM_G	= DEC_LIT(1000.0);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Groceries::Groceries() : Price(DEC_LIT(1.0)), Grams(DEC_LIT(1000.0))
+Groceries::Groceries() : Price(DEC_LIT(1.0)),
+						 Grams(KILOGRAM_G)
 {
 }
 
@@ -20,7 +21,7 @@ Decimal Groceries::getPrice() const
 
 Decimal Groceries::getKilograms() const
 {
-	return Grams / KILO;
+	return getGrams() / KILOGRAM_G;
 }
 
 Decimal Groceries::getGrams() const
@@ -30,7 +31,7 @@ Decimal Groceries::getGrams() const
 
 Decimal Groceries::getPricePerKilogram() const
 {
-	Decimal factor = KILO / Grams;
+	Decimal factor = KILOGRAM_G / getGrams();
 
 	return Price * factor;
 }
@@ -45,7 +46,7 @@ void Groceries::setPrice(Decimal x)
 
 void Groceries::setKilograms(Decimal x)
 {
-	Grams = x * KILO;
+	setGrams(x * KILOGRAM_G);
 }
 
 void Groceries::setGrams(Decimal x)
