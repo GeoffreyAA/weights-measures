@@ -2,7 +2,9 @@
 #include "ConversionInterfaceFactory.h"
 #include "AngleInterface.h"
 #include "AreaInterface.h"
+#include "AstronomyInterface.h"
 #include "DataRateInterface.h"
+#include "DensityInterface.h"
 #include "EnergyInterface.h"
 #include "GroceriesInterface.h"
 #include "InformationInterface.h"
@@ -29,11 +31,13 @@
 
 ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
 {
-	Interfaces.reserve(20);
+	Interfaces.reserve(22);
 
 	Interfaces.push_back(new AngleInterface);
 	Interfaces.push_back(new AreaInterface);
+	Interfaces.push_back(new AstronomyInterface);
 	Interfaces.push_back(new DataRateInterface);
+	Interfaces.push_back(new DensityInterface);
 	Interfaces.push_back(new EnergyInterface);
 	Interfaces.push_back(new GroceriesInterface);
 	Interfaces.push_back(new InformationInterface);
