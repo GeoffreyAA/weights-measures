@@ -17,6 +17,8 @@ public:
 	Decimal getValue4() const;
 	Decimal getValue5() const;
 	Decimal getValue6() const;
+	Decimal getValue7() const;
+	Decimal getValue8() const;
 
 	const wchar_t *getTitle(int i) const;
 	const wchar_t *getAbbreviation(int i) const;
@@ -28,6 +30,8 @@ public:
 	void setValue4(Decimal x);
 	void setValue5(Decimal x);
 	void setValue6(Decimal x);
+	void setValue7(Decimal x);
+	void setValue8(Decimal x);
 
 private:
 	Mass m;
