@@ -25,9 +25,9 @@ public:
 	Decimal getValue12() const;
 	Decimal getValue13() const;
 	Decimal getValue14() const;
-	Decimal getValue15() const;
 
 	const wchar_t *getTitle(int i) const;
+	const wchar_t *getAbbreviation(int i) const;;
 
 	void setValue0(Decimal x);
 	void setValue1(Decimal x);
@@ -44,7 +44,6 @@ public:
 	void setValue12(Decimal x);
 	void setValue13(Decimal x);
 	void setValue14(Decimal x);
-	void setValue15(Decimal x);
 
 private:
 	Metric m;

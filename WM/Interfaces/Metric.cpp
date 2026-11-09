@@ -1,23 +1,31 @@
 #include "stdafx.h"
 #include "Metric.h"
 
-DEC_CONST Decimal nano		= DEC_LIT(0.000000001);
-DEC_CONST Decimal micro		= DEC_LIT(0.000001);
-DEC_CONST Decimal milli		= DEC_LIT(0.001);
-DEC_CONST Decimal centi		= DEC_LIT(0.01);
-DEC_CONST Decimal deci		= DEC_LIT(0.1);
-DEC_CONST Decimal deca		= DEC_LIT(10.0);
-DEC_CONST Decimal hecto		= DEC_LIT(100.0);
-DEC_CONST Decimal kilo		= DEC_LIT(1000.0);
-DEC_CONST Decimal mega		= DEC_LIT(1000000.0);
-DEC_CONST Decimal giga		= DEC_LIT(1000000000.0);
-DEC_CONST Decimal tera		= DEC_LIT(1000000000000.0);
-DEC_CONST Decimal peta		= DEC_LIT(1000000000000000.0);
-DEC_CONST Decimal exa		= DEC_LIT(1000000000000000000.0);
-DEC_CONST Decimal zetta		= DEC_LIT(1000000000000000000000.0);
-DEC_CONST Decimal yotta		= DEC_LIT(1000000000000000000000000.0);
-DEC_CONST Decimal ronna		= DEC_LIT(1000000000000000000000000000.0);
-DEC_CONST Decimal quetta	= DEC_LIT(1000000000000000000000000000000.0);
+DEC_CONST Decimal	quecto		= DEC_LIT(0.000000000000000000000000000001);
+DEC_CONST Decimal	ronto		= DEC_LIT(0.000000000000000000000000001);
+DEC_CONST Decimal	yocto		= DEC_LIT(0.000000000000000000000001);
+DEC_CONST Decimal	zepto		= DEC_LIT(0.000000000000000000001);
+DEC_CONST Decimal	atto		= DEC_LIT(0.000000000000000001);
+DEC_CONST Decimal	femto		= DEC_LIT(0.000000000000001);
+DEC_CONST Decimal	pico		= DEC_LIT(0.000000000001);
+DEC_CONST Decimal	nano		= DEC_LIT(0.000000001);
+DEC_CONST Decimal	micro		= DEC_LIT(0.000001);
+DEC_CONST Decimal	milli		= DEC_LIT(0.001);
+DEC_CONST Decimal	centi		= DEC_LIT(0.01);
+DEC_CONST Decimal	deci		= DEC_LIT(0.1);
+
+DEC_CONST Decimal	deca		= DEC_LIT(10.0);
+DEC_CONST Decimal	hecto		= DEC_LIT(100.0);
+DEC_CONST Decimal	kilo		= DEC_LIT(1000.0);
+DEC_CONST Decimal	mega		= DEC_LIT(1000000.0);
+DEC_CONST Decimal	giga		= DEC_LIT(1000000000.0);
+DEC_CONST Decimal	tera		= DEC_LIT(1000000000000.0);
+DEC_CONST Decimal	peta		= DEC_LIT(1000000000000000.0);
+DEC_CONST Decimal	exa			= DEC_LIT(1000000000000000000.0);
+DEC_CONST Decimal	zetta		= DEC_LIT(1000000000000000000000.0);
+DEC_CONST Decimal	yotta		= DEC_LIT(1000000000000000000000000.0);
+DEC_CONST Decimal	ronna		= DEC_LIT(1000000000000000000000000000.0);
+DEC_CONST Decimal	quetta		= DEC_LIT(1000000000000000000000000000000.0);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,6 +36,41 @@ Metric::Metric(Decimal Base) : base(Base)
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Decimal Metric::getQuecto() const
+{
+	return getBase() / quecto;
+}
+
+Decimal Metric::getRonto() const
+{
+	return getBase() / ronto;
+}
+
+Decimal Metric::getYocto() const
+{
+	return getBase() / yocto;
+}
+
+Decimal Metric::getZepto() const
+{
+	return getBase() / zepto;
+}
+
+Decimal Metric::getAtto() const
+{
+	return getBase() / atto;
+}
+
+Decimal Metric::getFemto() const
+{
+	return getBase() / femto;
+}
+
+Decimal Metric::getPico() const
+{
+	return getBase() / pico;
+}
 
 Decimal Metric::getNano() const
 {
@@ -121,6 +164,41 @@ Decimal Metric::getQuetta() const
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void Metric::setQuecto(Decimal x)
+{
+	setBase(x * quecto);
+}
+
+void Metric::setRonto(Decimal x)
+{
+	setBase(x * ronto);
+}
+
+void Metric::setYocto(Decimal x)
+{
+	setBase(x * yocto);
+}
+
+void Metric::setZepto(Decimal x)
+{
+	setBase(x * zepto);
+}
+
+void Metric::setAtto(Decimal x)
+{
+	setBase(x * atto);
+}
+
+void Metric::setFemto(Decimal x)
+{
+	setBase(x * femto);
+}
+
+void Metric::setPico(Decimal x)
+{
+	setBase(x * pico);
+}
 
 void Metric::setNano(Decimal x)
 {

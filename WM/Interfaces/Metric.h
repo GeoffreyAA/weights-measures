@@ -8,6 +8,13 @@ class Metric
 public:
 	Metric(Decimal Base = DEC_LIT(0.0));
 
+	Decimal getQuecto() const;
+	Decimal getRonto() const;
+	Decimal getYocto() const;
+	Decimal getZepto() const;
+	Decimal getAtto() const;
+	Decimal getFemto() const;
+	Decimal getPico() const;
 	Decimal getNano() const;
 	Decimal getMicro() const;
 	Decimal getMilli() const;
@@ -27,6 +34,13 @@ public:
 	Decimal getRonna() const;
 	Decimal getQuetta() const;
 
+	void setQuecto(Decimal x);
+	void setRonto(Decimal x);
+	void setYocto(Decimal x);
+	void setZepto(Decimal x);
+	void setAtto(Decimal x);
+	void setFemto(Decimal x);
+	void setPico(Decimal x);
 	void setNano(Decimal x);
 	void setMicro(Decimal x);
 	void setMilli(Decimal x);
