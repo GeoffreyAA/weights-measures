@@ -1,7 +1,7 @@
 Weights & Measures
 ==================
 
-A unit converter for Windows, with an extensible design, allowing categories and units to be easily added.
+A unit converter for Windows, with an extensible design, allowing quantities and units to be easily added. Presently supported: ``Acceleration``, ``Angle``, ``Area``, ``Astronomy``, ``Data Rate``, ``Density``, ``Energy``, ``Groceries``, ``Information``, ``Length``, ``Mass``, ``Metric``, ``Pixel Density``, ``Power``, ``Pressure``, ``Space Travel``, ``Speed``, ``Storage``, ``Temperature``, ``Time``, and ``Volume``.
 
 <p align=center>
 <img src="MSIX/WM1.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
