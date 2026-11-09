@@ -1,22 +1,24 @@
 #include "stdafx.h"
 #include "Information.h"
 
-DEC_CONST Decimal __2_pow_10  = DEC_LIT(1024.0);
-DEC_CONST Decimal __2_pow_20  = DEC_LIT(1048576.0);
-DEC_CONST Decimal __2_pow_30  = DEC_LIT(1073741824.0);
-DEC_CONST Decimal __2_pow_40  = DEC_LIT(1099511627776.0);
-DEC_CONST Decimal __2_pow_50  = DEC_LIT(1125899906842624.0);
-DEC_CONST Decimal __2_pow_60  = DEC_LIT(1152921504606846976.0);
-DEC_CONST Decimal __2_pow_70  = DEC_LIT(1180591620717411303424.0);
-DEC_CONST Decimal __2_pow_80  = DEC_LIT(1208925819614629174706176.0);
-DEC_CONST Decimal __2_pow_90  = DEC_LIT(1237940039285380274899124224.0);
-DEC_CONST Decimal __2_pow_100 = DEC_LIT(1267650600228229401496703205376.0);
+DEC_CONST Decimal	__2_pow_3		= DEC_LIT(8.0);
+DEC_CONST Decimal	__2_pow_10		= DEC_LIT(1024.0);
+DEC_CONST Decimal	__2_pow_20		= DEC_LIT(1048576.0);
+DEC_CONST Decimal	__2_pow_30		= DEC_LIT(1073741824.0);
+DEC_CONST Decimal	__2_pow_40		= DEC_LIT(1099511627776.0);
+DEC_CONST Decimal	__2_pow_50		= DEC_LIT(1125899906842624.0);
+DEC_CONST Decimal	__2_pow_60		= DEC_LIT(1152921504606846976.0);
+DEC_CONST Decimal	__2_pow_70		= DEC_LIT(1180591620717411303424.0);
+DEC_CONST Decimal	__2_pow_80		= DEC_LIT(1208925819614629174706176.0);
+DEC_CONST Decimal	__2_pow_90		= DEC_LIT(1237940039285380274899124224.0);
+DEC_CONST Decimal	__2_pow_100		= DEC_LIT(1267650600228229401496703205376.0);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Information::Information(Decimal nBits) : bits(nBits)
+Information::Information(Decimal nBits)
 {
+	setBits(nBits);
 }
 
 
@@ -24,12 +26,12 @@ Information::Information(Decimal nBits) : bits(nBits)
 
 Decimal Information::getBits() const
 {
-	return bits;
+	return getBytes() * __2_pow_3;
 }
 
 Decimal Information::getBytes() const
 {
-	return getBits() / DEC_LIT(8.0);
+	return bytes;
 }
 
 Decimal Information::getKB() const
@@ -87,12 +89,12 @@ Decimal Information::getQB() const
 
 void Information::setBits(Decimal x)
 {
-	bits = x;
+	setBytes(x / __2_pow_3);
 }
 
 void Information::setBytes(Decimal x)
 {
-	setBits(x * DEC_LIT(8.0));
+	bytes = x;
 }
 
 void Information::setKB(Decimal x)

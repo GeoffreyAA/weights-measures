@@ -35,7 +35,7 @@ public:
 	void setQB(Decimal x);
 
 private:
-	Decimal bits;
+	Decimal bytes;
 };
 
 #endif
