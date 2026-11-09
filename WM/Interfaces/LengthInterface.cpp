@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "LengthInterface.h"
 
-static const wchar_t *const szTitle[] = {L"IDS_TITLE_MILLIMETRES", L"IDS_TITLE_CENTIMETRES", L"IDS_TITLE_INCHES", L"IDS_TITLE_FEET", L"IDS_TITLE_YARDS", L"IDS_TITLE_METRES", L"IDS_TITLE_KILOMETRES", L"IDS_TITLE_MILES"};
-static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_MILLIMETRES", L"IDS_ABBRV_CENTIMETRES", L"IDS_ABBRV_INCHES", L"IDS_ABBRV_FEET", L"IDS_ABBRV_YARDS", L"IDS_ABBRV_METRES", L"IDS_ABBRV_KILOMETRES", L"IDS_ABBRV_MILES"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_MILLIMETRES", L"IDS_TITLE_CENTIMETRES", L"IDS_TITLE_INCHES", L"IDS_TITLE_FEET", L"IDS_TITLE_YARDS", L"IDS_TITLE_METRES", L"IDS_TITLE_KILOMETRES", L"IDS_TITLE_MILES", L"IDS_TITLE_NAUTICAL_MILES"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_MILLIMETRES", L"IDS_ABBRV_CENTIMETRES", L"IDS_ABBRV_INCHES", L"IDS_ABBRV_FEET", L"IDS_ABBRV_YARDS", L"IDS_ABBRV_METRES", L"IDS_ABBRV_KILOMETRES", L"IDS_ABBRV_MILES", L"IDS_ABBRV_NAUTICAL_MILES"};
 
 const wchar_t *LengthInterface::getName() const
 {
@@ -11,7 +11,7 @@ const wchar_t *LengthInterface::getName() const
 
 int LengthInterface::getValueCount() const
 {
-	return 8;
+	return 9;
 }
 
 Decimal LengthInterface::getValue0() const
@@ -52,6 +52,11 @@ Decimal LengthInterface::getValue6() const
 Decimal LengthInterface::getValue7() const
 {
 	return l.getMiles();
+}
+
+Decimal LengthInterface::getValue8() const
+{
+	return l.getNauticalMiles();
 }
 
 const wchar_t *LengthInterface::getTitle(int i) const
@@ -112,4 +117,9 @@ void LengthInterface::setValue6(Decimal x)
 void LengthInterface::setValue7(Decimal x)
 {
 	l.setMiles(x);
+}
+
+void LengthInterface::setValue8(Decimal x)
+{
+	l.setNauticalMiles(x);
 }

@@ -2,11 +2,12 @@
 #define __LENGTH_H__
 
 #include "..\Library\Decimal.h"
+#include "Metric.h"
 
 class Length
 {
 public:
-	Length(Decimal mm = DEC_LIT(0.0));
+	Length(Decimal m = DEC_LIT(0.0));
 
 	Decimal getMillimetres() const;
 	Decimal getCentimetres() const;
@@ -16,6 +17,11 @@ public:
 	Decimal getMetres() const;
 	Decimal getKilometres() const;
 	Decimal getMiles() const;
+	Decimal getNauticalMiles() const;
+	Decimal getLightSeconds() const;
+	Decimal getAstronomicalUnits() const;
+	Decimal getLightYears() const;
+	Decimal getParsecs() const;
 
 	void setMillimetres(Decimal x);
 	void setCentimetres(Decimal x);
@@ -25,9 +31,14 @@ public:
 	void setMetres(Decimal x);
 	void setKilometres(Decimal x);
 	void setMiles(Decimal x);
+	void setNauticalMiles(Decimal x);
+	void setLightSeconds(Decimal x);
+	void setAstronomicalUnits(Decimal x);
+	void setLightYears(Decimal x);
+	void setParsecs(Decimal x);
 
 private:
-	Decimal Millimetres;
+	Metric Metres;
 };
 
 #endif
