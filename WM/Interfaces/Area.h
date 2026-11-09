@@ -8,6 +8,7 @@ class Area
 public:
 	Area(Decimal sqm = DEC_LIT(0.0));
 
+	Decimal getSquareCentimetres() const;
 	Decimal getSquareInches() const;
 	Decimal getSquareFeet() const;
 	Decimal getSquareYards() const;
@@ -17,6 +18,7 @@ public:
 	Decimal getSquareKilometres() const;
 	Decimal getSquareMiles() const;
 
+	void setSquareCentimetres(Decimal x);
 	void setSquareInches(Decimal x);
 	void setSquareFeet(Decimal x);
 	void setSquareYards(Decimal x);
