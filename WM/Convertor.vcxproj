@@ -615,6 +615,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Convertor.cpp" />
     <ClCompile Include="ConvertorDlg.cpp" />
+    <ClCompile Include="Interfaces\Acceleration.cpp" />
+    <ClCompile Include="Interfaces\AccelerationInterface.cpp" />
     <ClCompile Include="Interfaces\Angle.cpp" />
     <ClCompile Include="Interfaces\AngleInterface.cpp" />
     <ClCompile Include="Interfaces\Area.cpp" />
@@ -710,6 +712,8 @@ cl /nologo /c /Zl /Fo$(OutDir) Build.c</Command>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Convertor.h" />
     <ClInclude Include="ConvertorDlg.h" />
+    <ClInclude Include="Interfaces\Acceleration.h" />
+    <ClInclude Include="Interfaces\AccelerationInterface.h" />
     <ClInclude Include="Interfaces\Angle.h" />
     <ClInclude Include="Interfaces\AngleInterface.h" />
     <ClInclude Include="Interfaces\Area.h" />

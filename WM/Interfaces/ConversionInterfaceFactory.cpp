@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ConversionInterfaceFactory.h"
+#include "AccelerationInterface.h"
 #include "AngleInterface.h"
 #include "AreaInterface.h"
 #include "AstronomyInterface.h"
@@ -31,8 +32,9 @@
 
 ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
 {
-	Interfaces.reserve(22);
+	Interfaces.reserve(23);
 
+	Interfaces.push_back(new AccelerationInterface);
 	Interfaces.push_back(new AngleInterface);
 	Interfaces.push_back(new AreaInterface);
 	Interfaces.push_back(new AstronomyInterface);
