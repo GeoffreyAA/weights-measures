@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "Angle.h"
 
-DEC_CONST Decimal PI = DEC_LIT(3.1415926535897932384626433832795);
+// NASA's JPL is quite all right with 16 significant digits:
+// https://www.jpl.nasa.gov/edu/news/how-many-decimals-of-pi-do-we-really-need
+
+DEC_CONST Decimal	PI	= DEC_LIT(3.141592653589793);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
