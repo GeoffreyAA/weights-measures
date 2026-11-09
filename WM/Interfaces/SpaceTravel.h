@@ -10,18 +10,18 @@ public:
 
 	Decimal getDistanceLightYears() const;
 	Decimal getSpeedMetresPerSecond() const;
-	Decimal getSpeedKmPerSecond() const;
+	Decimal getSpeedKilometresPerSecond() const;
 	Decimal getSpeedLightPercent() const;
 	Decimal getTravelTimeYears() const;
 
 	void setDistanceLightYears(Decimal x);
 	void setSpeedMetresPerSecond(Decimal x);
-	void setSpeedKmPerSecond(Decimal x);
+	void setSpeedKilometresPerSecond(Decimal x);
 	void setSpeedLightPercent(Decimal x);
 
 private:
-	Decimal distance_ly;
-	Decimal speed_ms;
+	Decimal DistanceLY;
+	Decimal SpeedMS;
 };
 
 #endif

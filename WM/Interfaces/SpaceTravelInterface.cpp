@@ -21,7 +21,7 @@ Decimal SpaceTravelInterface::getValue0() const
 
 Decimal SpaceTravelInterface::getValue1() const
 {
-	return s.getSpeedKmPerSecond();
+	return s.getSpeedKilometresPerSecond();
 }
 
 Decimal SpaceTravelInterface::getValue2() const
@@ -61,7 +61,7 @@ void SpaceTravelInterface::setValue0(Decimal x)
 
 void SpaceTravelInterface::setValue1(Decimal x)
 {
-	s.setSpeedKmPerSecond(x);
+	s.setSpeedKilometresPerSecond(x);
 }
 
 void SpaceTravelInterface::setValue2(Decimal x)
