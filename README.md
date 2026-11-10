@@ -1,7 +1,7 @@
 Weights & Measures
 ==================
 
-A unit converter for Windows, with an extensible design, allowing quantities and units to be easily added. Presently supported: ``Acceleration``, ``Angle``, ``Area``, ``Astronomy``, ``Data Rate``, ``Density``, ``Energy``, ``Groceries``, ``Information``, ``Length``, ``Mass``, ``Metric``, ``Pixel Density``, ``Power``, ``Pressure``, ``Space Travel``, ``Speed``, ``Storage``, ``Temperature``, ``Time``, and ``Volume``.
+A unit converter for Windows, with an extensible design, allowing quantities and units to be easily added.
 
 <p align=center>
 <img src="MSIX/WM1.png" alt="A screenshot of Weight & Measures, showing the length conversion mode." />
@@ -55,8 +55,8 @@ References
 
 The sources of information used at some time or other include:
 
-* Wikipedia, [Conversion of units](https://en.wikipedia.org/w/index.php?title=Conversion_of_units&oldid=476816274), the old version of which was the chief source, and many articles leading from there. Also, [Quantities of bytes](https://en.wikipedia.org/wiki/Template:Quantities_of_bytes), [Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature), and many others.
-* *The Pocket Oxford Dictionary of Current English,* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
+* Wikipedia, [List of conversion factors](https://en.wikipedia.org/wiki/List_of_conversion_factors), the [old version](https://en.wikipedia.org/w/index.php?title=Conversion_of_units&oldid=476816274) of which was the chief source. Also, [Quantities of bytes](https://en.wikipedia.org/wiki/Template:Quantities_of_bytes), [Conversion of scales of temperature](https://en.wikipedia.org/wiki/Conversion_of_scales_of_temperature), and many, many others.
+* *[The Pocket Oxford Dictionary of Current English](https://archive.org/details/pocketoxforddict0000unse_j9e5/mode/2up),* ed. R. E. Allen (7th edition, Oxford: Clarendon Press, 1984).
 * *[The Book of Knowledge](https://en.wikipedia.org/wiki/Cassell%27s_Book_of_Knowledge)*, ed. Gordon Stowell (5th edition, revised impression, London: The Waverley Book Company Ltd., 1957).
 * Furey, Edward. "Pixels Per Inch PPI Calculator" at https://www.calculatorsoup.com/calculators/technology/ppi-calculator.php from CalculatorSoup, https://www.calculatorsoup.com - Online Calculators
 
