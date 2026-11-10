@@ -21,6 +21,7 @@
 #include "StorageInterface.h"
 #include "TemperatureInterface.h"
 #include "TimeInterface.h"
+#include "TorqueInterface.h"
 #include "VolumeInterface.h"
 #include "VolumeUKInterface.h"
 #include "VolumeUSInterface.h"
@@ -33,7 +34,7 @@
 
 ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
 {
-	Interfaces.reserve(24);
+	Interfaces.reserve(25);
 
 	Interfaces.push_back(new AccelerationInterface);
 	Interfaces.push_back(new AngleInterface);
@@ -55,6 +56,7 @@ ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
 	Interfaces.push_back(new SpeedInterface);
 	Interfaces.push_back(new StorageInterface);
 	Interfaces.push_back(new TemperatureInterface);
+	Interfaces.push_back(new TorqueInterface);
 	Interfaces.push_back(new TimeInterface);
 	Interfaces.push_back(new VolumeInterface);
 	Interfaces.push_back(new VolumeUKInterface);
