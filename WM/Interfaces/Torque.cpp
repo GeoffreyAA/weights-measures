@@ -2,8 +2,8 @@
 #include "Torque.h"
 
 DEC_CONST Decimal	POUND_FORCE_INCH_NM			= DEC_LIT(0.1129848290276167);
-DEC_CONST Decimal	POUND_FORCE_FEET_NM			= DEC_LIT(1.3558179483314004);
-DEC_CONST Decimal	KILOGRAM_FORCE_METRES_NM	= DEC_LIT(9.80665);
+DEC_CONST Decimal	POUND_FORCE_FOOT_NM			= DEC_LIT(1.3558179483314004);
+DEC_CONST Decimal	KILOGRAM_FORCE_METRE_NM		= DEC_LIT(9.80665);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,12 +27,12 @@ Decimal Torque::getNewtonMetres() const
 
 Decimal Torque::getPoundForceFeet() const
 {
-	return getNewtonMetres() / POUND_FORCE_FEET_NM;
+	return getNewtonMetres() / POUND_FORCE_FOOT_NM;
 }
 
 Decimal Torque::getKilogramForceMetres() const
 {
-	return getNewtonMetres() / KILOGRAM_FORCE_METRES_NM;
+	return getNewtonMetres() / KILOGRAM_FORCE_METRE_NM;
 }
 
 
@@ -50,10 +50,10 @@ void Torque::setNewtonMetres(Decimal x)
 
 void Torque::setPoundForceFeet(Decimal x)
 {
-	setNewtonMetres(x * POUND_FORCE_FEET_NM);
+	setNewtonMetres(x * POUND_FORCE_FOOT_NM);
 }
 
 void Torque::setKilogramForceMetres(Decimal x)
 {
-	setNewtonMetres(x * KILOGRAM_FORCE_METRES_NM);
+	setNewtonMetres(x * KILOGRAM_FORCE_METRE_NM);
 }
