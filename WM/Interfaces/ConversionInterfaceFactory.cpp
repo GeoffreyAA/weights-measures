@@ -7,6 +7,7 @@
 #include "DataRateInterface.h"
 #include "DensityInterface.h"
 #include "EnergyInterface.h"
+#include "ForceInterface.h"
 #include "GroceriesInterface.h"
 #include "InformationInterface.h"
 #include "LengthInterface.h"
@@ -32,7 +33,7 @@
 
 ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
 {
-	Interfaces.reserve(23);
+	Interfaces.reserve(24);
 
 	Interfaces.push_back(new AccelerationInterface);
 	Interfaces.push_back(new AngleInterface);
@@ -41,6 +42,7 @@ ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
 	Interfaces.push_back(new DataRateInterface);
 	Interfaces.push_back(new DensityInterface);
 	Interfaces.push_back(new EnergyInterface);
+	Interfaces.push_back(new ForceInterface);
 	Interfaces.push_back(new GroceriesInterface);
 	Interfaces.push_back(new InformationInterface);
 	Interfaces.push_back(new LengthInterface);

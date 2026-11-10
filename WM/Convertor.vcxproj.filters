@@ -234,6 +234,12 @@
     <ClCompile Include="Interfaces\AccelerationInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Interfaces\Force.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces\ForceInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Convertor.rc">
@@ -485,6 +491,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interfaces\AccelerationInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\Force.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ForceInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
