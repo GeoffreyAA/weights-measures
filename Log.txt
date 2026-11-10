@@ -1,7 +1,22 @@
+Version 1.12.xxx (November x, 2026)
+
+- Added Acceleration, Astronomy, Density, Force, and Torque
+- Area: added square centimetres
+- Length: redefined in terms of metre (from millimetre), and added nautical mile
+- Mass: added milligrams and short tons
+- Metric: added femto and pico, removed exa, zetta, and yotta,
+  and added abbreviations
+- Time: added nanoseconds and Gregorian years
+- Volume: fixed British cups, teaspoons, and tablespoons, which had wrong values
+- Improved conversion modules, moving literals to constants
+- Widened window and edit controls
+- Compile project at latest C++ level
+
+
 Version 1.11.350 (October 22, 2026)
 
 - Switched to 64-bit decimal floating-point numbers, using Boost.Decimal and {fmt}
-- Changed project to compile at C++20
+- Compiled project at C++20 level, and C++17 for the XP build
 
 
 Version 1.10.324 (October 11, 2026)

@@ -10,14 +10,9 @@
 #include <boost/decimal/fmt_format.hpp>
 #include <fmt/compile.h>
 
-String GetDecimalName()
+const wchar_t *GetDecimalName()
 {
 	return L"Boost.Decimal";
-}
-
-String DecimalToString(const Decimal &x)
-{
-	return fmt::format(FMT_COMPILE(L"{}"), x);
 }
 
 void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
@@ -29,9 +24,17 @@ void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
 	}
 }
 
+String DecimalToString(const Decimal &x)
+{
+	return fmt::format(FMT_COMPILE(L"{}"), x);
+}
+
 Decimal StringToDecimal(const wchar_t *s)
 {
-	return s ? boost::decimal::wcstod64(s, nullptr) : Decimal(0);
+	if (s)
+		return boost::decimal::wcstod64(s, nullptr);
+
+	return {0};
 }
 
 
@@ -39,23 +42,12 @@ Decimal StringToDecimal(const wchar_t *s)
 
 #elif (DECIMAL_TYPE == 2)
 
-#include <sstream>
-#include <iomanip>
 #include "Library.h"
 #include "StrW.h"
 
-String GetDecimalName()
+const wchar_t *GetDecimalName()
 {
 	return L"Boost.Multiprecision";
-}
-
-String DecimalToString(const Decimal &x)
-{
-	std::stringstream s;
-
-	s << std::setprecision(16) << x;
-
-	return StrW(s.str().c_str()).c_str();
 }
 
 void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
@@ -63,9 +55,15 @@ void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
 	wcscpys(s, size, DecimalToString(x).c_str());
 }
 
+String DecimalToString(const Decimal &x)
+{
+	return StrW(x.str().c_str()).c_str();
+}
+
 Decimal StringToDecimal(const wchar_t *s)
 {
-	return s ? Decimal(StrA(s).c_str()) : Decimal(0);
+	return s ? static_cast<Decimal>(StrA(s).c_str())
+			 : static_cast<Decimal>(0);
 }
 
 
@@ -73,9 +71,15 @@ Decimal StringToDecimal(const wchar_t *s)
 
 #else
 
-String GetDecimalName()
+const wchar_t *GetDecimalName()
 {
 	return L"double";
+}
+
+void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
+{
+	if (s)
+		swprintf(s, size, L"%.16g", x);
 }
 
 String DecimalToString(const Decimal &x)
@@ -87,15 +91,20 @@ String DecimalToString(const Decimal &x)
 	return s;
 }
 
-void DecimalToString(const Decimal &x, wchar_t *s, size_t size)
-{
-	if (s)
-		swprintf(s, size, L"%.16g", x);
-}
-
 Decimal StringToDecimal(const wchar_t *s)
 {
-	return s ? wcstod(s, nullptr) : 0.0;
+	if (s)
+		return wcstod(s, nullptr);
+
+	return {0.0};
 }
 
 #endif
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Decimal	StringToDecimal(const String &s)
+{
+	return StringToDecimal(s.c_str());
+}

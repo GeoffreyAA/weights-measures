@@ -56,12 +56,13 @@ typedef double Decimal;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "String.h"
 #include <wchar.h>
+#include "String.h"
 
-String	GetDecimalName();
-String	DecimalToString(const Decimal &x);
+const wchar_t *GetDecimalName();
 void	DecimalToString(const Decimal &x, wchar_t *s, size_t size);
+String	DecimalToString(const Decimal &x);
 Decimal	StringToDecimal(const wchar_t *s);
+Decimal	StringToDecimal(const String &s);
 
 #endif
