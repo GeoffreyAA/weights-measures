@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "VolumeInterface.h"
 
-static const wchar_t *const szTitle[] = {L"IDS_TITLE_MILLILITRES", L"IDS_TITLE_LITRES", L"IDS_TITLE_TEASPOONS_METRIC", L"IDS_TITLE_TABLESPOONS_METRIC", L"IDS_TITLE_CUPS_METRIC"};
-static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_MILLILITRES", L"IDS_ABBRV_LITRES", L"IDS_ABBRV_TEASPOONS_METRIC", L"IDS_ABBRV_TABLESPOONS_METRIC", L"IDS_ABBRV_CUPS_METRIC"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_MILLILITRES", L"IDS_TITLE_LITRES", L"IDS_TITLE_CUBIC_METRES", L"IDS_TITLE_TEASPOONS_METRIC", L"IDS_TITLE_TABLESPOONS_METRIC", L"IDS_TITLE_CUPS_METRIC"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_MILLILITRES", L"IDS_ABBRV_LITRES", L"IDS_ABBRV_CUBIC_METRES", L"IDS_ABBRV_TEASPOONS_METRIC", L"IDS_ABBRV_TABLESPOONS_METRIC", L"IDS_ABBRV_CUPS_METRIC"};
 
 const wchar_t *VolumeInterface::getName() const
 {
@@ -11,7 +11,7 @@ const wchar_t *VolumeInterface::getName() const
 
 int VolumeInterface::getValueCount() const
 {
-	return 5;
+	return 6;
 }
 
 Decimal VolumeInterface::getValue0() const
@@ -26,15 +26,20 @@ Decimal VolumeInterface::getValue1() const
 
 Decimal VolumeInterface::getValue2() const
 {
-	return v.getTeaspoonsMetric();
+	return v.getCubicMetres();
 }
 
 Decimal VolumeInterface::getValue3() const
 {
-	return v.getTablepoonsMetric();
+	return v.getTeaspoonsMetric();
 }
 
 Decimal VolumeInterface::getValue4() const
+{
+	return v.getTablepoonsMetric();
+}
+
+Decimal VolumeInterface::getValue5() const
 {
 	return v.getCupsMetric();
 }
@@ -71,15 +76,20 @@ void VolumeInterface::setValue1(Decimal x)
 
 void VolumeInterface::setValue2(Decimal x)
 {
-	v.setTeaspoonsMetric(x);
+	v.setCubicMetres(x);
 }
 
 void VolumeInterface::setValue3(Decimal x)
 {
-	v.setTablepoonsMetric(x);
+	v.setTeaspoonsMetric(x);
 }
 
 void VolumeInterface::setValue4(Decimal x)
+{
+	v.setTablepoonsMetric(x);
+}
+
+void VolumeInterface::setValue5(Decimal x)
 {
 	v.setCupsMetric(x);
 }

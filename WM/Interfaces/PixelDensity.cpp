@@ -2,8 +2,7 @@
 #include "PixelDensity.h"
 #include <math.h>
 
-PixelDensity::PixelDensity() : d(DEC_LIT(24)),
-							   pw(DEC_LIT(1920)), ph(DEC_LIT(1080))
+PixelDensity::PixelDensity() : d(DEC_LIT(24.0)), pw(DEC_LIT(1920.0)), ph(DEC_LIT(1080.0))
 {
 }
 

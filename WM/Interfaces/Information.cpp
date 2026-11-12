@@ -16,9 +16,9 @@ DEC_CONST Decimal	__2_pow_100		= DEC_LIT(1267650600228229401496703205376.0);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Information::Information(Decimal nBits)
+Information::Information(Decimal bits)
 {
-	setBits(nBits);
+	setBits(bits);
 }
 
 

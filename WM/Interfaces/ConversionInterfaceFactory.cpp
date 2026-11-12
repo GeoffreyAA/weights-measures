@@ -32,7 +32,7 @@
 #include "TestZeroInterface.h"
 #endif
 
-ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(NULL)
+ConversionInterfaceFactory::ConversionInterfaceFactory() : Selected(nullptr)
 {
 	Interfaces.reserve(25);
 
@@ -91,7 +91,7 @@ ConversionInterface *ConversionInterfaceFactory::GetInterface(int Type)
 		}
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 ConversionInterface *ConversionInterfaceFactory::GetSelectedInterface() const

@@ -27,6 +27,10 @@ public:
 	Decimal getTablepoonsMetric() const;
 	Decimal getTablepoonsUK() const;
 	Decimal getTablepoonsUS() const;
+	Decimal getCubicMetres() const;
+	Decimal getCubicInches() const;
+	Decimal getCubicFeet() const;
+	Decimal getCubicYards() const;
 
 	void setMillilitres(Decimal x);
 	void setLitres(Decimal x);
@@ -47,6 +51,10 @@ public:
 	void setTablepoonsMetric(Decimal x);
 	void setTablepoonsUK(Decimal x);
 	void setTablepoonsUS(Decimal x);
+	void setCubicMetres(Decimal x);
+	void setCubicInches(Decimal x);
+	void setCubicFeet(Decimal x);
+	void setCubicYards(Decimal x);
 
 private:
 	Decimal Millilitres;

@@ -15,6 +15,7 @@ public:
 	Decimal getValue2() const;
 	Decimal getValue3() const;
 	Decimal getValue4() const;
+	Decimal getValue5() const;
 
 	const wchar_t *getTitle(int i) const;
 	const wchar_t *getAbbreviation(int i) const;
@@ -24,6 +25,7 @@ public:
 	void setValue2(Decimal x);
 	void setValue3(Decimal x);
 	void setValue4(Decimal x);
+	void setValue5(Decimal x);
 
 private:
 	Volume v;

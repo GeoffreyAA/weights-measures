@@ -8,12 +8,12 @@ class Acceleration
 public:
 	Acceleration(Decimal ms2 = DEC_LIT(0.0));
 
-	Decimal getGals() const;
+	Decimal getCentimetresPerSecondSquared() const;
 	Decimal getFeetPerSecondSquared() const;
 	Decimal getMetresPerSecondSquared() const;
 	Decimal getGForce() const;
 
-	void setGals(Decimal x);
+	void setCentimetresPerSecondSquared(Decimal x);
 	void setFeetPerSecondSquared(Decimal x);
 	void setMetresPerSecondSquared(Decimal x);
 	void setGForce(Decimal x);

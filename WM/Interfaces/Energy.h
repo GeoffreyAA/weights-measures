@@ -8,7 +8,7 @@ class Energy
 public:
 	Energy(Decimal J = DEC_LIT(0.0));
 
-	Decimal getBtuISO() const;
+	Decimal getBtu() const;
 	Decimal getCalories() const;
 	Decimal getJoules() const;
 	Decimal getKilojoules() const;
@@ -17,7 +17,7 @@ public:
 	Decimal getErgs() const;
 	Decimal getElectronvolts() const;
 
-	void setBtuISO(Decimal x);
+	void setBtu(Decimal x);
 	void setCalories(Decimal x);
 	void setJoules(Decimal x);
 	void setKilojoules(Decimal x);

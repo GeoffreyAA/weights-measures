@@ -19,6 +19,10 @@ DEC_CONST Decimal	TEASPOON_US_ML			= DEC_LIT(4.92892159375);
 DEC_CONST Decimal	TABLESPOON_METRIC_ML	= DEC_LIT(15.0);
 DEC_CONST Decimal	TABLESPOON_UK_ML		= FLUID_OUNCE_UK_ML / DEC_LIT(2.0);
 DEC_CONST Decimal	TABLESPOON_US_ML		= DEC_LIT(14.78676478125);
+DEC_CONST Decimal	CUBIC_METRE_ML			= DEC_LIT(1000000.0);
+DEC_CONST Decimal	CUBIC_INCH_ML			= DEC_LIT(16.387064);
+DEC_CONST Decimal	CUBIC_FOOT_M3			= DEC_LIT(0.028316846592);
+DEC_CONST Decimal	CUBIC_YARD_M3			= DEC_LIT(0.764554857984);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,6 +129,26 @@ Decimal Volume::getTablepoonsUS() const
 	return getMillilitres() / TABLESPOON_US_ML;
 }
 
+Decimal Volume::getCubicMetres() const
+{
+	return getMillilitres() / CUBIC_METRE_ML;
+}
+
+Decimal Volume::getCubicInches() const
+{
+	return getMillilitres() / CUBIC_INCH_ML;
+}
+
+Decimal Volume::getCubicFeet() const
+{
+	return getCubicMetres() / CUBIC_FOOT_M3;
+}
+
+Decimal Volume::getCubicYards() const
+{
+	return getCubicMetres() / CUBIC_YARD_M3;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -221,4 +245,24 @@ void Volume::setTablepoonsUK(Decimal x)
 void Volume::setTablepoonsUS(Decimal x)
 {
 	setMillilitres(x * TABLESPOON_US_ML);
+}
+
+void Volume::setCubicMetres(Decimal x)
+{
+	setMillilitres(x * CUBIC_METRE_ML);
+}
+
+void Volume::setCubicInches(Decimal x)
+{
+	setMillilitres(x * CUBIC_INCH_ML);
+}
+
+void Volume::setCubicFeet(Decimal x)
+{
+	setCubicMetres(x * CUBIC_FOOT_M3);
+}
+
+void Volume::setCubicYards(Decimal x)
+{
+	setCubicMetres(x * CUBIC_YARD_M3);
 }

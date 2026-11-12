@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "EnergyInterface.h"
 
-static const wchar_t *const szTitle[] = {L"IDS_TITLE_BTU_ISO", L"IDS_TITLE_CALORIES", L"IDS_TITLE_JOULES", L"IDS_TITLE_KILOJOULES", L"IDS_TITLE_FOOT_POUND_FORCE", L"IDS_TITLE_KILOWATT_HOURS", L"IDS_TITLE_ERGS", L"IDS_TITLE_ELECTRONVOLTS"};
-static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_BTU_ISO", L"IDS_ABBRV_CALORIES", L"IDS_ABBRV_JOULES", L"IDS_ABBRV_KILOJOULES", L"IDS_ABBRV_FOOT_POUND_FORCE", L"IDS_ABBRV_KILOWATT_HOURS", L"IDS_ABBRV_ERGS", L"IDS_ABBRV_ELECTRONVOLTS"};
+static const wchar_t *const szTitle[] = {L"IDS_TITLE_BTU", L"IDS_TITLE_CALORIES", L"IDS_TITLE_JOULES", L"IDS_TITLE_KILOJOULES", L"IDS_TITLE_FOOT_POUND_FORCE", L"IDS_TITLE_KILOWATT_HOURS", L"IDS_TITLE_ERGS", L"IDS_TITLE_ELECTRONVOLTS"};
+static const wchar_t *const szAbbrv[] = {L"IDS_ABBRV_BTU", L"IDS_ABBRV_CALORIES", L"IDS_ABBRV_JOULES", L"IDS_ABBRV_KILOJOULES", L"IDS_ABBRV_FOOT_POUND_FORCE", L"IDS_ABBRV_KILOWATT_HOURS", L"IDS_ABBRV_ERGS", L"IDS_ABBRV_ELECTRONVOLTS"};
 
 const wchar_t *EnergyInterface::getName() const
 {
@@ -16,7 +16,7 @@ int EnergyInterface::getValueCount() const
 
 Decimal EnergyInterface::getValue0() const
 {
-	return e.getBtuISO();
+	return e.getBtu();
 }
 
 Decimal EnergyInterface::getValue1() const
@@ -76,7 +76,7 @@ const wchar_t *EnergyInterface::getAbbreviation(int i) const
 
 void EnergyInterface::setValue0(Decimal x)
 {
-	e.setBtuISO(x);
+	e.setBtu(x);
 }
 
 void EnergyInterface::setValue1(Decimal x)

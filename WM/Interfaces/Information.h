@@ -6,7 +6,7 @@
 class Information
 {
 public:
-	Information(Decimal nBits = DEC_LIT(0.0));
+	Information(Decimal bits = DEC_LIT(0.0));
 
 	Decimal getBits() const;
 	Decimal getBytes() const;
