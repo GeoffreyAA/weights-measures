@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Energy.h"
 
-DEC_CONST Decimal	BTU_ISO_J			= DEC_LIT(1054.5);
+DEC_CONST Decimal	BTU_J				= DEC_LIT(1055.05585262);	// International Table
 DEC_CONST Decimal	CALORIE_J			= DEC_LIT(4.184);
 DEC_CONST Decimal	KILOJOULE_J			= DEC_LIT(1000.0);
 DEC_CONST Decimal	FOOT_POUND_FORCE_J	= DEC_LIT(1.3558179483314004);
@@ -21,7 +21,7 @@ Energy::Energy(Decimal J) : Joules(J)
 
 Decimal Energy::getBtu() const
 {
-	return getJoules() / BTU_ISO_J;
+	return getJoules() / BTU_J;
 }
 
 Decimal Energy::getCalories() const
@@ -64,7 +64,7 @@ Decimal Energy::getElectronvolts() const
 
 void Energy::setBtu(Decimal x)
 {
-	setJoules(x * BTU_ISO_J);
+	setJoules(x * BTU_J);
 }
 
 void Energy::setCalories(Decimal x)

@@ -9,7 +9,7 @@ DEC_CONST Decimal	NAUT_MILE_M			= DEC_LIT(1852.0);
 DEC_CONST Decimal	LIGHT_SECOND_M		= DEC_LIT(299792458.0);
 DEC_CONST Decimal	AST_UNIT_M			= DEC_LIT(149597870700.0);
 DEC_CONST Decimal	LIGHT_YEAR_M		= DEC_LIT(9460730472580800.0);
-DEC_CONST Decimal	PARSEC_M			= DEC_LIT(30856775814913673.0);	// IAU 2015 definition; see Parsec on Wikipedia
+DEC_CONST Decimal	PARSEC_M			= DEC_LIT(30856775814913673.0);		// IAU 2015 definition; see Parsec on Wikipedia
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

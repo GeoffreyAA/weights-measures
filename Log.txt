@@ -1,16 +1,20 @@
-Version 1.12.xxx (November x, 2026)
+Version 1.12.436 (November 12, 2026)
 
 - Added Acceleration, Astronomy, Density, Force, and Torque
 - Area: added square centimetres
+- Energy: changed Btu definition to International Table
+- Groceries: simplified implementation
 - Length: redefined in terms of metre (from millimetre), and added nautical mile
 - Mass: added milligrams and short tons
 - Metric: added femto and pico, removed exa, zetta, and yotta,
   and added abbreviations
+- Space Travel: simplified implementation
 - Time: added nanoseconds and Gregorian years
-- Volume: fixed British cups, teaspoons, and tablespoons, which had wrong values
-- Improved conversion modules, moving literals to constants
+- Volume: fixed British cups, teaspoons, and tablespoons, which had wrong values,
+  and added cubic metres
+- Improved conversion modules, moving literals to symbolic constants
 - Widened window and edit controls
-- Compile project at latest C++ level
+- Compiled x64 build at C++23 level
 
 
 Version 1.11.350 (October 22, 2026)

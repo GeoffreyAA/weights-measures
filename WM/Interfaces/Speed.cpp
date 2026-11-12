@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "Speed.h"
 
-DEC_CONST Decimal	METRES_PER_SECOND_KMH		= DEC_LIT(3.6);
+DEC_CONST Decimal	KILOMETRES_PER_HOUR_MS		= DEC_LIT(1.0) / DEC_LIT(3.6);	// 2.777...
 DEC_CONST Decimal	FEET_PER_SECOND_MS			= DEC_LIT(0.3048);
 DEC_CONST Decimal	MILES_PER_HOUR_MS			= DEC_LIT(0.44704);
 DEC_CONST Decimal	KNOTS_KMH					= DEC_LIT(1.852);
-DEC_CONST Decimal	SOUND_MS					= DEC_LIT(340.3);	// Air, at sea level, standard temperature
+DEC_CONST Decimal	SOUND_MS					= DEC_LIT(340.3);				// Air, at sea level, standard temperature
 DEC_CONST Decimal	LIGHT_MS					= DEC_LIT(299792458.0);
 DEC_CONST Decimal	KILOMETRES_PER_SECOND_MS	= DEC_LIT(1000.0);
 
@@ -21,7 +21,7 @@ Speed::Speed(Decimal ms) : MetresPerSecond(ms)
 
 Decimal Speed::getKilometresPerHour() const
 {
-	return getMetresPerSecond() * METRES_PER_SECOND_KMH;
+	return getMetresPerSecond() / KILOMETRES_PER_HOUR_MS;
 }
 
 Decimal Speed::getFeetPerSecond() const
@@ -64,7 +64,7 @@ Decimal Speed::getKilometresPerSecond() const
 
 void Speed::setKilometresPerHour(Decimal x)
 {
-	setMetresPerSecond(x / METRES_PER_SECOND_KMH);
+	setMetresPerSecond(x * KILOMETRES_PER_HOUR_MS);
 }
 
 void Speed::setFeetPerSecond(Decimal x)
