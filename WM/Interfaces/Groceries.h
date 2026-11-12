@@ -2,6 +2,7 @@
 #define __GROCERIES_H__
 
 #include "..\Library\Decimal.h"
+#include "Mass.h"
 
 class Groceries
 {
@@ -19,7 +20,7 @@ public:
 
 private:
 	Decimal Price;
-	Decimal Grams;
+	Mass Weight;
 };
 
 #endif
