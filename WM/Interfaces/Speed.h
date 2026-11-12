@@ -15,6 +15,7 @@ public:
 	Decimal getKnots() const;
 	Decimal getMach() const;
 	Decimal getLight() const;
+	Decimal getKilometresPerSecond() const;
 
 	void setKilometresPerHour(Decimal x);
 	void setFeetPerSecond(Decimal x);
@@ -23,6 +24,7 @@ public:
 	void setKnots(Decimal x);
 	void setMach(Decimal x);
 	void setLight(Decimal x);
+	void setKilometresPerSecond(Decimal x);
 
 private:
 	Decimal MetresPerSecond;

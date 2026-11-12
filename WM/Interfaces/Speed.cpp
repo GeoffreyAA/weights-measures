@@ -7,6 +7,7 @@ DEC_CONST Decimal	MILES_PER_HOUR_MS			= DEC_LIT(0.44704);
 DEC_CONST Decimal	KNOTS_KMH					= DEC_LIT(1.852);
 DEC_CONST Decimal	SOUND_MS					= DEC_LIT(340.3);	// Air, at sea level, standard temperature
 DEC_CONST Decimal	LIGHT_MS					= DEC_LIT(299792458.0);
+DEC_CONST Decimal	KILOMETRES_PER_SECOND_MS	= DEC_LIT(1000.0);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,6 +54,11 @@ Decimal Speed::getLight() const
 	return getMetresPerSecond() / LIGHT_MS;
 }
 
+Decimal Speed::getKilometresPerSecond() const
+{
+	return getMetresPerSecond() / KILOMETRES_PER_SECOND_MS;
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -89,4 +95,9 @@ void Speed::setMach(Decimal x)
 void Speed::setLight(Decimal x)
 {
 	setMetresPerSecond(x * LIGHT_MS);
+}
+
+void Speed::setKilometresPerSecond(Decimal x)
+{
+	setMetresPerSecond(x * KILOMETRES_PER_SECOND_MS);
 }
